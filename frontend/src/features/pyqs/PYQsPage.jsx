@@ -7,19 +7,213 @@ const esc  = (s) => String(s ?? "");
 const STORAGE_KEY = "edubits_local_pyqs";
 const STARS_KEY   = "edubits_pyq_stars";
 
+// const SEED = [
+//   { id: uid(), question: "Define CGPA and explain how it differs from SGPA with an example.", subject: "Academic",
+//     year: "2023", topic: "Grading", marks: "5",  answer: "SGPA is per-semester GPA; CGPA is the cumulative average across all semesters.",
+//     starred: true,  createdAt: Date.now() - 86400000 
+//   },
+//   { id: uid(), question: "Write a C program to implement a stack using arrays.", subject: "Programming",
+//     year: "2023", topic: "Data Structures", marks: "15", answer: "Use an array with a top pointer. Push increments top, pop decrements it.",
+//     starred: false, createdAt: Date.now() - 259200000 
+//   },
+// ];
+
 const SEED = [
-  { id: uid(), question: "Define CGPA and explain how it differs from SGPA with an example.", subject: "Academic",
-    year: "2023", topic: "Grading", marks: "5",  answer: "SGPA is per-semester GPA; CGPA is the cumulative average across all semesters.",
-    starred: true,  createdAt: Date.now() - 86400000 
+
+  // 🔹 UNIT 1 — Fundamentals
+  {
+    id: uid(),
+    question: "Explain asymptotic notations (Big-O, Big-Theta, Big-Omega) with examples.",
+    subject: "DAA",
+    year: "2023",
+    topic: "Complexity Analysis",
+    marks: "10",
+    answer: "Big-O gives upper bound, Big-Omega lower bound, Big-Theta tight bound. Example: f(n)=3n^2+2n → O(n^2).",
+    starred: true,
+    createdAt: Date.now() - 86400000,
   },
-  { id: uid(), question: "Explain the principle of superposition of waves and its applications.", subject: "Physics",
-    year: "2022", topic: "Waves", marks: "10", answer: "", starred: false, createdAt: Date.now() - 172800000 
+  {
+    id: uid(),
+    question: "Solve recurrence T(n) = 2T(n/2) + n using Master Theorem.",
+    subject: "DAA",
+    year: "2022",
+    topic: "Recurrence",
+    marks: "5",
+    answer: "a=2, b=2 → n^log_b(a)=n → case 2 → T(n)=O(n log n).",
+    starred: false,
+    createdAt: Date.now() - 200000000,
   },
-  { id: uid(), question: "Write a C program to implement a stack using arrays.", subject: "Programming",
-    year: "2023", topic: "Data Structures", marks: "15", answer: "Use an array with a top pointer. Push increments top, pop decrements it.",
-    starred: false, createdAt: Date.now() - 259200000 
+  {
+    id: uid(),
+    question: "Compare arrays and linked lists with advantages and disadvantages.",
+    subject: "DAA",
+    year: "2023",
+    topic: "Data Structures",
+    marks: "10",
+    answer: "Arrays are contiguous, fast access. Linked lists are dynamic but slower access.",
+    starred: false,
+    createdAt: Date.now() - 150000000,
   },
+
+  // 🔹 UNIT 2 — Divide & Conquer + Greedy
+  {
+    id: uid(),
+    question: "Explain Quick Sort with time complexity analysis.",
+    subject: "DAA",
+    year: "2023",
+    topic: "Divide & Conquer",
+    marks: "10",
+    answer: "Divide using pivot, recursively sort. Avg: O(n log n), Worst: O(n^2).",
+    starred: true,
+    createdAt: Date.now() - 86400000 * 2,
+  },
+  {
+    id: uid(),
+    question: "Explain Merge Sort and its advantages over Quick Sort.",
+    subject: "DAA",
+    year: "2022",
+    topic: "Divide & Conquer",
+    marks: "10",
+    answer: "Merge sort is stable and guarantees O(n log n), but uses extra space.",
+    starred: false,
+    createdAt: Date.now() - 300000000,
+  },
+  {
+    id: uid(),
+    question: "Solve Fractional Knapsack using greedy method.",
+    subject: "DAA",
+    year: "2023",
+    topic: "Greedy",
+    marks: "15",
+    answer: "Sort items by value/weight ratio and pick highest first.",
+    starred: true,
+    createdAt: Date.now() - 86400000 * 3,
+  },
+  {
+    id: uid(),
+    question: "Explain Prim’s and Kruskal’s algorithm for Minimum Spanning Tree.",
+    subject: "DAA",
+    year: "2022",
+    topic: "Greedy",
+    marks: "15",
+    answer: "Prim grows MST from a node; Kruskal adds smallest edges avoiding cycles.",
+    starred: false,
+    createdAt: Date.now() - 400000000,
+  },
+
+  // 🔹 UNIT 2 — Dynamic Programming
+  {
+    id: uid(),
+    question: "Explain 0/1 Knapsack using Dynamic Programming.",
+    subject: "DAA",
+    year: "2023",
+    topic: "DP",
+    marks: "15",
+    answer: "Use DP table dp[i][w] storing max value for i items and weight w.",
+    starred: true,
+    createdAt: Date.now() - 86400000 * 4,
+  },
+  {
+    id: uid(),
+    question: "Explain Longest Common Subsequence (LCS) problem.",
+    subject: "DAA",
+    year: "2022",
+    topic: "DP",
+    marks: "10",
+    answer: "Find longest subsequence common to two strings using DP.",
+    starred: false,
+    createdAt: Date.now() - 500000000,
+  },
+
+  // 🔹 UNIT 2 — Backtracking
+  {
+    id: uid(),
+    question: "Explain N-Queens problem using backtracking.",
+    subject: "DAA",
+    year: "2023",
+    topic: "Backtracking",
+    marks: "10",
+    answer: "Place queens row by row ensuring no conflicts in column/diagonal.",
+    starred: true,
+    createdAt: Date.now() - 86400000 * 5,
+  },
+
+  // 🔹 UNIT 3 — Graph Algorithms
+  {
+    id: uid(),
+    question: "Explain BFS and DFS with differences.",
+    subject: "DAA",
+    year: "2023",
+    topic: "Graphs",
+    marks: "10",
+    answer: "BFS uses queue (level order), DFS uses stack/recursion.",
+    starred: true,
+    createdAt: Date.now() - 86400000 * 6,
+  },
+  {
+    id: uid(),
+    question: "Explain Dijkstra’s algorithm for shortest path.",
+    subject: "DAA",
+    year: "2022",
+    topic: "Graphs",
+    marks: "10",
+    answer: "Greedy approach selecting minimum distance node each time.",
+    starred: false,
+    createdAt: Date.now() - 600000000,
+  },
+  {
+    id: uid(),
+    question: "Explain Floyd Warshall algorithm.",
+    subject: "DAA",
+    year: "2023",
+    topic: "Graphs",
+    marks: "10",
+    answer: "DP approach for all-pairs shortest paths.",
+    starred: false,
+    createdAt: Date.now() - 700000000,
+  },
+
+  // 🔹 UNIT 3 — Complexity
+  {
+    id: uid(),
+    question: "What are P, NP, NP-Complete problems? Give examples.",
+    subject: "DAA",
+    year: "2023",
+    topic: "Complexity",
+    marks: "10",
+    answer: "P = solvable in polynomial time, NP = verifiable, NP-complete = hardest problems.",
+    starred: true,
+    createdAt: Date.now() - 86400000 * 7,
+  },
+
+  // 🔹 UNIT 3 — Misc
+  {
+    id: uid(),
+    question: "Explain KMP string matching algorithm.",
+    subject: "DAA",
+    year: "2022",
+    topic: "String Matching",
+    marks: "10",
+    answer: "Uses LPS array to avoid rechecking characters.",
+    starred: false,
+    createdAt: Date.now() - 800000000,
+  },
+  {
+    id: uid(),
+    question: "Explain Euclid’s algorithm for GCD.",
+    subject: "DAA",
+    year: "2023",
+    topic: "Misc",
+    marks: "5",
+    answer: "GCD(a,b) = GCD(b, a % b) until b=0.",
+    starred: false,
+    createdAt: Date.now() - 900000000,
+  },
+
 ];
+
+
+
 
 // ─── Modal helpers ────────────────────────────────────────────────
 const emptyForm = { question: "", subject: "", year: "", topic: "", marks: "", answer: "" };
