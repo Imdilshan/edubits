@@ -155,7 +155,7 @@ export default function HomePage() {
             <div className="hp-founders-list">
               <div className="hp-founder-item">
                 <img
-                  src="/images/md.jpeg"
+                  src="/images/md.jpg"
                   alt="Md Dilshan"
                   className="hp-founder-avatar"
                 />
