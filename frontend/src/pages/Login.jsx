@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useToast } from "../context/ToastContext";
 import "./login.css";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001/api";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function Login() {
   const navigate = useNavigate();
