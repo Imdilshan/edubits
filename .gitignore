@@ -1,0 +1,25 @@
+# Environment files - NEVER commit these
+backend/.env
+frontend/.env
+
+# Dependencies
+backend/node_modules/
+frontend/node_modules/
+
+# Build output
+frontend/dist/
+
+# OS files
+.DS_Store
+**/.DS_Store
+._*
+**/._*
+
+# Logs
+*.log
+npm-debug.log*
+
+dist
+build
+coverage
+

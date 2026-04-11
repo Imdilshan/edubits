@@ -1,0 +1,35 @@
+:root {
+  --bg: #0b0c10;
+  --surface: #12141a;
+  --surface-2: #171a21;
+  --border: rgba(255,255,255,0.08);
+
+  --text: #e6edf3;
+  --muted: #8b949e;
+
+  --primary: #4a90e2;
+  --success: #22c55e;
+  --danger: #ef4444;
+
+  --sgpa-color: #4a90e2;
+  --cgpa-color: #22c1c3;
+
+  --radius: 12px;
+}
+
+body.light {
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --surface-2: #f1f3f6;
+  --border: rgba(0,0,0,0.08);
+
+  --text: #1f2937;
+  --muted: #6b7280;
+
+  --primary: #2563eb;
+  --success: #16a34a;
+  --danger: #dc2626;
+
+  --sgpa-color: #2563eb;
+  --cgpa-color: #0ea5a4;
+}

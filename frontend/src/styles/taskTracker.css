@@ -1,0 +1,437 @@
+/* =========================
+   TASK MODAL (FINAL)
+   ========================= */
+
+.task-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1000;
+}
+
+/* =========================
+   MODAL
+   ========================= */
+.task-modal {
+  width: 100%;
+  max-width: 520px;
+
+  background: #11161c;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+
+  padding: 28px;
+  backdrop-filter: blur(10px);
+}
+
+/* =========================
+   TITLE
+   ========================= */
+.task-modal-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #3b82f6;
+  margin-bottom: 20px;
+}
+
+/* =========================
+   FORM
+   ========================= */
+.task-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.task-form-label {
+  font-size: 11px;
+  color: #9ca3af;
+  letter-spacing: 0.5px;
+}
+
+/* =========================
+   ROW LAYOUT
+   ========================= */
+.task-form-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.task-form-row > .task-form-group {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Balanced layout */
+.task-form-row > :first-child {
+  flex: 1.3;
+}
+
+.task-form-row > :last-child {
+  flex: 1;
+}
+
+/* =========================
+   INPUT + SELECT
+   ========================= */
+.task-modal input,
+.task-modal select {
+  height: 42px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  padding: 0 14px;
+
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+
+  background: #161c23;
+  color: #e5e7eb;
+
+  font-size: 14px;
+
+  transition: all 0.2s ease;
+}
+
+/* Focus */
+.task-modal input:focus,
+.task-modal select:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
+}
+
+/* Placeholder */
+.task-modal input::placeholder {
+  color: #6b7280;
+}
+
+/* =========================
+   SELECT
+   ========================= */
+.task-modal select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  color-scheme: dark;
+
+  padding-right: 36px;
+  cursor: pointer;
+
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%239ca3af' height='20' viewBox='0 0 20 20' width='20'><path d='M5 7l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+/* =========================
+   DATE INPUT
+   ========================= */
+.task-modal input[type="date"] {
+  color-scheme: dark;
+}
+
+/* =========================
+   ACTIONS
+   ========================= */
+.task-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.task-btn-cancel {
+  height: 42px;
+  padding: 0 16px;
+
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+
+  color: #9ca3af;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.task-btn-cancel:hover {
+  border-color: rgba(255,255,255,0.25);
+  color: #e5e7eb;
+}
+
+.task-btn-add {
+  height: 42px;
+  padding: 0 18px;
+
+  background: #3b82f6;
+  border: none;
+  border-radius: 12px;
+
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.task-btn-add:hover {
+  background: #2563eb;
+}
+
+/* =========================
+   TASK CARD
+   ========================= */
+.task-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 12px 14px;
+  margin-top: 10px;
+
+  background: #161c23;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+
+  transition: all 0.2s ease;
+}
+
+.task-card.high {
+  border-left: 3px solid #ef4444;
+}
+
+.task-card.medium {
+  border-left: 3px solid #f59e0b;
+}
+
+.task-card.low {
+  border-left: 3px solid #22c55e;
+}
+
+.task-card:hover {
+  border-color: rgba(59,130,246,0.4);
+  transform: translateY(-2px);
+}
+
+/* Title */
+.task-card-title {
+  font-size: 14px;
+  flex: 1;
+  color: #e5e7eb;
+  font-weight: 500;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Actions */
+.task-card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Buttons */
+.task-icon-btn {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 6px;
+  border: none;
+
+  background: rgba(255,255,255,0.06);
+  color: #9ca3af;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.task-icon-btn:hover {
+  background: rgba(255,255,255,0.12);
+  color: #e5e7eb;
+}
+
+.task-icon-btn.complete:hover {
+  background: rgba(34,197,94,0.2);
+  color: #22c55e;
+}
+
+.task-icon-btn.delete:hover {
+  background: rgba(239,68,68,0.2);
+  color: #ef4444;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 600px) {
+  .task-form-row {
+    flex-direction: column;
+  }
+
+  .task-form-row > * {
+    flex: 1 !important;
+  }
+
+  .task-modal {
+    padding: 20px;
+  }
+}
+
+/* =========================
+   TASK CARD
+   ========================= */
+.task-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 12px 14px;
+  margin-top: 10px;
+
+  background: #161c23;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+
+  transition: all 0.2s ease;
+}
+
+.task-card:hover {
+  border-color: rgba(59,130,246,0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* LEFT CONTENT */
+.task-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+}
+
+/* TITLE */
+.task-card-title {
+  font-size: 14px;
+  color: #e5e7eb;
+  font-weight: 500;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* META INFO */
+.task-meta {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.task-subject {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(59,130,246,0.1);
+  color: #3b82f6;
+}
+
+.task-deadline {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+/* ACTIONS */
+.task-card-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: 10px;
+}
+
+/* BUTTONS */
+.task-icon-btn {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 6px;
+  border: none;
+
+  background: rgba(255,255,255,0.06);
+  color: #9ca3af;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.task-icon-btn:hover {
+  background: rgba(255,255,255,0.12);
+  color: #e5e7eb;
+}
+
+.task-icon-btn.complete:hover {
+  background: rgba(34,197,94,0.2);
+  color: #22c55e;
+}
+
+.task-icon-btn.delete:hover {
+  background: rgba(239,68,68,0.2);
+  color: #ef4444;
+}
+
+/* =========================
+   PRIORITY COLORS
+   ========================= */
+.task-card.high {
+  border-left: 3px solid #ef4444;
+}
+
+.task-card.medium {
+  border-left: 3px solid #f59e0b;
+}
+
+.task-card.low {
+  border-left: 3px solid #22c55e;
+}
+/* =========================
+   DONE STATE STYLES
+   ========================= */
+.task-card.task-done {
+  opacity: 0.72;
+}
+
+.task-title-done {
+  text-decoration: line-through;
+  color: var(--muted) !important;
+}
+
+/* Undo button */
+.task-icon-btn.undo {
+  font-size: 14px;
+}
+.task-icon-btn.undo:hover {
+  background: rgba(251,191,36,0.18);
+  color: #fbbf24;
+}
+
+/* Always show action buttons (remove hover-only visibility) */
+.task-card-actions {
+  opacity: 1 !important;
+  visibility: visible !important;
+}

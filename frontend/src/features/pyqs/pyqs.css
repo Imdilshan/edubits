@@ -1,0 +1,379 @@
+/* ── PYQs Page (pyq- prefixed) ── */
+
+.pyq-page { min-height: 100vh; }
+
+/* Mode bar */
+.pyq-mode-bar {
+  display: flex;
+  gap: 3px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 24px;
+}
+
+.pyq-mode-tab {
+  padding: 8px 18px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.18s;
+  letter-spacing: 0.02em;
+}
+
+.pyq-mode-tab:hover { color: var(--text); }
+.pyq-mode-tab.active {
+  background: var(--surface);
+  color: var(--primary);
+  border-color: rgba(74,144,226,0.3);
+}
+
+/* Page wrapper */
+.pyq-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+
+/* Header */
+.pyq-header {
+  padding: 36px 0 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pyq-header h1 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.9rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+.pyq-header p { color: var(--muted); font-size: 13px; }
+
+.pyq-btn-add {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #22d3ee, #3b82f6);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+  box-shadow: 0 6px 20px rgba(59,130,246,0.25);
+}
+.pyq-btn-add:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(59,130,246,0.35);
+}
+
+/* Stats strip */
+.pyq-stats-strip {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.pyq-strip-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.pyq-strip-item strong { color: var(--primary); font-family: 'DM Sans', sans-serif; font-weight: 700; }
+
+/* Toolbar */
+.pyq-toolbar {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+  align-items: center;
+}
+
+.pyq-search {
+  flex: 1;
+  min-width: 200px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 9px 15px;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.pyq-search:focus { border-color: var(--primary); }
+.pyq-search::placeholder { color: var(--muted); }
+
+.pyq-select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 9px 13px;
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+.pyq-select:focus { border-color: var(--primary); }
+
+/* Empty state */
+.pyq-state-box {
+  text-align: center;
+  padding: 64px 20px;
+  color: var(--muted);
+}
+
+.pyq-s-icon { font-size: 2.8rem; margin-bottom: 14px; }
+
+.pyq-state-box h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.pyq-state-box code {
+  background: var(--surface-2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--primary);
+}
+
+/* Card grid */
+.pyq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 13px;
+}
+
+.pyq-local-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.2s, transform 0.15s;
+  animation: pyq-fadeUp 0.35s ease both;
+}
+
+.pyq-local-card:hover {
+  border-color: rgba(74,144,226,0.35);
+  transform: translateY(-2px);
+}
+
+.pyq-lc-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.pyq-lc-question {
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 500;
+  flex: 1;
+  color: var(--text);
+}
+
+.pyq-lc-actions { display: flex; gap: 6px; flex-shrink: 0; }
+
+.pyq-icon-btn {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  border-radius: 6px;
+  padding: 5px 8px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.15s;
+}
+
+.pyq-icon-btn:hover { color: var(--text); border-color: var(--text); }
+.pyq-icon-btn.starred { color: #f7c44f; border-color: rgba(247,196,79,0.3); background: rgba(247,196,79,0.08); }
+.pyq-icon-btn.danger:hover { color: var(--danger); border-color: rgba(239,68,68,0.35); }
+
+/* Tags */
+.pyq-lc-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.pyq-l-tag {
+  font-size: 10px;
+  padding: 2px 9px;
+  border-radius: 20px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.lt-sub { background: rgba(74,144,226,0.1);  color: var(--primary); }
+.lt-yr  { background: rgba(34,211,238,0.1);  color: #22d3ee; }
+.lt-top { background: rgba(34,197,94,0.1);   color: var(--success); }
+.lt-mk  { background: rgba(247,196,79,0.1);  color: #f7c44f; }
+
+/* Answer */
+.pyq-lc-answer {
+  background: var(--surface-2);
+  border-radius: 8px;
+  padding: 11px 13px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+  white-space: pre-wrap;
+  display: none;
+}
+.pyq-lc-answer.visible { display: block; }
+
+.pyq-toggle-ans {
+  background: none;
+  border: 1px dashed var(--border);
+  color: var(--muted);
+  border-radius: 6px;
+  padding: 5px 12px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.15s;
+  align-self: flex-start;
+}
+.pyq-toggle-ans:hover { border-color: var(--primary); color: var(--primary); }
+
+.pyq-lc-footer { display: flex; align-items: center; justify-content: space-between; }
+.pyq-lc-date { font-size: 11px; color: var(--muted); }
+
+/* Modal */
+.pyq-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.72);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.pyq-modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.pyq-modal h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+  color: var(--text);
+}
+
+.pyq-form-group { margin-bottom: 13px; }
+
+.pyq-form-label {
+  font-size: 11px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 5px;
+  display: block;
+}
+
+.pyq-form-input,
+.pyq-form-textarea {
+  width: 100%;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 10px 13px;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.15s;
+  font-family: inherit;
+}
+
+.pyq-form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.pyq-form-input:focus,
+.pyq-form-textarea:focus { border-color: var(--primary); }
+
+.pyq-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px;
+}
+
+.pyq-modal-actions {
+  display: flex;
+  gap: 9px;
+  margin-top: 18px;
+}
+
+.pyq-btn-cancel {
+  flex: 1;
+  padding: 10px;
+  background: var(--surface-2);
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.pyq-btn-cancel:hover { color: var(--text); border-color: var(--text); }
+
+.pyq-btn-confirm {
+  flex: 1;
+  padding: 10px;
+  background: linear-gradient(135deg, #22d3ee, #3b82f6);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 14px rgba(59,130,246,0.25);
+}
+.pyq-btn-confirm:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(59,130,246,0.35); }
+.pyq-btn-confirm:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+
+@keyframes pyq-fadeUp {
+  from { opacity: 0; transform: translateY(11px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .pyq-grid { grid-template-columns: 1fr; }
+  .pyq-mode-bar { padding: 10px 14px; }
+  .pyq-form-row { grid-template-columns: 1fr; }
+}
