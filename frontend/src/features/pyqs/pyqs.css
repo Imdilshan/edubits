@@ -42,11 +42,12 @@
 /* Header */
 .pyq-header {
   padding: 36px 0 20px;
-  display: flex;
+  display: block;
   align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 12px;
+  margin-bottom: 10px;
 }
 
 .pyq-header h1 {
@@ -196,6 +197,9 @@
   font-weight: 500;
   flex: 1;
   color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .pyq-lc-actions { display: flex; gap: 6px; flex-shrink: 0; }
@@ -209,6 +213,9 @@
   cursor: pointer;
   font-size: 13px;
   transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pyq-icon-btn:hover { color: var(--text); border-color: var(--text); }
@@ -337,18 +344,7 @@
   margin-top: 18px;
 }
 
-.pyq-btn-cancel {
-  flex: 1;
-  padding: 10px;
-  background: var(--surface-2);
-  color: var(--muted);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  font-size: 13px;
-  cursor: pointer;
-  transition: color 0.15s, border-color 0.15s;
-}
-.pyq-btn-cancel:hover { color: var(--text); border-color: var(--text); }
+
 
 .pyq-btn-confirm {
   flex: 1;
@@ -377,3 +373,147 @@
   .pyq-mode-bar { padding: 10px 14px; }
   .pyq-form-row { grid-template-columns: 1fr; }
 }
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tab-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.tab-content svg {
+  transform: translateY(1px);
+}
+
+.pyq-mode-tab {
+  display: flex;
+  align-items: center;
+}
+
+/* HOME BUTTON */
+.pyq-btn-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 8px 14px;
+  border-radius: 10px;
+
+  background: rgba(59, 130, 246, 0.12); 
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #93c5fd;
+
+  width: fit-content;
+  max-width: 200px;
+}
+
+.pyq-btn-home:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.5);
+  opacity: 1;
+}
+
+/* BACK BUTTON ROW */
+.pyq-back-row {
+  margin: 20px 0 16px;
+}
+
+/* .pyq-btn-cancel {
+  flex: 1;
+  padding: 10px;
+  background: var(--surface-2);
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.pyq-btn-cancel:hover { color: var(--text); border-color: var(--text); }
+
+.pyq-btn-cancel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+}
+.pyq-btn-cancel:hover {
+  background: rgba(255,255,255,0.08);
+} */
+
+.pyq-btn-cancel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 8px 14px;           /* 🔥 reduced from 10px → better fit */
+  border-radius: 8px;
+
+  background: rgba(239, 68, 68, 0.10);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+
+  color: #fca5a5;                        /* soft red text */
+  font-size: 13px;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.pyq-btn-cancel:hover {
+  background: rgba(239, 68, 68, 0.18);
+  border-color: rgba(239, 68, 68, 0.45);
+  color: #fecaca;
+  transform: translateY(-1px);
+}
+
+.pyq-btn-cancel:active {
+  transform: translateY(0);      /* click feedback */
+}
+
+
+
+.pyq-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pyq-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* .pyq-header-sub {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--muted);
+} */
+
+.pyq-header-sub {
+  margin-top: 10px;
+  display: inline-block;
+  padding: 4px 12px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  box-shadow: 0 0 0 1px rgba(59,130,246,0.25);
+  border-radius: 999px;
+  background: rgba(59,130,246,0.12);
+  border: 1px solid rgba(59,130,246,0.3);
+  color: #93c5fd;
+}
+
+.pyq-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+

@@ -1,26 +1,17 @@
 import { useState, useEffect, useRef } from "react";
 import "./pyqs.css";
 
-// ─── utilities ───────────────────────────────────────────────────
+import { Folder, BookOpen, Star, Trash2, FileText, Image, FileQuestion, Search } from "lucide-react";
+import { FolderOpen } from "lucide-react";
+import { ArrowLeft, Home } from "lucide-react";
+
+
 const uid  = () => Date.now().toString(36) + Math.random().toString(36).slice(2);
 const esc  = (s) => String(s ?? "");
 const STORAGE_KEY = "edubits_local_pyqs";
 const STARS_KEY   = "edubits_pyq_stars";
 
-// const SEED = [
-//   { id: uid(), question: "Define CGPA and explain how it differs from SGPA with an example.", subject: "Academic",
-//     year: "2023", topic: "Grading", marks: "5",  answer: "SGPA is per-semester GPA; CGPA is the cumulative average across all semesters.",
-//     starred: true,  createdAt: Date.now() - 86400000 
-//   },
-//   { id: uid(), question: "Write a C program to implement a stack using arrays.", subject: "Programming",
-//     year: "2023", topic: "Data Structures", marks: "15", answer: "Use an array with a top pointer. Push increments top, pop decrements it.",
-//     starred: false, createdAt: Date.now() - 259200000 
-//   },
-// ];
-
 const SEED = [
-
-  // 🔹 UNIT 1 — Fundamentals
   {
     id: uid(),
     question: "Explain asymptotic notations (Big-O, Big-Theta, Big-Omega) with examples.",
@@ -54,8 +45,6 @@ const SEED = [
     starred: false,
     createdAt: Date.now() - 150000000,
   },
-
-  // 🔹 UNIT 2 — Divide & Conquer + Greedy
   {
     id: uid(),
     question: "Explain Quick Sort with time complexity analysis.",
@@ -100,8 +89,6 @@ const SEED = [
     starred: false,
     createdAt: Date.now() - 400000000,
   },
-
-  // 🔹 UNIT 2 — Dynamic Programming
   {
     id: uid(),
     question: "Explain 0/1 Knapsack using Dynamic Programming.",
@@ -124,8 +111,6 @@ const SEED = [
     starred: false,
     createdAt: Date.now() - 500000000,
   },
-
-  // 🔹 UNIT 2 — Backtracking
   {
     id: uid(),
     question: "Explain N-Queens problem using backtracking.",
@@ -137,8 +122,6 @@ const SEED = [
     starred: true,
     createdAt: Date.now() - 86400000 * 5,
   },
-
-  // 🔹 UNIT 3 — Graph Algorithms
   {
     id: uid(),
     question: "Explain BFS and DFS with differences.",
@@ -172,8 +155,6 @@ const SEED = [
     starred: false,
     createdAt: Date.now() - 700000000,
   },
-
-  // 🔹 UNIT 3 — Complexity
   {
     id: uid(),
     question: "What are P, NP, NP-Complete problems? Give examples.",
@@ -185,8 +166,6 @@ const SEED = [
     starred: true,
     createdAt: Date.now() - 86400000 * 7,
   },
-
-  // 🔹 UNIT 3 — Misc
   {
     id: uid(),
     question: "Explain KMP string matching algorithm.",
@@ -213,9 +192,6 @@ const SEED = [
 ];
 
 
-
-
-// ─── Modal helpers ────────────────────────────────────────────────
 const emptyForm = { question: "", subject: "", year: "", topic: "", marks: "", answer: "" };
 
 // ─── Class Bank Component ─────────────────────────────────────────
@@ -586,25 +562,27 @@ function ClassBank() {
   return (
     <div className="pyq-wrap">
       <div className="pyq-header">
-        <div>
-          <h1>📚 Class PYQ Bank</h1>
-          <p>
-            {selectedPaper
-              ? selectedPaper.title
-              : selectedSubject
-              ? selectedSubject.subject
-              : selectedYear
-              ? selectedYear.year
-              : "Select a folder"}
-          </p>
-        </div>
+      <div className="pyq-header-top">
+        <h1 className="pyq-title"> <BookOpen size={27} /> PYQ's Collection</h1>
 
         {(selectedYear || selectedSubject || selectedPaper) && (
-          <button className="pyq-btn-cancel" onClick={goHome}>
-            ← Home
+          <button className="pyq-btn-home" onClick={goHome}>
+            <Home size={16} />
+            <span>Home</span>
           </button>
         )}
       </div>
+
+      <div className="pyq-header-sub">
+        {selectedPaper
+          ? selectedPaper.title
+          : selectedSubject
+          ? selectedSubject.subject
+          : selectedYear
+          ? selectedYear.year
+          : "Select a folder"}
+      </div>
+    </div>
 
       {/* 🟢 LEVEL 1 — YEARS */}
       {!selectedYear && (
@@ -616,7 +594,7 @@ function ClassBank() {
               onClick={() => setSelectedYear(y)}
               style={{ cursor: "pointer" }}
             >
-              <div className="pyq-lc-question">📁 {y.year}</div>
+              <div className="pyq-lc-question"> <Folder size={16} /> {y.year}</div>
             </div>
           ))}
         </div>
@@ -625,10 +603,13 @@ function ClassBank() {
       {/* 🟡 LEVEL 2 — SUBJECTS */}
       {selectedYear && !selectedSubject && (
         <>
+        <div className="pyq-back-row">
           <button className="pyq-btn-cancel" onClick={goHome}>
-            ← Back
+            <ArrowLeft size={16} />
+            <span>Back</span>
           </button>
-
+        </div>
+          
           <div className="pyq-grid">
             {selectedYear.subjects.map((s) => (
               <div
@@ -637,7 +618,7 @@ function ClassBank() {
                 onClick={() => setSelectedSubject(s)}
                 style={{ cursor: "pointer" }}
               >
-                <div className="pyq-lc-question">📂 {s.subject}</div>
+                <div className="pyq-lc-question"> <FolderOpen size={16} /> {s.subject}</div>
               </div>
             ))}
           </div>
@@ -647,9 +628,12 @@ function ClassBank() {
       {/* 🔵 LEVEL 3 — PAPERS */}
       {selectedSubject && !selectedPaper && (
         <>
+          <div className="pyq-back-row">
           <button className="pyq-btn-cancel" onClick={goBackToYears}>
-            ← Back
-          </button>
+            <ArrowLeft size={16} />
+            <span>Back</span>
+            </button>
+          </div>
 
           <div className="pyq-grid">
             {selectedSubject.papers.map((paper) => (
@@ -659,14 +643,23 @@ function ClassBank() {
                 onClick={() => openPaper(paper)}
                 style={{ cursor: "pointer" }}
               >
-                <div className="pyq-lc-question">
+                {/* <div className="pyq-lc-question">
                   {paper.type === "pdf"
                     ? "📄"
                     : paper.type === "image"
                     ? "🖼️"
                     : "📝"}{" "}
                   {paper.title}
+                </div> */}
+
+                <div className="pyq-lc-question">
+                  {paper.type === "pdf" && <FileText size={16} />}
+                  {paper.type === "image" && <Image size={16} />}
+                  {paper.type === "questions" && <FileQuestion size={16} />}
+                  {paper.title}
                 </div>
+
+
               </div>
             ))}
           </div>
@@ -677,9 +670,13 @@ function ClassBank() {
 
       {selectedPaper && selectedPaper.type === "pdf" && (
         <>
-          <button className="pyq-btn-cancel" onClick={goBackToSubjects}>
-            ← Back
+        <div className="pyq-back-row">
+           <button className="pyq-btn-cancel" onClick={goBackToSubjects}>
+            <ArrowLeft size={16} />
+            <span>Back</span>
           </button>
+        </div>
+         
 
           <div style={{ borderRadius: 12, overflow: "hidden", border: "1px solid var(--border)" }}>
             <iframe
@@ -693,9 +690,13 @@ function ClassBank() {
 
       {selectedPaper && selectedPaper.type === "image" && (
         <>
-          <button className="pyq-btn-cancel" onClick={goBackToSubjects}>
-            ← Back
-          </button>
+          <div className="pyq-back-row">
+            <button className="pyq-btn-cancel" onClick={goBackToSubjects}>
+              <ArrowLeft size={16} />
+              <span>Back</span>
+            </button>
+          </div>
+          
 
           <div style={{ textAlign: "center" }}>
             <img
@@ -709,17 +710,24 @@ function ClassBank() {
 
       {selectedPaper && selectedPaper.type === "questions" && (
         <>
+        <div className="pyq-back-row">
           <button className="pyq-btn-cancel" onClick={goBackToSubjects}>
-            ← Back
+            <ArrowLeft size={16} />
+            <span>Back</span>
           </button>
+        </div>
+          
 
           <div className="pyq-toolbar">
-            <input
-              className="pyq-search"
-              placeholder="🔍 Search questions..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
+            <div className="search-box">
+              <Search size={16} />
+              <input
+                className="pyq-search"
+                placeholder="Search questions..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </div>
           </div>
 
           <div className="pyq-grid">
@@ -815,11 +823,23 @@ export default function PYQsPage() {
         <button
           className={`pyq-mode-tab ${mode === "bank" ? "active" : ""}`}
           onClick={() => setMode("bank")}
-        >📚 Class Bank</button>
+        > 
+        <span className="tab-content">
+          <BookOpen size={16} />
+          <span>Pyq's Collection</span>
+        </span>
+        
+        </button>
         <button
           className={`pyq-mode-tab ${mode === "mine" ? "active" : ""}`}
           onClick={() => setMode("mine")}
-        >🗂 My Collection</button>
+        > 
+        <span className="tab-content">
+          <Folder size={16} />
+          <span>My Collection</span>
+        </span>
+        
+        </button>
       </div>
 
       {/* ── CLASS BANK VIEW ─────────────────────────────────────── */}
@@ -830,7 +850,8 @@ export default function PYQsPage() {
         <div className="pyq-wrap">
           <div className="pyq-header">
             <div>
-              <h1>🗂 My Collection</h1>
+              
+              <h1 style={{ display: "flex", alignItems: "center", gap: "8px" }}> <Folder size={30} /> My Collection </h1>
               <p>Your personal PYQ bank — private &amp; stored locally</p>
             </div>
             <button className="pyq-btn-add" onClick={() => { setForm(emptyForm); setShowModal(true); }}>
@@ -848,12 +869,15 @@ export default function PYQsPage() {
 
           {/* Toolbar */}
           <div className="pyq-toolbar">
-            <input
-              className="pyq-search"
-              placeholder="🔍  Search questions..."
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-            />
+            <div className="search-box">
+              <Search size={16} />
+              <input
+                className="pyq-search"
+                placeholder="Search questions..."
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+              />
+            </div>
             <select className="pyq-select" value={filterSub} onChange={e => setFilterSub(e.target.value)}>
               <option value="">All Subjects</option>
               {subjects.map(s => <option key={s}>{s}</option>)}
@@ -864,14 +888,14 @@ export default function PYQsPage() {
             </select>
             <select className="pyq-select" value={filterStar} onChange={e => setFilterStar(e.target.value)}>
               <option value="">All</option>
-              <option value="starred">⭐ Starred</option>
+              <option value="starred">Starred</option>
             </select>
           </div>
 
           {/* Cards */}
           {filtered.length === 0 ? (
             <div className="pyq-state-box">
-              <div className="pyq-s-icon">🗂</div>
+              <div className="pyq-s-icon"><Folder size={16} /></div>
               <h3>{pyqs.length ? "No matches" : "Your collection is empty"}</h3>
               <p>{pyqs.length ? "Try adjusting your filters." : 'Tap "+ Add PYQ" to start building your personal bank.'}</p>
             </div>
@@ -886,12 +910,12 @@ export default function PYQsPage() {
                         className={`pyq-icon-btn ${p.starred ? "starred" : ""}`}
                         onClick={() => toggleStar(p.id)}
                         title="Star"
-                      >⭐</button>
+                      ><Star size={16} fill="currentColor" /></button>
                       <button
                         className="pyq-icon-btn danger"
                         onClick={() => deletePYQ(p.id)}
                         title="Delete"
-                      >🗑</button>
+                      ><Trash2 size={16} /></button>
                     </div>
                   </div>
 
@@ -999,6 +1023,7 @@ export default function PYQsPage() {
             </div>
 
             <div className="pyq-modal-actions">
+
               <button className="pyq-btn-cancel" onClick={() => setShowModal(false)}>Cancel</button>
               <button
                 className="pyq-btn-confirm"
