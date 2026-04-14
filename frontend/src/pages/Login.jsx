@@ -5,6 +5,7 @@ import { useToast } from "../context/ToastContext";
 import "./login.css";
 
 const API_URL = import.meta.env.VITE_API_URL;
+console.log("API URL:", API_URL);
 
 export default function Login() {
   const navigate = useNavigate();
