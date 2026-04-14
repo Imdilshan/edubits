@@ -643,14 +643,6 @@ function ClassBank() {
                 onClick={() => openPaper(paper)}
                 style={{ cursor: "pointer" }}
               >
-                {/* <div className="pyq-lc-question">
-                  {paper.type === "pdf"
-                    ? "📄"
-                    : paper.type === "image"
-                    ? "🖼️"
-                    : "📝"}{" "}
-                  {paper.title}
-                </div> */}
 
                 <div className="pyq-lc-question">
                   {paper.type === "pdf" && <FileText size={16} />}
@@ -666,7 +658,7 @@ function ClassBank() {
         </>
       )}
 
-      {/* 🟣 LEVEL 4 — VIEW PAPER */}
+      {/* LEVEL 4 — VIEW PAPER */}
 
       {selectedPaper && selectedPaper.type === "pdf" && (
         <>
@@ -852,7 +844,7 @@ export default function PYQsPage() {
             <div>
               
               <h1 style={{ display: "flex", alignItems: "center", gap: "8px" }}> <Folder size={30} /> My Collection </h1>
-              <p>Your personal PYQ bank — private &amp; stored locally</p>
+              <p> Add Your Own questions. </p>
             </div>
             <button className="pyq-btn-add" onClick={() => { setForm(emptyForm); setShowModal(true); }}>
               + Add PYQ
