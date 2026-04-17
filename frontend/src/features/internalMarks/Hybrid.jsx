@@ -14,7 +14,32 @@ export default function Hybrid() {
   };
 
   const handle = (k, v) => setData({ ...data, [k]: v });
-  const reset = () => { setData({}); setErrors({}); setResult(null); };
+
+  const reset = () => {
+    setData({});
+    setErrors({});
+    setResult(null);
+  };
+
+
+  const handleInput = (key, value, max) => {
+  // allow empty (user deleting)
+  if (value === "") {
+    handle(key, "");
+    return;
+  }
+
+  const num = Number(value);
+
+  // ❌ invalid → clear input
+  if (isNaN(num) || num < 0 || num > max) {
+    handle(key, "");
+    return;
+  }
+
+  // ✅ valid
+  handle(key, value);
+};
 
   const calculate = () => {
     const { ok, errors } = validateAll(data, limits);
@@ -64,58 +89,115 @@ export default function Hybrid() {
     });
   };
 
+  const hasErrors = Object.values(errors).some(e => e);
+
   return (
     <div className="internal-card">
       <div className="hybrid-grid">
+
+        {/* THEORY */}
         <div className="section">
           <h3>Theory Component</h3>
+
           {[
-            ["hy_assignment","Assignment (out of 10)"],
-            ["hy_mst1","MST-1 (out of 20)"],
-            ["hy_mst2","MST-2 (out of 20)"],
-            ["hy_surprise","Surprise Test (out of 12)"],
-            ["hy_quiz","Quiz (out of 4)"],
-            ["hy_classperf","Class Performance (out of 10)"],
-            ["hy_attendance","Attendance (out of 2)"],
-            ["hy_endwritten","End Sem Written (out of 60)"],
-          ].map(([key, label]) => (
+            ["hy_assignment","Assignment",10],
+            ["hy_mst1","MST-1",20],
+            ["hy_mst2","MST-2",20],
+            ["hy_surprise","Surprise Test",12],
+            ["hy_quiz","Quiz",4],
+            ["hy_classperf","Class Performance",10],
+            ["hy_attendance","Attendance",2],
+            ["hy_endwritten","End Sem Written",60],
+          ].map(([key, label, max]) => (
             <div className="input-group" key={key}>
-              <label>{label}</label>
-              <input type="number" value={data[key] ?? ""} className={errors[key] ? "invalid" : ""} onChange={(e) => handle(key, e.target.value)} />
+              <label>{label} (out of {max})</label>
+
+              <input
+                type="number"
+                min="0"
+                max={max}
+                placeholder={`0 - ${max}`}
+                value={data[key] ?? ""}
+                className={errors[key] ? "invalid" : ""}
+                onChange={(e) => handleInput(key, e.target.value, max)}
+              />
+
+              {errors[key] && <p className="error-text">{errors[key]}</p>}
             </div>
           ))}
         </div>
+
+        {/* PRACTICAL */}
         <div className="section">
           <h3>Practical Component</h3>
+
           {[
-            ["hy_ws1","Experiment 1 (out of 30)"],
-            ["hy_ws2","Experiment 2 (out of 30)"],
-            ["hy_ws3","Experiment 3 (out of 30)"],
-            ["hy_ws4","Experiment 4 (out of 30)"],
-            ["hy_miniproject","Course Project (out of 5)"],
-            ["hy_industry","Industry Aligned Assessment (out of 10)"],
-            ["hy_endpractical","End Sem Practical (out of 40)"],
-          ].map(([key, label]) => (
+            ["hy_ws1","Experiment 1",30],
+            ["hy_ws2","Experiment 2",30],
+            ["hy_ws3","Experiment 3",30],
+            ["hy_ws4","Experiment 4",30],
+            ["hy_miniproject","Course Project",5],
+            ["hy_industry","Industry Aligned Assessment",10],
+            ["hy_endpractical","End Sem Practical",40],
+          ].map(([key, label, max]) => (
             <div className="input-group" key={key}>
-              <label>{label}</label>
-              <input type="number" value={data[key] ?? ""} className={errors[key] ? "invalid" : ""} onChange={(e) => handle(key, e.target.value)} />
+              <label>{label} (out of {max})</label>
+
+              <input
+                type="number"
+                min="0"
+                max={max}
+                placeholder={`0 - ${max}`}
+                value={data[key] ?? ""}
+                className={errors[key] ? "invalid" : ""}
+                onChange={(e) => handleInput(key, e.target.value, max)}
+              />
+
+              {errors[key] && <p className="error-text">{errors[key]}</p>}
             </div>
           ))}
         </div>
+
       </div>
 
+      {/* BUTTONS */}
       <div className="bottom-bar">
         <button className="btn-reset" onClick={reset}>Reset</button>
-        <button className="btn-calc" onClick={calculate}>Calculate Hybrid</button>
+        <button
+          className="btn-calc"
+          onClick={calculate}
+          disabled={hasErrors}
+        >
+          Calculate Hybrid
+        </button>
       </div>
 
+      {/* RESULT */}
       {result && (
         <div className="result-box">
-          <div className="result-row"><span className="small">Theory</span><span>{result.theory.toFixed(2)} / {result.theoryMax} ({result.theoryPct.toFixed(1)}%)</span></div>
-          <div className="result-row"><span className="small">Practical</span><span>{result.practical.toFixed(2)} / {result.practicalMax} ({result.practicalPct.toFixed(1)}%)</span></div>
-          <div className="result-row highlight"><span>Final</span><span>{result.total.toFixed(2)} / {result.totalMax}</span></div>
-          <div className="result-row highlight"><span>Final %</span><span>{result.pct.toFixed(2)}%</span></div>
-          <div className="progress"><div style={{ width: `${result.pct}%` }}></div></div>
+          <div className="result-row">
+            <span className="small">Theory</span>
+            <span>{result.theory.toFixed(2)} / {result.theoryMax} ({result.theoryPct.toFixed(1)}%)</span>
+          </div>
+
+          <div className="result-row">
+            <span className="small">Practical</span>
+            <span>{result.practical.toFixed(2)} / {result.practicalMax} ({result.practicalPct.toFixed(1)}%)</span>
+          </div>
+
+          <div className="result-row highlight">
+            <span>Final</span>
+            <span>{result.total.toFixed(2)} / {result.totalMax}</span>
+          </div>
+
+          <div className="result-row highlight">
+            <span>Final %</span>
+            <span>{result.pct.toFixed(2)}%</span>
+          </div>
+
+          <div className="progress">
+            <div style={{ width: `${result.pct}%` }}></div>
+          </div>
         </div>
       )}
     </div>

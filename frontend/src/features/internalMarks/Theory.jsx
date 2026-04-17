@@ -1,25 +1,35 @@
 import { useState } from "react";
-import { getNum, validateAll } from "../../utils/marksUtils";
+import { getNum } from "../../utils/marksUtils";
 
 export default function Theory() {
   const [data, setData] = useState({});
-  const [errors, setErrors] = useState({});
   const [result, setResult] = useState(null);
-
-  const limits = {
-    t_assignment: 10, t_mst1: 20, t_mst2: 20,
-    t_surprise: 12, t_quiz: 4, t_attendance: 2, t_endwritten: 60,
-  };
 
   const handle = (k, v) => setData({ ...data, [k]: v });
 
-  const reset = () => { setData({}); setErrors({}); setResult(null); };
+  // 🔥 strict input handler
+  const handleInput = (key, value, max) => {
+    if (value === "") {
+      handle(key, "");
+      return;
+    }
+
+    const num = Number(value);
+
+    if (isNaN(num) || num < 0 || num > max) {
+      handle(key, ""); // ❌ clear invalid
+      return;
+    }
+
+    handle(key, value);
+  };
+
+  const reset = () => {
+    setData({});
+    setResult(null);
+  };
 
   const calculate = () => {
-    const { ok, errors } = validateAll(data, limits);
-    setErrors(errors);
-    if (!ok) return;
-
     const m1 = getNum(data.t_mst1, 20);
     const m2 = getNum(data.t_mst2, 20);
     const a  = getNum(data.t_assignment, 10);
@@ -36,54 +46,81 @@ export default function Theory() {
       (endProvided ? (end / 60) * 60 : 0);
 
     const max = endProvided ? 100 : 40;
-    setResult({ total, max, pct: (total / max) * 100 });
+
+    setResult({
+      total,
+      max,
+      pct: (total / max) * 100
+    });
   };
 
   return (
     <div className="internal-card">
       <div className="hybrid-grid">
+
+        {/* INPUT */}
         <div className="section">
           <h3>Theory Subject</h3>
+
           {[
-            ["t_assignment", "Assignment (out of 10)"],
-            ["t_mst1", "MST 1 (out of 20)"],
-            ["t_mst2", "MST 2 (out of 20)"],
-            ["t_surprise", "Surprise Test (out of 12)"],
-            ["t_quiz", "Quiz (out of 4)"],
-            ["t_attendance", "Attendance (out of 2)"],
-            ["t_endwritten", "End Sem Written (out of 60)"],
-          ].map(([key, label]) => (
+            ["t_assignment", "Assignment", 10],
+            ["t_mst1", "MST 1", 20],
+            ["t_mst2", "MST 2", 20],
+            ["t_surprise", "Surprise Test", 12],
+            ["t_quiz", "Quiz", 4],
+            ["t_attendance", "Attendance", 2],
+            ["t_endwritten", "End Sem Written", 60],
+          ].map(([key, label, max]) => (
             <div className="input-group" key={key}>
-              <label>{label}</label>
+              <label>{label} (out of {max})</label>
+
               <input
                 type="number"
+                min="0"
+                max={max}
+                placeholder={`0 - ${max}`}
                 value={data[key] ?? ""}
-                className={errors[key] ? "invalid" : ""}
-                onChange={(e) => handle(key, e.target.value)}
+                onChange={(e) => handleInput(key, e.target.value, max)}
+                onKeyDown={(e) => {
+                  if (["e", "E", "+", "-"].includes(e.key)) {
+                    e.preventDefault();
+                  }
+                }}
               />
             </div>
           ))}
         </div>
+
+        {/* OUTPUT */}
         <div className="section">
           <h3>Output</h3>
+
           {result && (
             <div className="result-box">
               <div className="result-row">
                 <span className="small">Obtained</span>
                 <span>{result.total.toFixed(2)} / {result.max}</span>
               </div>
+
               <div className="result-row">
                 <span className="small">Percentage</span>
                 <span className="highlight">{result.pct.toFixed(2)}%</span>
               </div>
-              <div className="progress"><div style={{ width: `${result.pct}%` }}></div></div>
+
+              <div className="progress">
+                <div style={{ width: `${result.pct}%` }}></div>
+              </div>
             </div>
           )}
         </div>
       </div>
+
+      {/* BUTTONS */}
       <div className="bottom-bar">
         <button className="btn-reset" onClick={reset}>Reset</button>
-        <button className="btn-calc" onClick={calculate}>Calculate Theory</button>
+        <button className="btn-calc" onClick={calculate}>
+          Calculate Theory
+        </button>
       </div>
     </div>
   );
