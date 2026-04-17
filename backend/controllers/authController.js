@@ -5,6 +5,53 @@ const jwt = require("jsonwebtoken");
 const generateToken = (userId) =>
   jwt.sign({ id: userId }, process.env.JWT_SECRET, { expiresIn: "7d" });
 
+exports.getMe = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id);
+
+    res.json({
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        avatar: user.avatar,
+      },
+    });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+const uploadAvatar = async (req, res) => {
+  try {
+    // ✅ check file
+    if (!req.file) {
+      return res.status(400).json({ message: "No file uploaded" });
+    }
+
+    // ✅ check user
+    const user = await User.findById(req.user.id);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // ✅ save avatar path
+    // user.avatar = `/uploads/${req.file.filename}`;
+    // const BASE_URL = process.env.BASE_URL;
+    // user.avatar = `${BASE_URL}/${req.file.path}`;
+    user.avatar = req.file.path;
+    await user.save();
+
+    // ✅ send full user back
+    res.json({ user });
+
+  } catch (err) {
+    console.error("UPLOAD AVATAR ERROR:", err); // 👈 THIS WILL SHOW REAL ERROR
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+
 // Register
 exports.register = async (req, res) => {
   try {
@@ -29,7 +76,12 @@ exports.register = async (req, res) => {
     const token = generateToken(user._id);
     res.status(201).json({
       token,
-      user: { id: user._id, name: user.name, email: user.email },
+      user: { 
+        id: user._id, 
+        name: user.name, 
+        email: user.email,
+        avatar: user.avatar,
+      },
     });
   } catch (err) {
     if (err.name === "ValidationError") {
@@ -58,9 +110,16 @@ exports.login = async (req, res) => {
     const token = generateToken(user._id);
     res.json({
       token,
-      user: { id: user._id, name: user.name, email: user.email },
+      user: { 
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        avatar: user.avatar,
+      },
     });
   } catch (err) {
     res.status(500).json({ error: "Server error. Please try again." });
   }
 };
+
+exports.uploadAvatar = uploadAvatar;

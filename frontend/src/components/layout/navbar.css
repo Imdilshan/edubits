@@ -1,0 +1,246 @@
+/* NAVBAR */
+.navbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+
+  padding: 0 32px;
+  height: 64px;
+
+  background: rgba(10, 15, 25, 0.7);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* LEFT — LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+
+  background: linear-gradient(135deg, var(--primary), var(--success));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+/* CENTER — NAV */
+.nav-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px; /* 🔥 fixes spacing */
+}
+
+.nav-link {
+  display: inline-block; /* 🔥 CRITICAL FIX */
+
+  position: relative;
+  padding: 6px 10px;
+
+  color: var(--muted);
+  font-size: 13.5px;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  text-decoration: none;
+
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--text);
+}
+
+/* ACTIVE STATE */
+.nav-link.active {
+  color: var(--text);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+
+  background: linear-gradient(90deg, var(--primary), var(--success));
+  border-radius: 2px;
+
+  transition: all 0.25s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* RIGHT — ACTIONS */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* PROFILE */
+.profile {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.profile:hover {
+  background: var(--surface-3);
+}
+
+/* LOGOUT */
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 12px;
+  border-radius: 8px;
+
+  background: transparent;
+  border: 1px solid transparent;
+
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+  color: var(--danger);
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+/* DROPDOWN */
+.dropdown {
+  position: absolute;
+  top: 60px;
+  right: 32px;
+
+  width: 220px;
+  padding: 10px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  backdrop-filter: blur(12px);
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 200;
+}
+
+/* USER INFO */
+.dropdown-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.email {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* DIVIDER */
+.dropdown-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 6px 0;
+}
+
+/* ITEMS */
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px;
+  border-radius: 8px;
+
+  background: transparent;
+  border: none;
+  color: var(--text);
+
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background: var(--surface-2);
+}
+
+/* LOGOUT STYLE */
+.dropdown-item.logout:hover {
+  color: var(--danger);
+  background: rgba(239,68,68,0.08);
+}
+
+.nav-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 8px rgba(0, 200, 255, 0.6);
+}

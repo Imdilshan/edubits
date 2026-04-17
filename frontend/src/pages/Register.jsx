@@ -42,7 +42,7 @@ export default function Register() {
       }
 
       // Backend now returns token on register — log in immediately
-      login(data.token);
+      login(data);
       showToast("Account created! Welcome to Edubits.", "success");
       navigate("/tasks");
     } catch (err) {

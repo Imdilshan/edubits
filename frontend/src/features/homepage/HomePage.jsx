@@ -6,13 +6,15 @@ import { Calculator, ClipboardCheck, CheckSquare, BookOpen } from "lucide-react"
 import { Zap, Construction, Clock, Box } from "lucide-react";
 import { Rocket } from "lucide-react";
 import { Star } from "lucide-react";
+import { Heart } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 
 const tools = [
   {
     href: "/sgpa",
     icon: <Calculator />,
-    name: "SGPA + CGPA Calculator",
-    desc: "Instantly calculate SGPA & CGPA. Add subjects, credits, and grades — results in seconds.",
+    name: "SGPA Calculator",
+    desc: "Input your grades, see SGPA instantly.",
     tag: "Calculator",
     cardClass: "card-blue",
     iconClass: "icon-blue",
@@ -22,7 +24,7 @@ const tools = [
     href: "/internal",
     icon: <ClipboardCheck />,
     name: "Internal Marks Calculator",
-    desc: "Track & calculate internals for Hybrid, Theory, and Practical subjects in one shot.",
+    desc: "Calculate all internal marks in seconds.",
     tag: "Calculator",
     cardClass: "card-red",
     iconClass: "icon-red",
@@ -32,7 +34,7 @@ const tools = [
     href: "/tasks",
     icon: <CheckSquare />,
     name: "Task Tracker",
-    desc: "Deadlines, status, priority — all tracked. Never miss a submission again.",
+    desc: "Track assignments, quizzes, and projects.",
     tag: "Tracker",
     cardClass: "card-cyan",
     iconClass: "icon-cyan",
@@ -41,8 +43,8 @@ const tools = [
   {
     href: "/pyqs",
     icon: <BookOpen />,
-    name: "PYQ Bank",
-    desc: "Browse previous year questions by subject, year, and topic. Add your own — never lose them.",
+    name: "Resources",
+    desc: "PYQs & playlists.",
     tag: "Resources",
     cardClass: "card-purple",
     iconClass: "icon-purple",
@@ -54,7 +56,7 @@ const whyItems = [
   { icon: <Zap />, title: "Zero distractions", desc: "No ads, no fluff. Just the tools that matter.", className: "why-yellow" },
   { icon: <Construction />, title: "Built for engineers", desc: "No generic stuff, curated materials only.", className: "why-blue" },
   { icon: <Clock />, title: "Saves hours every week", desc: "Stop juggling spreadsheets and random calculators.", className: "why-green" },
-  { icon: <Box />, title: "Everything in one place", desc: "GPA, PYQs, Task Tracker — all here.", className: "why-purple"},
+  { icon: <Box />, title: "Everything in one place", desc: "Playlists, PYQs, Task Tracker.", className: "why-purple"},
 ];
 
 export default function HomePage() {
@@ -63,10 +65,10 @@ export default function HomePage() {
 
       {/* Hero */}
       <div className="hp-hero">
-        <div className="hp-hero-badge">Last night's study deserves better tools.</div>
+        <div className="hp-hero-badge">Built for future Engineers.</div>
         <h1>Engineer your<br /><span>Grades.</span></h1>
         <div className="hp-hero-cta">
-          <a href="#tools" className="hp-btn-primary"> <Rocket className="hp-btn-icon" /> Boost My GPA</a>
+          <a href="#tools" className="hp-btn-primary"> <Rocket className="hp-btn-icon" /> Explore tools</a>
         </div>
         <div className="hp-trust">
           <div className="hp-stars">
@@ -100,7 +102,6 @@ export default function HomePage() {
         <div className="hp-why-grid">
           {whyItems.map((w, i) => (
             <div className="hp-why-card" key={i}>
-              {/* <div className="hp-why-icon">{w.icon}</div> */}
               <div className={`hp-why-icon ${w.className}`}>
                 {w.icon}
               </div>
@@ -143,10 +144,10 @@ export default function HomePage() {
           <div className="hp-footer-col">
             <h4>Tools</h4>
             <ul>
-              <li><Link to="/tasks">Task Tracker</Link></li>
               <li><Link to="/sgpa">SGPA Calculator</Link></li>
-              <li><Link to="/internal">Internal Marks</Link></li>
-              <li><Link to="/pyqs">PYQ Bank</Link></li>
+              <li><Link to="/internal">Internal Marks Calculator</Link></li>
+              <li><Link to="/tasks">Task Tracker</Link></li>
+              <li><Link to="/pyqs">Resources</Link></li>
             </ul>
           </div>
 
@@ -199,7 +200,19 @@ export default function HomePage() {
 
         <div className="hp-footer-bottom">
           <p>© 2026 Edubits</p>
-          <span>Built to solve the problems we faced, not just to showcase what we know.</span>
+          <p className="footer-quote">
+            Every child is special, even you… especially you.
+            <Heart className="heart-icon" size={16} />
+          </p>
+          <a
+            href="https://chat.whatsapp.com/FuB9zkdRlqbEfnlodUoqZA?mode=gi_t"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-link"
+          >
+            <MessageCircle size={16} />
+            Contact Us.
+          </a>
         </div>
       </footer>
     </div>

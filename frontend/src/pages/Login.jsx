@@ -37,7 +37,7 @@ export default function Login() {
         return;
       }
 
-      login(data.token);
+      login(data);
       navigate("/tasks");
     } catch (err) {
       showToast("Could not reach the server. Is it running?", "error");

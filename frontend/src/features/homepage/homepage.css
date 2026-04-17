@@ -461,6 +461,7 @@
 @keyframes hp-fadeUp {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
+
 }
 
 @media (max-width: 900px) {
@@ -596,9 +597,41 @@
 }
 
 .hp-star-icon {
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   stroke-width: 1.5;
   fill: #facc15;
   color: #facc15;
 }
+
+.footer-quote {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+}
+
+.heart-icon {
+  color: #ef4444; /* soft red */
+  opacity: 0.9;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.footer-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #25D366; /* WhatsApp green */
+}
+
