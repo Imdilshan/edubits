@@ -4,8 +4,9 @@ import { useNavigate, Link } from "react-router-dom";
 import { useToast } from "../context/ToastContext";
 import "./login.css";
 
+import { ArrowRight } from "lucide-react";
+
 const API_URL = import.meta.env.VITE_API_URL;
-console.log("API URL:", API_URL);
 
 export default function Login() {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ export default function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
     if (!email || !password) {
       showToast("Please enter your email and password", "error");
       return;
@@ -32,6 +34,7 @@ export default function Login() {
       });
 
       const data = await res.json();
+
       if (!res.ok) {
         showToast(data.error || "Login failed", "error");
         return;
@@ -48,33 +51,58 @@ export default function Login() {
 
   return (
     <div className="login-container">
+      <div className="login-glow" />
+
       <form className="login-card" onSubmit={handleLogin}>
-        <h1>Welcome Back</h1>
-        <p className="subtitle">Login to Edubits</p>
+        
+        {/* Branding */}
+        <div className="login-header">
+          <div className="logo">
+            <img src="/images/logo.png" alt="Edubits Logo" />
+            <span className="logo-text">Edubits</span>
+          </div>
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+          <h1>Welcome Back</h1>
+          <p className="subtitle">
+            Continue your focused learning journey
+          </p>
+        </div>
 
+        {/* Inputs */}
+        <div className="input-group">
+          <input
+            type="email"
+            placeholder=" "
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <label>Email</label>
+        </div>
+
+        <div className="input-group">
+          <input
+            type="password"
+            placeholder=" "
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <label>Password</label>
+        </div>
+
+        {/* CTA */}
         <button type="submit" disabled={loading}>
           {loading ? "Logging in..." : "Login"}
         </button>
 
-        <p style={{ marginTop: "10px", textAlign: "center" }}>
-          Don't have an account?{" "}
-          <Link to="/register" style={{ color: "#3b82f6" }}>Register</Link>
-        </p>
+        {/* Footer */}
+        <div className="login-footer">
+          <span className="footer-text">New to Edubits?</span>
+          <Link to="/register" className="footer-link">
+            Create account <ArrowRight size={16} className="arrow-icon" />
+          </Link>
+        </div>
       </form>
     </div>
   );
