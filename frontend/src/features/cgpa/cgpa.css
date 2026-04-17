@@ -1,0 +1,71 @@
+/* =========================
+   CGPA CARD
+   ========================= */
+.cgpa-card {
+  max-width: 780px;
+  margin: 0 auto;
+  border-left: 3px solid #22c55e;
+}
+
+/* =========================
+   ROW LAYOUT
+   ========================= */
+.cgpa-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 0.1fr auto;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+/* =========================
+   INPUT FIX (CRITICAL)
+   ========================= */
+.cgpa-card .input {
+  width: 100%;
+  min-width: 0;
+  height: 42px;
+
+  padding: 12px 16px;
+  border-radius: 14px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+
+  box-sizing: border-box;
+}
+
+/* readonly (auto SGPA rows) */
+.cgpa-card input[readonly] {
+  opacity: 0.7;
+  border-style: dashed;
+}
+
+/* =========================
+   DELETE BUTTON ALIGN
+   ========================= */
+.cgpa-row .btn-danger {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================
+   ACTIONS
+   ========================= */
+.cgpa-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+.sgpa-card,
+.cgpa-card {
+  width: 100%;
+}
+
+.card.cgpa-card {
+  border: none;
+  border-left: 3px solid #22c55e;
+}

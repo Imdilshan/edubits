@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { clamp } from "../../utils/helpers";
+import "./sgpa.css";
 
 export default function SGPA({ setSgpaList }) {
   const [subjects, setSubjects] = useState(() => {

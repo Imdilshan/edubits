@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { clamp } from "../../utils/helpers";
+import "./cgpa.css";
+
 
 export default function CGPA({ sgpaList, removeSGPA }) {
   const [manualSems, setManualSems] = useState([
