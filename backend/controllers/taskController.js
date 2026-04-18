@@ -25,7 +25,7 @@ exports.createTask = async (req, res) => {
       deadline: parsedDeadline,
       priority,
       status,
-      userId: req.userId,
+      userId: req.user.id,
     });
 
     res.status(201).json(task);
@@ -43,7 +43,7 @@ exports.getTasks = async (req, res) => {
   try {
     const { status, priority, type, sortBy, order, search, page = 1, limit = 50 } = req.query;
 
-    const filter = { userId: req.userId };
+    const filter = { userId: req.user.id };
     if (status) filter.status = status;
     if (priority) filter.priority = priority;
     if (type) filter.type = type;
@@ -67,7 +67,7 @@ exports.getTasks = async (req, res) => {
 // GET SINGLE TASK
 exports.getTaskById = async (req, res) => {
   try {
-    const task = await Task.findOne({ _id: req.params.id, userId: req.userId });
+    const task = await Task.findOne({ _id: req.params.id, userId: req.user.id });
     if (!task) return res.status(404).json({ error: "Task not found" });
     res.json(task);
   } catch (err) {
@@ -79,7 +79,7 @@ exports.getTaskById = async (req, res) => {
 exports.updateTask = async (req, res) => {
   try {
     const task = await Task.findOneAndUpdate(
-      { _id: req.params.id, userId: req.userId },
+      { _id: req.params.id, userId: req.user.id },
       req.body,
       { new: true, runValidators: true }
     );
@@ -97,7 +97,7 @@ exports.updateTask = async (req, res) => {
 // DELETE TASK
 exports.deleteTask = async (req, res) => {
   try {
-    const task = await Task.findOneAndDelete({ _id: req.params.id, userId: req.userId });
+    const task = await Task.findOneAndDelete({ _id: req.params.id, userId: req.user.id });
     if (!task) return res.status(404).json({ error: "Task not found" });
     res.json({ message: "Task deleted" });
   } catch (err) {
