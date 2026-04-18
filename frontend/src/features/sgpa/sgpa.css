@@ -1,6 +1,7 @@
 .sgpa-card {
   max-width: 780px;
   margin: 0 auto;
+  margin-bottom: 24px;
 
   position: relative;
   border-radius: var(--radius);
