@@ -36,13 +36,88 @@ const PAPER_SOURCES=[
         subject: "Mathematics",
         papers: [
           {
-            id: "math-2023-mid",
-            title: "Mid Sem 2023",
-            type: "questions",
-            questions: []
+            id: "mst1",
+            title: "mst1",
+            type: "pdf",
+            url: "https://drive.google.com/file/d/1587LMIzAkGPijJ7FbCS8qpiTB3lUKqsK/preview"
+          },
+          {
+            id: "mst2",
+            title: "mst2",
+            type: "pdf",
+            url: "https://drive.google.com/file/d/16Q-zKnfSGzNTlJLafuKthQ8JloxISB1A/preview"
+          },
+          {
+            id: "est1",
+            title: "est1",
+            type: "pdf",
+            url: "https://drive.google.com/file/d/10E2i7EtHD6_WJuVSL-1u7kgmNjF3DgR0/preview"
+          },
+        ]
+      },
+      {
+        subject: "Digital Electronics",
+        papers: [
+          {
+            id: "mst1",
+            title: "mst1",
+            type: "pdf",
+            url: "https://drive.google.com/file/d/1ImyfrlPSahDY7jn6llVrNWPgdZObh6re/preview"
+          },
+          {
+            id: "mst2",
+            title: "mst2",
+            type: "pdf",
+            url: "https://drive.google.com/file/d/1X7MXH57AHA-uLCG2aORk-TAWQF_fgyWc/preview"
+          },
+          {
+            id: "est1",
+            title: "est1",
+            type: "pdf",
+            url: "https://drive.google.com/file/d/1BPyBOPekIi3N7b2i-oW5AfEfoCd5kFQB/preview"
           }
         ]
-      }
+      },
+      {
+        subject: "Engineering physics",
+        papers: [
+          {
+            id: "mst1",
+            title: "mst1",
+            type: "pdf",
+            url: ""
+          },
+          {
+            id: "mst2",
+            title: "mst2",
+            type: "pdf",
+            url: "https://drive.google.com/file/d/1w8Ialuz1Yfa-bJ4XEwJJsTSu6CHbsalw/preview"
+          },
+          {
+            id: "est1",
+            title: "est1",
+            type: "pdf",
+            url: "https://drive.google.com/file/d/1w8Ialuz1Yfa-bJ4XEwJJsTSu6CHbsalw/preview"
+          }
+        ]
+      },
+      {
+        subject: "DSA",
+        papers: [
+          {
+            id: "mst1",
+            title: "mst1",
+            type: "pdf",
+            url: "https://drive.google.com/file/d/1o6z_egRoKrI7WTkwA5tT5tZbGwMH1mHC/preview"
+          },
+          {
+            id: "mst2",
+            title: "mst2",
+            type: "pdf",
+            url: "https://drive.google.com/file/d/1X0qFl7mR3sOcwiulVyfWfYPf3HS60TFL/preview"
+          },
+        ]
+      },
     ]
   },
 
