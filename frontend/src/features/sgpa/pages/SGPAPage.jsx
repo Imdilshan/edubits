@@ -26,7 +26,7 @@ export default function SGPAPage() {
   }, [sgpaList]);
 
   const exportPDF = () => {
-    const element = document.querySelector(".container");
+    const element = document.querySelector(".app-container");
 
     const opt = {
       margin: 0.3,
@@ -59,7 +59,7 @@ export default function SGPAPage() {
         </button>
       </div>
 
-      <div className="container">
+      <div className="app-container">
         <h1 className="main-title">SGPA + CGPA Calculator</h1>
 
         <SGPA setSgpaList={setSgpaList} />

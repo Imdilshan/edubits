@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Hybrid from "./Hybrid";
-import Theory from "./Theory";
+import Hybrid    from "./Hybrid";
+import Theory    from "./Theory";
 import Practical from "./Practical";
 import "../../styles/internalMarks.css";
 
@@ -18,14 +18,12 @@ export default function InternalMarksPage() {
         >
           Hybrid Subject
         </button>
-
         <button
           className={`tab-btn theory ${tab === "theory" ? "active" : ""}`}
           onClick={() => setTab("theory")}
         >
           Theory Subject
         </button>
-
         <button
           className={`tab-btn practical ${tab === "practical" ? "active" : ""}`}
           onClick={() => setTab("practical")}
@@ -35,8 +33,8 @@ export default function InternalMarksPage() {
       </div>
 
       <div className="internal-card">
-        {tab === "hybrid" && <Hybrid />}
-        {tab === "theory" && <Theory />}
+        {tab === "hybrid"    && <Hybrid />}
+        {tab === "theory"    && <Theory />}
         {tab === "practical" && <Practical />}
       </div>
     </div>
