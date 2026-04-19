@@ -1,96 +1,39 @@
-/* 
 .login-container {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background: #0b0f19;
-}
-
-.login-card {
-  background: #111827;
-  padding: 40px;
-  border-radius: 12px;
-  width: 320px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  border: 1px solid rgba(255,255,255,0.08);
-}
-
-.login-card h1 {
-  margin: 0;
-  font-size: 24px;
-  color: white;
-}
-
-.subtitle {
-  color: #9ca3af;
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-.login-card input {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #374151;
-  background: #0b0f19;
-  color: white;
-  outline: none;
-  transition: 0.2s;
-}
-
-.login-card input:focus {
-  border-color: #2563eb;
-}
-
-.login-card button {
-  padding: 12px;
-  border-radius: 8px;
-  border: none;
-  background: #2563eb;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.login-card button:hover {
-  background: #1d4ed8;
-} */
-
-/* Background */
-.login-container {
-  height: 100vh;
-  display: flex;
   justify-content: center;
-  align-items: center;
 
-  background: radial-gradient(circle at top, #0a192f, #020617);
-  font-family: "Inter", sans-serif;
+  background: #020617;
   position: relative;
   overflow: hidden;
 }
 
-/* Glow effect */
-.login-glow {
+.login-container::before {
+  content: "";
   position: absolute;
-  width: 400px;
-  height: 400px;
-  background: #3b82f6;
-  filter: blur(120px);
-  opacity: 0.15;
+  inset: 0;
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255,255,255,0.02) 0%,
+    rgba(0,0,0,0.4) 70%,
+    rgba(0,0,0,0.7) 100%
+  );
+
+  pointer-events: none;
 }
 
 /* Card */
 .login-card {
-  width: 360px;
-  padding: 32px;
+  width: 400px;
+  padding: 36px;
 
-  background: rgba(15, 23, 42, 0.75);
+  background: var(--surface);
   backdrop-filter: blur(14px);
 
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
 
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
   z-index: 1;
@@ -99,7 +42,7 @@
 /* Header */
 .login-header {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 26px;
 }
 
 .login-header h1 {
@@ -128,24 +71,27 @@
 }
 
 .logo-text {
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 1px;
+  font-weight: 700;
   color: #3b82f6;
 }
 
 /* Floating Inputs */
 .input-group {
   position: relative;
-  margin-bottom: 18px;
+  margin-bottom: 23px;
+  margin-top: 10px;
 }
 
 .input-group input {
   width: 100%;
-  padding: 14px 12px;
+  padding: 16px 10px;
 
-  background: #020617;
-  border: 1px solid #1e293b;
-  border-radius: 8px;
+  /* background: rgba(15, 23, 42, 0.6); */
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
 
   color: #e2e8f0;
   outline: none;
@@ -154,39 +100,47 @@
 
 /* Focus */
 .input-group input:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary);
 }
 
 /* Floating label */
+
 .input-group label {
   position: absolute;
-  left: 12px;
+  left: 18px;
+  font-size: 13px;
   top: 50%;
   transform: translateY(-50%);
-  color: #64748b;
+  opacity: 0.8;
+
   font-size: 14px;
+  color: #64748b;
+
   pointer-events: none;
-  transition: 0.2s ease;
-  background: #020617;
-  padding: 0 4px;
+  transition: all 0.2s ease;
+
+  background: transparent; /* 🔥 key fix */
 }
 
 .input-group input:focus + label,
 .input-group input:not(:placeholder-shown) + label {
   top: -8px;
+  opacity: 1;
   font-size: 12px;
-  color: #3b82f6;
+  color: var(--primary);
 }
 
 /* Button */
 .login-card button {
   width: 100%;
-  padding: 12px;
+  padding: 14px 18px;
+  margin-top: 15px;
 
-  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  background: linear-gradient(135deg, var(--primary), var(--success));
+  
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
 
   color: white;
   font-weight: 600;
@@ -261,9 +215,9 @@
 }
 
 .logo-text {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
-  color: #3b82f6;
+  color: var(--primary);
   letter-spacing: 0.3px;
 }
 

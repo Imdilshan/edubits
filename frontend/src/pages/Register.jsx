@@ -70,7 +70,7 @@ export default function Register() {
 
           <h1>Create Account</h1>
           <p className="subtitle">
-            Start building consistency today
+            Smile! You are awesome.
           </p>
         </div>
 
