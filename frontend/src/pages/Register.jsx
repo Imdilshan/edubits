@@ -3,7 +3,9 @@ import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useToast } from "../context/ToastContext";
 import { ArrowRight } from "lucide-react";
+
 import "./login.css";
+import ToolPreview from "../components/ToolPreview";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -56,72 +58,165 @@ export default function Register() {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-glow" />
+  <div className="login-container">
+    <div className="auth-layout">
 
-      <form className="login-card" onSubmit={handleRegister}>
-        
-        {/* Header */}
-        <div className="login-header">
-          <div className="logo" onClick={() => navigate("/")}>
-            <img src="/images/logo.png" alt="Edubits Logo" />
-            <span className="logo-text">Edubits</span>
+      {/* LEFT SIDE */}
+      <div className="side left">
+        <ToolPreview 
+          title="SGPA Calculator" 
+          image="/images/sgpa.png"
+        />
+        <ToolPreview
+          title="Internal Marks Calculator" 
+          image="/images/imc.png"
+        />
+      </div>
+
+      {/* CENTER */}
+      <div className="center">
+        <form className="login-card" onSubmit={handleRegister}>
+          
+          <div className="login-header">
+            <div className="logo" onClick={() => navigate("/")}>
+              <img src="/images/logo.png" alt="Edubits Logo" />
+              <span className="logo-text">Edubits</span>
+            </div>
+
+            <h1>Create Account</h1>
+            <p className="subtitle">Smile! You are awesome.</p>
           </div>
 
-          <h1>Create Account</h1>
-          <p className="subtitle">
-            Smile! You are awesome.
-          </p>
-        </div>
+          <div className="input-group">
+            <input
+              type="text"
+              placeholder=" "
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+            <label>Full Name</label>
+          </div>
 
-        {/* Inputs */}
-        <div className="input-group">
-          <input
-            type="text"
-            placeholder=" "
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-          <label>Full Name</label>
-        </div>
+          <div className="input-group">
+            <input
+              type="email"
+              placeholder=" "
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <label>Email</label>
+          </div>
 
-        <div className="input-group">
-          <input
-            type="email"
-            placeholder=" "
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <label>Email</label>
-        </div>
+          <div className="input-group">
+            <input
+              type="password"
+              placeholder=" "
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <label>Password</label>
+          </div>
 
-        <div className="input-group">
-          <input
-            type="password"
-            placeholder=" "
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <label>Password</label>
-        </div>
+          <button type="submit" disabled={loading}>
+            {loading ? "Creating account..." : "Register"}
+          </button>
 
-        {/* CTA */}
-        <button type="submit" disabled={loading}>
-          {loading ? "Creating account..." : "Register"}
-        </button>
+          <div className="login-footer">
+            <span className="footer-text">Already have an account?</span>
+            <Link to="/login" className="footer-link">
+              Login <ArrowRight size={16} className="arrow-icon" />
+            </Link>
+          </div>
 
-        {/* Footer */}
-        <div className="login-footer">
-          <span className="footer-text">Already have an account?</span>
-          <Link to="/login" className="footer-link">
-            Login <ArrowRight size={16} className="arrow-icon" />
-          </Link>
-        </div>
+        </form>
+      </div>
 
-      </form>
+      {/* RIGHT SIDE */}
+      <div className="side right">
+        <ToolPreview 
+          title="Task Tracker" 
+          image="/images/task.png"
+        />
+        <ToolPreview
+          title="Pyq's" 
+          image="/images/pyq.png"
+        />
+      </div>
+
     </div>
-  );
+  </div>
+);
 }
+
+  // return (
+  //   <div className="login-container">
+  //     <div className="login-glow" />
+
+  //     <form className="login-card" onSubmit={handleRegister}>
+        
+  //       {/* Header */}
+  //       <div className="login-header">
+  //         <div className="logo" onClick={() => navigate("/")}>
+  //           <img src="/images/logo.png" alt="Edubits Logo" />
+  //           <span className="logo-text">Edubits</span>
+  //         </div>
+
+  //         <h1>Create Account</h1>
+  //         <p className="subtitle">
+  //           Smile! You are awesome.
+  //         </p>
+  //       </div>
+
+  //       {/* Inputs */}
+  //       <div className="input-group">
+  //         <input
+  //           type="text"
+  //           placeholder=" "
+  //           value={name}
+  //           onChange={(e) => setName(e.target.value)}
+  //           required
+  //         />
+  //         <label>Full Name</label>
+  //       </div>
+
+  //       <div className="input-group">
+  //         <input
+  //           type="email"
+  //           placeholder=" "
+  //           value={email}
+  //           onChange={(e) => setEmail(e.target.value)}
+  //           required
+  //         />
+  //         <label>Email</label>
+  //       </div>
+
+  //       <div className="input-group">
+  //         <input
+  //           type="password"
+  //           placeholder=" "
+  //           value={password}
+  //           onChange={(e) => setPassword(e.target.value)}
+  //           required
+  //         />
+  //         <label>Password</label>
+  //       </div>
+
+  //       {/* CTA */}
+  //       <button type="submit" disabled={loading}>
+  //         {loading ? "Creating account..." : "Register"}
+  //       </button>
+
+  //       {/* Footer */}
+  //       <div className="login-footer">
+  //         <span className="footer-text">Already have an account?</span>
+  //         <Link to="/login" className="footer-link">
+  //           Login <ArrowRight size={16} className="arrow-icon" />
+  //         </Link>
+  //       </div>
+
+  //     </form>
+  //   </div>
+  // );
