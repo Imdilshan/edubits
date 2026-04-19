@@ -50,9 +50,9 @@ export default function SGPAPage() {
   return (
     <>
       <div className="top-actions">
-        <button className="btn btn-primary" onClick={toggleTheme}>
+        {/* <button className="btn btn-primary" onClick={toggleTheme}>
           Toggle Theme
-        </button>
+        </button> */}
 
         <button className="btn btn-danger" onClick={exportPDF}>
           Export PDF
