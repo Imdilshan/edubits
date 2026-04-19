@@ -3,6 +3,7 @@ import { useAuth } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import { useToast } from "../context/ToastContext";
 import { ArrowRight } from "lucide-react";
+import { Loader } from "lucide-react";
 
 import ToolPreview from "../components/ToolPreview";
 import "./login.css";
@@ -108,8 +109,18 @@ export default function Login() {
 
             {/* CTA */}
             <button type="submit" disabled={loading}>
-              {loading ? "Logging in..." : "Login"}
+
+              {loading ? (
+                <span className="btn-loading">
+                  <Loader size={16} className="spin-icon" />
+                  Waking server...
+                </span>
+              ) : (
+                "Login"
+              )}
             </button>
+
+
 
             {/* Footer */}
             <div className="login-footer">

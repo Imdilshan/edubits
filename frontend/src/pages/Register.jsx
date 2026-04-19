@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useToast } from "../context/ToastContext";
 import { ArrowRight } from "lucide-react";
+import { Loader } from "lucide-react";
 
 import "./login.css";
 import ToolPreview from "../components/ToolPreview";
@@ -120,8 +121,19 @@ export default function Register() {
             <label>Password</label>
           </div>
 
-          <button type="submit" disabled={loading}>
+          {/* <button type="submit" disabled={loading}>
             {loading ? "Creating account..." : "Register"}
+          </button> */}
+
+          <button type="submit" disabled={loading}>
+            {loading ? (
+              <span className="btn-loading">
+                <Loader size={16} className="spin-icon" />
+                Waking server...
+              </span>
+            ) : (
+              "Register"
+            )}
           </button>
 
           <div className="login-footer">
@@ -150,73 +162,3 @@ export default function Register() {
   </div>
 );
 }
-
-  // return (
-  //   <div className="login-container">
-  //     <div className="login-glow" />
-
-  //     <form className="login-card" onSubmit={handleRegister}>
-        
-  //       {/* Header */}
-  //       <div className="login-header">
-  //         <div className="logo" onClick={() => navigate("/")}>
-  //           <img src="/images/logo.png" alt="Edubits Logo" />
-  //           <span className="logo-text">Edubits</span>
-  //         </div>
-
-  //         <h1>Create Account</h1>
-  //         <p className="subtitle">
-  //           Smile! You are awesome.
-  //         </p>
-  //       </div>
-
-  //       {/* Inputs */}
-  //       <div className="input-group">
-  //         <input
-  //           type="text"
-  //           placeholder=" "
-  //           value={name}
-  //           onChange={(e) => setName(e.target.value)}
-  //           required
-  //         />
-  //         <label>Full Name</label>
-  //       </div>
-
-  //       <div className="input-group">
-  //         <input
-  //           type="email"
-  //           placeholder=" "
-  //           value={email}
-  //           onChange={(e) => setEmail(e.target.value)}
-  //           required
-  //         />
-  //         <label>Email</label>
-  //       </div>
-
-  //       <div className="input-group">
-  //         <input
-  //           type="password"
-  //           placeholder=" "
-  //           value={password}
-  //           onChange={(e) => setPassword(e.target.value)}
-  //           required
-  //         />
-  //         <label>Password</label>
-  //       </div>
-
-  //       {/* CTA */}
-  //       <button type="submit" disabled={loading}>
-  //         {loading ? "Creating account..." : "Register"}
-  //       </button>
-
-  //       {/* Footer */}
-  //       <div className="login-footer">
-  //         <span className="footer-text">Already have an account?</span>
-  //         <Link to="/login" className="footer-link">
-  //           Login <ArrowRight size={16} className="arrow-icon" />
-  //         </Link>
-  //       </div>
-
-  //     </form>
-  //   </div>
-  // );
