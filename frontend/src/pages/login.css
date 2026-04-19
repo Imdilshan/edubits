@@ -376,11 +376,64 @@
 }
 
 @media (max-width: 900px) {
+
+  /* ✅ Allow scrolling ONLY on mobile */
+  .login-container {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  /* ✅ Override desktop shift ONLY on mobile */
+  .auth-layout {
+    transform: none;              /* fixes off-screen issue */
+    grid-template-columns: 1fr;   /* single column */
+    padding: 20px 16px;
+    min-height: auto;
+  }
+
+  /* ✅ Hide side previews */
   .side {
     display: none;
   }
 
-  .auth-layout {
-    grid-template-columns: 1fr;
+  /* ✅ Fix center alignment */
+  .center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* ✅ Responsive card */
+  .login-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 24px;
+  }
+
+  /* ✅ Improve spacing */
+  .login-header h1 {
+    font-size: 20px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  /* ✅ Inputs fit better */
+  .input-group input {
+    padding: 14px 10px;
+    font-size: 15px;
+  }
+
+  /* ✅ Button fits screen */
+  .login-card button {
+    padding: 13px;
+    font-size: 15px;
+  }
+
+  /* ✅ Stack footer nicely */
+  .login-footer {
+    flex-direction: column;
+    gap: 4px;
   }
 }
