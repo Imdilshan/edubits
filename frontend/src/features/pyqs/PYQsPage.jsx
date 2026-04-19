@@ -118,6 +118,53 @@ const PAPER_SOURCES=[
           },
         ]
       },
+      {
+        subject: "Biology",
+        papers: [
+          {
+            id: "mst1",
+            title: "mst1",
+            type: "pdf",
+            url: "https://drive.google.com/file/d/1ofSik_XcO2gGTUvsdFZdT_2th-K_sj8y/preview"
+          },
+          {
+            id: "mst2",
+            title: "mst2",
+            type: "pdf",
+            url: "https://drive.google.com/file/d/1sMChNTNpI8137MsNZoocTz11BhJOowgr/preview"
+          },
+          {
+            id: "est1",
+            title: "est1",
+            type: "pdf",
+            url: "https://drive.google.com/file/d/19IDIHzvpaCe4gbi-pekZ850hKJtHxsWq/preview"
+          },
+        ]
+      },
+      {
+        subject: "Semi-conductor physics",
+        papers: [
+          {
+            id: "mst1",
+            title: "mst1",
+            type: "pdf",
+            url: "https://drive.google.com/file/d/1PZSdjk16DTnpNGj0tSjwIGcFkLHoHtGs/preview"
+          },
+          {
+            id: "mst2",
+            title: "mst2",
+            type: "pdf",
+            url: "https://drive.google.com/file/d/1F1Yw8lMvORhKcyIPWrL6ZMSJjz-McPCI/preview"
+          },
+          {
+            id: "est1",
+            title: "est1",
+            type: "pdf",
+            url: "https://drive.google.com/file/d/1EOjUvk0nwY3JuBDXUcW9maXTjmio5N-V/preview"
+          },
+        ]
+      },
+      
     ]
   },
 
