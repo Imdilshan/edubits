@@ -33,7 +33,7 @@ const PAPER_SOURCES=[
     year: "1st Year",
     subjects:[
       {
-        subject: "Mathematics",
+        subject: "Mathematics-II",
         papers: [
           {
             id: "mst1",
