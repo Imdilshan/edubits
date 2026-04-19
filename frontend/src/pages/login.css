@@ -1,9 +1,5 @@
 .login-container {
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   background: #020617;
   position: relative;
   overflow: hidden;
@@ -26,7 +22,7 @@
 
 /* Card */
 .login-card {
-  width: 400px;
+  width: 420px;
   padding: 36px;
 
   background: var(--surface);
@@ -211,7 +207,7 @@
 .logo img {
   width: 28px;
   height: 28px;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .logo-text {
@@ -269,5 +265,105 @@
 }
 
 .footer-link:hover .arrow-icon {
-  transform: translateX(4px);
+  transform: translateX(4vw);
+}
+
+/* Adding Cards */
+.auth-layout {
+  display: grid;
+  grid-template-columns: 300px 640px 300px;
+
+  align-items: center;
+  justify-items: center;
+
+  min-height: 100vh;
+  padding: 24px 12px;
+  gap: 20px;
+
+  transform: translateX(+60px);
+}
+
+.side {
+  display: flex;
+  width: 360px;
+  height: 520px;
+  gap: 30px;
+  flex-direction: column;
+  transform: scale(1.08);
+}
+
+.left {
+  align-items: flex-end;
+}
+
+.right {
+  align-items: flex-start;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.tool-preview {
+  width: 100%;
+  height: 280px; 
+
+  border-radius: 14px;
+  overflow: hidden;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px 12px 0 0;
+  transition: all 0.3s ease;
+}
+
+/* Thumbnail */
+
+.preview-thumbnail {
+  height: 215px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #020617;
+  overflow: hidden;
+}
+
+.preview-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;     /* keeps it clean */
+}
+
+/* Content */
+.preview-content {
+  padding: 12px 14px;
+}
+
+.preview-content h4 {
+  font-size: 14px;
+  color: #e2e8f0;
+}
+
+.preview-content p {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* Hover */
+.tool-preview:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+
+@media (max-width: 900px) {
+  .side {
+    display: none;
+  }
+
+  .auth-layout {
+    grid-template-columns: 1fr;
+  }
 }

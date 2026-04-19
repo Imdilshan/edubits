@@ -2,9 +2,10 @@ import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import { useToast } from "../context/ToastContext";
-import "./login.css";
-
 import { ArrowRight } from "lucide-react";
+
+import ToolPreview from "../components/ToolPreview";
+import "./login.css";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -51,59 +52,89 @@ export default function Login() {
 
   return (
     <div className="login-container">
-      <div className="login-glow" />
+      <div className="auth-layout">
 
-      <form className="login-card" onSubmit={handleLogin}>
-        
-        {/* Branding */}
-        <div className="login-header">
-          <div className="logo">
-            <img src="/images/logo.png" alt="Edubits Logo" />
-            <span className="logo-text">Edubits</span>
-          </div>
-
-          <h1>Welcome Back</h1>
-          <p className="subtitle">
-            Continue your focused learning journey
-          </p>
-        </div>
-
-        {/* Inputs */}
-        <div className="input-group">
-          <input
-            type="email"
-            placeholder=" "
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
+        {/* LEFT PREVIEW CARDS */}
+        <div className="side left">
+          <ToolPreview 
+            title="SGPA Calculator" 
+            image="/images/sgpa.png"
           />
-          <label>Email</label>
-        </div>
-
-        <div className="input-group">
-          <input
-            type="password"
-            placeholder=" "
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
+          <ToolPreview
+            title="Internal Marks Calculator" 
+            image="/images/imc.png"
           />
-          <label>Password</label>
         </div>
 
-        {/* CTA */}
-        <button type="submit" disabled={loading}>
-          {loading ? "Logging in..." : "Login"}
-        </button>
+        {/* CENTER LOGIN CARD */}
+        <div className="center">
+          <form className="login-card" onSubmit={handleLogin}>
+            
+            {/* Branding */}
+            <div className="login-header">
+              <div className="logo">
+                <img src="/images/logo.png" alt="Edubits Logo" />
+                <span className="logo-text">Edubits</span>
+              </div>
 
-        {/* Footer */}
-        <div className="login-footer">
-          <span className="footer-text">New to Edubits?</span>
-          <Link to="/register" className="footer-link">
-            Create account <ArrowRight size={16} className="arrow-icon" />
-          </Link>
+              <h1>Welcome Back</h1>
+              <p className="subtitle">
+                Continue your focused learning journey
+              </p>
+            </div>
+
+            {/* Inputs */}
+            <div className="input-group">
+              <input
+                type="email"
+                placeholder=" "
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <label>Email</label>
+            </div>
+
+            <div className="input-group">
+              <input
+                type="password"
+                placeholder=" "
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <label>Password</label>
+            </div>
+
+            {/* CTA */}
+            <button type="submit" disabled={loading}>
+              {loading ? "Logging in..." : "Login"}
+            </button>
+
+            {/* Footer */}
+            <div className="login-footer">
+              <span className="footer-text">New to Edubits?</span>
+              <Link to="/register" className="footer-link">
+                Create account{" "}
+                <ArrowRight size={16} className="arrow-icon" />
+              </Link>
+            </div>
+          </form>
         </div>
-      </form>
+
+        {/* RIGHT PREVIEW CARDS */}
+        <div className="side right">
+          <ToolPreview 
+            title="Task Tracker" 
+            image="/images/task.png"
+          />
+          <ToolPreview
+            title="Pyq's" 
+            image="/images/pyq.png"
+          />
+        </div>
+
+      </div>
     </div>
   );
 }
