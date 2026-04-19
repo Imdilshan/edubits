@@ -14,12 +14,9 @@ export default function Stats({ tasks }) {
     if (diff < 0) overdue++;
     else if (diff <= 3) soon++;
   });
-
   const done = tasks.filter((t) => t.status === "done").length;
 
   return (
-
-
     <div className="stats-row">
   <div className="stat-card stat-total">
     <div className="stat-num">{tasks.length}</div>

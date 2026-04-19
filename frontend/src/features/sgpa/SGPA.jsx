@@ -1,8 +1,22 @@
 import { useState, useEffect } from "react";
 import { clamp } from "../../utils/helpers";
+import Select from "react-select";
+
 import "./sgpa.css";
 
 export default function SGPA({ setSgpaList }) {
+  const gradeOptions = [
+    { value: 10, label: "A+" },
+    { value: 9, label: "A" },
+    { value: 8, label: "B+" },
+    { value: 7, label: "B" },
+    { value: 6, label: "C+" },
+    { value: 5, label: "C" },
+    { value: 4, label: "D" },
+    { value: 0, label: "E/F/I" }
+  ];
+
+
   const [subjects, setSubjects] = useState(() => {
     try {
       const saved = localStorage.getItem("subjects");
@@ -94,10 +108,21 @@ export default function SGPA({ setSgpaList }) {
             value={sub.credit ?? ""}
             onChange={(e) => handleChange(index, "credit", e.target.value)}
           />
-          <select
+          {/* <select
             className="input"
             value={sub.grade}
             onChange={(e) => handleChange(index, "grade", e.target.value)}
+          > */}
+
+          <Select
+            options={gradeOptions}
+            value={gradeOptions.find(opt => opt.value === Number(sub.grade)) || null}
+            onChange={(selected) =>
+              handleChange(index, "grade", selected ? selected.value : "")
+            }
+            placeholder="Grade"
+            className="react-select-container"
+            classNamePrefix="react-select"
           >
             <option value="">Grade</option>
             <option value="10">A+</option>
@@ -108,7 +133,8 @@ export default function SGPA({ setSgpaList }) {
             <option value="5">C</option>
             <option value="4">D</option>
             <option value="0">E/F/I</option>
-          </select>
+          </Select>
+          
           <button className="btn btn-danger" onClick={() => deleteSubject(index)}>
             Delete
           </button>

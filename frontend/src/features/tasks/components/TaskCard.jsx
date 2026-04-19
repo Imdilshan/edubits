@@ -1,5 +1,6 @@
 import { formatDate } from "./../utils/date";
 
+
 export default function TaskCard({ task, onUpdate, onDelete, onEdit }) {
 
   // ✔ button: todo → in-progress → done (stops there)
@@ -38,7 +39,7 @@ export default function TaskCard({ task, onUpdate, onDelete, onEdit }) {
           {task.title}
         </div>
 
-        <div className="task-meta">
+         <div className="task-meta">
           {task.subject && (
             <span className="task-subject">{task.subject}</span>
           )}

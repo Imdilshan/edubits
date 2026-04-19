@@ -4,6 +4,9 @@ import TaskColumn from "../components/TaskColumn";
 import TaskModal from "../components/TaskModal";
 import Stats from "../components/Stats";
 
+// import "../../../../styles/taskTracker.css";
+import "../../../styles/taskTracker.css";
+
 export default function TaskPage() {
   const { tasks, loading, filters, setFilters, addTask, updateTask, deleteTask } = useTasks();
 
@@ -25,6 +28,7 @@ export default function TaskPage() {
 
   return (
     <>
+    <div className="tasks-page">
       <div className="page-header">
         <div>
           <h1>Task Tracker</h1>
@@ -89,6 +93,7 @@ export default function TaskPage() {
         onSubmit={handleSubmit}
         editingTask={editingTask}
       />
-    </>
+    </div>
+  </>
   );
 }

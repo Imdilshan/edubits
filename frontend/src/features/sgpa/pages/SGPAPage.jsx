@@ -8,7 +8,8 @@ export default function SGPAPage() {
     try {
       const saved = localStorage.getItem("sgpaList");
       return saved ? JSON.parse(saved) : [];
-    } catch {
+    } 
+    catch {
       return [];
     }
   });
@@ -28,23 +29,30 @@ export default function SGPAPage() {
   const exportPDF = () => {
     const element = document.querySelector(".app-container");
 
+    document.body.classList.add("pdf-mode");
+
     const opt = {
-      margin: 0.3,
+      // margin: 0.3,
+      margin: [0.5, 0.3, 0.5, 0.3],
+
       filename: "edubits.pdf",
       image: { type: "jpeg", quality: 1 },
       html2canvas: {
         scale: 2,
         useCORS: true,
-        backgroundColor: "#0b0c10"
+        backgroundColor: "#0b0c10",
+
+        windowWidth: element.scrollWidth
       },
       jsPDF: {
         unit: "in",
         format: "a4",
         orientation: "portrait"
-      }
+      },
     };
 
     html2pdf().set(opt).from(element).save();
+    document.body.classList.remove("pdf-mode");
   };
 
   return (
