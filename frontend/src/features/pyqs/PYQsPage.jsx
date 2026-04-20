@@ -484,8 +484,8 @@ const PLAYLIST_SOURCES = [
           {
             id: "math2-p1",
             title: "Complete Math-II Course",
-            channel: "Example Channel",
-            playlistId: "PLxxxxxx",
+            channel: "Will add soon.",
+            playlistId: "PLxyz",
             thumbVideoId: "",
           },
         ],
@@ -528,6 +528,18 @@ const PLAYLIST_SOURCES = [
             channel: "Example Channel",
             playlistId: "PLhx1hByyAqsYFoBvR5gjsfw2qQHfI4IiO",
             thumbVideoId: "5GDTIUVlHB8",
+          },
+        ],
+      },
+      {
+        subject: "COA",
+        playlists: [
+          {
+            id: "coa-p1",
+            title: "Complete COA Playlist",
+            channel: "5 Minutes Engineering",
+            playlistId: "PLYwpaL_SFmcCaiXeUEjcTzHwIfJqH1qCN",
+            thumbVideoId: "1rUevQ3bSEY",
           },
         ],
       },
