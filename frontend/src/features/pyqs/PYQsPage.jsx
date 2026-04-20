@@ -503,7 +503,7 @@ const PLAYLIST_SOURCES = [
             title: "OS Unit 2",
             channel: "Gate Smashers",
             playlistId: "PLhx1hByyAqsYy-hBX7zxbHRFjSKc-kQeY",
-            thumbVideoId: "P_dA8VGJjA8",
+            thumbVideoId: "rWFH6PLOIEI",
           },
         ],
       },
