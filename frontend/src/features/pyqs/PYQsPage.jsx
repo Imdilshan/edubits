@@ -1,7 +1,8 @@
+
 import { useState, useEffect, useRef } from "react";
 import "./pyqs.css";
 
-import { Folder, BookOpen, Star, Trash2, FileText, Image, FileQuestion, Search } from "lucide-react";
+import { Folder, BookOpen, Star, Trash2, FileText, Image, FileQuestion, Search, ListVideo, PlayCircle } from "lucide-react";
 import { FolderOpen } from "lucide-react";
 import { ArrowLeft, Home } from "lucide-react";
 
@@ -463,6 +464,215 @@ const PAPER_SOURCES=[
 ]
 
 
+// ─── Playlist Data ────────────────────────────────────────────────
+//
+// HOW TO ADD PLAYLISTS:
+// 1. Go to the YouTube playlist page.
+// 2. Copy the playlist ID from the URL: ?list=PLxxxxxxxx
+//    → Set playlistId: "PLxxxxxxxx"
+// 3. Open any video in the playlist, copy its video ID from the URL (?v=VIDEO_ID)
+//    → Set thumbVideoId: "VIDEO_ID"  (used for the thumbnail image)
+// 4. Clicking the card opens the full playlist on YouTube in a new tab.
+//
+const PLAYLIST_SOURCES = [
+  {
+    year: "1st Year",
+    subjects: [
+      {
+        subject: "Mathematics-II",
+        playlists: [
+          {
+            id: "math2-p1",
+            title: "Complete Math-II Course",
+            channel: "Example Channel",
+            playlistId: "PLxxxxxx",
+            thumbVideoId: "",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    year: "2nd Year",
+    subjects: [
+      {
+        subject: "Operating System",
+        playlists: [
+          {
+            id: "os-p2",
+            title: "OS Unit 2",
+            channel: "Gate Smashers",
+            playlistId: "PLhx1hByyAqsYy-hBX7zxbHRFjSKc-kQeY",
+            thumbVideoId: "P_dA8VGJjA8",
+          },
+        ],
+      },
+      {
+        subject: "DAA",
+        playlists: [
+          {
+            id: "daa-p2",
+            title: "DAA Unit 2",
+            channel: "Gate Smashers",
+            playlistId: "PLhx1hByyAqsbCKEJu0ntERx33fTeNigw2",
+            thumbVideoId: "I8w2XN0w-fQ",
+          },
+        ],
+      },
+      {
+        subject: "DBMS",
+        playlists: [
+          {
+            id: "dbms-p1",
+            title: "DBMS Unit 2",
+            channel: "Example Channel",
+            playlistId: "PLhx1hByyAqsYFoBvR5gjsfw2qQHfI4IiO",
+            thumbVideoId: "5GDTIUVlHB8",
+          },
+        ],
+      },
+    ],
+  },
+];
+
+// ─── Playlists Component ──────────────────────────────────────────
+function Playlists() {
+  const [selectedYear, setSelectedYear] = useState(null);
+  const [selectedSubject, setSelectedSubject] = useState(null);
+
+  const goHome = () => {
+    setSelectedYear(null);
+    setSelectedSubject(null);
+  };
+  const goBackToYears = () => {
+    setSelectedSubject(null);
+  };
+
+  const openPlaylist = (pl) => {
+    window.open(
+      `https://www.youtube.com/playlist?list=${pl.playlistId}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
+
+  const thumbUrl = (pl) =>
+    pl.thumbVideoId
+      ? `https://img.youtube.com/vi/${pl.thumbVideoId}/hqdefault.jpg`
+      : "";
+
+  return (
+    <div className="pyq-wrap">
+      <div className="pyq-header">
+        <div className="pyq-header-top">
+          <h1 className="pyq-title"><ListVideo size={27} /> Playlists</h1>
+          {(selectedYear || selectedSubject) && (
+            <button className="pyq-btn-home" onClick={goHome}>
+              <Home size={16} />
+              <span>Home</span>
+            </button>
+          )}
+        </div>
+        <div className="pyq-header-sub">
+          {selectedSubject
+            ? selectedSubject.subject
+            : selectedYear
+            ? selectedYear.year
+            : "Select a folder"}
+        </div>
+      </div>
+
+      {/* LEVEL 1 — YEARS */}
+      {!selectedYear && (
+        <div className="pyq-grid">
+          {PLAYLIST_SOURCES.map((y) => (
+            <div
+              key={y.year}
+              className="pyq-local-card"
+              onClick={() => setSelectedYear(y)}
+              style={{ cursor: "pointer" }}
+            >
+              <div className="pyq-lc-question"><Folder size={16} /> {y.year}</div>
+              <div className="pyq-lc-tags">
+                <span className="pyq-l-tag lt-sub">{y.subjects.length} subjects</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* LEVEL 2 — SUBJECTS */}
+      {selectedYear && !selectedSubject && (
+        <>
+          <div className="pyq-back-row">
+            <button className="pyq-btn-cancel" onClick={goHome}>
+              <ArrowLeft size={16} /><span>Back</span>
+            </button>
+          </div>
+          <div className="pyq-grid">
+            {selectedYear.subjects.map((s) => (
+              <div
+                key={s.subject}
+                className="pyq-local-card"
+                onClick={() => setSelectedSubject(s)}
+                style={{ cursor: "pointer" }}
+              >
+                <div className="pyq-lc-question"><FolderOpen size={16} /> {s.subject}</div>
+                <div className="pyq-lc-tags">
+                  <span className="pyq-l-tag lt-yr">{s.playlists.length} playlist{s.playlists.length !== 1 ? "s" : ""}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+
+      {/* LEVEL 3 — PLAYLIST CARDS (click → opens YouTube) */}
+      {selectedSubject && (
+        <>
+          <div className="pyq-back-row">
+            <button className="pyq-btn-cancel" onClick={goBackToYears}>
+              <ArrowLeft size={16} /><span>Back</span>
+            </button>
+          </div>
+          <div className="pyq-grid">
+            {selectedSubject.playlists.map((pl) => {
+              const thumb = thumbUrl(pl);
+              return (
+                <div
+                  key={pl.id}
+                  className="pyq-local-card pyq-playlist-card"
+                  onClick={() => openPlaylist(pl)}
+                  style={{ cursor: "pointer" }}
+                >
+                  {thumb ? (
+                    <div className="pyq-pl-thumb">
+                      <img src={thumb} alt={pl.title} />
+                      <div className="pyq-pl-play-overlay"><PlayCircle size={38} /></div>
+                    </div>
+                  ) : (
+                    <div className="pyq-pl-thumb pyq-pl-thumb--empty">
+                      <ListVideo size={32} style={{ opacity: 0.4 }} />
+                    </div>
+                  )}
+                  <div className="pyq-lc-question" style={{ marginTop: 4 }}>
+                    <PlayCircle size={15} /> {pl.title}
+                  </div>
+                  {pl.channel && (
+                    <div className="pyq-lc-tags">
+                      <span className="pyq-l-tag lt-top">{pl.channel}</span>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
 function ClassBank() {
   const [selectedYear, setSelectedYear] = useState(null);
   const [selectedSubject, setSelectedSubject] = useState(null);
@@ -773,10 +983,22 @@ export default function PYQsPage() {
         </span>
         
         </button>
+        <button
+          className={`pyq-mode-tab ${mode === "playlists" ? "active" : ""}`}
+          onClick={() => setMode("playlists")}
+        >
+          <span className="tab-content">
+            <ListVideo size={16} />
+            <span>Playlists</span>
+          </span>
+        </button>
       </div>
 
       {/* ── CLASS BANK VIEW ─────────────────────────────────────── */}
       {mode === "bank" && <ClassBank />}
+
+      {/* ── PLAYLISTS VIEW ───────────────────────────────────────── */}
+      {mode === "playlists" && <Playlists />}
 
       {/* ── MY COLLECTION VIEW ──────────────────────────────────── */}
       {mode === "mine" && (
