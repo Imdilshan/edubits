@@ -550,7 +550,7 @@ const PLAYLIST_SOURCES = [
           {
             id: "dbms-p1",
             title: "DBMS Unit 2",
-            channel: "Example Channel",
+            channel: "Gate Smashers",
             playlistId: "PLhx1hByyAqsYFoBvR5gjsfw2qQHfI4IiO",
             thumbVideoId: "5GDTIUVlHB8",
           },
