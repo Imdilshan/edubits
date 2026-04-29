@@ -496,17 +496,42 @@ const PLAYLIST_SOURCES = [
     year: "2nd Year",
     subjects: [
       {
-        subject: "Operating System",
+        subject: "Software Engineering",
         playlists: [
           {
-            id: "os-p2",
-            title: "OS Unit 2",
+            id: "se-all",
+            title: "Complete SE Playlist",
             channel: "Gate Smashers",
-            playlistId: "PLhx1hByyAqsYy-hBX7zxbHRFjSKc-kQeY",
-            thumbVideoId: "rWFH6PLOIEI",
+            playlistId: "PLxCzCOWd7aiEed7SKZBnC6ypFDWYLRvB2",
+            thumbVideoId: "kcvEiMFOcoE",
           },
         ],
       },
+      {
+        subject: "OOPS Using Java",
+        playlists: [
+          {
+            id: "java-all",
+            title: "Complete Java Playlist",
+            channel: "Easy Engineering Classes",
+            playlistId: "PLV8vIYTIdSnbL_fSaqiYpPh-KwNCavjIr",
+            thumbVideoId: "4Y0N43i2RNs",
+          },
+        ],
+      },
+      {
+        subject: "Operating System",
+        playlists: [
+          {
+            id: "os-all",
+            title: "Complete OS Playlist",
+            channel: "Gate Smashers",
+            playlistId: "PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p",
+            thumbVideoId: "WJ-UaAaumNA",
+          },
+        ],
+      },
+      
       {
         subject: "DAA",
         playlists: [
