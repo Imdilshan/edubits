@@ -217,6 +217,12 @@ const PAPER_SOURCES=[
         subject: "Software Engineering",
         papers: [
           {
+            id: "se-imp",
+            title: "Important Questions",
+            type: "pdf",
+            url: "https://drive.google.com/file/d/1sAZN2omjcdJdDbsW5-6EM4jQvzWvRYoI/preview"
+          },
+          {
             id: "se-2022",
             title: "Practice 0",
             type: "pdf",
