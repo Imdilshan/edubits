@@ -1,4 +1,4 @@
-// ===== SAFE NUMBER =====
+
 export const getNum = (val, max) => {
   if (val === "" || val === null) return 0;
 
@@ -11,7 +11,6 @@ export const getNum = (val, max) => {
   return n;
 };
 
-// ===== VALIDATION =====
 export const validateField = (val, min, max) => {
   if (val === "") return true;
 
@@ -24,7 +23,6 @@ export const validateField = (val, min, max) => {
   return true;
 };
 
-// ===== VALIDATE ALL =====
 export const validateAll = (data, limits) => {
   let ok = true;
   const errors = {};

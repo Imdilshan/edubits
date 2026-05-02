@@ -73,7 +73,6 @@ export default function SGPA({ setSgpaList }) {
     const sgpa = (totalPoints / totalCredits).toFixed(2);
     setResult(sgpa);
 
-    // Push to CGPA list using a unique ID based on time
     setSgpaList((prev) => [
       ...prev,
       { id: Date.now(), sgpa, credits: totalCredits },
@@ -108,11 +107,6 @@ export default function SGPA({ setSgpaList }) {
             value={sub.credit ?? ""}
             onChange={(e) => handleChange(index, "credit", e.target.value)}
           />
-          {/* <select
-            className="input"
-            value={sub.grade}
-            onChange={(e) => handleChange(index, "grade", e.target.value)}
-          > */}
 
           <Select
             options={gradeOptions}

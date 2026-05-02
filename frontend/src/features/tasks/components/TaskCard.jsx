@@ -3,7 +3,6 @@ import { formatDate } from "./../utils/date";
 
 export default function TaskCard({ task, onUpdate, onDelete, onEdit }) {
 
-  // ✔ button: todo → in-progress → done (stops there)
   const advance = (e) => {
     e.stopPropagation();
     const next = { todo: "in-progress", "in-progress": "done" };
@@ -12,7 +11,6 @@ export default function TaskCard({ task, onUpdate, onDelete, onEdit }) {
     }
   };
 
-  // Undo button (only shown when done): done → in-progress
   const undo = (e) => {
     e.stopPropagation();
     onUpdate(task._id, { status: "in-progress" });
@@ -32,8 +30,6 @@ export default function TaskCard({ task, onUpdate, onDelete, onEdit }) {
 
   return (
     <div className={`task-card ${task.priority}${isDone ? " task-done" : ""}`}>
-
-      {/* LEFT SIDE — clicking anywhere on content opens edit */}
       <div className="task-content" onClick={handleEdit}>
         <div className={`task-card-title${isDone ? " task-title-done" : ""}`}>
           {task.title}
@@ -54,11 +50,9 @@ export default function TaskCard({ task, onUpdate, onDelete, onEdit }) {
         </div>
       </div>
 
-      {/* RIGHT SIDE ACTIONS — always visible */}
       <div className="task-card-actions">
 
         {isDone ? (
-          /* Done state: show undo + delete */
           <>
             <button
               className="task-icon-btn undo"
@@ -72,7 +66,6 @@ export default function TaskCard({ task, onUpdate, onDelete, onEdit }) {
             >✕</button>
           </>
         ) : (
-          /* Active state: show advance + delete */
           <>
             <button
               className="task-icon-btn complete"

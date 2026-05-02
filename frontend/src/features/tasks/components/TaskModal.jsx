@@ -16,7 +16,6 @@ export default function TaskModal({
     status: "todo",
   });
 
-  // Fill form when editing
   useEffect(() => {
     if (editingTask) {
       setForm({
@@ -65,13 +64,10 @@ export default function TaskModal({
   return (
     <div className="task-modal-overlay" onClick={onClose}>
       <div className="task-modal" onClick={(e) => e.stopPropagation()}>
-        
-        {/* TITLE */}
         <h2 className="task-modal-title">
           {editingTask ? "Edit Task" : "Add Task"}
         </h2>
 
-        {/* ===== TITLE INPUT ===== */}
         <div className="task-form-group">
           <label className="task-form-label">TITLE *</label>
           <input
@@ -82,7 +78,6 @@ export default function TaskModal({
           />
         </div>
 
-        {/* ===== SUBJECT + TYPE ===== */}
         <div className="task-form-row">
           <div className="task-form-group">
             <label className="task-form-label">SUBJECT</label>
@@ -108,7 +103,6 @@ export default function TaskModal({
           </div>
         </div>
 
-        {/* ===== DEADLINE + PRIORITY ===== */}
         <div className="task-form-row">
           <div className="task-form-group">
             <label className="task-form-label">DEADLINE</label>
@@ -134,7 +128,6 @@ export default function TaskModal({
           </div>
         </div>
 
-        {/* ===== STATUS ===== */}
         <div className="task-form-group">
           <label className="task-form-label">STATUS</label>
           <select
@@ -148,7 +141,6 @@ export default function TaskModal({
           </select>
         </div>
 
-        {/* ===== ACTIONS ===== */}
         <div className="task-modal-actions">
           <button className="task-btn-cancel" onClick={onClose}>
             Cancel

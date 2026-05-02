@@ -1,7 +1,6 @@
 import { useState, useRef } from "react";
 import { getNum } from "../../utils/marksUtils";
 
-/* ── Shared styles ── */
 const S = {
   grid:    { display:"grid", gridTemplateColumns:"1fr 1fr", gap:14, alignItems:"start" },
   section: { padding:16, borderRadius:12, background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.08)", display:"flex", flexDirection:"column", gap:0 },
@@ -19,7 +18,6 @@ const S = {
   progress:  { height:8, background:"rgba(255,255,255,0.08)", borderRadius:8, marginTop:12, overflow:"hidden" },
 };
 
-/* ── shake keyframe injected once ── */
 if (typeof document !== "undefined" && !document.getElementById("shake-style")) {
   const el = document.createElement("style");
   el.id = "shake-style";
@@ -27,7 +25,6 @@ if (typeof document !== "undefined" && !document.getElementById("shake-style")) 
   document.head.appendChild(el);
 }
 
-/* ── Validated Field ── */
 function Field({ id, label, max, value, onChange }) {
   const [error, setError] = useState("");
   const inputRef = useRef(null);
@@ -121,7 +118,6 @@ function Field({ id, label, max, value, onChange }) {
   );
 }
 
-/* ── Theory Component ── */
 export default function Theory() {
   const [data, setData] = useState({});
   const [result, setResult] = useState(null);

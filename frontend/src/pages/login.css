@@ -20,7 +20,6 @@
   pointer-events: none;
 }
 
-/* Card */
 .login-card {
   width: 420px;
   padding: 36px;
@@ -35,7 +34,6 @@
   z-index: 1;
 }
 
-/* Header */
 .login-header {
   text-align: center;
   margin-bottom: 26px;
@@ -53,7 +51,6 @@
   margin-top: 4px;
 }
 
-/* Logo */
 .logo {
   display: flex;
   justify-content: center;
@@ -72,7 +69,6 @@
   color: #3b82f6;
 }
 
-/* Floating Inputs */
 .input-group {
   position: relative;
   margin-bottom: 23px;
@@ -83,7 +79,6 @@
   width: 100%;
   padding: 16px 10px;
 
-  /* background: rgba(15, 23, 42, 0.6); */
   background: var(--surface);
   border: 1px solid rgba(255,255,255,0.08);
   backdrop-filter: blur(6px);
@@ -94,13 +89,10 @@
   transition: 0.3s;
 }
 
-/* Focus */
 .input-group input:focus {
   border-color: var(--primary);
   box-shadow: 0 0 0 1px var(--primary);
 }
-
-/* Floating label */
 
 .input-group label {
   position: absolute;
@@ -116,7 +108,7 @@
   pointer-events: none;
   transition: all 0.2s ease;
 
-  background: transparent; /* 🔥 key fix */
+  background: transparent;
 }
 
 .input-group input:focus + label,
@@ -127,7 +119,6 @@
   color: var(--primary);
 }
 
-/* Button */
 .login-card button {
   width: 100%;
   padding: 14px 18px;
@@ -154,8 +145,6 @@
   opacity: 0.6;
   cursor: not-allowed;
 }
-
-/* Footer */
 
 .login-footer {
   margin-top: 18px;
@@ -235,7 +224,6 @@
   transition: 0.2s;
 }
 
-/* Arrow animation */
 .arrow-icon {
   transition: transform 0.2s ease;
 }
@@ -268,7 +256,6 @@
   transform: translateX(4vw);
 }
 
-/* Adding Cards */
 .auth-layout {
   display: grid;
   grid-template-columns: 300px 640px 300px;
@@ -318,8 +305,6 @@
   transition: all 0.3s ease;
 }
 
-/* Thumbnail */
-
 .preview-thumbnail {
   height: 215px;
   padding: 10px;
@@ -333,10 +318,9 @@
 .preview-thumbnail img {
   width: 100%;
   height: 100%;
-  object-fit: contain;     /* keeps it clean */
+  object-fit: contain;  
 }
 
-/* Content */
 .preview-content {
   padding: 12px 14px;
 }
@@ -351,7 +335,6 @@
   color: #94a3b8;
 }
 
-/* Hover */
 .tool-preview:hover {
   transform: translateY(-6px) scale(1.02);
   box-shadow: 0 20px 40px rgba(0,0,0,0.6);
@@ -376,41 +359,34 @@
 }
 
 @media (max-width: 900px) {
-
-  /* ✅ Allow scrolling ONLY on mobile */
   .login-container {
     overflow-x: hidden;
     overflow-y: auto;
   }
 
-  /* ✅ Override desktop shift ONLY on mobile */
   .auth-layout {
-    transform: none;              /* fixes off-screen issue */
-    grid-template-columns: 1fr;   /* single column */
+    transform: none;             
+    grid-template-columns: 1fr;
     padding: 20px 16px;
     min-height: auto;
   }
 
-  /* ✅ Hide side previews */
   .side {
     display: none;
   }
 
-  /* ✅ Fix center alignment */
   .center {
     width: 100%;
     display: flex;
     justify-content: center;
   }
 
-  /* ✅ Responsive card */
   .login-card {
     width: 100%;
     max-width: 100%;
     padding: 24px;
   }
 
-  /* ✅ Improve spacing */
   .login-header h1 {
     font-size: 20px;
   }
@@ -419,19 +395,16 @@
     font-size: 13px;
   }
 
-  /* ✅ Inputs fit better */
   .input-group input {
     padding: 14px 10px;
     font-size: 15px;
   }
 
-  /* ✅ Button fits screen */
   .login-card button {
     padding: 13px;
     font-size: 15px;
   }
 
-  /* ✅ Stack footer nicely */
   .login-footer {
     flex-direction: column;
     gap: 4px;

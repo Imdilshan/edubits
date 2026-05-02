@@ -1,6 +1,5 @@
 const Task = require("../models/Task");
 
-// CREATE TASK
 exports.createTask = async (req, res) => {
   try {
     const { title, subject, type, deadline, priority, status } = req.body;
@@ -38,7 +37,6 @@ exports.createTask = async (req, res) => {
   }
 };
 
-// GET ALL TASKS (paginated, filtered, sorted)
 exports.getTasks = async (req, res) => {
   try {
     const { status, priority, type, sortBy, order, search, page = 1, limit = 50 } = req.query;
@@ -64,7 +62,6 @@ exports.getTasks = async (req, res) => {
   }
 };
 
-// GET SINGLE TASK
 exports.getTaskById = async (req, res) => {
   try {
     const task = await Task.findOne({ _id: req.params.id, userId: req.user.id });
@@ -75,7 +72,6 @@ exports.getTaskById = async (req, res) => {
   }
 };
 
-// UPDATE TASK
 exports.updateTask = async (req, res) => {
   try {
     const task = await Task.findOneAndUpdate(
@@ -94,7 +90,6 @@ exports.updateTask = async (req, res) => {
   }
 };
 
-// DELETE TASK
 exports.deleteTask = async (req, res) => {
   try {
     const task = await Task.findOneAndDelete({ _id: req.params.id, userId: req.user.id });

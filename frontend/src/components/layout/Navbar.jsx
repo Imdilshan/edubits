@@ -23,7 +23,6 @@ export default function Navbar() {
     navigate("/");
   };
 
-  // 🔥 Upload avatar
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -39,7 +38,6 @@ export default function Navbar() {
       return;
     }
 
-    // Preview instantly
     const previewUrl = URL.createObjectURL(file);
     setPreview(previewUrl);
 
@@ -59,11 +57,9 @@ export default function Navbar() {
 
       const data = await res.json();
 
-      // Update user globally
       setUser(data.user);
       localStorage.setItem("user", JSON.stringify(data.user));
 
-      // Remove preview → use real Cloudinary URL
       setPreview(null);
 
     } catch (err) {
@@ -73,7 +69,6 @@ export default function Navbar() {
     }
   };
 
-  // 🔥 Close dropdown on outside click
   useEffect(() => {
     const handleClick = (e) => {
       if (!dropdownRef.current?.contains(e.target)) {
@@ -85,7 +80,6 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
-  // 🔥 Clean preview memory (important)
   useEffect(() => {
     return () => {
       if (preview) URL.revokeObjectURL(preview);
@@ -94,7 +88,6 @@ export default function Navbar() {
 
   const isActive = (path) => location.pathname === path;
 
-  // 🔥 Single source of truth
   const avatarSrc =
     preview ||
     user?.avatar ||
@@ -103,7 +96,6 @@ export default function Navbar() {
   return (
     <nav className="navbar">
 
-      {/* LEFT */}
       <div className="nav-left">
         <Link to="/" className="logo">
           <img src="/images/logo.png" alt="logo" className="logo-icon" />
@@ -111,7 +103,6 @@ export default function Navbar() {
         </Link>
       </div>
 
-      {/* CENTER */}
       <div className="nav-center">
         <Link to="/sgpa" className={`nav-link ${isActive("/sgpa") ? "active" : ""}`}>
           SGPA
@@ -127,10 +118,8 @@ export default function Navbar() {
         </Link>
       </div>
 
-      {/* RIGHT */}
       <div className="nav-right" ref={dropdownRef}>
 
-        {/* Profile Avatar */}
         <div className="profile" onClick={() => setOpen(!open)}>
           <img
             key={avatarSrc}
@@ -140,7 +129,6 @@ export default function Navbar() {
           />
         </div>
 
-        {/* Dropdown */}
         {open && (
           <div className="dropdown">
 

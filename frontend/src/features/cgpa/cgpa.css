@@ -1,15 +1,10 @@
-/* =========================
-   CGPA CARD
-   ========================= */
+
 .cgpa-card {
   max-width: 780px;
   margin: 0 auto;
   border-left: 3px solid #22c55e;
 }
 
-/* =========================
-   ROW LAYOUT
-   ========================= */
 .cgpa-row {
   display: grid;
   grid-template-columns: 2fr 1fr 0.1fr auto;
@@ -18,9 +13,6 @@
   margin-bottom: 16px;
 }
 
-/* =========================
-   INPUT FIX (CRITICAL)
-   ========================= */
 .cgpa-card .input {
   width: 100%;
   min-width: 0;
@@ -36,15 +28,11 @@
   box-sizing: border-box;
 }
 
-/* readonly (auto SGPA rows) */
 .cgpa-card input[readonly] {
   opacity: 0.7;
   border-style: dashed;
 }
 
-/* =========================
-   DELETE BUTTON ALIGN
-   ========================= */
 .cgpa-row .btn-danger {
   height: 42px;
   display: flex;
@@ -52,9 +40,6 @@
   justify-content: center;
 }
 
-/* =========================
-   ACTIONS
-   ========================= */
 .cgpa-actions {
   display: flex;
   gap: 12px;

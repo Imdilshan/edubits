@@ -63,7 +63,6 @@ export default function HomePage() {
   return (
     <div className="hp-everything">
 
-      {/* Hero */}
       <div className="hp-hero">
         <div className="hp-hero-badge">Built for future Engineers.</div>
         <h1>Engineer your<br /><span>Grades.</span></h1>
@@ -80,7 +79,6 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Stats bar */}
       <div className="hp-stats-bar">
         <div className="hp-stat-item">
           <div className="hp-stat-num">4+</div>
@@ -96,7 +94,6 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Why section */}
       <div className="hp-why-section">
         <div className="hp-section-label">Why Edubits?</div>
         <div className="hp-why-grid">
@@ -114,7 +111,6 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Tools */}
       <div className="hp-section" id="tools">
         <div className="hp-section-label">All Tools</div>
         <div className="hp-tools-grid">
@@ -132,7 +128,6 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Footer */}
       <footer className="hp-footer">
         <div className="hp-footer-grid">
           <div className="hp-footer-brand">
@@ -160,7 +155,7 @@ export default function HomePage() {
                   alt="Md Dilshan"
                   className="hp-founder-avatar"
                 />
-                {/* <div className="hp-founder-avatar">MD</div> */}
+  
                 <div className="hp-founder-info">
                   <span className="hp-founder-name">Md Dilshan</span>
                   <span className="hp-founder-role">Founder & Engineer</span>
@@ -175,7 +170,7 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="hp-founder-item">
-                {/* <div className="hp-founder-avatar">IB</div> */}
+              
                  <img
                     src="/images/ishita.jpg"
                     alt="Ishita Bansal"

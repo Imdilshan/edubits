@@ -1,5 +1,5 @@
 
-/* NAVBAR */
+
 .navbar {
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -17,7 +17,6 @@
   z-index: 100;
 }
 
-/* LEFT — LOGO */
 .logo {
   display: flex;
   align-items: center;
@@ -40,16 +39,15 @@
   object-fit: contain;
 }
 
-/* CENTER — NAV */
 .nav-center {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 32px; /* 🔥 fixes spacing */
+  gap: 32px;
 }
 
 .nav-link {
-  display: inline-block; /* 🔥 CRITICAL FIX */
+  display: inline-block;
 
   position: relative;
   padding: 6px 10px;
@@ -67,7 +65,6 @@
   color: var(--text);
 }
 
-/* ACTIVE STATE */
 .nav-link.active {
   color: var(--text);
 }
@@ -95,14 +92,12 @@
   width: 100%;
 }
 
-/* RIGHT — ACTIONS */
 .nav-right {
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
-/* PROFILE */
 .profile {
   width: 34px;
   height: 34px;
@@ -123,7 +118,6 @@
   background: var(--surface-3);
 }
 
-/* LOGOUT */
 .logout-btn {
   display: flex;
   align-items: center;
@@ -150,7 +144,6 @@
   border-color: rgba(239, 68, 68, 0.2);
 }
 
-/* DROPDOWN */
 .dropdown {
   position: absolute;
   top: 60px;
@@ -172,7 +165,6 @@
   z-index: 200;
 }
 
-/* USER INFO */
 .dropdown-user {
   display: flex;
   align-items: center;
@@ -197,14 +189,12 @@
   color: var(--muted);
 }
 
-/* DIVIDER */
 .dropdown-divider {
   height: 1px;
   background: var(--border);
   margin: 6px 0;
 }
 
-/* ITEMS */
 .dropdown-item {
   display: flex;
   align-items: center;
@@ -226,7 +216,6 @@
   background: var(--surface-2);
 }
 
-/* LOGOUT STYLE */
 .dropdown-item.logout:hover {
   color: var(--danger);
   background: rgba(239,68,68,0.08);

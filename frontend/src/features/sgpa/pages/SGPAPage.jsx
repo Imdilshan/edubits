@@ -32,7 +32,6 @@ export default function SGPAPage() {
     document.body.classList.add("pdf-mode");
 
     const opt = {
-      // margin: 0.3,
       margin: [0.5, 0.3, 0.5, 0.3],
 
       filename: "edubits.pdf",
@@ -58,9 +57,6 @@ export default function SGPAPage() {
   return (
     <>
       <div className="top-actions">
-        {/* <button className="btn btn-primary" onClick={toggleTheme}>
-          Toggle Theme
-        </button> */}
 
         <button className="btn btn-danger" onClick={exportPDF}>
           Export PDF

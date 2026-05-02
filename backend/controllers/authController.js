@@ -24,35 +24,27 @@ exports.getMe = async (req, res) => {
 
 const uploadAvatar = async (req, res) => {
   try {
-    // ✅ check file
     if (!req.file) {
       return res.status(400).json({ message: "No file uploaded" });
     }
 
-    // ✅ check user
     const user = await User.findById(req.user.id);
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
 
-    // ✅ save avatar path
-    // user.avatar = `/uploads/${req.file.filename}`;
-    // const BASE_URL = process.env.BASE_URL;
-    // user.avatar = `${BASE_URL}/${req.file.path}`;
     user.avatar = req.file.path;
     await user.save();
 
-    // ✅ send full user back
     res.json({ user });
 
   } catch (err) {
-    console.error("UPLOAD AVATAR ERROR:", err); // 👈 THIS WILL SHOW REAL ERROR
+    console.error("UPLOAD AVATAR ERROR:", err);
     res.status(500).json({ message: "Server error" });
   }
 };
 
 
-// Register
 exports.register = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -72,7 +64,6 @@ exports.register = async (req, res) => {
     const hashed = await bcrypt.hash(password, 10);
     const user = await User.create({ name, email: normalizedEmail, password: hashed });
 
-    // Return token immediately so user doesn't have to log in twice
     const token = generateToken(user._id);
     res.status(201).json({
       token,
@@ -92,7 +83,6 @@ exports.register = async (req, res) => {
   }
 };
 
-// Login
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;

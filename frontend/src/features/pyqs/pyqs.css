@@ -1,8 +1,5 @@
- /* ── PYQs Page (pyq- prefixed) ── */
-
 .pyq-page { min-height: 100vh; }
 
-/* Mode bar */
 .pyq-mode-bar {
   display: flex;
   gap: 3px;
@@ -32,14 +29,12 @@
   border-color: rgba(74,144,226,0.3);
 }
 
-/* Page wrapper */
 .pyq-wrap {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 24px 60px;
 }
 
-/* Header */
 .pyq-header {
   padding: 36px 0 20px;
   display: block;
@@ -80,7 +75,6 @@
   box-shadow: 0 10px 30px rgba(59,130,246,0.35);
 }
 
-/* Stats strip */
 .pyq-stats-strip {
   display: flex;
   gap: 10px;
@@ -99,7 +93,6 @@
 
 .pyq-strip-item strong { color: var(--primary); font-family: 'DM Sans', sans-serif; font-weight: 700; }
 
-/* Toolbar */
 .pyq-toolbar {
   display: flex;
   gap: 9px;
@@ -136,7 +129,6 @@
 }
 .pyq-select:focus { border-color: var(--primary); }
 
-/* Empty state */
 .pyq-state-box {
   text-align: center;
   padding: 64px 20px;
@@ -160,7 +152,6 @@
   color: var(--primary);
 }
 
-/* Card grid */
 .pyq-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
@@ -222,7 +213,6 @@
 .pyq-icon-btn.starred { color: #f7c44f; border-color: rgba(247,196,79,0.3); background: rgba(247,196,79,0.08); }
 .pyq-icon-btn.danger:hover { color: var(--danger); border-color: rgba(239,68,68,0.35); }
 
-/* Tags */
 .pyq-lc-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 
 .pyq-l-tag {
@@ -239,7 +229,6 @@
 .lt-top { background: rgba(34,197,94,0.1);   color: var(--success); }
 .lt-mk  { background: rgba(247,196,79,0.1);  color: #f7c44f; }
 
-/* Answer */
 .pyq-lc-answer {
   background: var(--surface-2);
   border-radius: 8px;
@@ -268,7 +257,6 @@
 .pyq-lc-footer { display: flex; align-items: center; justify-content: space-between; }
 .pyq-lc-date { font-size: 11px; color: var(--muted); }
 
-/* Modal */
 .pyq-modal-overlay {
   position: fixed;
   inset: 0;
@@ -394,7 +382,6 @@
   align-items: center;
 }
 
-/* HOME BUTTON */
 .pyq-btn-home {
   display: inline-flex;
   align-items: center;
@@ -417,7 +404,6 @@
   opacity: 1;
 }
 
-/* BACK BUTTON ROW */
 .pyq-back-row {
   margin: 20px 0 16px;
 }
@@ -427,13 +413,13 @@
   align-items: center;
   gap: 6px;
 
-  padding: 8px 14px;           /* 🔥 reduced from 10px → better fit */
+  padding: 8px 14px;          
   border-radius: 8px;
 
   background: rgba(239, 68, 68, 0.10);
   border: 1px solid rgba(239, 68, 68, 0.25);
 
-  color: #fca5a5;                        /* soft red text */
+  color: #fca5a5;                     
   font-size: 13px;
   font-weight: 500;
 
@@ -449,10 +435,8 @@
 }
 
 .pyq-btn-cancel:active {
-  transform: translateY(0);      /* click feedback */
+  transform: translateY(0);     
 }
-
-
 
 .pyq-header-left {
   display: flex;
@@ -465,12 +449,6 @@
   align-items: center;
   justify-content: space-between;
 }
-
-/* .pyq-header-sub {
-  margin-top: 6px;
-  font-size: 14px;
-  color: var(--muted);
-} */
 
 .pyq-header-sub {
   margin-top: 10px;
@@ -494,7 +472,6 @@
 }
 
 
-/* Testing stuff */
 .playlist-card {
   background: var(--surface);
   border-radius: 12px;
@@ -523,8 +500,6 @@
   color: var(--muted);
 }
 
-
-/* ── Playlist card thumbnail ── */
 .pyq-playlist-card {
   padding: 0;
   overflow: hidden;
@@ -588,7 +563,6 @@
   min-height: 120px;
 }
 
-/* ── YouTube embed ── */
 .pyq-yt-embed-wrap {
   border-radius: 12px;
   overflow: hidden;

@@ -4,7 +4,6 @@ import TaskColumn from "../components/TaskColumn";
 import TaskModal from "../components/TaskModal";
 import Stats from "../components/Stats";
 
-// import "../../../../styles/taskTracker.css";
 import "../../../styles/taskTracker.css";
 
 export default function TaskPage() {
@@ -44,8 +43,6 @@ export default function TaskPage() {
       </div>
 
       <Stats tasks={tasks} />
-
-      {/* FILTERS - wired to state */}
       <div className="filters">
         <input
           className="filter-input"

@@ -55,7 +55,6 @@ export default function Login() {
     <div className="login-container">
       <div className="auth-layout">
 
-        {/* LEFT PREVIEW CARDS */}
         <div className="side left">
           <ToolPreview 
             title="SGPA Calculator" 
@@ -67,11 +66,9 @@ export default function Login() {
           />
         </div>
 
-        {/* CENTER LOGIN CARD */}
         <div className="center">
           <form className="login-card" onSubmit={handleLogin}>
             
-            {/* Branding */}
             <div className="login-header">
               <div className="logo">
                 <img src="/images/logo.png" alt="Edubits Logo" />
@@ -84,7 +81,6 @@ export default function Login() {
               </p>
             </div>
 
-            {/* Inputs */}
             <div className="input-group">
               <input
                 type="email"
@@ -107,7 +103,6 @@ export default function Login() {
               <label>Password</label>
             </div>
 
-            {/* CTA */}
             <button type="submit" disabled={loading}>
 
               {loading ? (
@@ -122,7 +117,6 @@ export default function Login() {
 
 
 
-            {/* Footer */}
             <div className="login-footer">
               <span className="footer-text">New to Edubits?</span>
               <Link to="/register" className="footer-link">
@@ -133,7 +127,6 @@ export default function Login() {
           </form>
         </div>
 
-        {/* RIGHT PREVIEW CARDS */}
         <div className="side right">
           <ToolPreview 
             title="Task Tracker" 

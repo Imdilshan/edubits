@@ -4,13 +4,7 @@ body {
   font-family: 'DM Sans', sans-serif;
   margin: 0;
 }
-/* ============================= */
-/* GLOBAL INPUT COLOR FIX       */
-/* -webkit-text-fill-color is   */
-/* what Chrome/Safari actually  */
-/* uses — color alone is not    */
-/* enough on dark backgrounds   */
-/* ============================= */
+
 input, select, textarea {
   color: #eef2ff !important;
   -webkit-text-fill-color: #eef2ff !important;
@@ -721,14 +715,8 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-bottom: 16px;
 }
 
-/* Delete Starts */
-
-/* =========================
-   GLOBAL MOBILE FIX (IMPROVED)
-   ========================= */
 @media (max-width: 768px) {
 
-  /* 🔹 GENERAL */
   body {
     font-size: 15px;
     overflow-x: hidden;
@@ -738,9 +726,6 @@ input[type="number"]::-webkit-outer-spin-button {
     padding: 12px;
   }
 
-  /* =========================
-     NAVBAR
-     ========================= */
   .navbar {
     padding: 10px 12px;
     gap: 8px;
@@ -764,9 +749,6 @@ input[type="number"]::-webkit-outer-spin-button {
     border-radius: 10px;
   }
 
-  /* =========================
-     HEADER
-     ========================= */
   .page-header {
     flex-direction: column;
     align-items: flex-start;
@@ -777,17 +759,11 @@ input[type="number"]::-webkit-outer-spin-button {
     font-size: 20px;
   }
 
-  /* =========================
-     STATS (2 per row)
-     ========================= */
   .stats-row {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
 
-  /* =========================
-     FILTERS
-     ========================= */
   .filters {
     grid-template-columns: 1fr;
     gap: 10px;
@@ -798,26 +774,17 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 100%;
   }
 
-  /* =========================
-     KANBAN (STACK)
-     ========================= */
   .kanban {
     grid-template-columns: 1fr;
     gap: 12px;
   }
 
-  /* =========================
-     SGPA / CGPA
-     ========================= */
   .sgpa-row,
   .cgpa-row {
     grid-template-columns: 1fr;
     gap: 10px;
   }
 
-  /* =========================
-     BUTTONS
-     ========================= */
   .sgpa-actions,
   .cgpa-actions {
     flex-direction: column;
@@ -831,42 +798,29 @@ input[type="number"]::-webkit-outer-spin-button {
     font-size: 14px;
   }
 
-  /* 👇 Better tap feel */
   .btn:active {
     transform: scale(0.97);
   }
 
-  /* =========================
-     TOP ACTION BUTTONS
-     ========================= */
   .top-actions {
     flex-direction: column;
     gap: 8px;
     margin-bottom: 12px;
   }
 
-  /* =========================
-     INPUTS (IMPORTANT UX)
-     ========================= */
   .page input,
   .page select {
     width: 100%;
     padding: 12px;
-    font-size: 16px; /* prevents zoom on mobile */
+    font-size: 16px;
     border-radius: 10px;
   }
 
-  /* =========================
-     CARDS
-     ========================= */
   .card {
     padding: 14px;
     border-radius: 14px;
   }
 
-  /* =========================
-     MODALS
-     ========================= */
   .modal,
   .task-modal {
     margin: 12px;
@@ -874,9 +828,6 @@ input[type="number"]::-webkit-outer-spin-button {
     border-radius: 16px;
   }
 
-  /* =========================
-     TEXT ADJUSTMENTS
-     ========================= */
   h1 {
     font-size: 22px;
   }

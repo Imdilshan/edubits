@@ -11,7 +11,6 @@ import SGPAPage          from "../features/sgpa/pages/SGPAPage";
 import InternalMarksPage from "../features/internalMarks/InternalMarksPage";
 import PYQsPage          from "../features/pyqs/PYQsPage";
 
-// Navbar for public pages (homepage only — no protected links)
 function PublicNavbar() {
   return (
     <nav style={{
@@ -68,7 +67,6 @@ function AppInner() {
   const location  = useLocation();
   const isHome    = location.pathname === "/";
 
-  // Logged-in routes
   if (token) {
     return (
       <div>
@@ -88,8 +86,7 @@ function AppInner() {
       </div>
     );
   }
-
-  // Public routes — homepage is accessible, protected pages redirect to login
+  
   return (
     <Routes>
       <Route path="/" element={

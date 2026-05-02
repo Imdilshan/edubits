@@ -14,9 +14,6 @@
     -4px 0 20px rgba(59,130,246,0.5);
 }
 
-/* =========================
-   ROW LAYOUT (MAIN FIX)
-   ========================= */
 .sgpa-row {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr auto;
@@ -25,9 +22,6 @@
   margin-bottom: 16px;
 }
 
-/* =========================
-   INPUTS
-   ========================= */
 .sgpa-card .input,
 .sgpa-row select {
   width: 100%;
@@ -44,7 +38,6 @@
   box-sizing: border-box;
 }
 
-/* focus */
 .sgpa-card .input:focus,
 .sgpa-row select:focus {
   border-color: var(--primary);
@@ -52,9 +45,6 @@
   box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
 }
 
-/* =========================
-   SELECT STYLING
-   ========================= */
 .sgpa-row select {
   appearance: none;
   -webkit-appearance: none;
@@ -68,9 +58,6 @@
   padding-right: 36px;
 }
 
-/* =========================
-   NUMBER INPUT FIX (FIREFOX)
-   ========================= */
 .sgpa-card input[type="number"] {
   appearance: textfield;
   -moz-appearance: textfield;
@@ -82,9 +69,6 @@
   margin: 0;
 }
 
-/* =========================
-   ACTION BUTTONS
-   ========================= */
 .sgpa-actions {
   display: flex;
   gap: 12px;
@@ -92,9 +76,6 @@
   flex-wrap: wrap;
 }
 
-/* =========================
-   DELETE BUTTON ALIGN
-   ========================= */
 .sgpa-row .btn-danger {
   height: 42px;
   display: flex;
@@ -111,11 +92,6 @@
   border-left: 3px solid #3b82f6;
 }
 
-/* =========================
-   MATCH INPUT FIELD STYLE
-   ========================= */
-
-/* Control (main box) */
 .react-select__control {
   background: rgba(255,255,255,0.04) !important;
   border: 1px solid rgba(255,255,255,0.08) !important;
@@ -128,38 +104,31 @@
   box-shadow: none !important;
 }
 
-/* Hover = same as input */
 .react-select__control:hover {
   border-color: rgba(255,255,255,0.12) !important;
 }
 
-/* Focus (same glow as input) */
 .react-select__control--is-focused {
   border-color: #3b82f6 !important;
   box-shadow: 0 0 0 2px rgba(59,130,246,0.2) !important;
 }
 
-/* Text */
 .react-select__single-value {
   color: var(--text) !important;
 }
 
-/* Placeholder */
 .react-select__placeholder {
   color: #888 !important;
 }
 
-/* Dropdown arrow */
 .react-select__indicator {
   color: #aaa !important;
 }
 
-/* Remove separator line */
 .react-select__indicator-separator {
   display: none;
 }
 
-/* Menu */
 .react-select__menu {
   background: #1a1d24 !important;
   border-radius: 12px;
@@ -167,19 +136,16 @@
   margin-top: 6px;
 }
 
-/* Options */
 .react-select__option {
   background: #1a1d24 !important;
   color: #fff !important;
   padding: 10px 14px;
 }
 
-/* Hover */
 .react-select__option--is-focused {
   background: #2a2f3a !important;
 }
 
-/* Selected */
 .react-select__option--is-selected {
   background: #3b82f6 !important;
 }

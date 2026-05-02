@@ -14,21 +14,6 @@ const STARS_KEY   = "edubits_pyq_stars";
 
 const emptyForm = { question: "", subject: "", year: "", topic: "", marks: "", answer: "" };
 
-// ─── Class Bank Component ─────────────────────────────────────────
-//
-// HOW TO ADD YOUR OWN PAPERS:
-//
-// 1. Upload your PDF/image to Google Drive
-//    → Right-click → "Share" → "Anyone with the link can view"
-//    → Copy the link. It looks like: https://drive.google.com/file/d/FILE_ID/view
-//    → Set type: "pdf" and url: "https://drive.google.com/file/d/FILE_ID/preview"
-//
-// 2. Or upload an image (JPG/PNG) anywhere (Imgur, GitHub, etc.)
-//    → Set type: "image" and url: the direct image URL
-//
-// 3. Add an entry to PAPER_SOURCES below and redeploy.
-//
-
 const PAPER_SOURCES=[
   {
     year: "1st Year",
@@ -469,17 +454,6 @@ const PAPER_SOURCES=[
   }
 ]
 
-
-// ─── Playlist Data ────────────────────────────────────────────────
-//
-// HOW TO ADD PLAYLISTS:
-// 1. Go to the YouTube playlist page.
-// 2. Copy the playlist ID from the URL: ?list=PLxxxxxxxx
-//    → Set playlistId: "PLxxxxxxxx"
-// 3. Open any video in the playlist, copy its video ID from the URL (?v=VIDEO_ID)
-//    → Set thumbVideoId: "VIDEO_ID"  (used for the thumbnail image)
-// 4. Clicking the card opens the full playlist on YouTube in a new tab.
-//
 const PLAYLIST_SOURCES = [
   {
     year: "1st Year",
@@ -592,7 +566,6 @@ const PLAYLIST_SOURCES = [
   },
 ];
 
-// ─── Playlists Component ──────────────────────────────────────────
 function Playlists() {
   const [selectedYear, setSelectedYear] = useState(null);
   const [selectedSubject, setSelectedSubject] = useState(null);
@@ -639,7 +612,6 @@ function Playlists() {
         </div>
       </div>
 
-      {/* LEVEL 1 — YEARS */}
       {!selectedYear && (
         <div className="pyq-grid">
           {PLAYLIST_SOURCES.map((y) => (
@@ -658,7 +630,6 @@ function Playlists() {
         </div>
       )}
 
-      {/* LEVEL 2 — SUBJECTS */}
       {selectedYear && !selectedSubject && (
         <>
           <div className="pyq-back-row">
@@ -684,7 +655,6 @@ function Playlists() {
         </>
       )}
 
-      {/* LEVEL 3 — PLAYLIST CARDS (click → opens YouTube) */}
       {selectedSubject && (
         <>
           <div className="pyq-back-row">
@@ -792,7 +762,6 @@ function ClassBank() {
       </div>
     </div>
 
-      {/* 🟢 LEVEL 1 — YEARS */}
       {!selectedYear && (
         <div className="pyq-grid">
           {PAPER_SOURCES.map((y) => (
@@ -808,7 +777,6 @@ function ClassBank() {
         </div>
       )}
 
-      {/* 🟡 LEVEL 2 — SUBJECTS */}
       {selectedYear && !selectedSubject && (
         <>
         <div className="pyq-back-row">
@@ -833,7 +801,6 @@ function ClassBank() {
         </>
       )}
 
-      {/* 🔵 LEVEL 3 — PAPERS */}
       {selectedSubject && !selectedPaper && (
         <>
           <div className="pyq-back-row">
@@ -865,8 +832,6 @@ function ClassBank() {
           </div>
         </>
       )}
-
-      {/* LEVEL 4 — VIEW PAPER */}
 
       {selectedPaper && selectedPaper.type === "pdf" && (
         <>
@@ -969,11 +934,9 @@ export default function PYQsPage() {
   const [form, setForm]         = useState(emptyForm);
   const [openAnswers, setOpenAnswers] = useState({});
 
-  // persist
   useEffect(() => { localStorage.setItem(STORAGE_KEY, JSON.stringify(pyqs)); }, [pyqs]);
   useEffect(() => { localStorage.setItem(STARS_KEY, JSON.stringify(stars)); }, [stars]);
 
-  // ── derived ─────────────────────────────────────────────────────
   const subjects = [...new Set(pyqs.map(p => p.subject).filter(Boolean))];
   const years    = [...new Set(pyqs.map(p => p.year).filter(Boolean))].sort().reverse();
 
@@ -987,7 +950,6 @@ export default function PYQsPage() {
     })
     .sort((a, b) => (b.starred ? 1 : 0) - (a.starred ? 1 : 0) || b.createdAt - a.createdAt);
 
-  // ── actions ─────────────────────────────────────────────────────
   const toggleStar = (id) => {
     setPyqs(prev => prev.map(p => p.id === id ? { ...p, starred: !p.starred } : p));
   };
@@ -1014,11 +976,9 @@ export default function PYQsPage() {
     setShowModal(false);
   };
 
-  // ── render ──────────────────────────────────────────────────────
   return (
     <div className="pyq-page">
 
-      {/* Mode tabs — inside the page (Navbar handles top nav) */}
       <div className="pyq-mode-bar">
         <button
           className={`pyq-mode-tab ${mode === "bank" ? "active" : ""}`}
@@ -1051,13 +1011,8 @@ export default function PYQsPage() {
         </button>
       </div>
 
-      {/* ── CLASS BANK VIEW ─────────────────────────────────────── */}
       {mode === "bank" && <ClassBank />}
-
-      {/* ── PLAYLISTS VIEW ───────────────────────────────────────── */}
       {mode === "playlists" && <Playlists />}
-
-      {/* ── MY COLLECTION VIEW ──────────────────────────────────── */}
       {mode === "mine" && (
         <div className="pyq-wrap">
           <div className="pyq-header">
@@ -1071,7 +1026,6 @@ export default function PYQsPage() {
             </button>
           </div>
 
-          {/* Stats */}
           <div className="pyq-stats-strip">
             <div className="pyq-strip-item">Total: <strong>{pyqs.length}</strong></div>
             <div className="pyq-strip-item">Showing: <strong>{filtered.length}</strong></div>
@@ -1079,7 +1033,6 @@ export default function PYQsPage() {
             <div className="pyq-strip-item">Starred: <strong>{pyqs.filter(p => p.starred).length}</strong></div>
           </div>
 
-          {/* Toolbar */}
           <div className="pyq-toolbar">
             <div className="search-box">
               <Search size={16} />
@@ -1104,7 +1057,6 @@ export default function PYQsPage() {
             </select>
           </div>
 
-          {/* Cards */}
           {filtered.length === 0 ? (
             <div className="pyq-state-box">
               <div className="pyq-s-icon"><Folder size={16} /></div>
@@ -1161,7 +1113,6 @@ export default function PYQsPage() {
         </div>
       )}
 
-      {/* ── Add Modal ────────────────────────────────────────────── */}
       {showModal && (
         <div className="pyq-modal-overlay" onClick={e => { if (e.target === e.currentTarget) setShowModal(false); }}>
           <div className="pyq-modal">

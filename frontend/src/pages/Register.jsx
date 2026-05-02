@@ -62,7 +62,6 @@ export default function Register() {
   <div className="login-container">
     <div className="auth-layout">
 
-      {/* LEFT SIDE */}
       <div className="side left">
         <ToolPreview 
           title="SGPA Calculator" 
@@ -74,7 +73,6 @@ export default function Register() {
         />
       </div>
 
-      {/* CENTER */}
       <div className="center">
         <form className="login-card" onSubmit={handleRegister}>
           
@@ -121,10 +119,6 @@ export default function Register() {
             <label>Password</label>
           </div>
 
-          {/* <button type="submit" disabled={loading}>
-            {loading ? "Creating account..." : "Register"}
-          </button> */}
-
           <button type="submit" disabled={loading}>
             {loading ? (
               <span className="btn-loading">
@@ -146,7 +140,6 @@ export default function Register() {
         </form>
       </div>
 
-      {/* RIGHT SIDE */}
       <div className="side right">
         <ToolPreview 
           title="Task Tracker" 

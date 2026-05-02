@@ -1,8 +1,4 @@
-/* ============================= */
-/* INTERNAL MARKS               */
-/* Input styles moved to JSX    */
-/* inline styles for reliability*/
-/* ============================= */
+
 
 .internal-container {
   max-width: 1050px;
@@ -19,7 +15,6 @@
   margin-bottom: 20px;
 }
 
-/* TABS */
 .internal-tabs {
   display: flex;
   gap: 12px;
@@ -43,7 +38,6 @@
 .tab-btn.theory.active    { background: var(--primary); color: #042026; }
 .tab-btn.practical.active { background: var(--success); color: #042026; }
 
-/* CARD */
 .internal-card {
   background: var(--surface);
   border-radius: var(--radius);
@@ -52,7 +46,6 @@
   overflow: hidden;
 }
 
-/* MOBILE */
 @media (max-width: 600px) {
   .internal-tabs { flex-direction: column; gap: 8px; }
 }

@@ -70,7 +70,7 @@ export default function CGPA({ sgpaList, removeSGPA }) {
                 : `manual-${sem.originalIndex}`
             }
           >
-            {/* SGPA */}
+
             <input
               className="input"
               type="number"
@@ -89,7 +89,7 @@ export default function CGPA({ sgpaList, removeSGPA }) {
               }
             />
 
-            {/* Credits */}
+
             <input
               className="input"
               type="number"
@@ -108,10 +108,8 @@ export default function CGPA({ sgpaList, removeSGPA }) {
               }
             />
 
-            {/* Ghost column */}
             <div className="ghost-field"></div>
 
-            {/* Delete */}
             <button
               className="btn btn-danger"
               onClick={() => {
