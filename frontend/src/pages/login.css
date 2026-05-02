@@ -63,12 +63,6 @@
   color: #3b82f6;
 }
 
-.logo-text {
-  font-size: 1px;
-  font-weight: 700;
-  color: #3b82f6;
-}
-
 .input-group {
   position: relative;
   margin-bottom: 23px;
@@ -87,6 +81,20 @@
   color: #e2e8f0;
   outline: none;
   transition: 0.3s;
+}
+
+.input-group input:-webkit-autofill,
+.input-group input:-webkit-autofill:hover,
+.input-group input:-webkit-autofill:focus,
+.input-group input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px var(--surface) inset !important;
+  box-shadow: 0 0 0 1000px var(--surface) inset !important;
+
+  -webkit-text-fill-color: #e2e8f0 !important;
+  caret-color: #e2e8f0 !important;
+
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .input-group input:focus {
