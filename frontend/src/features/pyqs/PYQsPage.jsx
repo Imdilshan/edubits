@@ -542,6 +542,13 @@ const PLAYLIST_SOURCES = [
         subject: "DAA",
         playlists: [
           {
+            id: "daa-p1",
+            title: "DAA Unit 1",
+            channel: "Gate Smashers",
+            playlistId: "PLhx1hByyAqsZ3ZMkKbN9FcSUYad1ShZ3G",
+            thumbVideoId: "0IAPZzGSbME",
+          },
+          {
             id: "daa-p2",
             title: "DAA Unit 2",
             channel: "Gate Smashers",
