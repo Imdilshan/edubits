@@ -548,6 +548,13 @@ const PLAYLIST_SOURCES = [
             playlistId: "PLhx1hByyAqsbCKEJu0ntERx33fTeNigw2",
             thumbVideoId: "I8w2XN0w-fQ",
           },
+          {
+            id: "daa-p3",
+            title: "DAA Unit 3",
+            channel: "Striver",
+            playlistId: "PLhx1hByyAqsaJcVgBApIKLaKucaRpW3Om",
+            thumbVideoId: "M3_pLsDdeuU",
+          },
         ],
       },
       {
