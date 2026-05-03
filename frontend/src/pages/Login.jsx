@@ -120,7 +120,7 @@ export default function Login() {
             <div className="login-footer">
               <span className="footer-text">New to Edubits?</span>
               <Link to="/register" className="footer-link">
-                Create account{" "}
+                Register{" "}
                 <ArrowRight size={16} className="arrow-icon" />
               </Link>
             </div>
