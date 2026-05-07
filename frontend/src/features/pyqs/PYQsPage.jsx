@@ -255,6 +255,12 @@ const PAPER_SOURCES=[
         subject: "Operating System",
         papers: [
           {
+            id: "os-0",
+            title: "Important Questions",
+            type: "pdf",
+            url: "https://drive.google.com/file/d/1BDOxxGa8fSZqkXKLhtGEqrw4hl4QclIa/preview"
+          },
+          {
             id: "os-2022",
             title: "Practice 0",
             type: "pdf",
@@ -508,6 +514,13 @@ const PLAYLIST_SOURCES = [
             channel: "Gate Smashers",
             playlistId: "PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p",
             thumbVideoId: "WJ-UaAaumNA",
+          },
+          {
+            id: "os-og",
+            title: "OS One Shot",
+            channel: "5 Minutes Engineering",
+            playlistId: "PLhx1hByyAqsYn0JMNNPN-uFiLb0XdZtSG",
+            thumbVideoId: "A4G0hOI6XyQ",
           },
         ],
       },

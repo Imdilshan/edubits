@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
 import { BrowserRouter } from "react-router-dom";
+import { ClerkProvider } from "@clerk/react";
 
 import { AuthProvider } from "./context/AuthContext";
 import { ToastProvider } from "./context/ToastContext";
@@ -15,17 +16,16 @@ import "./styles/global.css";
 import "./styles/taskTracker.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  
-  <BrowserRouter>
-    <AuthProvider>
-      <ToastProvider>
-        <>
-          <App />
-          <Analytics />
-          <SpeedInsights />
-        </>
-      </ToastProvider>
-    </AuthProvider>
-  </BrowserRouter>
-    
+
+    <BrowserRouter>
+      <AuthProvider>
+        <ToastProvider>
+          <>
+            <App />
+            <Analytics />
+            <SpeedInsights />
+          </>
+        </ToastProvider>
+      </AuthProvider>
+    </BrowserRouter>
 );
