@@ -149,3 +149,43 @@
 .react-select__option--is-selected {
   background: #3b82f6 !important;
 }
+
+@media (max-width: 600px) {
+
+  .sgpa-card {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  /* Each subject row stacks to 2 columns: name spans full, credit+grade side by side */
+  .sgpa-row {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "name  name"
+      "credit grade"
+      "delete delete";
+    gap: 8px;
+  }
+
+  .sgpa-row > *:nth-child(1) { grid-area: name; }
+  .sgpa-row > *:nth-child(2) { grid-area: credit; }
+  .sgpa-row > *:nth-child(3) { grid-area: grade; }
+  .sgpa-row > *:nth-child(4) { grid-area: delete; }
+
+  .sgpa-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .sgpa-actions .btn {
+    flex: 1;
+    min-width: 100px;
+  }
+
+  /* CGPA row */
+  .cgpa-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+}

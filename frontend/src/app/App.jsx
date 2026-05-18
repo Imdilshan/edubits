@@ -78,7 +78,8 @@ function AppInner() {
     return (
       <div>
         <Navbar />
-        <div className={isHome ? "" : "page"}>
+        {/* <div className={isHome ? "" : "page"}> */}
+          <div className={`app-content ${isHome ? "" : "page"}`}>
           <Routes>
             <Route path="/"         element={<HomePage />} />
             <Route path="/tasks"    element={<TaskPage />} />

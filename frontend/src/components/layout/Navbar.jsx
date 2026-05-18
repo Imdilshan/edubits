@@ -1,8 +1,21 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-import { LogOut, Pencil, Image } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import "./navbar.css";
+
+import {
+  LogOut,
+  Pencil,
+  Image,
+  Calculator,
+  ClipboardList,
+  CheckSquare,
+  BookOpen,
+  Brain,
+} from "lucide-react";
+import {
+  House,
+} from "lucide-react";
 
 export default function Navbar() {
   const { user, setUser, logout, token } = useAuth();
@@ -103,7 +116,8 @@ export default function Navbar() {
         </Link>
       </div>
 
-      <div className="nav-center">
+      {/* <div className="nav-center"> */}
+      <div className="nav-center desktop-nav">
         <Link to="/sgpa" className={`nav-link ${isActive("/sgpa") ? "active" : ""}`}>
           SGPA
         </Link>
@@ -173,6 +187,41 @@ export default function Navbar() {
 
           </div>
         )}
+      </div>
+
+      {/* Mobile Bottom Navigation */}
+      <div className="mobile-bottom-nav">
+
+        <Link to="/sgpa" className={`mobile-nav-item ${isActive("/sgpa") ? "active" : ""}`}>
+          <Calculator size={20} />
+          <span>SGPA</span>
+        </Link>
+
+        <Link to="/internal" className={`mobile-nav-item ${isActive("/internal") ? "active" : ""}`}>
+          <ClipboardList size={20} />
+          <span>Internals</span>
+        </Link>
+
+        <Link to="/tasks" className={`mobile-nav-item ${isActive("/tasks") ? "active" : ""}`}>
+          <CheckSquare size={20} />
+          <span>Tasks</span>
+        </Link>
+
+        <Link to="/pyqs" className={`mobile-nav-item ${isActive("/pyqs") ? "active" : ""}`}>
+          <BookOpen size={20} />
+          <span>Resources</span>
+        </Link>
+
+        <Link
+          to="/quizzes"
+          className={`mobile-nav-item ${
+            location.pathname.startsWith("/quizzes") ? "active" : ""
+          }`}
+        >
+          <Brain size={20} />
+          <span>Quiz</span>
+        </Link>
+
       </div>
     </nav>
   );

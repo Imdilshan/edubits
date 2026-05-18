@@ -715,7 +715,11 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-bottom: 16px;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
+
+  .app-content {
+    padding-bottom: 90px;
+  }
 
   body {
     font-size: 15px;
@@ -840,4 +844,149 @@ input[type="number"]::-webkit-outer-spin-button {
     font-size: 14px;
   }
 
+} */
+
+@media (max-width: 768px) {
+
+  body {
+    font-size: 15px;
+    overflow-x: hidden;
+  }
+
+  /* ── Layout ── */
+  .container {
+    padding: 12px;
+  }
+
+  .page {
+    padding: 12px 14px;
+  }
+
+  /* ── Page header ── */
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 20px 16px 12px; /* was 40px top */
+  }
+
+  .page-header h1 {
+    font-size: 20px;
+  }
+
+  /* ── Task stats row: 2x2 grid ── */
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0 14px;
+  }
+
+  .stat-card {
+    padding: 14px;        /* was 18px */
+  }
+
+  .stat-num {
+    font-size: 18px;
+  }
+
+  /* ── Task filters: single column ── */
+  .filters {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 0 14px;
+  }
+
+  .filters input,
+  .filters select {
+    width: 100%;
+  }
+
+  /* ── Task kanban: single column ── */
+  .kanban {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0 14px;
+    margin-top: 14px;
+  }
+
+  /* ── SGPA ── */
+  .sgpa-row,
+  .cgpa-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .sgpa-actions,
+  .cgpa-actions {
+    flex-direction: row; /* keep as row, wrap */
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .sgpa-actions .btn,
+  .cgpa-actions .btn {
+    flex: 1;
+    min-width: 100px;
+  }
+
+  /* ── Buttons ── */
+  .btn {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .btn:active {
+    transform: scale(0.97);
+  }
+
+  .top-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding: 0 14px;
+  }
+
+  /* ── Forms ── */
+  .page input,
+  .page select {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 16px; /* prevents iOS zoom */
+    border-radius: 10px;
+  }
+
+  /* ── Cards ── */
+  .card {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  /* ── Task modal ── */
+  .modal,
+  .task-modal {
+    margin: 12px;
+    width: auto;
+    max-width: calc(100vw - 24px);
+    border-radius: 16px;
+  }
+
+  /* ── Typography ── */
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .main-title {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+  }
+
+  /* ── App container (SGPA page) ── */
+  .app-container {
+    padding: 12px 14px;
+  }
 }

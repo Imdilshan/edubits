@@ -456,7 +456,7 @@
 
 }
 
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
   .hp-footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
 }
 
@@ -627,4 +627,62 @@
 .footer-link:hover {
   color: #25D366;
 }
+ */
 
+ @media (max-width: 900px) {
+  .hp-footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+}
+
+@media (max-width: 600px) {
+
+  /* Hero — reduce excessive top padding */
+  .hp-hero {
+    padding: 32px 16px 28px; /* was 48px 20px 40px */
+  }
+
+  .hp-hero h1 {
+    font-size: clamp(1.8rem, 8vw, 2.6rem); /* was 2.6rem minimum */
+  }
+
+  .hp-hero-cta {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hp-hero-cta a,
+  .hp-hero-cta button {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Stats bar — single column */
+  .hp-stats-bar {
+    grid-template-columns: repeat(2, 1fr); /* was 1fr — 2 cols better */
+    gap: 10px;
+    margin: 0 0 24px;
+    padding: 0 16px;
+  }
+
+  .hp-stat-item {
+    padding: 14px 12px; /* was 20px 24px */
+  }
+
+  .hp-stat-num {
+    font-size: 1.4rem; /* was 1.8rem */
+  }
+
+  /* Tools grid — single column */
+  .hp-tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hp-tool-card {
+    padding: 20px; /* was 28px */
+    gap: 10px;
+  }
+
+  /* Footer */
+  .hp-footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hp-footer { padding: 32px 16px 0; }
+  .hp-footer-bottom { flex-direction: column; align-items: flex-start; }
+}
