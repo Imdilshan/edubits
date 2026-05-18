@@ -1,0 +1,216 @@
+[
+  {
+    "text": "What is the time complexity of Binary Search?",
+    "options": ["O(n)", "O(log n)", "O(n log n)", "O(1)"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which notation represents worst-case complexity?",
+    "options": ["Ω", "Θ", "O", "None"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Merge sort follows which technique?",
+    "options": ["Greedy", "Divide & Conquer", "Dynamic Programming", "Backtracking"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which sorting algorithm is unstable?",
+    "options": ["Merge Sort", "Bubble Sort", "Quick Sort", "Insertion Sort"],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Average case complexity of Quick Sort?",
+    "options": ["O(n²)", "O(n log n)", "O(log n)", "O(n)"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which data structure is used in BFS?",
+    "options": ["Stack", "Queue", "Heap", "Tree"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "DFS traversal uses?",
+    "options": ["Queue", "Stack", "Array", "Graph"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which algorithm finds shortest path?",
+    "options": ["Prim", "Dijkstra", "Kruskal", "DFS"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which is a greedy algorithm?",
+    "options": ["Merge Sort", "Dijkstra", "DFS", "BFS"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which algorithm finds MST?",
+    "options": ["Prim", "DFS", "Binary Search", "Merge"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+
+  {
+    "text": "Counting sort complexity is?",
+    "options": ["O(n)", "O(n+k)", "O(log n)", "O(n²)"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Radix sort is?",
+    "options": ["Comparison sort", "Non-comparison sort", "Greedy", "DP"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Heap is a type of?",
+    "options": ["Tree", "Graph", "Array", "Stack"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "AVL tree is?",
+    "options": ["Balanced tree", "Unbalanced tree", "Heap", "Graph"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "BST property is?",
+    "options": ["Left > Right", "Left < Right", "Equal", "None"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+
+  {
+    "text": "0/1 Knapsack uses?",
+    "options": ["Greedy", "DP", "DFS", "BFS"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "LCS stands for?",
+    "options": ["Longest Common Subsequence", "Least Common Substring", "Large Common Set", "None"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Matrix chain multiplication uses?",
+    "options": ["Greedy", "DP", "DFS", "Sorting"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Travelling Salesman is?",
+    "options": ["P", "NP", "NP-hard", "None"],
+    "correctAnswer": 2,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Topological sorting is for?",
+    "options": ["Tree", "Graph", "DAG", "Heap"],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+
+  {
+    "text": "Bellman-Ford handles?",
+    "options": ["Positive weights", "Negative weights", "Only trees", "None"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Floyd Warshall is used for?",
+    "options": ["Single source", "All pair shortest path", "Sorting", "Searching"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Prim algorithm uses?",
+    "options": ["Heap", "Queue", "Stack", "Graph"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Kruskal algorithm uses?",
+    "options": ["Union-Find", "Stack", "Queue", "Array"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Recurrence relation solves?",
+    "options": ["Sorting", "Time complexity", "Searching", "Trees"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+
+  {
+    "text": "Backtracking is used in?",
+    "options": ["Sorting", "N-Queen", "Searching", "Heap"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Branch and Bound is used for?",
+    "options": ["Optimization", "Sorting", "Searching", "Graph"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Huffman coding is?",
+    "options": ["Sorting", "Compression", "Searching", "Graph"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Hashing is used for?",
+    "options": ["Searching", "Sorting", "Graph", "Tree"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Graph traversal includes?",
+    "options": ["BFS & DFS", "Sorting", "Searching", "DP"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  }
+]

@@ -4,6 +4,8 @@ import TaskColumn from "../components/TaskColumn";
 import TaskModal from "../components/TaskModal";
 import Stats from "../components/Stats";
 
+import { CheckSquare } from "lucide-react";
+
 import "../../../styles/taskTracker.css";
 
 export default function TaskPage() {
@@ -30,7 +32,32 @@ export default function TaskPage() {
     <div className="tasks-page">
       <div className="page-header">
         <div>
-          <h1>Task Tracker</h1>
+          <div classname="Task-Title">
+    
+            <h1
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                lineHeight: 1,
+                color: "#22c55e",
+
+                fontFamily: "'DM Sans', sans-serif",
+                fontWeight: 800,
+                letterSpacing: "-0.02em",
+              }}
+            >
+              <CheckSquare
+                size={30}
+                strokeWidth={2.3}
+                style={{
+                  color: "#22c55e",
+                }}
+              />
+
+              Task Tracker
+            </h1>
+          </div>
           <p className="hero-tagline">
             <span className="highlight-red">Plan smarter.</span>{" "}
             <span className="highlight-yellow">Track faster.</span>{" "}
@@ -58,6 +85,11 @@ export default function TaskPage() {
           <option value="">All Types</option>
           <option value="assignment">Assignment</option>
           <option value="project">Project</option>
+          <option value="case-study">Case Study</option>
+          <option value="ppt">PPT Presentation</option>
+          <option value="worksheet">Worksheet Submission</option>
+          <option value="quiz">Quiz</option>
+          <option value="surprise-test">Surprise Test</option>
           <option value="other">Other</option>
         </select>
         <select

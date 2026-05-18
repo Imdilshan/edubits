@@ -71,7 +71,7 @@ export default function TaskModal({
         <div className="task-form-group">
           <label className="task-form-label">TITLE *</label>
           <input
-            className=""
+            className="task-form-input"
             placeholder="e.g. Submit DSA assignment"
             value={form.title}
             onChange={(e) => handleChange("title", e.target.value)}
@@ -82,7 +82,7 @@ export default function TaskModal({
           <div className="task-form-group">
             <label className="task-form-label">SUBJECT</label>
             <input
-              className=""
+              className="task-form-input"
               placeholder="e.g. Programming"
               value={form.subject}
               onChange={(e) => handleChange("subject", e.target.value)}
@@ -92,12 +92,17 @@ export default function TaskModal({
           <div className="task-form-group">
             <label className="task-form-label">TYPE</label>
             <select
-              className=""
+              className="task-form-select"
               value={form.type}
               onChange={(e) => handleChange("type", e.target.value)}
             >
               <option value="assignment">Assignment</option>
               <option value="project">Project</option>
+              <option value="case-study">Case Study</option>
+              <option value="ppt">PPT Presentation</option>
+              <option value="worksheet">Worksheet Submission</option>
+              <option value="quiz">Quiz</option>
+              <option value="surprise-test">Surprise Test</option>
               <option value="other">Other</option>
             </select>
           </div>
@@ -108,7 +113,7 @@ export default function TaskModal({
             <label className="task-form-label">DEADLINE</label>
             <input
               type="date"
-              className="input"
+              className="task-form-input"
               value={form.deadline}
               onChange={(e) => handleChange("deadline", e.target.value)}
             />
@@ -117,7 +122,7 @@ export default function TaskModal({
           <div className="task-form-group">
             <label className="task-form-label">PRIORITY</label>
             <select
-              className=""
+              className="task-form-select"
               value={form.priority}
               onChange={(e) => handleChange("priority", e.target.value)}
             >
@@ -131,7 +136,7 @@ export default function TaskModal({
         <div className="task-form-group">
           <label className="task-form-label">STATUS</label>
           <select
-            className=""
+            className="task-form-select"
             value={form.status}
             onChange={(e) => handleChange("status", e.target.value)}
           >

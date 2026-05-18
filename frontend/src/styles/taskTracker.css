@@ -1,4 +1,6 @@
-
+.Task-Title{
+    color: var(--primary);
+}
 
 .task-modal-overlay {
   position: fixed;
@@ -235,6 +237,23 @@
 .task-icon-btn.delete:hover {
   background: rgba(239,68,68,0.2);
   color: #ef4444;
+}
+
+.task-form-input,
+.task-form-select {
+  width: 100%;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  color: var(--text);
+  font-size: 14px;
+  font-family: 'DM Sans', sans-serif;
+}
+.task-form-input:focus,
+.task-form-select:focus {
+  outline: none;
+  border-color: var(--primary);
 }
 
 @media (max-width: 600px) {

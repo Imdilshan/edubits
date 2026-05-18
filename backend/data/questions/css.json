@@ -1,0 +1,142 @@
+[
+  {
+    "text": "Which property changes text color?",
+    "options": ["color", "text-color", "font-color", "bgcolor"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property sets background color?",
+    "options": ["background-color", "bgcolor", "color", "background"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which display value creates flex container?",
+    "options": ["flex", "block", "inline", "grid"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property sets font size?",
+    "options": ["font-size", "text-size", "size", "font"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property controls spacing between elements?",
+    "options": ["margin", "padding", "spacing", "gap"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property controls inner spacing?",
+    "options": ["padding", "margin", "border", "gap"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which position removes element from flow?",
+    "options": ["absolute", "relative", "static", "fixed"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which unit is relative?",
+    "options": ["em", "px", "cm", "mm"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property controls display layout?",
+    "options": ["display", "position", "layout", "float"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property aligns text center?",
+    "options": ["text-align", "align", "center", "justify"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property adds shadow?",
+    "options": ["box-shadow", "shadow", "border-shadow", "text-shadow"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which layout system is 2D?",
+    "options": ["grid", "flexbox", "block", "inline"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which selector targets class?",
+    "options": [".class", "#class", "class", "*class"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which selector targets id?",
+    "options": ["#id", ".id", "id", "*id"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property controls overflow?",
+    "options": ["overflow", "flow", "hidden", "clip"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property sets border?",
+    "options": ["border", "outline", "frame", "edge"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property rotates element?",
+    "options": ["transform", "rotate", "spin", "move"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property changes opacity?",
+    "options": ["opacity", "visibility", "alpha", "transparent"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property controls z-axis?",
+    "options": ["z-index", "depth", "layer", "z"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property sets cursor type?",
+    "options": ["cursor", "pointer", "mouse", "hover"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  }
+]

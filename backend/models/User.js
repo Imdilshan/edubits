@@ -25,8 +25,40 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
+  totalScore: {
+    type: Number,
+    default: 0,
+  },
+  progress: {
+    type: Map,
+    of: new mongoose.Schema({
+      completed: { type: Boolean, default: false },
+      bestScore: { type: Number, default: 0 },
+      attempts: { type: Number, default: 0 },
+    }),
+    default: {},
+  },
+  role: {
+    type: String,
+    enum: ["user", "admin"],
+    default: "user",
+  },
 }, 
 { timestamps: true }
 );
+
+userSchema.methods.updateTopicProgress = function (topicId, score, passed) {
+  const existing = this.progress.get(topicId) || {
+    completed: false,
+    bestScore: 0,
+    attempts: 0,
+  };
+
+  this.progress.set(topicId, {
+    completed: existing.completed || passed,
+    bestScore: Math.max(existing.bestScore, score),
+    attempts: existing.attempts + 1,
+  });
+};
 
 module.exports = mongoose.model("User", userSchema);

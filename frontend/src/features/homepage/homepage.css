@@ -308,7 +308,7 @@
 .tag-green  { background: rgba(34,197,94,0.12);   color: var(--success); }
 .tag-yellow { background: rgba(247,196,79,0.12);  color: #f7c44f; }
 .tag-purple { background: rgba(168,85,247,0.12);  color: #a855f7; }
-.tag-cyan   { background: rgba(34,211,238,0.12);  color: #22d3ee; }
+.tag-cyan   { background: rgba(34,197,94,0.12);   color: #22c55e; }
 
 .hp-arrow {
   color: var(--muted);

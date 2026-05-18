@@ -1,0 +1,217 @@
+[
+  {
+    "text": "Java is?",
+    "options": ["Procedural", "Object-Oriented", "Functional", "None"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which is not OOP concept?",
+    "options": ["Inheritance", "Encapsulation", "Compilation", "Polymorphism"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "JVM stands for?",
+    "options": ["Java Virtual Machine", "Java Variable Machine", "Just Virtual Machine", "None"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Default value of int?",
+    "options": ["0", "1", "null", "undefined"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which keyword creates object?",
+    "options": ["class", "new", "object", "this"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+
+  {
+    "text": "Method overloading means?",
+    "options": ["Same name different parameters", "Same name same parameters", "Different name same parameters", "None"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Method overriding requires?",
+    "options": ["Inheritance", "Interface", "Class", "Object"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Final keyword means?",
+    "options": ["Constant", "Variable", "Loop", "Method"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which is superclass keyword?",
+    "options": ["this", "super", "class", "object"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Interface supports?",
+    "options": ["Multiple inheritance", "Single inheritance", "No inheritance", "None"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+
+  {
+    "text": "java.lang package is?",
+    "options": ["Imported by default", "Needs import", "Optional", "None"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Exception handling uses?",
+    "options": ["try-catch", "loop", "switch", "if"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "finally block executes?",
+    "options": ["Always", "Sometimes", "Never", "Optional"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Thread is?",
+    "options": ["Process", "Lightweight process", "Program", "None"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Thread lifecycle includes?",
+    "options": ["New", "Runnable", "Running", "All"],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+
+  {
+    "text": "Synchronization prevents?",
+    "options": ["Race condition", "Loop", "Error", "None"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "IO streams used for?",
+    "options": ["Input/Output", "Sorting", "Graph", "DP"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "File handling uses?",
+    "options": ["File class", "Array", "List", "Map"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "AWT is?",
+    "options": ["GUI toolkit", "DB tool", "Algorithm", "None"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Layout manager arranges?",
+    "options": ["Components", "Threads", "Files", "None"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+
+  {
+    "text": "FlowLayout arranges?",
+    "options": ["Left to right", "Top to bottom", "Grid", "Random"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "GridLayout arranges?",
+    "options": ["Grid", "Line", "Circle", "None"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "JDBC is used for?",
+    "options": ["Database", "Thread", "File", "GUI"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "DriverManager is used to?",
+    "options": ["Connect DB", "Thread", "File", "None"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "PreparedStatement prevents?",
+    "options": ["SQL Injection", "Loop", "Error", "None"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+
+  {
+    "text": "Applet is?",
+    "options": ["Small program", "Large app", "Thread", "None"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Event handling uses?",
+    "options": ["Listeners", "Threads", "Files", "None"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Button click handled by?",
+    "options": ["ActionListener", "MouseListener", "KeyListener", "None"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Constructor is?",
+    "options": ["Special method", "Variable", "Class", "Loop"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Static keyword means?",
+    "options": ["Class level", "Object level", "Local", "None"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  }
+]

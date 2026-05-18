@@ -11,6 +11,13 @@ import SGPAPage          from "../features/sgpa/pages/SGPAPage";
 import InternalMarksPage from "../features/internalMarks/InternalMarksPage";
 import PYQsPage          from "../features/pyqs/PYQsPage";
 
+import TopicsPage from "../features/quiz/pages/TopicsPage";
+import QuizPage from "../features/quiz/pages/QuizPage";
+import ResultsPage from "../features/quiz/pages/ResultsPage";
+import LeaderboardPage from "../features/quiz/pages/LeaderboardPage";
+import HistoryPage from "../features/quiz/pages/HistoryPage";
+
+
 function PublicNavbar() {
   return (
     <nav style={{
@@ -78,6 +85,13 @@ function AppInner() {
             <Route path="/sgpa"     element={<SGPAPage />} />
             <Route path="/internal" element={<InternalMarksPage />} />
             <Route path="/pyqs"     element={<PYQsPage />} />
+
+            <Route path="/quizzes" element={<TopicsPage />} />
+            <Route path="/quizzes/:topicId" element={<QuizPage />} />
+            <Route path="/quizzes/results" element={<ResultsPage />} />
+            <Route path="/quizzes/leaderboard" element={<LeaderboardPage />} />
+            <Route path="/quizzes/history" element={<HistoryPage />} />
+
             <Route path="/login"    element={<Navigate to="/" />} />
             <Route path="/register" element={<Navigate to="/" />} />
             <Route path="*"         element={<Navigate to="/" />} />

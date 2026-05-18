@@ -50,6 +50,16 @@ const tools = [
     iconClass: "icon-purple",
     tagClass: "tag-purple",
   },
+  {
+  href: "/quizzes",
+  icon: <Zap />,
+  name: "QuizEngine",
+  desc: "Viva Rapid Fire!.",
+  tag: "Practice",
+  cardClass: "card-yellow",
+  iconClass: "icon-yellow",
+  tagClass: "tag-yellow",
+},
 ];
 
 const whyItems = [

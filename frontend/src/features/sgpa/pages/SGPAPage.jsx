@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import SGPA from "../SGPA";
 import CGPA from "../../cgpa/CGPA";
 import html2pdf from "html2pdf.js";
+import { Calculator } from "lucide-react";
 
 export default function SGPAPage() {
   const [sgpaList, setSgpaList] = useState(() => {
@@ -64,7 +65,19 @@ export default function SGPAPage() {
       </div>
 
       <div className="app-container">
-        <h1 className="main-title">SGPA + CGPA Calculator</h1>
+        <h1
+          className="main-title"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "10px",
+            lineHeight: 1,
+          }}
+        >
+          <Calculator size={28} />
+          SGPA + CGPA Calculator
+        </h1>
 
         <SGPA setSgpaList={setSgpaList} />
 

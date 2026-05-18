@@ -116,6 +116,13 @@ export default function Navbar() {
         <Link to="/pyqs" className={`nav-link ${isActive("/pyqs") ? "active" : ""}`}>
           Resources
         </Link>
+
+        <Link
+          to="/quizzes"
+          className={`nav-link ${location.pathname.startsWith("/quizzes") ? "active" : ""}`}
+        >
+          QuizEngine
+        </Link>
       </div>
 
       <div className="nav-right" ref={dropdownRef}>

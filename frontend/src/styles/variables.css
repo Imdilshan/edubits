@@ -8,8 +8,13 @@
   --muted: #8b949e;
 
   --primary: #4a90e2;
+  --accent: #4a90e2;
   --success: #22c55e;
   --danger: #ef4444;
+  --error: #ef4444;
+  --warning: #facc15;
+  --text-2: #8b949e;
+  --text-3: #6b7280;
 
   --sgpa-color: #4a90e2;
   --cgpa-color: #22c1c3;
@@ -27,8 +32,13 @@ body.light {
   --muted: #6b7280;
 
   --primary: #2563eb;
+  --accent: #2563eb;
   --success: #16a34a;
   --danger: #dc2626;
+  --error: #dc2626;
+  --warning: #d97706;
+  --text-2: #6b7280;
+  --text-3: #9ca3af;
 
   --sgpa-color: #2563eb;
   --cgpa-color: #0ea5a4;

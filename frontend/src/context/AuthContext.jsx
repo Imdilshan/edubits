@@ -35,6 +35,13 @@ export function AuthProvider({ children }) {
     setUser(null);
   };
 
+  const updateScore = (totalScore) => {
+    setUser((currentUser) => {
+      if (!currentUser) return currentUser;
+      return { ...currentUser, totalScore };
+    });
+  };
+
   useEffect(() => {
     if (user) {
       localStorage.setItem("user", JSON.stringify(user));
@@ -64,7 +71,7 @@ export function AuthProvider({ children }) {
 
 
   return (
-    <AuthContext.Provider value={{ token, user, setUser, login, logout }}>
+    <AuthContext.Provider value={{ token, user, setUser, login, logout, updateScore }}>
       {children}
     </AuthContext.Provider>
   );

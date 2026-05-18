@@ -1,0 +1,142 @@
+[
+  {
+    "text": "What does HTML stand for?",
+    "options": ["Hyper Text Markup Language", "High Text Machine Language", "Hyperlinks Text Mark Language", "None"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which tag is used to create a hyperlink?",
+    "options": ["<a>", "<link>", "<href>", "<url>"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which tag is used for inserting an image?",
+    "options": ["<img>", "<image>", "<src>", "<pic>"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which HTML element is used for the largest heading?",
+    "options": ["<h6>", "<h1>", "<head>", "<heading>"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which tag creates a line break?",
+    "options": ["<br>", "<lb>", "<break>", "<line>"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which tag is used to define a table?",
+    "options": ["<table>", "<tab>", "<tr>", "<td>"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which attribute specifies an image source?",
+    "options": ["src", "href", "link", "path"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is the correct HTML for a checkbox?",
+    "options": ["<input type='checkbox'>", "<checkbox>", "<input type='check'>", "<check>"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which element defines the document's body?",
+    "options": ["<body>", "<main>", "<section>", "<content>"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which tag is used for ordered list?",
+    "options": ["<ol>", "<ul>", "<li>", "<list>"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which tag defines a list item?",
+    "options": ["<li>", "<ul>", "<ol>", "<item>"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which element is used for metadata?",
+    "options": ["<meta>", "<head>", "<data>", "<info>"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "What is semantic HTML?",
+    "options": ["Using meaningful tags", "Using CSS", "Using scripts", "Using IDs"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which tag defines navigation links?",
+    "options": ["<nav>", "<link>", "<a>", "<menu>"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which tag defines a section?",
+    "options": ["<section>", "<div>", "<article>", "<part>"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which tag is used for forms?",
+    "options": ["<form>", "<input>", "<label>", "<submit>"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which input type is used for email?",
+    "options": ["email", "text", "mail", "input"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which tag embeds video?",
+    "options": ["<video>", "<media>", "<embed>", "<movie>"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which tag is used for bold text?",
+    "options": ["<b>", "<strong>", "<bold>", "<text>"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which tag defines footer?",
+    "options": ["<footer>", "<bottom>", "<end>", "<foot>"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  }
+]

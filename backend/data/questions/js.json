@@ -1,0 +1,142 @@
+[
+  {
+    "text": "Which keyword declares variable?",
+    "options": ["let", "var", "const", "All"],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is typeof null?",
+    "options": ["null", "object", "undefined", "number"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which method creates new array?",
+    "options": ["map()", "forEach()", "push()", "filter()"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which is strict equality?",
+    "options": ["===", "==", "=", "!="],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which is arrow function?",
+    "options": ["()=>{}", "function()", "=>", "()=>"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is closure?",
+    "options": ["Function with scope", "Loop", "Object", "Array"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which method filters array?",
+    "options": ["filter()", "map()", "reduce()", "find()"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which is async?",
+    "options": ["Promise", "setTimeout", "Both", "None"],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "What is NaN?",
+    "options": ["Not a Number", "Null", "String", "Zero"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which loop runs at least once?",
+    "options": ["do-while", "for", "while", "foreach"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which method joins array?",
+    "options": ["join()", "concat()", "merge()", "append()"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which is not primitive?",
+    "options": ["object", "number", "string", "boolean"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which keyword stops loop?",
+    "options": ["break", "stop", "exit", "return"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which is event?",
+    "options": ["click", "run", "exec", "call"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which converts JSON?",
+    "options": ["JSON.parse", "JSON.stringify", "Both", "None"],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which is array method?",
+    "options": ["push()", "add()", "insert()", "append()"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which keyword defines class?",
+    "options": ["class", "object", "function", "struct"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which is promise state?",
+    "options": ["pending", "resolved", "rejected", "All"],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which method delays execution?",
+    "options": ["setTimeout", "delay", "wait", "sleep"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which operator spreads array?",
+    "options": ["...", "spread", "*", "&"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  }
+]
