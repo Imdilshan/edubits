@@ -106,7 +106,7 @@ export default function HomePage() {
               <Star key={i} className="hp-star-icon" />
             ))}
           </div>
-          <span>Trusted by 100+ students. Used during exams, loved after results.</span>
+          <span>Trusted by 350+ users. Used during exams, loved after results.</span>
         </div>
       </div>
 
@@ -190,50 +190,119 @@ export default function HomePage() {
           </div>
 
           <div className="hp-footer-col">
-            <h4>Built by: </h4>
-            <div className="hp-founders-list">
-              <div className="hp-founder-item">
-                <img
-                  src="/images/md.jpg"
-                  alt="Md Dilshan"
-                  className="hp-founder-avatar"
-                />
-  
-                <div className="hp-founder-info">
-                  <span className="hp-founder-name">Md Dilshan</span>
-                  <span className="hp-founder-role">Founder & Engineer</span>
-                </div>
-                <div className="hp-founder-links">
-                  <a href="https://www.linkedin.com/in/mddilshan" target="_blank" rel="noreferrer" title="LinkedIn">
-                    <FaLinkedin />
-                  </a>
-                  <a href="https://github.com/Imdilshan" target="_blank" rel="noreferrer" title="GitHub">
-                    <FaGithub />
-                  </a>
-                </div>
-              </div>
-              <div className="hp-founder-item">
-              
-                 <img
-                    src="/images/ishita.jpg"
-                    alt="Ishita Bansal"
-                    className="hp-founder-avatar"
-                  />
-                <div className="hp-founder-info">
-                  <span className="hp-founder-name">Ishita Bansal</span>
-                  <span className="hp-founder-role">Design Contributor (UI & UX)</span>
-                </div>
-                <div className="hp-founder-links">
-                  <a href="https://www.linkedin.com/in/ishita-bansal-9112b931a/" target="_blank" rel="noreferrer" title="LinkedIn">
-                    <FaLinkedin />
-                  </a>
-                  <a href="https://github.com/ishitabansal08" target="_blank" rel="noreferrer" title="GitHub">
-                    <FaGithub />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+  <h4>Built by:</h4>
+
+  <div className="hp-founders-list">
+
+    <div className="hp-founder-item">
+      <img
+        src="/images/md.jpg"
+        alt="Md Dilshan"
+        className="hp-founder-avatar"
+      />
+
+      <div className="hp-founder-info">
+        <span className="hp-founder-name">Md Dilshan</span>
+        <span className="hp-founder-role">
+          Founder & Engineer
+        </span>
+      </div>
+
+      <div className="hp-founder-links">
+        <a
+          href="https://www.linkedin.com/in/mddilshan"
+          target="_blank"
+          rel="noreferrer"
+          title="LinkedIn"
+        >
+          <FaLinkedin />
+        </a>
+
+        <a
+          href="https://github.com/Imdilshan"
+          target="_blank"
+          rel="noreferrer"
+          title="GitHub"
+        >
+          <FaGithub />
+        </a>
+      </div>
+    </div>
+
+    <div className="hp-founder-item">
+      <img
+        src="/images/ishita.jpg"
+        alt="Ishita Bansal"
+        className="hp-founder-avatar"
+      />
+
+      <div className="hp-founder-info">
+        <span className="hp-founder-name">Ishita Bansal</span>
+
+        <span className="hp-founder-role">
+          Design Contributor (UI & UX)
+        </span>
+      </div>
+
+      <div className="hp-founder-links">
+        <a
+          href="https://www.linkedin.com/in/ishita-bansal-9112b931a/"
+          target="_blank"
+          rel="noreferrer"
+          title="LinkedIn"
+        >
+          <FaLinkedin />
+        </a>
+
+        <a
+          href="https://github.com/ishitabansal08"
+          target="_blank"
+          rel="noreferrer"
+          title="GitHub"
+        >
+          <FaGithub />
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{/* COMMUNITY COLUMN */}
+
+<div className="hp-footer-col hp-community-col">
+
+  <h4>Community</h4>
+
+  <a
+    href="https://chat.whatsapp.com/FuB9zkdRlqbEfnlodUoqZA?mode=gi_t"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hp-community-card"
+  >
+
+    <div className="hp-community-icon">
+      <MessageCircle size={24} strokeWidth={2.2} />
+    </div>
+
+    <div className="hp-community-content">
+
+      <span className="hp-community-title">
+        Join Edubits Community
+      </span>
+
+      <span className="hp-community-desc">
+        Join 350+ engineering students sharing feedback,
+        ideas, bugs & feature requests.
+      </span>
+
+    </div>
+
+  </a>
+
+</div>
+
+
         </div>
 
         <div className="hp-footer-bottom">
@@ -242,15 +311,6 @@ export default function HomePage() {
             Every child is special, even you… especially you.
             <Heart className="heart-icon" size={16} />
           </p>
-          <a
-            href="https://chat.whatsapp.com/FuB9zkdRlqbEfnlodUoqZA?mode=gi_t"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="footer-link"
-          >
-            <MessageCircle size={16} />
-            Contact Us.
-          </a>
         </div>
       </footer>
     </div>
