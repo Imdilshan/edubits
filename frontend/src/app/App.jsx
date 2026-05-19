@@ -3,6 +3,7 @@ import { useAuth } from "../context/AuthContext";
 
 import Login    from "../pages/Login";
 import Register from "../pages/Register";
+import AuthCallback from "../pages/AuthCallback";
 import Navbar   from "../components/layout/Navbar";
 
 import HomePage          from "../features/homepage/HomePage";
@@ -112,6 +113,7 @@ function AppInner() {
       } />
       <Route path="/login"    element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/auth/callback" element={<AuthCallback />} />
       {/* Any protected route → redirect to login */}
       <Route path="*" element={<Navigate to="/login" />} />
     </Routes>
