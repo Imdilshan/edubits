@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./homepage.css";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 
-import { Calculator, ClipboardCheck, CheckSquare, BookOpen } from "lucide-react";
+import { Calculator, ClipboardCheck, CheckSquare, BookOpen, FolderKanban } from "lucide-react";
 import { Zap, Construction, Clock, Box } from "lucide-react";
 import { Rocket } from "lucide-react";
 import { Star } from "lucide-react";
@@ -60,6 +60,17 @@ const tools = [
   iconClass: "icon-yellow",
   tagClass: "tag-yellow",
 },
+  {
+    href: "/projexia",
+    icon: <FolderKanban />,
+    name: "Projexia",
+    desc: "Order projects and assignments.",
+    tag: "projects",
+    cardClass: "card-green",
+    iconClass: "icon-green",
+    tagClass: "tag-green",
+    comingSoon: true,
+  },
 ];
 
 const whyItems = [
@@ -124,17 +135,29 @@ export default function HomePage() {
       <div className="hp-section" id="tools">
         <div className="hp-section-label">All Tools</div>
         <div className="hp-tools-grid">
-          {tools.map((t, i) => (
-            <Link to={t.href} className={`hp-tool-card ${t.cardClass}`} key={i}>
-              <div className={`hp-tool-icon ${t.iconClass}`}>{t.icon}</div>
-              <div className="hp-tool-name">{t.name}</div>
-              <div className="hp-tool-desc">{t.desc}</div>
-              <div className="hp-tool-footer">
-                <span className={`hp-tool-tag ${t.tagClass}`}>{t.tag}</span>
-                <span className="hp-arrow">↗</span>
+          {tools.map((t, i) =>
+            t.comingSoon ? (
+              <div className={`hp-tool-card ${t.cardClass} hp-tool-card--soon`} key={i}>
+                <div className="hp-coming-soon-badge">Coming Soon</div>
+                <div className={`hp-tool-icon ${t.iconClass}`}>{t.icon}</div>
+                <div className="hp-tool-name">{t.name}</div>
+                <div className="hp-tool-desc">{t.desc}</div>
+                <div className="hp-tool-footer">
+                  <span className={`hp-tool-tag ${t.tagClass}`}>{t.tag}</span>
+                </div>
               </div>
-            </Link>
-          ))}
+            ) : (
+              <Link to={t.href} className={`hp-tool-card ${t.cardClass}`} key={i}>
+                <div className={`hp-tool-icon ${t.iconClass}`}>{t.icon}</div>
+                <div className="hp-tool-name">{t.name}</div>
+                <div className="hp-tool-desc">{t.desc}</div>
+                <div className="hp-tool-footer">
+                  <span className={`hp-tool-tag ${t.tagClass}`}>{t.tag}</span>
+                  <span className="hp-arrow">↗</span>
+                </div>
+              </Link>
+            )
+          )}
         </div>
       </div>
 
