@@ -14,6 +14,7 @@ import "./styles/variables.css";
 import "./styles/global.css";
 import "./styles/taskTracker.css";
 import "./features/quiz/styles/quizEngine.css";
+import "./features/ug-life-tracker/ugLifeTracker.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 
@@ -29,12 +30,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       </AuthProvider>
     </BrowserRouter>
 );
-
-// import React from "react";
-// import ReactDOM from "react-dom/client";
-
-// import UploadTest from "./UploadTest";
-
-// ReactDOM.createRoot(document.getElementById("root")).render(
-//   <UploadTest />
-// );

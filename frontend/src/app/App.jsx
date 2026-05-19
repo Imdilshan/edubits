@@ -11,12 +11,15 @@ import TaskPage          from "../features/tasks/pages/TaskPage";
 import SGPAPage          from "../features/sgpa/pages/SGPAPage";
 import InternalMarksPage from "../features/internalMarks/InternalMarksPage";
 import PYQsPage          from "../features/pyqs/PYQsPage";
+import UGLifeTrackerPage from "../features/ug-life-tracker/UGLifeTrackerPage";
 
 import TopicsPage from "../features/quiz/pages/TopicsPage";
 import QuizPage from "../features/quiz/pages/QuizPage";
 import ResultsPage from "../features/quiz/pages/ResultsPage";
 import LeaderboardPage from "../features/quiz/pages/LeaderboardPage";
 import HistoryPage from "../features/quiz/pages/HistoryPage";
+
+
 
 
 function PublicNavbar() {
@@ -79,7 +82,6 @@ function AppInner() {
     return (
       <div>
         <Navbar />
-        {/* <div className={isHome ? "" : "page"}> */}
           <div className={`app-content ${isHome ? "" : "page"}`}>
           <Routes>
             <Route path="/"         element={<HomePage />} />
@@ -87,6 +89,8 @@ function AppInner() {
             <Route path="/sgpa"     element={<SGPAPage />} />
             <Route path="/internal" element={<InternalMarksPage />} />
             <Route path="/pyqs"     element={<PYQsPage />} />
+
+            <Route path="/tracker" element={<UGLifeTrackerPage />} />
 
             <Route path="/quizzes" element={<TopicsPage />} />
             <Route path="/quizzes/:topicId" element={<QuizPage />} />

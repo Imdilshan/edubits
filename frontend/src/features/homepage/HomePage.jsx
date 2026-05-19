@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./homepage.css";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 
-import { Calculator, ClipboardCheck, CheckSquare, BookOpen, FolderKanban } from "lucide-react";
+import { Calculator, ClipboardCheck, CheckSquare, BookOpen, FolderKanban, BookMarked } from "lucide-react";
 import { Zap, Construction, Clock, Box } from "lucide-react";
 import { Rocket } from "lucide-react";
 import { Star } from "lucide-react";
@@ -45,21 +45,31 @@ const tools = [
     icon: <BookOpen />,
     name: "Resources",
     desc: "PYQs & playlists.",
-    tag: "Resources",
+    tag: "Practice",
     cardClass: "card-purple",
     iconClass: "icon-purple",
     tagClass: "tag-purple",
   },
   {
-  href: "/quizzes",
-  icon: <Zap />,
-  name: "QuizEngine",
-  desc: "Viva Rapid Fire!.",
-  tag: "Practice",
-  cardClass: "card-yellow",
-  iconClass: "icon-yellow",
-  tagClass: "tag-yellow",
-},
+    href: "/quizzes",
+    icon: <Zap />,
+    name: "QuizEngine",
+    desc: "Viva Rapid Fire!.",
+    tag: "Practice",
+    cardClass: "card-yellow",
+    iconClass: "icon-yellow",
+    tagClass: "tag-yellow",
+  },
+  {
+    href: "/tracker",
+    icon: <BookMarked />,
+    name: "UG Life Tracker",
+    desc: "Reflect on every week of your undergraduate journey.",
+    tag: "Tracker",
+    cardClass: "card-green",
+    iconClass: "icon-green",
+    tagClass: "tag-green",
+  },
   {
     href: "/projexia",
     icon: <FolderKanban />,
