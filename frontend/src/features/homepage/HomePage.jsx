@@ -302,7 +302,6 @@ export default function HomePage() {
 
 </div>
 
-
         </div>
 
         <div className="hp-footer-bottom">
