@@ -292,7 +292,7 @@ export default function HomePage() {
       </span>
 
       <span className="hp-community-desc">
-        Join 350+ engineering students sharing feedback,
+        Join for sharing feedback,
         ideas, bugs & feature requests.
       </span>
 
