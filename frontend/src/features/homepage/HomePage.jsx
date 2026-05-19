@@ -63,8 +63,8 @@ const tools = [
   {
     href: "/tracker",
     icon: <BookMarked />,
-    name: "UG Life Tracker",
-    desc: "Reflect on every week of your undergraduate journey.",
+    name: "Engineering Tracker",
+    desc: "Track Engineering Life",
     tag: "Tracker",
     cardClass: "card-green",
     iconClass: "icon-green",
