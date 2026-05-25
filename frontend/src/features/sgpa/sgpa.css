@@ -380,6 +380,27 @@
 }
 .sgpa-result-card .grade-poor.result-bar-fill { background: #f87171; }
 
+.sgpa-card .btn-ghost-small {
+  background: transparent;
+  border: none;
+  color: rgba(59,130,246,0.7);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 0;
+  white-space: nowrap;
+  transition: color 0.15s;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sgpa-card .btn-ghost-small svg {
+  flex-shrink: 0;
+  position: relative;
+  top: 1px;
+}
+
 /* ── Responsive ──────────────────────────────────────────────── */
 @media (max-width: 600px) {
   .sgpa-card {
@@ -412,3 +433,4 @@
   .sgpa-card .card-header { flex-direction: column; gap: 6px; }
   .sgpa-result-card .result-value { font-size: 28px; }
 }
+

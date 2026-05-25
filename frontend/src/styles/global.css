@@ -22,7 +22,6 @@ input:focus, select:focus, textarea:focus {
   -webkit-text-fill-color: #ffffff !important;
 }
 
-
 .btn {
   padding: 10px 16px;
   border-radius: var(--radius);
@@ -36,7 +35,6 @@ input:focus, select:focus, textarea:focus {
 .status-success { color: var(--success); }
 .status-warning { color: var(--warning); }
 .status-danger  { color: var(--danger); }
-
 
 .card {
   background: var(--surface);
@@ -85,7 +83,6 @@ input:focus, select:focus, textarea:focus {
   font-size: 14px;
 }
 
-
 .stats-row {
   max-width: 1100px;
   margin: 0 auto 20px;
@@ -132,7 +129,6 @@ input:focus, select:focus, textarea:focus {
   max-width: 1100px;
   margin: 0 auto 20px;
   padding: 0 24px;
-
   display: grid;
   grid-template-columns: 1fr auto auto auto;
   gap: 12px;
@@ -151,7 +147,6 @@ input:focus, select:focus, textarea:focus {
   max-width: 1100px;
   margin: 20px auto;
   padding: 0 20px;
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;

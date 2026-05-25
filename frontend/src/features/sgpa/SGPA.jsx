@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Select from "react-select";
 import "./sgpa.css";
+import { ArrowRight } from "lucide-react";
 
 const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
 
@@ -195,7 +196,7 @@ export default function SGPA({ setSgpaList }) {
         </div>
         {isEmpty && (
           <button className="btn-ghost-small" onClick={loadExample}>
-            Load example →
+            Load example  <ArrowRight />
           </button>
         )}
       </div>
