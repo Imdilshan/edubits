@@ -24,6 +24,7 @@ const allowedOrigins = [
   "http://localhost:5173",
   "http://192.168.0.113:5173",
   "https://edubits-ten.vercel.app",
+  "https://edubits0.vercel.app",
 ];
 
 app.use(cors({

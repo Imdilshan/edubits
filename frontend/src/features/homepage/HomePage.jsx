@@ -95,7 +95,7 @@ export default function HomePage() {
     <div className="hp-everything">
 
       <div className="hp-hero">
-        <div className="hp-hero-badge">Built for future Engineers.</div>
+        {/* <div className="hp-hero-badge">Built for future Engineers.</div> */}
         <h1>Engineer your<br /><span>Grades.</span></h1>
         <div className="hp-hero-cta">
           <a href="#tools" className="hp-btn-primary"> <Rocket className="hp-btn-icon" /> Explore tools</a>
@@ -110,7 +110,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="hp-stats-bar">
+      {/* <div className="hp-stats-bar">
         <div className="hp-stat-item">
           <div className="hp-stat-num">4+</div>
           <div className="hp-stat-label">Tools Available</div>
@@ -123,9 +123,9 @@ export default function HomePage() {
           <div className="hp-stat-num">No ads</div>
           <div className="hp-stat-label">Not now, Not ever</div>
         </div>
-      </div>
+      </div> */}
 
-      <div className="hp-why-section">
+      {/* <div className="hp-why-section">
         <div className="hp-section-label">Why Edubits?</div>
         <div className="hp-why-grid">
           {whyItems.map((w, i) => (
@@ -140,7 +140,7 @@ export default function HomePage() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       <div className="hp-section" id="tools">
         <div className="hp-section-label">All Tools</div>
