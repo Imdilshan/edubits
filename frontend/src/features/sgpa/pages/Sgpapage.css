@@ -1,0 +1,62 @@
+/* ═══════════════════════════════════════════════════════════════
+   SGPAPage.css  —  page-level styles (wrapper, top bar, title)
+   Import this in SGPAPage.jsx alongside sgpa.css and cgpa.css.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Top action bar ──────────────────────────────────────────── */
+.top-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+/* Export PDF — neutral outlined */
+.top-actions .btn-export {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.55);
+  border-radius: 10px;
+  padding: 0 16px;
+  height: 36px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.top-actions .btn-export:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.8);
+}
+
+/* ── App container ───────────────────────────────────────────── */
+.app-container {
+  padding: 0 20px 40px;
+}
+
+/* ── Page title ──────────────────────────────────────────────── */
+.app-container .main-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #60a5fa;
+  margin-bottom: 30px;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .top-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding: 0 14px;
+  }
+  .app-container {
+    padding: 12px 14px;
+  }
+  .app-container .main-title {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+  }
+}
