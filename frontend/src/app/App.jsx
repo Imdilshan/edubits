@@ -13,6 +13,7 @@ const InternalMarksPage = lazy(() => import("../features/internalMarks/InternalM
 const PYQsPage = lazy(() => import("../features/pyqs/PYQsPage"));
 const UGLifeTrackerPage = lazy(() => import("../features/ug-life-tracker/UGLifeTrackerPage"));
 const AboutPage = lazy(() => import("../features/about/AboutPage"));
+const AdminUpload = lazy(() => import("../pages/AdminUpload"));
 
 const TopicsPage = lazy(() => import("../features/quiz/pages/TopicsPage"));
 const QuizPage = lazy(() => import("../features/quiz/pages/QuizPage"));
@@ -92,6 +93,7 @@ function AppInner() {
               <Route path="/sgpa"     element={<SGPAPage />} />
               <Route path="/internal" element={<InternalMarksPage />} />
               <Route path="/pyqs"     element={<PYQsPage />} />
+              <Route path="/admin-upload" element={<AdminUpload />} />
 
               <Route path="/tracker" element={<UGLifeTrackerPage />} />
               <Route path="/about"   element={<AboutPage />} />

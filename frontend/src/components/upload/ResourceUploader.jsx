@@ -12,7 +12,7 @@ import { useState, useRef } from "react";
 import { uploadResource, RESOURCE_TYPES } from "../../services/resourceService";
 
 const RESOURCE_TYPE_LABELS = {
-  pyq:       "PYQ (Previous Year Question Paper)",
+  pyqs:       "PYQ (Previous Year Question Paper)",
   notes:     "Notes",
   pdf:       "PDF (other)",
   image:     "Image",
@@ -20,7 +20,7 @@ const RESOURCE_TYPE_LABELS = {
   other:     "Other",
 };
 
-export default function ResourceUploader({ onSuccess, defaultType = "pyq" }) {
+export default function ResourceUploader({ onSuccess, defaultType = "pyqs" }) {
   const [file,         setFile]         = useState(null);
   const [resourceType, setResourceType] = useState(defaultType);
   const [title,        setTitle]        = useState("");
@@ -139,7 +139,7 @@ export default function ResourceUploader({ onSuccess, defaultType = "pyq" }) {
           </div>
 
           {/* Paper tag (PYQ-specific) */}
-          {resourceType === "pyq" && (
+          {resourceType === "pyqs" && (
             <>
               <label style={styles.label}>Paper Tag</label>
               <input
@@ -159,7 +159,7 @@ export default function ResourceUploader({ onSuccess, defaultType = "pyq" }) {
             style={styles.fileInput}
             type="file"
             accept={
-              ["pyq", "notes", "pdf"].includes(resourceType)
+              ["pyqs", "notes", "pdf"].includes(resourceType)
                 ? "application/pdf"
                 : "image/jpeg,image/png,image/webp,application/pdf"
             }

@@ -16,6 +16,15 @@ const {
 
 const authMiddleware = require("../middleware/authMiddleware");
 
+console.log("register:", typeof register);
+console.log("login:", typeof login);
+console.log("getMe:", typeof getMe);
+console.log("uploadAvatar:", typeof uploadAvatar);
+console.log("updateProfile:", typeof updateProfile);
+console.log("authMiddleware:", typeof authMiddleware);
+console.log("passport.authenticate:", typeof passport.authenticate);
+
+
 // ── Disk storage: saves avatar to uploads/avatars/<userId>.<ext> ──────────────
 // Using diskStorage avoids all multer v2 stream/buffer confusion entirely.
 const avatarStorage = multer.diskStorage({

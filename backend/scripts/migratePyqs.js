@@ -11,7 +11,7 @@
 //   node scripts/migratePyqs.js
 // ─────────────────────────────────────────────────────────────
 
-require("dotenv").config({ path: "../.env" });
+require("dotenv").config();
 
 const mongoose = require("mongoose");
 

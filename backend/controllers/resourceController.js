@@ -31,7 +31,6 @@ const uploadResource = async (req, res) => {
 
     const {
       title,
-      resourceType,
       subject,
       year,
       semester,
@@ -39,6 +38,8 @@ const uploadResource = async (req, res) => {
       description,
       sortOrder,
     } = req.body;
+
+    const resourceType = req.body.resourceType || req.query.resourceType;
 
     if (!title || !resourceType) {
       // File already uploaded to Cloudinary — clean it up to avoid orphans
