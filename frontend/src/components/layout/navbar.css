@@ -43,7 +43,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 32px;
+  gap: clamp(14px, 2.2vw, 32px);
 }
 
 .nav-link {
@@ -288,11 +288,11 @@
     text-decoration: none;
     color: #6b7280;
 
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 600;
     font-family: 'DM Sans', sans-serif;
 
-    padding: 6px 4px;
+    padding: 6px 2px;
     border-radius: 10px;
     min-height: 48px;
 
@@ -305,8 +305,8 @@
   }
 
   .mobile-nav-item svg {
-    width: 20px;
-    height: 20px;
+    width: 19px;
+    height: 19px;
     stroke-width: 1.8;
   }
 

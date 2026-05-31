@@ -5,6 +5,17 @@ body {
   margin: 0;
 }
 
+.route-loader {
+  min-height: 48vh;
+  background: var(--bg);
+}
+
+.navbar-placeholder {
+  height: 64px;
+  background: rgba(10, 15, 25, 0.85);
+  border-bottom: 1px solid var(--border);
+}
+
 input, select, textarea {
   color: #eef2ff !important;
   -webkit-text-fill-color: #eef2ff !important;

@@ -5,6 +5,8 @@ import TopicGraph from "../components/Graph/TopicGraph";
 import TopicCard from "../components/Graph/TopicCard";
 import { CheckCircle2, GalleryVerticalEnd, GitBranch, Layers3, Unlock } from "lucide-react";
 import { Zap} from "lucide-react";
+import "../styles/global.css";
+import "../styles/quizEngine.css";
 
 export default function TopicsPage() {
   const [topics,  setTopics]  = useState([]);
@@ -88,12 +90,12 @@ export default function TopicsPage() {
 
       <div className="quiz-stats-grid">
         {[
-          { label: "Total Topics", value: orderedTopics.length, icon: Layers3 },
-          { label: "Unlocked", value: orderedTopics.filter((t) => t.unlocked).length, icon: Unlock },
-          { label: "Completed", value: orderedTopics.filter((t) => t.completed).length, icon: CheckCircle2 },
-        ].map(({ label, value, icon: Icon }) => (
+          { label: "Total Topics", value: orderedTopics.length, icon: <Layers3 size={21} /> },
+          { label: "Unlocked", value: orderedTopics.filter((t) => t.unlocked).length, icon: <Unlock size={21} /> },
+          { label: "Completed", value: orderedTopics.filter((t) => t.completed).length, icon: <CheckCircle2 size={21} /> },
+        ].map(({ label, value, icon }) => (
           <div key={label} className="quiz-stat-card">
-            <span className="quiz-stat-icon"><Icon size={21} /></span>
+            <span className="quiz-stat-icon">{icon}</span>
             <div>
               <div className="quiz-stat-value">{value}</div>
               <div className="quiz-stat-label">{label}</div>

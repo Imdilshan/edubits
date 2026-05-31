@@ -1,9 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./app/App";
-
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
+import VercelMetrics from "./app/VercelMetrics";
 
 import { BrowserRouter } from "react-router-dom";
 
@@ -12,9 +10,6 @@ import { ToastProvider } from "./context/ToastContext";
 
 import "./styles/variables.css";
 import "./styles/global.css";
-import "./styles/taskTracker.css";
-import "./features/quiz/styles/quizEngine.css";
-import "./features/ug-life-tracker/ugLifeTracker.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 
@@ -23,8 +18,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <ToastProvider>
           <>
             <App />
-            <Analytics />
-            <SpeedInsights />
+            <VercelMetrics />
           </>
         </ToastProvider>
       </AuthProvider>

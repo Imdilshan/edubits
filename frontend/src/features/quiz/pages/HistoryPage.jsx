@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import api from "../utils/api";
 import { CheckCircle2, FileText, ListChecks, Target, XCircle } from "lucide-react";
 import { getTopicIcon } from "../utils/topicIcons";
+import "../styles/global.css";
+import "../styles/quizEngine.css";
 
 export default function HistoryPage() {
   const [attempts, setAttempts] = useState([]);

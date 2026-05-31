@@ -8,6 +8,7 @@ import TrackerLegend from "./components/TrackerLegend.jsx";
 import YearSection from "./components/YearSection.jsx";
 import WeekDetailsDrawer from "./components/WeekDetailsDrawer.jsx";
 import DateOverridePanel from "./components/DateOverridePanel.jsx";
+import "./ugLifeTracker.css";
 
 export default function UGLifeTrackerPage() {
   const {

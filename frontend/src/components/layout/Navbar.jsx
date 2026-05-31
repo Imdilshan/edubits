@@ -7,7 +7,7 @@ import EditProfileModal from "./EditProfileModal";
 
 import {
   LogOut, Pencil, Image,
-  Calculator, ClipboardList, CheckSquare, BookOpen, Brain, BookMarked,
+  Calculator, ClipboardList, CheckSquare, BookOpen, Brain, BookMarked, Info,
 } from "lucide-react";
 
 export default function Navbar() {
@@ -101,7 +101,7 @@ export default function Navbar() {
         {/* Logo */}
         <div className="nav-left">
           <Link to="/" className="logo">
-            <img src="/images/logo.png" alt="logo" className="logo-icon" />
+            <img src="/images/logo.webp" alt="logo" className="logo-icon" width="28" height="28" />
             <span>Edubits</span>
           </Link>
         </div>
@@ -114,6 +114,7 @@ export default function Navbar() {
           <Link to="/pyqs"     className={`nav-link ${isActive("/pyqs")     ? "active" : ""}`}>Resources</Link>
           <Link to="/quizzes"  className={`nav-link ${isQuizActive()        ? "active" : ""}`}>QuizEngine</Link>
           <Link to="/tracker"  className={`nav-link ${isActive("/tracker") ? "active" : ""}`}>Tracker</Link>
+          <Link to="/about"    className={`nav-link ${isActive("/about")   ? "active" : ""}`}>About</Link>
         </div>
 
         {/* Profile avatar + dropdown */}
@@ -184,6 +185,9 @@ export default function Navbar() {
         </Link>
         <Link to="/tracker" className={`mobile-nav-item ${isActive("/tracker") ? "active" : ""}`}>
           <BookMarked size={20} /> <span>Tracker</span>
+        </Link>
+        <Link to="/about" className={`mobile-nav-item ${isActive("/about") ? "active" : ""}`}>
+          <Info size={20} /> <span>About</span>
         </Link>
       </nav>
 

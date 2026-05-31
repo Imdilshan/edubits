@@ -1,24 +1,24 @@
+import { lazy, Suspense } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import HomePage from "../features/homepage/HomePage";
 
-import Login    from "../pages/Login";
-import Register from "../pages/Register";
-import AuthCallback from "../pages/AuthCallback";
-import Navbar   from "../components/layout/Navbar";
+const Navbar = lazy(() => import("../components/layout/Navbar"));
+const Login = lazy(() => import("../pages/Login"));
+const Register = lazy(() => import("../pages/Register"));
+const AuthCallback = lazy(() => import("../pages/AuthCallback"));
+const TaskPage = lazy(() => import("../features/tasks/pages/TaskPage"));
+const SGPAPage = lazy(() => import("../features/sgpa/pages/SGPAPage"));
+const InternalMarksPage = lazy(() => import("../features/internalMarks/InternalMarksPage"));
+const PYQsPage = lazy(() => import("../features/pyqs/PYQsPage"));
+const UGLifeTrackerPage = lazy(() => import("../features/ug-life-tracker/UGLifeTrackerPage"));
+const AboutPage = lazy(() => import("../features/about/AboutPage"));
 
-import HomePage          from "../features/homepage/HomePage";
-import TaskPage          from "../features/tasks/pages/TaskPage";
-import SGPAPage          from "../features/sgpa/pages/SGPAPage";
-import InternalMarksPage from "../features/internalMarks/InternalMarksPage";
-import PYQsPage          from "../features/pyqs/PYQsPage";
-import UGLifeTrackerPage from "../features/ug-life-tracker/UGLifeTrackerPage";
-
-import TopicsPage from "../features/quiz/pages/TopicsPage";
-import QuizPage from "../features/quiz/pages/QuizPage";
-import ResultsPage from "../features/quiz/pages/ResultsPage";
-import LeaderboardPage from "../features/quiz/pages/LeaderboardPage";
-import HistoryPage from "../features/quiz/pages/HistoryPage";
-
+const TopicsPage = lazy(() => import("../features/quiz/pages/TopicsPage"));
+const QuizPage = lazy(() => import("../features/quiz/pages/QuizPage"));
+const ResultsPage = lazy(() => import("../features/quiz/pages/ResultsPage"));
+const LeaderboardPage = lazy(() => import("../features/quiz/pages/LeaderboardPage"));
+const HistoryPage = lazy(() => import("../features/quiz/pages/HistoryPage"));
 
 
 
@@ -81,46 +81,53 @@ function AppInner() {
   if (token) {
     return (
       <div>
-        <Navbar />
+        <Suspense fallback={<div className="navbar-placeholder" />}>
+          <Navbar />
+        </Suspense>
           <div className={`app-content ${isHome ? "" : "page"}`}>
-          <Routes>
-            <Route path="/"         element={<HomePage />} />
-            <Route path="/tasks"    element={<TaskPage />} />
-            <Route path="/sgpa"     element={<SGPAPage />} />
-            <Route path="/internal" element={<InternalMarksPage />} />
-            <Route path="/pyqs"     element={<PYQsPage />} />
+          <Suspense fallback={<div className="route-loader" aria-label="Loading page" />}>
+            <Routes>
+              <Route path="/"         element={<HomePage />} />
+              <Route path="/tasks"    element={<TaskPage />} />
+              <Route path="/sgpa"     element={<SGPAPage />} />
+              <Route path="/internal" element={<InternalMarksPage />} />
+              <Route path="/pyqs"     element={<PYQsPage />} />
 
-            <Route path="/tracker" element={<UGLifeTrackerPage />} />
+              <Route path="/tracker" element={<UGLifeTrackerPage />} />
+              <Route path="/about"   element={<AboutPage />} />
 
-            <Route path="/quizzes" element={<TopicsPage />} />
-            <Route path="/quizzes/:topicId" element={<QuizPage />} />
-            <Route path="/quizzes/results" element={<ResultsPage />} />
-            <Route path="/quizzes/leaderboard" element={<LeaderboardPage />} />
-            <Route path="/quizzes/history" element={<HistoryPage />} />
+              <Route path="/quizzes" element={<TopicsPage />} />
+              <Route path="/quizzes/:topicId" element={<QuizPage />} />
+              <Route path="/quizzes/results" element={<ResultsPage />} />
+              <Route path="/quizzes/leaderboard" element={<LeaderboardPage />} />
+              <Route path="/quizzes/history" element={<HistoryPage />} />
 
-            <Route path="/login"    element={<Navigate to="/" />} />
-            <Route path="/register" element={<Navigate to="/" />} />
-            <Route path="*"         element={<Navigate to="/" />} />
-          </Routes>
+              <Route path="/login"    element={<Navigate to="/" />} />
+              <Route path="/register" element={<Navigate to="/" />} />
+              <Route path="*"         element={<Navigate to="/" />} />
+            </Routes>
+          </Suspense>
         </div>
       </div>
     );
   }
   
   return (
-    <Routes>
-      <Route path="/" element={
-        <>
-          <PublicNavbar />
-          <HomePage />
-        </>
-      } />
-      <Route path="/login"    element={<Login />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/auth/callback" element={<AuthCallback />} />
-      {/* Any protected route → redirect to login */}
-      <Route path="*" element={<Navigate to="/login" />} />
-    </Routes>
+    <Suspense fallback={<div className="route-loader" aria-label="Loading page" />}>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <PublicNavbar />
+            <HomePage />
+          </>
+        } />
+        <Route path="/login"    element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/auth/callback" element={<AuthCallback />} />
+        {/* Any protected route -> redirect to login */}
+        <Route path="*" element={<Navigate to="/login" />} />
+      </Routes>
+    </Suspense>
   );
 }
 

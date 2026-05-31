@@ -51,7 +51,7 @@ export default function Register() {
       login(data);
       showToast("Account created! Welcome to Edubits.", "success");
       navigate("/tasks");
-    } catch (err) {
+    } catch {
       showToast("Could not reach the server. Is it running?", "error");
     } finally {
       setLoading(false);
@@ -65,11 +65,11 @@ export default function Register() {
       <div className="side left">
         <ToolPreview 
           title="SGPA Calculator" 
-          image="/images/sgpa.png"
+          image="/images/sgpa.webp"
         />
         <ToolPreview
           title="Internal Marks Calculator" 
-          image="/images/imc.png"
+          image="/images/imc.webp"
         />
       </div>
 
@@ -78,7 +78,7 @@ export default function Register() {
           
           <div className="login-header">
             <div className="logo" onClick={() => navigate("/")}>
-              <img src="/images/logo.png" alt="Edubits Logo" />
+              <img src="/images/logo.webp" alt="Edubits Logo" width="40" height="40" />
               <span className="logo-text">Edubits</span>
             </div>
 
@@ -143,11 +143,11 @@ export default function Register() {
       <div className="side right">
         <ToolPreview 
           title="Task Tracker" 
-          image="/images/task.png"
+          image="/images/task.webp"
         />
         <ToolPreview
           title="Pyq's" 
-          image="/images/pyq.png"
+          image="/images/pyq.webp"
         />
       </div>
 

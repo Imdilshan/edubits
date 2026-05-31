@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import SGPA from "../SGPA";
 import CGPA from "../../cgpa/CGPA";
 import "./Sgpapage.css";
-import html2pdf from "html2pdf.js";
 import { Calculator } from "lucide-react";
 
 export default function SGPAPage() {
@@ -21,8 +20,9 @@ export default function SGPAPage() {
     localStorage.setItem("sgpaList", JSON.stringify(sgpaList));
   }, [sgpaList]);
 
-  const exportPDF = () => {
+  const exportPDF = async () => {
     const element = document.querySelector(".app-container");
+    const { default: html2pdf } = await import("html2pdf.js");
     document.body.classList.add("pdf-mode");
     const opt = {
       margin: [0.5, 0.3, 0.5, 0.3],
@@ -31,8 +31,11 @@ export default function SGPAPage() {
       html2canvas: { scale: 2, useCORS: true, backgroundColor: "#0b0c10", windowWidth: element.scrollWidth },
       jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
     };
-    html2pdf().set(opt).from(element).save();
-    document.body.classList.remove("pdf-mode");
+    try {
+      await html2pdf().set(opt).from(element).save();
+    } finally {
+      document.body.classList.remove("pdf-mode");
+    }
   };
 
   return (

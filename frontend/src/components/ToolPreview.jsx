@@ -3,7 +3,7 @@ export default function ToolPreview({ title, image }) {
     <div className="tool-preview">
 
       <div className="preview-thumbnail">
-         <img src={image} alt={title} />
+         <img src={image} alt={title} loading="lazy" decoding="async" />
       </div>
 
       <div className="preview-content">

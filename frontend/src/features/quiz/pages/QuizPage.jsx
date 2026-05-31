@@ -15,6 +15,8 @@ import {
 } from "lucide-react";
 
 import { useAuth } from "../../../context/AuthContext";
+import "../styles/global.css";
+import "../styles/quizEngine.css";
 
 const QUESTION_COUNT = 10;
 
@@ -31,7 +33,7 @@ export default function QuizPage() {
   const [selected, setSelected] = useState(null);
   const [revealed, setRevealed] = useState(false);
   const [timeLeft, setTimeLeft] = useState(30);
-  const [answers, setAnswers] = useState([]);
+  const [, setAnswers] = useState([]);
   const [error, setError] = useState("");
 
   const timerRef = useRef(null);

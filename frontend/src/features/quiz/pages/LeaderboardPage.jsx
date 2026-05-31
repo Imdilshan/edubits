@@ -3,6 +3,8 @@ import api from "../utils/api";
 import { sortLeaderboard } from "../utils/algorithms";
 import { useAuth } from "../../../context/AuthContext";
 import { ArrowDown, ArrowUp, Medal, Trophy } from "lucide-react";
+import "../styles/global.css";
+import "../styles/quizEngine.css";
 
 export default function LeaderboardPage() {
   const [entries, setEntries]   = useState([]);

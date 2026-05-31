@@ -1,6 +1,8 @@
 import React from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import { Check, Clock3, RotateCcw, Trophy, X } from "lucide-react";
+import "../styles/global.css";
+import "../styles/quizEngine.css";
 
 export default function ResultsPage() {
   const { state } = useLocation();
