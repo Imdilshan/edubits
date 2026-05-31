@@ -1,11 +1,11 @@
-// routes/pyqRoutes.js  (UPDATED — now backed by Resource model)
+// routes/pyqsRoutes.js  (UPDATED — now backed by Resource model)
 // ─────────────────────────────────────────────────────────────
-// Replaces the original pyqRoutes.js.
+// Replaces the original pyqsRoutes.js.
 // The /upload endpoint now uses the new `uploadFor` middleware factory
-// so PYQ PDFs land in edubits/pyqs in Cloudinary and are stored as
-// Resource documents with resourceType: "pyq".
+// so pyqs PDFs land in edubits/pyqss in Cloudinary and are stored as
+// Resource documents with resourceType: "pyqs".
 //
-// This route is mounted at /api/pyqs in server.js — no change needed there.
+// This route is mounted at /api/pyqss in server.js — no change needed there.
 // ─────────────────────────────────────────────────────────────
 
 const express  = require("express");
@@ -33,26 +33,26 @@ const handleMulterError = (multerMw) => (req, res, next) => {
 };
 
 // ── GET /api/pyqs ──────────────────────────────────────────────
-// Returns all active PYQs, optionally filtered by subject / year / semester.
+// Returns all active pyqss, optionally filtered by subject / year / semester.
 router.get("/", protect, async (req, res) => {
   try {
     const { subject, year, semester } = req.query;
-    const filter = { isActive: true, resourceType: "pyq" };
+    const filter = { isActive: true, resourceType: "pyqs" };
     if (subject)  filter.subject  = subject;
     if (year)     filter.year     = year;
     if (semester) filter.semester = Number(semester);
 
-    const pyqs = await Resource.find(filter)
+    const pyqss = await Resource.find(filter)
       .sort({ sortOrder: -1, createdAt: -1 })
       .lean();
 
-    res.json({ success: true, pyqs });
+    res.json({ success: true, pyqss });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
   }
 });
 
-// ── POST /api/pyqs/upload ─────────────────────────────────────
+// ── POST /api/pyqss/upload ─────────────────────────────────────
 // Body (multipart/form-data):
 //   file     – PDF file
 //   title    – e.g. "COA Practice 0"
@@ -64,7 +64,7 @@ router.post(
   "/upload",
   protect,
   adminOnly,
-  handleMulterError(uploadFor("pyqs").single("file")),
+  handleMulterError(uploadFor("pyqss").single("file")),
   async (req, res) => {
     try {
       const { title, subject, semester, year, paperTag } = req.body;
@@ -78,9 +78,9 @@ router.post(
         return res.status(400).json({ success: false, message: "title is required." });
       }
 
-      const pyq = await Resource.create({
+      const pyqs = await Resource.create({
         title,
-        resourceType:           "pyq",
+        resourceType:           "pyqs",
         subject:                subject  || undefined,
         semester:               semester ? Number(semester) : undefined,
         year:                   year     || undefined,
@@ -93,29 +93,29 @@ router.post(
         uploadedBy:             req.user._id,
       });
 
-      res.status(201).json({ success: true, pyq });
+      res.status(201).json({ success: true, pyqs });
 
     } catch (err) {
-      console.error("[pyq upload]", err);
+      console.error("[pyqs upload]", err);
       res.status(500).json({ success: false, message: "Upload failed." });
     }
   }
 );
 
-// ── DELETE /api/pyqs/:id ───────────────────────────────────────
+// ── DELETE /api/pyqss/:id ───────────────────────────────────────
 router.delete("/:id", protect, adminOnly, async (req, res) => {
   try {
-    const pyq = await Resource.findById(req.params.id);
-    if (!pyq) return res.status(404).json({ success: false, message: "PYQ not found." });
+    const pyqs = await Resource.findById(req.params.id);
+    if (!pyqs) return res.status(404).json({ success: false, message: "pyqs not found." });
 
-    pyq.isActive = false;
-    await pyq.save();
+    pyqs.isActive = false;
+    await pyqs.save();
 
     await cloudinary.uploader
-      .destroy(pyq.cloudinaryPublicId, { resource_type: pyq.cloudinaryResourceType })
+      .destroy(pyqs.cloudinaryPublicId, { resource_type: pyqs.cloudinaryResourceType })
       .catch((e) => console.error("Cloudinary purge failed:", e.message));
 
-    res.json({ success: true, message: "PYQ deleted." });
+    res.json({ success: true, message: "pyqs deleted." });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
   }

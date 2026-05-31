@@ -96,7 +96,6 @@ const uploadFor = (resourceType) => {
     params: async (req, file) => ({
       folder,
       resource_type: resType,
-      access_mode:   "public",
       // e.g. "1717123456789-COA_Practice_0.pdf" — easy to recognise in dashboard
       public_id: `${Date.now()}-${sanitiseName(file.originalname)}`,
     }),
