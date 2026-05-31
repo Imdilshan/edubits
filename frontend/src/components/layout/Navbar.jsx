@@ -114,7 +114,7 @@ export default function Navbar() {
           <Link to="/pyqs"     className={`nav-link ${isActive("/pyqs")     ? "active" : ""}`}>Resources</Link>
           <Link to="/quizzes"  className={`nav-link ${isQuizActive()        ? "active" : ""}`}>QuizEngine</Link>
           <Link to="/tracker"  className={`nav-link ${isActive("/tracker") ? "active" : ""}`}>Tracker</Link>
-          <Link to="/about"    className={`nav-link ${isActive("/about")   ? "active" : ""}`}>About</Link>
+          {/* <Link to="/about"    className={`nav-link ${isActive("/about")   ? "active" : ""}`}>About</Link> */}
         </div>
 
         {/* Profile avatar + dropdown */}

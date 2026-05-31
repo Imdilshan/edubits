@@ -41,7 +41,7 @@ const resourceSchema = new mongoose.Schema(
     resourceType: {
       type:     String,
       required: true,
-      enum:     ["pyq", "notes", "image", "thumbnail", "pdf", "other"],
+      enum:     ["pyqs", "notes", "image", "thumbnail", "pdf", "other"],
       // "pyq" → edubits/pyqs, "notes" → edubits/notes, etc.
     },
 

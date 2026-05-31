@@ -66,6 +66,17 @@ app.use("/api/quiz",        require("./routes/quiz"));
 app.use("/api/leaderboard", require("./routes/leaderboard"));
 app.use("/api/users",       require("./routes/users"));
 
+app.get("/api/test-cloudinary", async (req, res) => {
+  try {
+    const cloudinary = require("./config/cloudinary");
+    const result = await cloudinary.api.ping();
+    res.json({ success: true, result });
+  } catch (err) {
+    res.json({ success: false, message: err.message });
+  }
+});
+
+
 app.get("/", (req, res) => {
   res.json({ message: "Edubits API running", status: "ok" });
 });
