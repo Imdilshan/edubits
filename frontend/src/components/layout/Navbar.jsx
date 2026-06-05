@@ -7,7 +7,7 @@ import EditProfileModal from "./EditProfileModal";
 
 import {
   LogOut, Pencil, Image,
-  Calculator, ClipboardList, CheckSquare, BookOpen, Brain, BookMarked, Info,
+  Calculator, ClipboardList, CheckSquare, BookOpen, Brain, BookMarked,
 } from "lucide-react";
 
 export default function Navbar() {
@@ -186,9 +186,7 @@ export default function Navbar() {
         <Link to="/tracker" className={`mobile-nav-item ${isActive("/tracker") ? "active" : ""}`}>
           <BookMarked size={20} /> <span>Tracker</span>
         </Link>
-        <Link to="/about" className={`mobile-nav-item ${isActive("/about") ? "active" : ""}`}>
-          <Info size={20} /> <span>About</span>
-        </Link>
+        {/* About link intentionally hidden on mobile */}
       </nav>
 
       {/* ── Edit Profile Modal ── */}
