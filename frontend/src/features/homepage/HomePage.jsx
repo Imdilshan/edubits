@@ -1,11 +1,158 @@
+// import { lazy, Suspense } from "react";
+// import { Link } from "react-router-dom";
+// import "./homepage.css";
+
+// import { Calculator, ClipboardCheck, CheckSquare, BookOpen, FolderKanban, BookMarked } from "lucide-react";
+// import { Zap } from "lucide-react";
+// import { Rocket } from "lucide-react";
+// import { Star } from "lucide-react";
+
+// const HomeFooter = lazy(() => import("./HomeFooter"));
+
+// const tools = [
+//   {
+//     href: "/sgpa",
+//     icon: <Calculator />,
+//     name: "SGPA Calculator",
+//     desc: "Input your grades, see SGPA instantly.",
+//     tag: "Calculator",
+//     cardClass: "card-blue",
+//     iconClass: "icon-blue",
+//     tagClass: "tag-blue",
+//   },
+//   {
+//     href: "/internal",
+//     icon: <ClipboardCheck />,
+//     name: "Internal Marks Calculator",
+//     desc: "Calculate all internal marks in seconds.",
+//     tag: "Calculator",
+//     cardClass: "card-red",
+//     iconClass: "icon-red",
+//     tagClass: "tag-red",
+//   },
+//   {
+//     href: "/tasks",
+//     icon: <CheckSquare />,
+//     name: "Task Tracker",
+//     desc: "Track assignments, quizzes, and projects.",
+//     tag: "Tracker",
+//     cardClass: "card-cyan",
+//     iconClass: "icon-cyan",
+//     tagClass: "tag-cyan",
+//   },
+//   {
+//     href: "/pyqs",
+//     icon: <BookOpen />,
+//     name: "Resources",
+//     desc: "PYQs & playlists.",
+//     tag: "Practice",
+//     cardClass: "card-purple",
+//     iconClass: "icon-purple",
+//     tagClass: "tag-purple",
+//   },
+//   {
+//     href: "/quizzes",
+//     icon: <Zap />,
+//     name: "QuizEngine",
+//     desc: "Viva Rapid Fire!.",
+//     tag: "Practice",
+//     cardClass: "card-yellow",
+//     iconClass: "icon-yellow",
+//     tagClass: "tag-yellow",
+//   },
+//   {
+//     href: "/tracker",
+//     icon: <BookMarked />,
+//     name: "Engineering Tracker",
+//     desc: "Track Engineering Life",
+//     tag: "Tracker",
+//     cardClass: "card-green",
+//     iconClass: "icon-green",
+//     tagClass: "tag-green",
+//   },
+//   {
+//     href: "/projexia",
+//     icon: <FolderKanban />,
+//     name: "Projexia",
+//     desc: "Get help in projects and assignments.",
+//     tag: "projects",
+//     cardClass: "card-green",
+//     iconClass: "icon-green",
+//     tagClass: "tag-green",
+//     comingSoon: true,
+//   },
+// ];
+
+// export default function HomePage() {
+//   return (
+//     <div className="hp-everything">
+
+//       <div className="hp-hero">
+//         <h1>Engineer your<br /><span>Grades.</span></h1>
+//         <div className="hp-hero-cta">
+//           <a href="#tools" className="hp-btn-primary"> <Rocket className="hp-btn-icon" /> Explore tools</a>
+//         </div>
+//         <div className="hp-trust">
+//           <div className="hp-stars">
+//             {[...Array(5)].map((_, i) => (
+//               <Star key={i} className="hp-star-icon" />
+//             ))}
+//           </div>
+//           <span>Trusted by 350+ users. Used during exams, loved after results.</span>
+//         </div>
+//       </div>
+
+//       <div className="hp-section" id="tools">
+//         <div className="hp-section-label">All Tools</div>
+//         <div className="hp-tools-grid">
+//           {tools.map((t, i) =>
+//             t.comingSoon ? (
+//               <div className={`hp-tool-card ${t.cardClass} hp-tool-card--soon`} key={i}>
+//                 <div className="hp-coming-soon-badge">Coming Soon</div>
+//                 <div className={`hp-tool-icon ${t.iconClass}`}>{t.icon}</div>
+//                 <div className="hp-tool-name">{t.name}</div>
+//                 <div className="hp-tool-desc">{t.desc}</div>
+//                 <div className="hp-tool-footer">
+//                   <span className={`hp-tool-tag ${t.tagClass}`}>{t.tag}</span>
+//                 </div>
+//               </div>
+//             ) : (
+//               <Link to={t.href} className={`hp-tool-card ${t.cardClass}`} key={i}>
+//                 <div className={`hp-tool-icon ${t.iconClass}`}>{t.icon}</div>
+//                 <div className="hp-tool-name">{t.name}</div>
+//                 <div className="hp-tool-desc">{t.desc}</div>
+//                 <div className="hp-tool-footer">
+//                   <span className={`hp-tool-tag ${t.tagClass}`}>{t.tag}</span>
+//                   <span className="hp-arrow">↗</span>
+//                 </div>
+//               </Link>
+//             )
+//           )}
+//         </div>
+//       </div>
+
+//       <Suspense fallback={null}>
+//         <HomeFooter />
+//       </Suspense>
+//     </div>
+//   );
+// }
+
+
 import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import "./homepage.css";
 
-import { Calculator, ClipboardCheck, CheckSquare, BookOpen, FolderKanban, BookMarked } from "lucide-react";
-import { Zap } from "lucide-react";
-import { Rocket } from "lucide-react";
-import { Star } from "lucide-react";
+import {
+  Calculator,
+  ClipboardCheck,
+  CheckSquare,
+  BookOpen,
+  FolderKanban,
+  BookMarked,
+  Zap,
+  Rocket,
+} from "lucide-react";
 
 const HomeFooter = lazy(() => import("./HomeFooter"));
 
@@ -13,8 +160,8 @@ const tools = [
   {
     href: "/sgpa",
     icon: <Calculator />,
-    name: "SGPA Calculator",
-    desc: "Input your grades, see SGPA instantly.",
+    name: "SGPA & CGPA Calculator",
+    desc: "Calculate your SGPA and CGPA instantly.",
     tag: "Calculator",
     cardClass: "card-blue",
     iconClass: "icon-blue",
@@ -24,7 +171,7 @@ const tools = [
     href: "/internal",
     icon: <ClipboardCheck />,
     name: "Internal Marks Calculator",
-    desc: "Calculate all internal marks in seconds.",
+    desc: "Calculate Theory, Hybrid, Practical and DCPD subject internal marks.",
     tag: "Calculator",
     cardClass: "card-red",
     iconClass: "icon-red",
@@ -34,7 +181,7 @@ const tools = [
     href: "/tasks",
     icon: <CheckSquare />,
     name: "Task Tracker",
-    desc: "Track assignments, quizzes, and projects.",
+    desc: "Track lab assessments, deadlines and submissions, so you never forget them.",
     tag: "Tracker",
     cardClass: "card-cyan",
     iconClass: "icon-cyan",
@@ -44,7 +191,7 @@ const tools = [
     href: "/pyqs",
     icon: <BookOpen />,
     name: "Resources",
-    desc: "PYQs & playlists.",
+    desc: "Important questions, PYQs and playlists for last night preparation.",
     tag: "Practice",
     cardClass: "card-purple",
     iconClass: "icon-purple",
@@ -54,7 +201,7 @@ const tools = [
     href: "/quizzes",
     icon: <Zap />,
     name: "QuizEngine",
-    desc: "Viva Rapid Fire!.",
+    desc: "Prepare for viva with MCQ based quiz practice.",
     tag: "Practice",
     cardClass: "card-yellow",
     iconClass: "icon-yellow",
@@ -64,7 +211,7 @@ const tools = [
     href: "/tracker",
     icon: <BookMarked />,
     name: "Engineering Tracker",
-    desc: "Track Engineering Life",
+    desc: "Track your engineering life, your wins, losses and learnings.",
     tag: "Tracker",
     cardClass: "card-green",
     iconClass: "icon-green",
@@ -86,19 +233,55 @@ const tools = [
 export default function HomePage() {
   return (
     <div className="hp-everything">
-
       <div className="hp-hero">
-        <h1>Engineer your<br /><span>Grades.</span></h1>
+        <h1>
+          Engineering made
+          <br />
+          <span>Easier</span>
+        </h1>
         <div className="hp-hero-cta">
-          <a href="#tools" className="hp-btn-primary"> <Rocket className="hp-btn-icon" /> Explore tools</a>
+          <a href="#tools" className="hp-btn-primary">
+            {" "}
+            <Rocket className="hp-btn-icon" /> Explore tools
+          </a>
         </div>
         <div className="hp-trust">
           <div className="hp-stars">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="hp-star-icon" />
+            {[...Array(4)].map((_, i) => (
+              <svg
+                key={i}
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="#f7c44f"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
             ))}
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient id="half">
+                  <stop offset="50%" stopColor="#f7c44f" />
+                  <stop offset="50%" stopColor="transparent" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                fill="url(#half)"
+                stroke="#f7c44f"
+                strokeWidth="1.5"
+              />
+            </svg>
           </div>
-          <span>Trusted by 350+ users. Used during exams, loved after results.</span>
+          <span>
+            Trusted by 350+ users. Used during exams, loved after results.
+          </span>
         </div>
       </div>
 
@@ -107,7 +290,10 @@ export default function HomePage() {
         <div className="hp-tools-grid">
           {tools.map((t, i) =>
             t.comingSoon ? (
-              <div className={`hp-tool-card ${t.cardClass} hp-tool-card--soon`} key={i}>
+              <div
+                className={`hp-tool-card ${t.cardClass} hp-tool-card--soon`}
+                key={i}
+              >
                 <div className="hp-coming-soon-badge">Coming Soon</div>
                 <div className={`hp-tool-icon ${t.iconClass}`}>{t.icon}</div>
                 <div className="hp-tool-name">{t.name}</div>
@@ -117,7 +303,11 @@ export default function HomePage() {
                 </div>
               </div>
             ) : (
-              <Link to={t.href} className={`hp-tool-card ${t.cardClass}`} key={i}>
+              <Link
+                to={t.href}
+                className={`hp-tool-card ${t.cardClass}`}
+                key={i}
+              >
                 <div className={`hp-tool-icon ${t.iconClass}`}>{t.icon}</div>
                 <div className="hp-tool-name">{t.name}</div>
                 <div className="hp-tool-desc">{t.desc}</div>
@@ -126,7 +316,7 @@ export default function HomePage() {
                   <span className="hp-arrow">↗</span>
                 </div>
               </Link>
-            )
+            ),
           )}
         </div>
       </div>
