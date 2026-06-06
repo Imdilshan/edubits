@@ -8,7 +8,6 @@ export default function HomeFooter() {
       <div className="hp-footer-grid">
         <div className="hp-footer-brand">
           <div className="hp-logo">Edubits</div>
-          <p className="hp-tagline">Engineer your grades.</p>
           <p className="hp-sub">Last night's study deserves better tools.</p>
         </div>
 
@@ -75,7 +74,7 @@ export default function HomeFooter() {
 
               <div className="hp-founder-info">
                 <span className="hp-founder-name">Ishita Bansal</span>
-                <span className="hp-founder-role">UI & UX Engineer</span>
+                <span className="hp-founder-role">UI & UX Engineer    </span>
               </div>
 
               <div className="hp-founder-links">
