@@ -75,7 +75,7 @@ export default function HomeFooter() {
 
               <div className="hp-founder-info">
                 <span className="hp-founder-name">Ishita Bansal</span>
-                <span className="hp-founder-role">Design Contributor (UI & UX)</span>
+                <span className="hp-founder-role">UI & UX Engineer</span>
               </div>
 
               <div className="hp-founder-links">
