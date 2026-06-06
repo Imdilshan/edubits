@@ -13,7 +13,7 @@ const gradeOptions = [
   { value: 6,  label: "C+", points: 6  },
   { value: 5,  label: "C",  points: 5  },
   { value: 4,  label: "D",  points: 4  },
-  { value: 0,  label: "E/F/I", points: 0 },
+  { value: 0,  label: "F", points: 0 },
 ];
 
 const EXAMPLE_SUBJECTS = [
@@ -93,14 +93,29 @@ function SGPADisplay({ value, animate }) {
 }
 
 export default function SGPA({ setSgpaList }) {
-  const [isExample, setIsExample] = useState(false);
-  const [subjects, setSubjects] = useState(() => {
-    try {
-      const saved = localStorage.getItem("subjects");
-      if (saved) return JSON.parse(saved);
-    } catch {}
-    return [{ name: "", credit: "", grade: "" }];
-  });
+  // const [isExample, setIsExample] = useState(false);
+  // const [subjects, setSubjects] = useState(() => {
+  //   try {
+  //     const saved = localStorage.getItem("subjects");
+  //     if (saved) return JSON.parse(saved);
+  //   } catch {}
+  //   return [{ name: "", credit: "", grade: "" }];
+  // });
+
+  const [isExample, setIsExample] = useState(() => {
+  try {
+    return !localStorage.getItem("subjects");
+  } catch { return true; }
+});
+const [subjects, setSubjects] = useState(() => {
+  try {
+    const saved = localStorage.getItem("subjects");
+    if (saved) return JSON.parse(saved);
+  } catch {}
+  return EXAMPLE_SUBJECTS;
+});
+
+
   const [saved, setSaved] = useState(false);
   const [animResult, setAnimResult] = useState(false);
   const prevSGPA = useRef(null);
@@ -130,13 +145,13 @@ export default function SGPA({ setSgpaList }) {
 
   const addSubject = () => {
     setIsExample(false);
-    setSubjects((prev) => [...prev, { name: "", credit: "", grade: "" }]);
+    setSubjects((prev) => [...prev, { name: "", credit: "", grade: "8" }]);
   };
 
   const deleteSubject = (index) => {
     setSubjects((prev) => {
       const next = prev.filter((_, i) => i !== index);
-      return next.length === 0 ? [{ name: "", credit: "", grade: "" }] : next;
+      return next.length === 0 ? [{ name: "", credit: "", grade: "8" }] : next;
     });
     setIsExample(false);
   };
@@ -194,11 +209,6 @@ export default function SGPA({ setSgpaList }) {
           <h2 className="card-title">SGPA Calculator</h2>
           <p className="card-hint">Enter your subjects, credits, and grades to calculate instantly.</p>
         </div>
-        {isEmpty && (
-          <button className="btn-ghost-small" onClick={loadExample}>
-            Load example  <ArrowRight />
-          </button>
-        )}
       </div>
 
       {isExample && (

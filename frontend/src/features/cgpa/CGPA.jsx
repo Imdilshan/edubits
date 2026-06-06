@@ -129,10 +129,33 @@ function Insight({ history }) {
 
 /* ── Target CGPA Simulator ───────────────────────────────── */
 function TargetSimulator() {
+  // const [form, setForm] = useState(() => {
+  //   try { return JSON.parse(localStorage.getItem("simForm") || "{}"); }
+  //   catch { return {}; }
+  // });
+
   const [form, setForm] = useState(() => {
-    try { return JSON.parse(localStorage.getItem("simForm") || "{}"); }
-    catch { return {}; }
-  });
+  try {
+    const saved = localStorage.getItem("simForm");
+    return saved ? JSON.parse(saved) : {
+      currentCGPA: "7.8",
+      completedCredits: "80",
+      targetCGPA: "8.2",
+      nextCredits: "22",
+    };
+  } catch {
+    return {
+      currentCGPA: "7.8",
+      completedCredits: "80",
+      targetCGPA: "8.2",
+      nextCredits: "22",
+    };
+  }
+});
+
+
+
+
   const [result, setResult] = useState(null);
 
   const set = (k, v) => setForm((f) => {
@@ -227,13 +250,27 @@ function TargetSimulator() {
 
 /* ── Main CGPA Component ─────────────────────────────────── */
 export default function CGPA({ sgpaList, removeSGPA }) {
-  const [manualSems, setManualSems] = useState(() => {
-    try {
-      const saved = localStorage.getItem("manualSems");
-      return saved ? JSON.parse(saved) : [{ sgpa: "", credits: "" }];
-    } catch { return [{ sgpa: "", credits: "" }]; }
-  });
+  // const [manualSems, setManualSems] = useState(() => {
+  //   try {
+  //     const saved = localStorage.getItem("manualSems");
+  //     return saved ? JSON.parse(saved) : [{ sgpa: "", credits: "" }];
+  //   } catch { return [{ sgpa: "", credits: "" }]; }
+  // });
 
+  const [manualSems, setManualSems] = useState(() => {
+  try {
+    const saved = localStorage.getItem("manualSems");
+    return saved ? JSON.parse(saved) : [
+      { sgpa: "7.2", credits: "21" },
+      { sgpa: "8.4", credits: "22" },
+    ];
+  } catch {
+    return [
+      { sgpa: "7.2", credits: "21" },
+      { sgpa: "8.4", credits: "22" },
+    ];
+  }
+});
   const [result, setResult] = useState(null);
   const [history, setHistory] = useState(() => {
     try { return JSON.parse(localStorage.getItem("semHistory") || "[]"); }
