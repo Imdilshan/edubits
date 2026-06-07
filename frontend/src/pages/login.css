@@ -419,7 +419,7 @@
     gap: 4px;
   }
 }
-/* ── Google OAuth ─────────────────────────────────────────── */
+
 .login-divider {
   display: flex;
   align-items: center;
@@ -446,7 +446,6 @@
   padding: 11px 16px;
   margin-top: 0;
 
-  /* Override the gradient from .login-card button */
   background: #ffffff !important;
   background-image: none !important;
   border: 1px solid #d1d5db !important;

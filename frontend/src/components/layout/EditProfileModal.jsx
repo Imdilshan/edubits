@@ -1,5 +1,3 @@
-// frontend/src/components/layout/EditProfileModal.jsx
-
 import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { X, User, Mail, Lock, Eye, EyeOff, CheckCircle, AlertCircle } from "lucide-react";
@@ -22,7 +20,7 @@ export default function EditProfileModal({ onClose }) {
   const [showConfirm, setShowConfirm] = useState(false);
 
   const [loading,  setLoading]  = useState(false);
-  const [toast,    setToast]    = useState(null); // { type: "success"|"error", msg }
+  const [toast,    setToast]    = useState(null);
 
   const showToast = (type, msg) => {
     setToast({ type, msg });
@@ -33,7 +31,6 @@ export default function EditProfileModal({ onClose }) {
     setForm((prev) => ({ ...prev, [field]: value }));
 
   const handleSave = async () => {
-    // Client-side validation
     if (form.name.trim().length < 2)
       return showToast("error", "Name must be at least 2 characters");
 
@@ -78,13 +75,11 @@ export default function EditProfileModal({ onClose }) {
         return;
       }
 
-      // Update context + localStorage
       setUser(data.user);
       localStorage.setItem("user", JSON.stringify(data.user));
 
       showToast("success", "Profile updated successfully!");
 
-      // Clear password fields
       setForm((prev) => ({
         ...prev,
         currentPassword: "",
@@ -103,13 +98,11 @@ export default function EditProfileModal({ onClose }) {
     <div className="ep-overlay" onClick={onClose}>
       <div className="ep-modal" onClick={(e) => e.stopPropagation()}>
 
-        {/* Header */}
         <div className="ep-header">
           <h2 className="ep-title">Edit Profile</h2>
           <button className="ep-close" onClick={onClose}><X size={18} /></button>
         </div>
 
-        {/* Toast */}
         {toast && (
           <div className={`ep-toast ep-toast-${toast.type}`}>
             {toast.type === "success"
@@ -119,7 +112,6 @@ export default function EditProfileModal({ onClose }) {
           </div>
         )}
 
-        {/* Name */}
         <div className="ep-group">
           <label className="ep-label"><User size={12} /> NAME</label>
           <input
@@ -130,7 +122,6 @@ export default function EditProfileModal({ onClose }) {
           />
         </div>
 
-        {/* Email */}
         <div className="ep-group">
           <label className="ep-label"><Mail size={12} /> EMAIL</label>
           <input
@@ -146,7 +137,6 @@ export default function EditProfileModal({ onClose }) {
           <span>Change Password <span className="ep-optional">(optional)</span></span>
         </div>
 
-        {/* Current password */}
         <div className="ep-group">
           <label className="ep-label"><Lock size={12} /> CURRENT PASSWORD</label>
           <div className="ep-input-wrap">
@@ -163,7 +153,6 @@ export default function EditProfileModal({ onClose }) {
           </div>
         </div>
 
-        {/* New password */}
         <div className="ep-group">
           <label className="ep-label"><Lock size={12} /> NEW PASSWORD</label>
           <div className="ep-input-wrap">
@@ -180,7 +169,6 @@ export default function EditProfileModal({ onClose }) {
           </div>
         </div>
 
-        {/* Confirm password */}
         <div className="ep-group">
           <label className="ep-label"><Lock size={12} /> CONFIRM NEW PASSWORD</label>
           <div className="ep-input-wrap">
@@ -197,7 +185,6 @@ export default function EditProfileModal({ onClose }) {
           </div>
         </div>
 
-        {/* Actions */}
         <div className="ep-actions">
           <button className="ep-btn-cancel" onClick={onClose}>Cancel</button>
           <button className="ep-btn-save" onClick={handleSave} disabled={loading}>

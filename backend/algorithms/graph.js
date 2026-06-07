@@ -44,7 +44,7 @@ function topologicalSort(topics) {
     });
   }
   if (sorted.length < topics.length) {
-    console.warn("⚠️  Cycle detected in topic graph — check prerequisites");
+    console.warn("⚠️ Cycle detected in topic graph — check prerequisites");
   }
   return sorted;
 }

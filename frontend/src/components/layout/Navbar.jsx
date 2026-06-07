@@ -26,7 +26,6 @@ export default function Navbar() {
 
   const handleLogout = () => { logout(); navigate("/"); };
 
-  // ── Avatar upload ────────────────────────────────────────────────────────────
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -38,7 +37,6 @@ export default function Navbar() {
       alert("Image size should be less than 2MB"); return;
     }
 
-    // Optimistic preview
     const previewUrl = URL.createObjectURL(file);
     setPreview(previewUrl);
 
@@ -61,10 +59,10 @@ export default function Navbar() {
       }
 
       const data = await res.json();
-      // Update context + localStorage so avatar persists on refresh
+
       setUser(data.user);
       localStorage.setItem("user", JSON.stringify(data.user));
-      setPreview(null); // switch to real URL from server
+      setPreview(null);
 
     } catch (err) {
       console.error("Upload failed:", err);
@@ -75,7 +73,6 @@ export default function Navbar() {
     }
   };
 
-  // ── Close dropdown on outside click ─────────────────────────────────────────
   useEffect(() => {
     const handleClick = (e) => {
       if (!dropdownRef.current?.contains(e.target)) setOpen(false);
@@ -95,10 +92,7 @@ export default function Navbar() {
 
   return (
     <>
-      {/* ── TOP BAR: always visible — logo (left) + profile (right) ── */}
       <nav className="navbar">
-
-        {/* Logo */}
         <div className="nav-left">
           <Link to="/" className="logo">
             <img src="/images/logo.webp" alt="logo" className="logo-icon" width="28" height="28" />
@@ -106,7 +100,6 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Desktop nav links — hidden on mobile */}
         <div className="nav-center desktop-nav">
           <Link to="/sgpa"     className={`nav-link ${isActive("/sgpa")     ? "active" : ""}`}>SGPA</Link>
           <Link to="/internal" className={`nav-link ${isActive("/internal") ? "active" : ""}`}>Internals</Link>
@@ -114,10 +107,8 @@ export default function Navbar() {
           <Link to="/pyqs"     className={`nav-link ${isActive("/pyqs")     ? "active" : ""}`}>Resources</Link>
           <Link to="/quizzes"  className={`nav-link ${isQuizActive()        ? "active" : ""}`}>QuizEngine</Link>
           <Link to="/tracker"  className={`nav-link ${isActive("/tracker") ? "active" : ""}`}>Tracker</Link>
-          {/* <Link to="/about"    className={`nav-link ${isActive("/about")   ? "active" : ""}`}>About</Link> */}
         </div>
 
-        {/* Profile avatar + dropdown */}
         <div className="nav-right" ref={dropdownRef}>
           <div className="profile" onClick={() => setOpen(!open)}>
             <img key={avatarSrc} src={avatarSrc} alt="avatar" className="nav-avatar" />
@@ -125,7 +116,6 @@ export default function Navbar() {
 
           {open && (
             <div className="dropdown">
-              {/* User info */}
               <div className="dropdown-user">
                 <img src={avatarSrc} alt="avatar" className="avatar" />
                 <div>
@@ -136,7 +126,6 @@ export default function Navbar() {
 
               <div className="dropdown-divider" />
 
-              {/* Edit Profile — opens modal */}
               <button
                 className="dropdown-item"
                 onClick={() => { setOpen(false); setShowEditProfile(true); }}
@@ -144,7 +133,6 @@ export default function Navbar() {
                 <Pencil size={14} /> Edit Profile
               </button>
 
-              {/* Change Avatar */}
               <label className="dropdown-item" style={{ cursor: "pointer" }}>
                 <Image size={14} />
                 {uploading ? "Uploading..." : "Change Avatar"}
@@ -157,7 +145,6 @@ export default function Navbar() {
                 />
               </label>
 
-              {/* Logout */}
               <button className="dropdown-item logout" onClick={handleLogout}>
                 <LogOut size={14} /> Logout
               </button>
@@ -166,7 +153,6 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* ── BOTTOM NAV: mobile only ── */}
       <nav className="mobile-bottom-nav">
         <Link to="/sgpa"     className={`mobile-nav-item ${isActive("/sgpa")     ? "active" : ""}`}>
           <Calculator size={20} /><span>SGPA</span>
@@ -186,10 +172,8 @@ export default function Navbar() {
         <Link to="/tracker" className={`mobile-nav-item ${isActive("/tracker") ? "active" : ""}`}>
           <BookMarked size={20} /> <span>Tracker</span>
         </Link>
-        {/* About link intentionally hidden on mobile */}
-      </nav>
 
-      {/* ── Edit Profile Modal ── */}
+      </nav>
       {showEditProfile && (
         <EditProfileModal onClose={() => setShowEditProfile(false)} />
       )}

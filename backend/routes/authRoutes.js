@@ -24,19 +24,14 @@ console.log("updateProfile:", typeof updateProfile);
 console.log("authMiddleware:", typeof authMiddleware);
 console.log("passport.authenticate:", typeof passport.authenticate);
 
-
-// ── Disk storage: saves avatar to uploads/avatars/<userId>.<ext> ──────────────
-// Using diskStorage avoids all multer v2 stream/buffer confusion entirely.
 const avatarStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     const dir = path.join(__dirname, "../uploads/avatars");
-    // Create folder if it doesn't exist
     if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
     cb(null, dir);
   },
   filename: (req, file, cb) => {
     const ext = path.extname(file.originalname).toLowerCase() || ".jpg";
-    // One file per user — overwrites previous avatar automatically
     cb(null, `avatar_${req.user.id}${ext}`);
   },
 });
@@ -52,28 +47,23 @@ const avatarUpload = multer({
   },
 });
 
-// ── Public ───────────────────────────────────────────────────────────────────
 router.post("/register", register);
 router.post("/login",    login);
 
-// ── Protected ────────────────────────────────────────────────────────────────
 router.get ("/me",           authMiddleware, getMe);
 router.put ("/profile",      authMiddleware, updateProfile);
 router.post(
   "/upload-avatar",
   authMiddleware,
-  avatarUpload.single("avatar"),  // req.file.path = absolute disk path
+  avatarUpload.single("avatar"),
   uploadAvatar
 );
 
-// ── Google OAuth ──────────────────────────────────────────────────────────────
-// Step 1: redirect user to Google consent screen
 router.get(
   "/google",
   passport.authenticate("google", { scope: ["profile", "email"], session: false })
 );
  
-// Step 2: Google redirects back here
 router.get(
   "/google/callback",
   passport.authenticate("google", {
@@ -90,7 +80,6 @@ router.get(
       avatar: req.user.avatar,
     };
  
-    // Pass token + user to frontend via query params; frontend stores them
     const params = new URLSearchParams({ token, user: JSON.stringify(user) });
     res.redirect(`${process.env.FRONTEND_URL}/auth/callback?${params}`);
   }

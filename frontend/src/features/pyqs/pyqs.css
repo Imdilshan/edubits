@@ -1,11 +1,5 @@
-/* ═══════════════════════════════════════════════════════════════
-   pyqs.css  —  Revision / PYQs / Playlists feature styles
-   ═══════════════════════════════════════════════════════════════ */
-
-/* ── Page shell ─────────────────────────────────────────────── */
 .pyq-page { min-height: 100vh; }
 
-/* ── Tab bar ────────────────────────────────────────────────── */
 .pyq-mode-bar {
   display: flex;
   gap: 3px;
@@ -43,14 +37,12 @@
 }
 .tab-content svg { transform: translateY(1px); }
 
-/* ── Content wrapper ─────────────────────────────────────────── */
 .pyq-wrap {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 24px 60px;
 }
 
-/* ── Section header ─────────────────────────────────────────── */
 .pyq-header {
   padding: 36px 0 20px;
   display: flex;
@@ -97,7 +89,6 @@
   gap: 10px;
 }
 
-/* ── Buttons ─────────────────────────────────────────────────── */
 .pyq-btn-add {
   padding: 10px 20px;
   background: linear-gradient(135deg, #22d3ee, #3b82f6);
@@ -161,7 +152,6 @@
 
 .pyq-back-row { margin: 20px 0 16px; }
 
-/* ── Stats strip ─────────────────────────────────────────────── */
 .pyq-stats-strip {
   display: flex;
   gap: 10px;
@@ -178,7 +168,7 @@
 }
 .pyq-strip-item strong { color: var(--primary); font-family: 'DM Sans', sans-serif; font-weight: 700; }
 
-/* ── Toolbar / filters ───────────────────────────────────────── */
+
 .pyq-toolbar {
   display: flex;
   gap: 9px;
@@ -226,7 +216,6 @@
 }
 .pyq-select:focus { border-color: var(--primary); }
 
-/* ── Empty state ─────────────────────────────────────────────── */
 .pyq-state-box {
   text-align: center;
   padding: 64px 20px;
@@ -240,14 +229,12 @@
   margin-bottom: 8px;
 }
 
-/* ── Card grid ───────────────────────────────────────────────── */
 .pyq-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
   gap: 13px;
 }
 
-/* ── Question card ───────────────────────────────────────────── */
 .pyq-local-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -271,7 +258,6 @@
   gap: 10px;
 }
 
-/* Default question style (used in ClassBank folder cards, icons inline) */
 .pyq-lc-question {
   font-size: 14px;
   line-height: 1.6;
@@ -286,18 +272,15 @@
 
 
 .pyq-lc-question--text {
-  display: block;          /* override flex so text flows normally */
-  white-space: pre-wrap;   /* preserve newlines + wraps long lines */
+  display: block;          
+  white-space: pre-wrap;  
   word-break: break-word;
-  /* min-width:0 lets the flex child shrink below its content width
-     so action buttons don't squeeze it into an artificially narrow column */
   min-width: 0;
   overflow-wrap: break-word;
 }
 
 .pyq-lc-actions { display: flex; gap: 6px; flex-shrink: 0; }
 
-/* ── Icon buttons ────────────────────────────────────────────── */
 .pyq-icon-btn {
   background: var(--surface-2);
   border: 1px solid var(--border);
@@ -311,19 +294,16 @@
   align-items: center;
   justify-content: center;
 }
-/* default hover */
+
 .pyq-icon-btn:hover                      { color: var(--text); border-color: var(--text); }
-/* star: already starred state */
+
 .pyq-icon-btn.starred                    { color: #f7c44f; border-color: rgba(247, 196, 79, 0.3); background: rgba(247, 196, 79, 0.08); }
-/* star: hover always yellow regardless of starred state */
+
 .pyq-icon-btn.starred:hover,
 .pyq-icon-btn[title="Star"]:hover        { color: #f7c44f; border-color: rgba(247, 196, 79, 0.45); background: rgba(247, 196, 79, 0.14); }
-/* edit hover → blue */
-.pyq-icon-btn.edit:hover                 { color: #60a5fa; border-color: rgba(96, 165, 250, 0.4); background: rgba(96, 165, 250, 0.08); }
-/* delete hover → red */
-.pyq-icon-btn.danger:hover               { color: var(--danger); border-color: rgba(239, 68, 68, 0.35); }
 
-/* ── Tags ────────────────────────────────────────────────────── */
+.pyq-icon-btn.edit:hover                 { color: #60a5fa; border-color: rgba(96, 165, 250, 0.4); background: rgba(96, 165, 250, 0.08); }
+.pyq-icon-btn.danger:hover               { color: var(--danger); border-color: rgba(239, 68, 68, 0.35); }
 .pyq-lc-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 
 .pyq-l-tag {
@@ -339,7 +319,6 @@
 .lt-top { background: rgba(34, 197, 94, 0.1);  color: var(--success); }
 .lt-mk  { background: rgba(247, 196, 79, 0.1); color: #f7c44f; }
 
-/* ── Answer reveal ───────────────────────────────────────────── */
 .pyq-lc-answer {
   background: var(--surface-2);
   border-radius: 8px;
@@ -347,7 +326,6 @@
   font-size: 13px;
   line-height: 1.7;
   color: var(--muted);
-  /* FIX: always pre-wrap so numbered lists / line breaks render correctly */
   white-space: pre-wrap;
   word-break: break-word;
   display: none;
@@ -367,13 +345,9 @@
 }
 .pyq-toggle-ans:hover { border-color: var(--primary); color: var(--primary); }
 
-/* ── Card footer ─────────────────────────────────────────────── */
 .pyq-lc-footer { display: flex; align-items: center; justify-content: space-between; }
 .pyq-lc-date   { font-size: 11px; color: var(--muted); }
 
-/* ═══════════════════════════════════════════════════════════════
-   MODAL
-   ═══════════════════════════════════════════════════════════════ */
 .pyq-modal-overlay {
   position: fixed;
   inset: 0;
@@ -394,7 +368,6 @@
   max-width: 520px;
   max-height: 90vh;
   overflow-y: auto;
-  /* Ensure the modal itself never overflows the viewport on small screens */
   box-sizing: border-box;
 }
 
@@ -406,22 +379,18 @@
   color: var(--text);
 }
 
-/* ── Form groups ─────────────────────────────────────────────── */
 .pyq-form-group {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  /* No margin-bottom — spacing is handled by parent gap */
 }
 
-/* Two-column row — FIX: use grid with explicit gap so inputs never overlap */
 .pyq-form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
 
-/* Stack form groups inside modal with consistent spacing */
 .pyq-modal > .pyq-form-group,
 .pyq-modal > .pyq-form-row {
   margin-bottom: 14px;
@@ -435,7 +404,6 @@
   display: block;
 }
 
-/* FIX: box-sizing: border-box prevents width + padding overflow inside grid cells */
 .pyq-form-input,
 .pyq-form-textarea {
   width: 100%;
@@ -453,22 +421,18 @@
 .pyq-form-textarea {
   resize: vertical;
   min-height: 82px;
-  /* Preserve newlines typed into the textarea */
   white-space: pre-wrap;
 }
 .pyq-form-input:focus,
 .pyq-form-textarea:focus { border-color: var(--primary); }
 
-/* ── Modal actions ───────────────────────────────────────────── */
 .pyq-modal-actions {
   display: flex;
   gap: 9px;
   margin-top: 20px;
-  /* Ensure buttons never overflow on very small widths */
   flex-wrap: wrap;
 }
 
-/* Override cancel button inside modal — should look less destructive */
 .pyq-modal-actions .pyq-btn-cancel {
   background: var(--surface-2);
   border-color: var(--border);
@@ -499,9 +463,6 @@
 .pyq-btn-confirm:hover    { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35); }
 .pyq-btn-confirm:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
 
-/* ═══════════════════════════════════════════════════════════════
-   PLAYLIST CARDS
-   ═══════════════════════════════════════════════════════════════ */
 .pyq-playlist-card {
   padding: 0;
   overflow: hidden;
@@ -558,27 +519,19 @@
 }
 .pyq-yt-embed-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
 
-/* ═══════════════════════════════════════════════════════════════
-   ANIMATION
-   ═══════════════════════════════════════════════════════════════ */
 @keyframes pyq-fadeUp {
   from { opacity: 0; transform: translateY(11px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   RESPONSIVE
-   ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 600px) {
   .pyq-grid         { grid-template-columns: 1fr; }
   .pyq-mode-bar     { padding: 10px 14px; }
-  /* FIX: collapse two-column rows to single column on mobile */
   .pyq-form-row     { grid-template-columns: 1fr; }
   .pyq-modal        { padding: 20px; }
   .pyq-wrap         { padding: 0 14px 60px; }
 }
 
-/* Mid-range: at 601–760px the modal fits but is a bit tight — keep 2 cols */
 @media (min-width: 601px) and (max-width: 760px) {
   .pyq-form-row { grid-template-columns: 1fr 1fr; gap: 10px; }
 }

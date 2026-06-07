@@ -3,7 +3,6 @@ import "./cgpa.css";
 
 const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
 
-/* ── Bar Chart ───────────────────────────────────────────── */
 function BarChart({ data }) {
   if (!data || data.length === 0) return null;
 
@@ -35,7 +34,6 @@ function BarChart({ data }) {
       className="bar-chart-svg"
       preserveAspectRatio="xMidYMid meet"
     >
-      {/* Y grid lines + labels */}
       {yTicks.map((t) => {
         const y = PAD_T + chartH - (t / maxVal) * chartH;
         return (
@@ -53,7 +51,6 @@ function BarChart({ data }) {
         );
       })}
 
-      {/* Bars */}
       {data.map((d, i) => {
         const bh = (d.sgpa / maxVal) * chartH;
         const x = PAD_L + gap * i + gap / 2 - barW / 2;
@@ -62,25 +59,24 @@ function BarChart({ data }) {
 
         return (
           <g key={i}>
-            {/* Bar shadow/glow base */}
             <rect
               x={x + 2} y={y + 4}
               width={barW} height={bh}
               rx="5" fill={color} opacity="0.12"
             />
-            {/* Actual bar */}
+
             <rect
               x={x} y={y}
               width={barW} height={bh}
               rx="5" fill={color} opacity="0.85"
             />
-            {/* SGPA label on top of bar */}
+
             <text
               x={x + barW / 2} y={y - 7}
               textAnchor="middle" fontSize="11"
               fontWeight="600" fill={color}
             >{d.sgpa.toFixed(2)}</text>
-            {/* X-axis label */}
+        
             <text
               x={x + barW / 2} y={PAD_T + chartH + 18}
               textAnchor="middle" fontSize="11"
@@ -90,13 +86,12 @@ function BarChart({ data }) {
         );
       })}
 
-      {/* X axis line */}
       <line
         x1={PAD_L} y1={PAD_T + chartH}
         x2={W - PAD_R} y2={PAD_T + chartH}
         stroke="rgba(255,255,255,0.1)" strokeWidth="1"
       />
-      {/* Y axis line */}
+ 
       <line
         x1={PAD_L} y1={PAD_T}
         x2={PAD_L} y2={PAD_T + chartH}
@@ -106,7 +101,6 @@ function BarChart({ data }) {
   );
 }
 
-/* ── Insight Text ────────────────────────────────────────── */
 function Insight({ history }) {
   if (!history || history.length === 0) return null;
   const vals = history.map((h) => h.sgpa);
@@ -127,12 +121,7 @@ function Insight({ history }) {
   return <p className="insight-text">{msg}</p>;
 }
 
-/* ── Target CGPA Simulator ───────────────────────────────── */
 function TargetSimulator() {
-  // const [form, setForm] = useState(() => {
-  //   try { return JSON.parse(localStorage.getItem("simForm") || "{}"); }
-  //   catch { return {}; }
-  // });
 
   const [form, setForm] = useState(() => {
   try {
@@ -152,9 +141,6 @@ function TargetSimulator() {
     };
   }
 });
-
-
-
 
   const [result, setResult] = useState(null);
 
@@ -248,14 +234,7 @@ function TargetSimulator() {
   );
 }
 
-/* ── Main CGPA Component ─────────────────────────────────── */
 export default function CGPA({ sgpaList, removeSGPA }) {
-  // const [manualSems, setManualSems] = useState(() => {
-  //   try {
-  //     const saved = localStorage.getItem("manualSems");
-  //     return saved ? JSON.parse(saved) : [{ sgpa: "", credits: "" }];
-  //   } catch { return [{ sgpa: "", credits: "" }]; }
-  // });
 
   const [manualSems, setManualSems] = useState(() => {
   try {
@@ -279,7 +258,6 @@ export default function CGPA({ sgpaList, removeSGPA }) {
   const [animResult, setAnimResult] = useState(false);
   const prevCGPA = useRef(null);
 
-  /* Persist manualSems on every change */
   useEffect(() => {
     localStorage.setItem("manualSems", JSON.stringify(manualSems));
   }, [manualSems]);
@@ -349,15 +327,12 @@ export default function CGPA({ sgpaList, removeSGPA }) {
 
   return (
     <div className="cgpa-outer">
-
-      {/* ── CGPA Calculator Card ─────────────────────────── */}
       <div className="card cgpa-card">
         <h2 className="card-title" style={{ textAlign: "center" }}>CGPA Calculator</h2>
         <p className="card-hint" style={{ textAlign: "center" }}>
           Combine semesters saved above or enter manually.
         </p>
 
-        {/* Column headers */}
         <div className="cgpa-table-head">
           <span>Semester</span>
           <span>SGPA</span>
@@ -433,7 +408,6 @@ export default function CGPA({ sgpaList, removeSGPA }) {
           </div>
         )}
 
-        {/* Bar chart shown right inside the card after calculating */}
         {history.length >= 1 && result && result !== "invalid" && (
           <div className="bar-chart-wrap">
             <div className="bar-chart-header">
@@ -444,8 +418,6 @@ export default function CGPA({ sgpaList, removeSGPA }) {
           </div>
         )}
       </div>
-
-      {/* ── Target Simulator ───────────────────────────── */}
       <TargetSimulator />
     </div>
   );

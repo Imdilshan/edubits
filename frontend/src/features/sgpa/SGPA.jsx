@@ -93,14 +93,6 @@ function SGPADisplay({ value, animate }) {
 }
 
 export default function SGPA({ setSgpaList }) {
-  // const [isExample, setIsExample] = useState(false);
-  // const [subjects, setSubjects] = useState(() => {
-  //   try {
-  //     const saved = localStorage.getItem("subjects");
-  //     if (saved) return JSON.parse(saved);
-  //   } catch {}
-  //   return [{ name: "", credit: "", grade: "" }];
-  // });
 
   const [isExample, setIsExample] = useState(() => {
   try {

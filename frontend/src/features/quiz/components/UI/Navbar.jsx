@@ -24,7 +24,6 @@ export default function Navbar() {
   return (
     <nav className={styles.nav}>
       <div className={styles.inner}>
-        {/* Logo */}
         <Link to="/" className={styles.logo}>
           <span className={styles.logoIcon}><Zap size={18} /></span>
           <span>QuizEngine</span>

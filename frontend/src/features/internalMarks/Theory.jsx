@@ -33,7 +33,7 @@ function Field({ id, label, max, value, onChange }) {
     const el = inputRef.current;
     if (!el) return;
     el.style.animation = "none";
-    el.offsetHeight; // reflow
+    el.offsetHeight; 
     el.style.animation = "im-shake 0.35s ease";
     setTimeout(() => { if (el) el.style.animation = "none"; }, 380);
   };
@@ -41,7 +41,6 @@ function Field({ id, label, max, value, onChange }) {
   const handleChange = (e) => {
     const raw = e.target.value;
 
-    // allow clearing
     if (raw === "") {
       setError("");
       onChange("");
@@ -50,22 +49,18 @@ function Field({ id, label, max, value, onChange }) {
 
     const num = parseFloat(raw);
 
-    // block non-numeric
     if (isNaN(num)) return;
 
-    // block negative
     if (num < 0) {
       setError(`Min marks: 0`);
       shake();
       return;
     }
 
-    // clamp to max — update value to max and show brief warning
     if (num > max) {
       setError(`Max marks: ${max}`);
       shake();
       onChange(String(max));
-      // clear hint after 1.5s
       setTimeout(() => setError(""), 1500);
       return;
     }
@@ -74,14 +69,12 @@ function Field({ id, label, max, value, onChange }) {
     onChange(raw);
   };
 
-  // also block on keydown for e, E, +, - and digits that would exceed max
   const handleKeyDown = (e) => {
     if (["e", "E", "+", "-"].includes(e.key)) {
       e.preventDefault();
       return;
     }
 
-    // If current value is already at max, block any digit key
     const currentVal = parseFloat(value || "0");
     if (!isNaN(currentVal) && currentVal >= max && /^\d$/.test(e.key)) {
       e.preventDefault();

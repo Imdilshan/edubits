@@ -671,7 +671,6 @@ input[type="number"]::-webkit-outer-spin-button {
     overflow-x: hidden;
   }
 
-  /* ── Layout ── */
   .container {
     padding: 12px;
   }
@@ -680,19 +679,17 @@ input[type="number"]::-webkit-outer-spin-button {
     padding: 12px 14px;
   }
 
-  /* ── Page header ── */
   .page-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
-    padding: 20px 16px 12px; /* was 40px top */
+    padding: 20px 16px 12px;
   }
 
   .page-header h1 {
     font-size: 20px;
   }
 
-  /* ── Task stats row: 2x2 grid ── */
   .stats-row {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
@@ -700,14 +697,13 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   .stat-card {
-    padding: 14px;        /* was 18px */
+    padding: 14px;       
   }
 
   .stat-num {
     font-size: 18px;
   }
 
-  /* ── Task filters: single column ── */
   .filters {
     grid-template-columns: 1fr;
     gap: 10px;
@@ -719,7 +715,6 @@ input[type="number"]::-webkit-outer-spin-button {
     width: 100%;
   }
 
-  /* ── Task kanban: single column ── */
   .kanban {
     grid-template-columns: 1fr;
     gap: 12px;
@@ -727,7 +722,6 @@ input[type="number"]::-webkit-outer-spin-button {
     margin-top: 14px;
   }
 
-  /* ── SGPA ── */
   .sgpa-row,
   .cgpa-row {
     grid-template-columns: 1fr;
@@ -736,7 +730,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
   .sgpa-actions,
   .cgpa-actions {
-    flex-direction: row; /* keep as row, wrap */
+    flex-direction: row;
     flex-wrap: wrap;
     gap: 8px;
   }
@@ -747,7 +741,6 @@ input[type="number"]::-webkit-outer-spin-button {
     min-width: 100px;
   }
 
-  /* ── Buttons ── */
   .btn {
     padding: 10px 14px;
     font-size: 13px;
@@ -765,22 +758,19 @@ input[type="number"]::-webkit-outer-spin-button {
     padding: 0 14px;
   }
 
-  /* ── Forms ── */
   .page input,
   .page select {
     width: 100%;
     padding: 10px 12px;
-    font-size: 16px; /* prevents iOS zoom */
+    font-size: 16px;
     border-radius: 10px;
   }
 
-  /* ── Cards ── */
   .card {
     padding: 14px;
     border-radius: 14px;
   }
 
-  /* ── Task modal ── */
   .modal,
   .task-modal {
     margin: 12px;
@@ -789,7 +779,6 @@ input[type="number"]::-webkit-outer-spin-button {
     border-radius: 16px;
   }
 
-  /* ── Typography ── */
   h1 {
     font-size: 22px;
   }
@@ -803,7 +792,6 @@ input[type="number"]::-webkit-outer-spin-button {
     margin-bottom: 16px;
   }
 
-  /* ── App container (SGPA page) ── */
   .app-container {
     padding: 12px 14px;
   }

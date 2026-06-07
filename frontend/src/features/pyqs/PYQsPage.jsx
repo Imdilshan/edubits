@@ -8,7 +8,6 @@ import {
 import { FolderOpen } from "lucide-react";
 import { ArrowLeft, Home } from "lucide-react";
 
-// ─── Utilities ────────────────────────────────────────────────
 const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2);
 const esc = (s) => String(s ?? "");
 
@@ -17,7 +16,6 @@ const STARS_KEY   = "edubits_pyq_stars";
 
 const emptyForm = { question: "", subject: "", year: "", topic: "", marks: "", answer: "" };
 
-// ─── Static data ──────────────────────────────────────────────
 const PAPER_SOURCES = [
   {
     year: "1st Year",
@@ -215,7 +213,6 @@ const PLAYLIST_SOURCES = [
   },
 ];
 
-// ─── Playlists sub-component ───────────────────────────────────
 function Playlists() {
   const [selectedYear,    setSelectedYear]    = useState(null);
   const [selectedSubject, setSelectedSubject] = useState(null);
@@ -298,7 +295,6 @@ function Playlists() {
   );
 }
 
-// ─── ClassBank sub-component ──────────────────────────────────
 function ClassBank() {
   const [selectedYear,    setSelectedYear]    = useState(null);
   const [selectedSubject, setSelectedSubject] = useState(null);
@@ -428,12 +424,10 @@ function ClassBank() {
   );
 }
 
-// ─── Question card ─────────────────────────────────────────────
 function QuestionCard({ p, onStar, onDelete, onEdit, openAnswers, onToggleAnswer }) {
   return (
     <div className="pyq-local-card" style={{ animationDelay: "inherit" }}>
       <div className="pyq-lc-header">
-        {/* FIX: use <p> with pre-wrap instead of flex div so multiline text renders correctly */}
         <p className="pyq-lc-question pyq-lc-question--text">{esc(p.question)}</p>
         <div className="pyq-lc-actions">
           <button
@@ -487,7 +481,6 @@ function QuestionCard({ p, onStar, onDelete, onEdit, openAnswers, onToggleAnswer
   );
 }
 
-// ─── Add/Edit modal ───────────────────────────────────────────
 function QuestionModal({ form, setForm, onClose, onSubmit, isEditing, subjects }) {
   const isValid = form.question.trim().length > 0;
 
@@ -499,7 +492,6 @@ function QuestionModal({ form, setForm, onClose, onSubmit, isEditing, subjects }
       <div className="pyq-modal">
         <h3>{isEditing ? "Edit Question" : "Add to My Collection"}</h3>
 
-        {/* Question */}
         <div className="pyq-form-group">
           <label className="pyq-form-label">Question *</label>
           <textarea
@@ -511,7 +503,6 @@ function QuestionModal({ form, setForm, onClose, onSubmit, isEditing, subjects }
           />
         </div>
 
-        {/* Subject + Year — two-column grid */}
         <div className="pyq-form-row">
           <div className="pyq-form-group">
             <label className="pyq-form-label">Subject *</label>
@@ -537,7 +528,6 @@ function QuestionModal({ form, setForm, onClose, onSubmit, isEditing, subjects }
           </div>
         </div>
 
-        {/* Topic + Marks — two-column grid */}
         <div className="pyq-form-row">
           <div className="pyq-form-group">
             <label className="pyq-form-label">Topic / Unit</label>
@@ -559,7 +549,6 @@ function QuestionModal({ form, setForm, onClose, onSubmit, isEditing, subjects }
           </div>
         </div>
 
-        {/* Answer */}
         <div className="pyq-form-group">
           <label className="pyq-form-label">Answer / Key Points (optional)</label>
           <textarea
@@ -585,11 +574,9 @@ function QuestionModal({ form, setForm, onClose, onSubmit, isEditing, subjects }
   );
 }
 
-// ─── Main page ────────────────────────────────────────────────
 export default function PYQsPage() {
   const [mode, setMode] = useState("bank");
 
-  // Revision state
   const [pyqs, setPyqs] = useState(() => {
     try { const s = localStorage.getItem(STORAGE_KEY); return s ? JSON.parse(s) : []; }
     catch { return []; }
@@ -600,13 +587,10 @@ export default function PYQsPage() {
   const [filterYear,  setFilterYear]  = useState("");
   const [filterStar,  setFilterStar]  = useState("");
   const [openAnswers, setOpenAnswers] = useState({});
-
-  // Modal state — unified for add + edit
   const [showModal,  setShowModal]  = useState(false);
-  const [editingId,  setEditingId]  = useState(null); // null = adding, string = editing
+  const [editingId,  setEditingId]  = useState(null); 
   const [form,       setForm]       = useState(emptyForm);
 
-  // Persist to localStorage whenever pyqs change
   useEffect(() => { localStorage.setItem(STORAGE_KEY, JSON.stringify(pyqs)); }, [pyqs]);
 
   const subjects = [...new Set(pyqs.map((p) => p.subject).filter(Boolean))];
@@ -622,7 +606,6 @@ export default function PYQsPage() {
     })
     .sort((a, b) => (b.starred ? 1 : 0) - (a.starred ? 1 : 0) || b.createdAt - a.createdAt);
 
-  // ── Handlers ──────────────────────────────────────────────────
   const openAddModal = () => {
     setEditingId(null);
     setForm(emptyForm);
@@ -645,7 +628,6 @@ export default function PYQsPage() {
     if (!form.question.trim()) return;
 
     if (editingId) {
-      // UPDATE existing entry — preserve id, starred, createdAt
       setPyqs((prev) =>
         prev.map((p) =>
           p.id === editingId
@@ -654,7 +636,6 @@ export default function PYQsPage() {
         )
       );
     } else {
-      // CREATE new entry
       setPyqs((prev) => [
         { id: uid(), ...form, question: form.question.trim(), starred: false, createdAt: Date.now() },
         ...prev,
@@ -670,7 +651,6 @@ export default function PYQsPage() {
 
   return (
     <div className="pyq-page">
-      {/* Tab bar */}
       <div className="pyq-mode-bar">
         <button className={`pyq-mode-tab ${mode === "bank"      ? "active" : ""}`} onClick={() => setMode("bank")}>
           <span className="tab-content"><BookOpen size={16} /><span>Pyq's</span></span>

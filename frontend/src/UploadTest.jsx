@@ -16,7 +16,6 @@ function UploadTest() {
 
     formData.append("file", file);
 
-    // metadata
     formData.append("title", "COA PYQ");
     formData.append("subject", "COA");
     formData.append("semester", 4);

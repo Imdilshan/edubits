@@ -36,7 +36,6 @@ export default function WeekDetailsDrawer({ ctx, scores, notes, onScore, onNoteC
 
   return (
     <>
-      {/* Backdrop */}
       <div
         onClick={onClose}
         style={{
@@ -48,7 +47,6 @@ export default function WeekDetailsDrawer({ ctx, scores, notes, onScore, onNoteC
         }}
       />
 
-      {/* Drawer */}
       <div
         ref={drawerRef}
         style={{
@@ -65,7 +63,6 @@ export default function WeekDetailsDrawer({ ctx, scores, notes, onScore, onNoteC
           fontFamily: "'IBM Plex Mono', monospace",
         }}
       >
-        {/* Header */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 24 }}>
           <div>
             <div style={{
@@ -109,7 +106,6 @@ export default function WeekDetailsDrawer({ ctx, scores, notes, onScore, onNoteC
           </button>
         </div>
 
-        {/* Status badge */}
         <div style={{ marginBottom: 24 }}>
           {isThis && (
             <div style={{
@@ -131,7 +127,6 @@ export default function WeekDetailsDrawer({ ctx, scores, notes, onScore, onNoteC
           )}
         </div>
 
-        {/* Score section */}
         <div style={{ marginBottom: 28 }}>
           <div style={{
             fontSize: 10,
@@ -172,7 +167,6 @@ export default function WeekDetailsDrawer({ ctx, scores, notes, onScore, onNoteC
           )}
         </div>
 
-        {/* Reflection section */}
         <div style={{
           borderTop: "1px solid var(--border)",
           paddingTop: 24,
@@ -194,7 +188,6 @@ export default function WeekDetailsDrawer({ ctx, scores, notes, onScore, onNoteC
           />
         </div>
 
-        {/* Timestamps */}
         {currentNote?.createdAt && (
           <div style={{
             borderTop: "1px solid var(--border)",

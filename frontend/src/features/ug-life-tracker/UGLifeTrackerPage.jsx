@@ -51,7 +51,6 @@ export default function UGLifeTrackerPage() {
       <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 20px 80px" }}>
         <SetupPanel startDate={state.startDate} onBuild={handleBuild} />
 
-        {/* Overrides toggle */}
         {calendarData && (
           <div
             onClick={() => setShowOverrides((s) => !s)}

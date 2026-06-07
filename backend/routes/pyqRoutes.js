@@ -1,13 +1,3 @@
-// routes/pyqsRoutes.js  (UPDATED — now backed by Resource model)
-// ─────────────────────────────────────────────────────────────
-// Replaces the original pyqsRoutes.js.
-// The /upload endpoint now uses the new `uploadFor` middleware factory
-// so pyqs PDFs land in edubits/pyqss in Cloudinary and are stored as
-// Resource documents with resourceType: "pyqs".
-//
-// This route is mounted at /api/pyqss in server.js — no change needed there.
-// ─────────────────────────────────────────────────────────────
-
 const express  = require("express");
 const router   = express.Router();
 const protect  = require("../middleware/authMiddleware");
@@ -15,7 +5,6 @@ const { uploadFor } = require("../middleware/upload");
 const Resource = require("../models/Resource");
 const cloudinary = require("../config/cloudinary");
 
-// ── Admin guard (inline for this file) ────────────────────────
 const adminOnly = (req, res, next) => {
   if (req.user?.role !== "admin") {
     return res.status(403).json({ success: false, error: "Admin access required." });
@@ -23,7 +12,6 @@ const adminOnly = (req, res, next) => {
   next();
 };
 
-// ── Multer error wrapper ───────────────────────────────────────
 const handleMulterError = (multerMw) => (req, res, next) => {
   multerMw(req, res, (err) => {
     if (!err) return next();
@@ -32,8 +20,6 @@ const handleMulterError = (multerMw) => (req, res, next) => {
   });
 };
 
-// ── GET /api/pyqs ──────────────────────────────────────────────
-// Returns all active pyqss, optionally filtered by subject / year / semester.
 router.get("/", protect, async (req, res) => {
   try {
     const { subject, year, semester } = req.query;
@@ -52,14 +38,6 @@ router.get("/", protect, async (req, res) => {
   }
 });
 
-// ── POST /api/pyqss/upload ─────────────────────────────────────
-// Body (multipart/form-data):
-//   file     – PDF file
-//   title    – e.g. "COA Practice 0"
-//   subject  – e.g. "COA"
-//   semester – number
-//   year     – e.g. "2nd Year"
-//   paperTag – e.g. "mst1", "est1", "Practice 0"
 router.post(
   "/upload",
   protect,
@@ -102,7 +80,6 @@ router.post(
   }
 );
 
-// ── DELETE /api/pyqss/:id ───────────────────────────────────────
 router.delete("/:id", protect, adminOnly, async (req, res) => {
   try {
     const pyqs = await Resource.findById(req.params.id);

@@ -5,7 +5,6 @@ const jwt    = require("jsonwebtoken");
 const generateToken = (userId) =>
   jwt.sign({ id: userId }, process.env.JWT_SECRET, { expiresIn: "7d" });
 
-// ── GET /api/auth/me ─────────────────────────────────────────────────────────
 exports.getMe = async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
@@ -17,7 +16,6 @@ exports.getMe = async (req, res) => {
   }
 };
 
-// ── POST /api/auth/register ──────────────────────────────────────────────────
 exports.register = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -48,7 +46,6 @@ exports.register = async (req, res) => {
   }
 };
 
-// ── POST /api/auth/login ─────────────────────────────────────────────────────
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -70,10 +67,6 @@ exports.login = async (req, res) => {
   }
 };
 
-// ── POST /api/auth/upload-avatar ─────────────────────────────────────────────
-// multer diskStorage saves file to disk; req.file.path = absolute local path
-// We convert that to a public URL: /uploads/avatars/avatar_<userId>.jpg
-// server.js serves /uploads as static → frontend fetches via VITE_API_URL/uploads/...
 exports.uploadAvatar = async (req, res) => {
   try {
     if (!req.file)
@@ -82,10 +75,6 @@ exports.uploadAvatar = async (req, res) => {
     const user = await User.findById(req.user.id);
     if (!user)
       return res.status(404).json({ message: "User not found" });
-
-    // Build public URL: derive relative path from the filename multer saved
-    // req.file.filename = "avatar_<userId>.jpg"  (set in diskStorage config)
-    // This avoids fragile string-splitting of the absolute path
     const avatarUrl = `${process.env.BACKEND_URL || `http://localhost:${process.env.PORT || 5001}`}/uploads/avatars/${req.file.filename}`;
 
     user.avatar = avatarUrl;
@@ -100,7 +89,6 @@ exports.uploadAvatar = async (req, res) => {
   }
 };
 
-// ── PUT /api/auth/profile ────────────────────────────────────────────────────
 exports.updateProfile = async (req, res) => {
   try {
     const { name, email, currentPassword, newPassword } = req.body;

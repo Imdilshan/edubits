@@ -25,7 +25,6 @@ export class ScoreEngine {
       base = 5;
       this.currentStreak += 1;
       this.maxStreak = Math.max(this.maxStreak, this.currentStreak);
-      // Apply streak bonus
       if      (this.currentStreak % 5 === 0) streakBonus = 5;
       else if (this.currentStreak % 3 === 0) streakBonus = 2;
     } else {

@@ -1,7 +1,3 @@
-// frontend/src/pages/AuthCallback.jsx
-// Google redirects to /auth/callback?token=...&user=...
-// This page reads them, stores in localStorage, then navigates to /tasks
-
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";

@@ -1,13 +1,3 @@
-// src/components/upload/ResourceUploader.jsx
-// ─────────────────────────────────────────────────────────────
-// Admin-only component for uploading PDFs / images to Cloudinary
-// via the backend API.
-//
-// Props:
-//   onSuccess(resource) – called after a successful upload
-//   defaultType         – pre-selects the resource type dropdown
-// ─────────────────────────────────────────────────────────────
-
 import { useState, useRef } from "react";
 import { uploadResource, RESOURCE_TYPES } from "../../services/resourceService";
 
@@ -29,7 +19,7 @@ export default function ResourceUploader({ onSuccess, defaultType = "pyqs" }) {
   const [semester,     setSemester]     = useState("");
   const [paperTag,     setPaperTag]     = useState("");
   const [progress,     setProgress]     = useState(0);
-  const [status,       setStatus]       = useState("idle"); // idle | uploading | success | error
+  const [status,       setStatus]       = useState("idle");
   const [errorMsg,     setErrorMsg]     = useState("");
   const fileInputRef = useRef(null);
 
@@ -80,7 +70,7 @@ export default function ResourceUploader({ onSuccess, defaultType = "pyqs" }) {
         </div>
       ) : (
         <form onSubmit={handleSubmit} style={styles.form}>
-          {/* Resource type */}
+  
           <label style={styles.label}>Resource Type *</label>
           <select
             style={styles.input}
@@ -92,7 +82,6 @@ export default function ResourceUploader({ onSuccess, defaultType = "pyqs" }) {
             ))}
           </select>
 
-          {/* Title */}
           <label style={styles.label}>Title *</label>
           <input
             style={styles.input}
@@ -103,7 +92,6 @@ export default function ResourceUploader({ onSuccess, defaultType = "pyqs" }) {
             required
           />
 
-          {/* Subject */}
           <label style={styles.label}>Subject</label>
           <input
             style={styles.input}
@@ -113,7 +101,6 @@ export default function ResourceUploader({ onSuccess, defaultType = "pyqs" }) {
             onChange={(e) => setSubject(e.target.value)}
           />
 
-          {/* Year + Semester row */}
           <div style={styles.row}>
             <div style={{ flex: 1 }}>
               <label style={styles.label}>Year</label>
@@ -138,7 +125,6 @@ export default function ResourceUploader({ onSuccess, defaultType = "pyqs" }) {
             </div>
           </div>
 
-          {/* Paper tag (PYQ-specific) */}
           {resourceType === "pyqs" && (
             <>
               <label style={styles.label}>Paper Tag</label>
@@ -152,7 +138,6 @@ export default function ResourceUploader({ onSuccess, defaultType = "pyqs" }) {
             </>
           )}
 
-          {/* File input */}
           <label style={styles.label}>File *</label>
           <input
             ref={fileInputRef}
@@ -172,7 +157,6 @@ export default function ResourceUploader({ onSuccess, defaultType = "pyqs" }) {
             </p>
           )}
 
-          {/* Progress bar */}
           {status === "uploading" && (
             <div style={styles.progressTrack}>
               <div style={{ ...styles.progressFill, width: `${progress}%` }} />
@@ -180,10 +164,8 @@ export default function ResourceUploader({ onSuccess, defaultType = "pyqs" }) {
             </div>
           )}
 
-          {/* Error */}
           {errorMsg && <p style={styles.error}>{errorMsg}</p>}
 
-          {/* Actions */}
           <div style={styles.actions}>
             <button type="button" style={styles.btnSecondary} onClick={reset}>
               Reset
@@ -202,7 +184,6 @@ export default function ResourceUploader({ onSuccess, defaultType = "pyqs" }) {
   );
 }
 
-// ── Minimal inline styles (no extra CSS file needed) ──────────
 const styles = {
   card: {
     background:   "var(--card, #1e1e2e)",

@@ -126,7 +126,6 @@ function AppInner() {
         <Route path="/login"    element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/auth/callback" element={<AuthCallback />} />
-        {/* Any protected route -> redirect to login */}
         <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </Suspense>
