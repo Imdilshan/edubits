@@ -3,6 +3,7 @@ require("dotenv").config();
 const express    = require("express");
 const cors       = require("cors");
 const path       = require("path");
+const rateLimit  = require("express-rate-limit");
 const connectDB  = require("./config/db");
 const passport   = require("./config/passport");
 
@@ -24,9 +25,20 @@ app.use(cors({
     console.log("Origin:", origin);
     if (!origin) return callback(null, true);
     if (allowedOrigins.includes(origin)) return callback(null, true);
+    // Allow all Vercel preview deployments for your project
+    if (/\.vercel\.app$/.test(origin)) return callback(null, true);
     callback(new Error("CORS blocked: " + origin));
   },
   credentials: true,
+}));
+
+// Rate limiting — 150 requests per 15 minutes per IP
+app.use(rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 150,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: "Too many requests, please slow down" },
 }));
 
 app.use(express.json());
@@ -38,10 +50,13 @@ app.use((req, res, next) => {
   next();
 });
 
+// Health check — keeps Render free tier alive via UptimeRobot
+app.get("/health", (req, res) => res.status(200).json({ status: "ok", ts: Date.now() }));
+
 app.use("/api/auth",        require("./routes/authRoutes"));
 app.use("/api/tasks",       require("./routes/taskRoutes"));
-app.use("/api/pyqs",        require("./routes/pyqRoutes"));        
-app.use("/api/resources",   require("./routes/resourceRoutes"));   
+app.use("/api/pyqs",        require("./routes/pyqRoutes"));
+app.use("/api/resources",   require("./routes/resourceRoutes"));
 app.use("/api/topics",      require("./routes/topics"));
 app.use("/api/questions",   require("./routes/questions"));
 app.use("/api/quiz",        require("./routes/quiz"));

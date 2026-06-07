@@ -75,8 +75,8 @@ exports.uploadAvatar = async (req, res) => {
     const user = await User.findById(req.user.id);
     if (!user)
       return res.status(404).json({ message: "User not found" });
-    const avatarUrl = `${process.env.BACKEND_URL || `http://localhost:${process.env.PORT || 5001}`}/uploads/avatars/${req.file.filename}`;
-
+    // const avatarUrl = `${process.env.BACKEND_URL || `http://localhost:${process.env.PORT || 5001}`}/uploads/avatars/${req.file.filename}`;
+    const avatarUrl = req.file.path;
     user.avatar = avatarUrl;
     await user.save();
 
