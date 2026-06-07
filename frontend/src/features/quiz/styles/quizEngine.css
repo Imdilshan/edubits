@@ -89,6 +89,8 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
   margin-bottom: 28px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .quiz-stat-card {
@@ -100,6 +102,8 @@
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .quiz-stat-icon,
@@ -266,6 +270,8 @@
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .quiz-graph-hint {
@@ -503,27 +509,32 @@
     min-width: 0;
   }
 
+  /* Stat cards: stack icon+text vertically so all 3 fit without overflow */
   .quiz-stats-grid {
-    gap: 10px;
+    gap: 8px;
   }
 
   .quiz-stat-card {
-    min-height: 72px;   
-    padding: 14px 12px;
-    gap: 10px;
+    min-height: 0;
+    padding: 12px 10px;
+    gap: 6px;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .quiz-stat-icon {
-    width: 34px;
-    height: 34px;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
   }
 
   .quiz-stat-value {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 
   .quiz-stat-label {
-    font-size: 0.8rem;
+    font-size: 0.72rem;
+    margin-top: 2px;
   }
 
   .quiz-topic-grid {
@@ -534,16 +545,23 @@
     grid-template-columns: 1fr;
   }
 
+  /* Graph: touch-pannable fixed-height container */
+  .quiz-graph-panel {
+    padding: 12px;
+  }
+
   .quiz-graph-svg {
-    min-height: 360px;
+    min-height: 400px;
+    touch-action: none;
   }
 
   .quiz-graph-panel::before {
-    content: "Tip: Pinch to zoom";
+    content: "Pinch to zoom · Drag to pan";
     display: block;
     font-size: 11px;
     color: var(--muted);
     text-align: center;
     margin-bottom: 8px;
+    letter-spacing: 0.04em;
   }
 }

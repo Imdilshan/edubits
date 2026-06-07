@@ -28,7 +28,10 @@ export default function DateOverridePanel({ calendarData, overrides, onSave, onC
     padding: "4px 6px",
     color: "var(--text)",
     outline: "none",
-    width: 110,
+    /* Let date inputs shrink on narrow screens */
+    width: "min(110px, 38vw)",
+    boxSizing: "border-box",
+    minWidth: 0,
   };
 
   return (
@@ -36,8 +39,10 @@ export default function DateOverridePanel({ calendarData, overrides, onSave, onC
       background: "var(--surface)",
       border: "1px solid var(--border)",
       borderRadius: 8,
-      padding: "20px 24px",
+      padding: "16px",
       marginBottom: 12,
+      boxSizing: "border-box",
+      width: "100%",
     }}>
       <div style={{
         fontSize: 10,
@@ -49,9 +54,10 @@ export default function DateOverridePanel({ calendarData, overrides, onSave, onC
         Override individual semester dates
       </div>
 
+      {/* Single column on mobile, 2 col on wider screens */}
       <div style={{
         display: "grid",
-        gridTemplateColumns: "1fr 1fr",
+        gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
         gap: 16,
         marginBottom: 16,
       }}>
@@ -68,8 +74,22 @@ export default function DateOverridePanel({ calendarData, overrides, onSave, onC
               Year {yr.year}
             </div>
             {yr.periods.map((p) => (
-              <div key={p.key} style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 6 }}>
-                <div style={{ fontSize: 9, color: "var(--muted)", width: 68, flexShrink: 0, textTransform: "uppercase", letterSpacing: "0.08em" }}>
+              <div key={p.key} style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 4,
+                marginBottom: 6,
+                flexWrap: "wrap",
+                minWidth: 0,
+              }}>
+                <div style={{
+                  fontSize: 9,
+                  color: "var(--muted)",
+                  width: 60,
+                  flexShrink: 0,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.08em",
+                }}>
                   {p.name.split(" ")[0]}
                 </div>
                 <input
@@ -97,16 +117,13 @@ export default function DateOverridePanel({ calendarData, overrides, onSave, onC
         ))}
       </div>
 
-      <div style={{ display: "flex", gap: 8 }}>
+      <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
         <button
           onClick={() => {
             const newOverrides = {};
             for (const [key, val] of Object.entries(localOverrides)) {
               if (val.start && val.end) {
-                newOverrides[key] = {
-                  start: new Date(val.start),
-                  end: new Date(val.end),
-                };
+                newOverrides[key] = { start: new Date(val.start), end: new Date(val.end) };
               }
             }
             onSave(newOverrides);

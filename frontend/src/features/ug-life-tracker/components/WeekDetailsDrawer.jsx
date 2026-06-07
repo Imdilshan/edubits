@@ -3,17 +3,6 @@ import ScoreSelector from "./ScoreSelector.jsx";
 import ReflectionEditor from "./ReflectionEditor.jsx";
 import { isBeforeWeek, isSameWeek, fmtWeekRange } from "../utils/dateUtils.js";
 
-import {
-  Smile,
-  Meh,
-  Frown,
-  Zap,
-  Brain,
-  Target,
-  Flame,
-  TrendingUp,
-} from "lucide-react";
-
 export default function WeekDetailsDrawer({ ctx, scores, notes, onScore, onNoteChange, onClearScore, onClose }) {
   const drawerRef = useRef(null);
 
@@ -31,7 +20,6 @@ export default function WeekDetailsDrawer({ ctx, scores, notes, onScore, onNoteC
   const currentNote = notes[scoreKey];
   const weekNum = weekIndex + 1;
   const now = new Date();
-  const isPast = isBeforeWeek(week, now) && !isSameWeek(week, now);
   const isThis = isSameWeek(week, now);
 
   return (
@@ -54,17 +42,20 @@ export default function WeekDetailsDrawer({ ctx, scores, notes, onScore, onNoteC
           top: 65,
           right: 0,
           bottom: 0,
-          width: "min(460px, 95vw)",
+          /* On narrow phones use full width minus a small gap */
+          width: "min(460px, 100vw)",
           background: "var(--bg)",
           borderLeft: "1px solid var(--border)",
           zIndex: 51,
           overflowY: "auto",
-          padding: "32px 28px",
+          /* Tighter padding on mobile */
+          padding: "clamp(16px, 5vw, 32px) clamp(16px, 5vw, 28px)",
           fontFamily: "'IBM Plex Mono', monospace",
+          boxSizing: "border-box",
         }}
       >
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 24 }}>
-          <div>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 24, gap: 12 }}>
+          <div style={{ minWidth: 0 }}>
             <div style={{
               fontSize: 10,
               letterSpacing: "0.14em",
@@ -76,7 +67,7 @@ export default function WeekDetailsDrawer({ ctx, scores, notes, onScore, onNoteC
             </div>
             <h3 style={{
               fontFamily: "'Playfair Display', serif",
-              fontSize: "1.4rem",
+              fontSize: "clamp(1.1rem, 5vw, 1.4rem)",
               fontWeight: 700,
               color: "var(--text)",
               margin: 0,
@@ -100,6 +91,7 @@ export default function WeekDetailsDrawer({ ctx, scores, notes, onScore, onNoteC
               fontSize: 16,
               lineHeight: 1,
               outline: "none",
+              flexShrink: 0,
             }}
           >
             ×
@@ -167,11 +159,7 @@ export default function WeekDetailsDrawer({ ctx, scores, notes, onScore, onNoteC
           )}
         </div>
 
-        <div style={{
-          borderTop: "1px solid var(--border)",
-          paddingTop: 24,
-          marginBottom: 24,
-        }}>
+        <div style={{ borderTop: "1px solid var(--border)", paddingTop: 24, marginBottom: 24 }}>
           <div style={{
             fontSize: 10,
             letterSpacing: "0.12em",
@@ -189,10 +177,7 @@ export default function WeekDetailsDrawer({ ctx, scores, notes, onScore, onNoteC
         </div>
 
         {currentNote?.createdAt && (
-          <div style={{
-            borderTop: "1px solid var(--border)",
-            paddingTop: 16,
-          }}>
+          <div style={{ borderTop: "1px solid var(--border)", paddingTop: 16 }}>
             <div style={{ fontSize: 9, color: "var(--muted)", lineHeight: 1.8, opacity: 0.5 }}>
               <div>Created: {new Date(currentNote.createdAt).toLocaleString()}</div>
               {currentNote.updatedAt && currentNote.updatedAt !== currentNote.createdAt && (

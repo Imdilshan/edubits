@@ -48,7 +48,7 @@ export default function UGLifeTrackerPage() {
     >
       <TrackerHeader />
 
-      <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 20px 80px" }}>
+      <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 clamp(12px, 4vw, 20px) 80px", boxSizing: "border-box", width: "100%" }}>
         <SetupPanel startDate={state.startDate} onBuild={handleBuild} />
 
         {calendarData && (

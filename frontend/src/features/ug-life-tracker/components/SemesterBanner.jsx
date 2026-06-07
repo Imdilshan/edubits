@@ -12,16 +12,20 @@ export default function SemesterBanner({ calendarData }) {
       background: "var(--surface)",
       border: "1px solid var(--border)",
       borderRadius: 8,
-      padding: "20px 28px",
+      padding: "16px 20px",
       display: "flex",
       justifyContent: "space-between",
       alignItems: "flex-start",
+      flexWrap: "wrap",
+      gap: 12,
       marginBottom: 10,
+      boxSizing: "border-box",
+      width: "100%",
     }}>
-      <div>
+      <div style={{ minWidth: 0 }}>
         <h2 style={{
           fontFamily: "'Playfair Display', serif",
-          fontSize: "1.8rem",
+          fontSize: "clamp(1.2rem, 5vw, 1.8rem)",
           fontWeight: 700,
           color: "var(--text)",
           margin: 0,
@@ -33,7 +37,7 @@ export default function SemesterBanner({ calendarData }) {
           {period.name} · Year {year} · Week {weekInSem >= 0 ? weekInSem + 1 : "?"} of {period.weeks.length}
         </div>
       </div>
-      <div style={{ textAlign: "right", fontSize: 12, color: "var(--muted)", lineHeight: 1.8 }}>
+      <div style={{ textAlign: "right", fontSize: 12, color: "var(--muted)", lineHeight: 1.8, flexShrink: 0 }}>
         <div>Today: <span style={{ color: "var(--text)", fontWeight: 500 }}>{fmtShortDate(now)}</span></div>
         <div>Overall week {ow.current} of {ow.total}</div>
       </div>

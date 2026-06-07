@@ -9,8 +9,11 @@ const YearSection = memo(function YearSection({ yearData, scores, notes, onOpenW
       background: "var(--surface)",
       border: "1px solid var(--border)",
       borderRadius: 8,
-      padding: "20px 24px",
+      padding: "16px",
       marginBottom: 10,
+      boxSizing: "border-box",
+      width: "100%",
+      overflow: "hidden",
     }}>
       <div style={{
         textAlign: "center",

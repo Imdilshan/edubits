@@ -4,10 +4,19 @@ import { fmtMonYr } from "../utils/dateUtils.js";
 
 const SemesterRow = memo(function SemesterRow({ period, yearNum, scores, notes, onOpenWeek }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 10 }}>
-      <div style={{ width: 96, flexShrink: 0 }}>
+    <div style={{
+      display: "flex",
+      alignItems: "flex-start",
+      gap: 10,
+      marginBottom: 10,
+      width: "100%",
+      boxSizing: "border-box",
+      minWidth: 0,
+    }}>
+      {/* Label: fixed width on desktop, shrinks on mobile */}
+      <div style={{ width: "clamp(56px, 18vw, 96px)", flexShrink: 0 }}>
         <div style={{
-          fontSize: 10,
+          fontSize: "clamp(8px, 2.2vw, 10px)",
           fontWeight: 500,
           textTransform: "uppercase",
           letterSpacing: "0.1em",
@@ -28,7 +37,8 @@ const SemesterRow = memo(function SemesterRow({ period, yearNum, scores, notes, 
         </div>
       </div>
 
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 3, flex: 1 }}>
+      {/* Week cells: wrap freely */}
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 3, flex: 1, minWidth: 0 }}>
         {period.weeks.map((week, wi) => {
           const scoreKey = `${period.key}-${wi}`;
           return (

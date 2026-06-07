@@ -5,6 +5,10 @@ body {
   margin: 0;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 .route-loader {
   min-height: 48vh;
   background: var(--bg);
@@ -668,7 +672,6 @@ input[type="number"]::-webkit-outer-spin-button {
 
   body {
     font-size: 15px;
-    overflow-x: hidden;
   }
 
   .container {

@@ -1,9 +1,9 @@
 export default function StatsOverview({ stats }) {
   const items = [
     { value: stats.elapsed, label: "Weeks Elapsed", green: false },
-    { value: stats.scored, label: "Weeks Scored", green: true },
-    { value: stats.avg, label: "Average Score", green: true },
-    { value: stats.remaining, label: "Weeks Remaining", green: false },
+    { value: stats.scored,  label: "Weeks Scored",  green: true  },
+    { value: stats.avg,     label: "Average Score", green: true  },
+    { value: stats.remaining, label: "Week\nRemain", green: false },
   ];
 
   return (
@@ -20,14 +20,16 @@ export default function StatsOverview({ stats }) {
         <div
           key={i}
           style={{
-            padding: "20px 16px",
+            padding: "16px 8px",
             textAlign: "center",
             borderRight: i < 3 ? "1px solid var(--border)" : "none",
+            minWidth: 0,
+            boxSizing: "border-box",
           }}
         >
           <div style={{
             fontFamily: "'Playfair Display', serif",
-            fontSize: "2rem",
+            fontSize: "clamp(1.2rem, 4vw, 2rem)",
             fontWeight: 700,
             lineHeight: 1,
             marginBottom: 8,
@@ -36,11 +38,12 @@ export default function StatsOverview({ stats }) {
             {item.value}
           </div>
           <div style={{
-            fontSize: 10,
-            letterSpacing: "0.14em",
+            fontSize: "clamp(8px, 2vw, 10px)",
+            letterSpacing: "0.1em",
             textTransform: "uppercase",
             color: "var(--muted)",
             lineHeight: 1.4,
+            whiteSpace: "pre-line",
           }}>
             {item.label}
           </div>

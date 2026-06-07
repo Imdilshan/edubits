@@ -1,12 +1,17 @@
 .hp-everything {
   position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 .hp-hero {
   text-align: center;
   padding: 40px 20px 32px;
   max-width: 700px;
+  width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .hp-hero-badge {
@@ -65,6 +70,9 @@
   cursor: pointer;
   transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
   box-shadow: 0 6px 20px rgba(59,130,246,0.25);
+  max-width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
 }
 
 .hp-btn-primary:hover {
@@ -82,12 +90,17 @@
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 6px 16px;
+  max-width: 100%;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .hp-stars { color: #f7c44f; letter-spacing: 1px; display: flex; align-items: center; gap: 2px; }
 
 .hp-stats-bar {
   max-width: 1100px;
+  width: 100%;
   margin: 0 auto 48px;
   padding: 0 24px;
   display: grid;
@@ -97,6 +110,7 @@
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .hp-stat-item {
@@ -130,8 +144,10 @@
 
 .hp-why-section {
   max-width: 1100px;
+  width: 100%;
   margin: 0 auto 52px;
   padding: 0 24px;
+  box-sizing: border-box;
 }
 
 .hp-section-label {
@@ -200,8 +216,10 @@
 
 .hp-section {
   max-width: 1100px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 24px 80px;
+  box-sizing: border-box;
 }
 
 .hp-tools-grid {
@@ -224,6 +242,9 @@
   overflow: hidden;
   transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
   animation: hp-fadeUp 0.4s ease both;
+  min-width: 0;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .hp-tool-card::before {
@@ -320,11 +341,14 @@
 .hp-footer {
   border-top: 1px solid var(--border);
   background: var(--surface);
-  padding: 28px 48px 0;
+  padding: 28px 24px 0;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .hp-footer-grid {
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
 
   display: grid;
@@ -334,6 +358,7 @@
   align-items: start;
 
   padding-bottom: 32px;
+  box-sizing: border-box;
 }
 
 .hp-logo {
@@ -481,11 +506,18 @@
 
   .hp-hero-cta {
     flex-direction: column;
+    align-items: stretch;
     gap: 10px;
   }
 
-  .hp-hero-cta a,
-  .hp-hero-cta button {
+  /* KEY FIX: button must not stretch beyond a comfortable pill width */
+  .hp-btn-primary {
+    width: auto;
+    align-self: center;
+    padding: 12px 32px;
+  }
+
+  .hp-trust {
     width: 100%;
     text-align: center;
   }
@@ -495,6 +527,7 @@
     gap: 10px;
     margin: 0 0 24px;
     padding: 0 16px;
+    box-sizing: border-box;
   }
 
   .hp-stat-item {
@@ -503,6 +536,10 @@
 
   .hp-stat-num {
     font-size: 1.4rem;
+  }
+
+  .hp-section {
+    padding: 0 16px 60px;
   }
 
   .hp-tools-grid {
@@ -517,6 +554,10 @@
   .hp-footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .hp-footer { padding: 20px 16px 0; }
   .hp-footer-bottom { flex-direction: column; align-items: flex-start; }
+
+  .hp-community-card {
+    max-width: 100%;
+  }
 }
 
 .hp-tool-card--soon {
@@ -553,8 +594,10 @@
   text-decoration: none;
   transition: all 0.2s ease;
   min-height: 120px;
+  width: 100%;
   max-width: 320px;
-  justify-content: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
 }
 
 .hp-community-card:hover {
