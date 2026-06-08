@@ -10,6 +10,7 @@ const cssQ  = require("./questions/css");
 const jsQ   = require("./questions/js");
 const daaQ  = require("./questions/daa");
 const javaQ = require("./questions/java");
+const madQ  = require("./questions/mad");
 
 const MONGO_URI =
   process.env.MONGO_URI ||
@@ -71,6 +72,15 @@ async function seed() {
       passingScore: 70,
       order: 4,
     },
+    {
+      name: "Mobile App Development",
+      description: "Build mobile apps for Android and iOS",
+      icon: "📱",
+      color: "#8b5cf6",
+      position: { x: 900, y: 250 },
+      passingScore: 60,
+      order: 5,
+    },
   ];
 
   const topics = {};
@@ -100,6 +110,7 @@ async function seed() {
     ...jsQ.map(q   => ({ ...q, topicId: topics["JavaScript Basics"]._id })),
     ...daaQ.map(q  => ({ ...q, topicId: topics["DAA (Algorithms)"]._id })),
     ...javaQ.map(q => ({ ...q, topicId: topics["Java Programming"]._id })),
+    ...madQ.map(q  => ({ ...q, topicId: topics["Mobile App Development"]._id })),
   ];
 
   if (questions.length === 0) {

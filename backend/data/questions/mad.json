@@ -1,0 +1,1456 @@
+[
+  {
+    "text": "Which of the following is an example of proprietary mobile platform?",
+    "options": [
+      "Palm",
+      "RIM BlackBerry",
+      "Symbian OS",
+      "Palm, RIM BlackBerry and Symbian OS"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "On Android ___________ and higher, conversion of an app package's Dalvik Executable format (DEX) files to more compact machine code.",
+    "options": ["9.0", "8.0", "7.0", "6.0"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Android version 9.0 is known as ____________",
+    "options": ["Kit Kat", "Lolipop", "Nougat", "Pie"],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which of the following is not a Android Feature?",
+    "options": [
+      "Free",
+      "Open Source",
+      "Free “Market” for application",
+      "A Java ME implementation"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is ART?",
+    "options": [
+      "Android Runtime",
+      "Android RealTime",
+      "Android ResT",
+      "Android Resource Templete"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "You can use the ___________ to easily inspect the contents of your APK.",
+    "options": [
+      "APK Analyzer",
+      "Vector Asset Studio",
+      "Translations Editor",
+      "Lintelligence"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "An Android Virtual Device (AVD) is an emulator configuration that lets you model an actual device by defining ________________ options to be emulated by the Android Emulator.",
+    "options": ["Hardware", "Software", "Hardware and Software", "Storage"],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which is official IDE For Android Development?",
+    "options": ["NetBeans", "Eclipse", "Android Studio", "Visual Studio"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Android Supports___________",
+    "options": ["GSM", "EDGE", "3G", "GSM, EDGE, and 3G networks"],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "________ is the major feature of ART",
+    "options": ["AOT", "JIT", "GC", "AOT, JIT and GC"],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Generally, a program is defined in terms of ___________",
+    "options": ["functionality", "data", "functionality and data", "procedure"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "By default, the activity created for you contains the ________ event",
+    "options": ["onCreate()", "onStart()", "onDestroy()", "onResume()"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The manifest file declares ____________",
+    "options": [
+      "activities",
+      "services",
+      "broadcast receivers",
+      "activities, services, broadcast receivers, and content providers"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Android apps must request __________ to access personnel user data such as contacts, SMS, camera, files, internet etc.",
+    "options": ["permission", "privilege", "approval", "consent"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Only the __________ element(s) is/are required in Manifest file",
+    "options": [
+      "manifest",
+      "application",
+      "manifest and application",
+      "permission"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "To create service, you must define a class that extends the ___________ base class.",
+    "options": ["Activity", "Service", "Intent", "ContentProvider"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "____________ provides the window in which the app draws its UI.",
+    "options": ["Activity", "Service", "Intent", "ContentProvider"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Most apps contain multiple screens, which means they comprise multiple ___________",
+    "options": [
+      "Services",
+      "Activities",
+      "Content Provider",
+      "Broadcast Receivers"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "To declare your activity, In manifest file add an element as a child of the _________ element.",
+    "options": ["root", "manifest", "application", "activities"],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "___________ provide the ability to launch an activity based not only on an explicit request, but also an implicit one",
+    "options": [
+      "Intent Filter",
+      "Intent Action",
+      "Intent Category",
+      "Intent Type"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "__________ provides a facility for performing late runtime binding between the codes in different applications.",
+    "options": ["Service", "Context", "Intent", "Activity"],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "The intent has __________ attributes which are mandatory",
+    "options": [
+      "primary",
+      "secondary",
+      "primary and secondary",
+      "neigther primary nor secondary"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which of the following is a secondary attribute in Intent?",
+    "options": [
+      "Category",
+      "Type",
+      "Component",
+      "Category, Type, Component and Extras"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "________ specifies an explicit type (a MIME type) of the intent data",
+    "options": ["Extras", "Type", "Category", "Data"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "__________ have specified a component which provides the exact class to be run.",
+    "options": ["Explicit Intents", "Implicit Intents"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "_________ maps an Intent to an Activity, BroadcastReceiver, or Service that can handle it.",
+    "options": [
+      "Intent resolution",
+      "Intent Mapping",
+      "Intent Query",
+      "Intent Broadcast"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "There are ______ pieces of information in the Intent that are used for resolution",
+    "options": ["two", "three", "four", "five"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "If you want to navigate from one activity to another then android provides you which class?",
+    "options": ["Service", "Context", "Intent", "Activity"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which method is used to launch a new activity or get an existing activity to do something new?",
+    "options": [
+      "startActivity()",
+      "runActivity()",
+      "launchActivity",
+      "openActivity()"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which of the following action will display the phone dialer with the given number filled in?",
+    "options": [
+      "ACTION_VIEW tel:123",
+      "ACTION_DIAL tel:123",
+      "ACTION_DIAL dial:123",
+      "ACTION_VIEW dial:123"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "The purpose of a ________ is to protect the privacy of an Android user.",
+    "options": ["permission", "role", "privilege", "security"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "A central design point of the Android security architecture is that no app, by default, has permission to perform any operations that would adversely impact other apps, the operating system, or the user.",
+    "options": ["TRUE", "FALSE"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "If your app lists normal permissions in its manifest, the system does not automatically grants those permissions to your app.",
+    "options": ["TRUE", "FALSE"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which of the following is a Normal Permission?",
+    "options": [
+      "ACCESS_WIFI_STATE",
+      "MANAGE_DOCUMENTS",
+      "RECORD_AUDIO",
+      "SEND_SMS"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which of the following is a signature Permission?",
+    "options": [
+      "ACCESS_WIFI_STATE",
+      "MANAGE_DOCUMENTS",
+      "RECORD_AUDIO",
+      "SEND_SMS"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which of the following is a dangerous Permission?",
+    "options": [
+      "ACCESS_WIFI_STATE",
+      "RECORD_AUDIO",
+      "SEND_SMS",
+      "RECORD_AUDIO and SEND_SMS"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which of the following is an example of Resources?",
+    "options": [
+      "bitmaps",
+      "layout",
+      "animation",
+      "bitmap, layout and animation"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Android resource files are stored separately from the java class files in the Android project",
+    "options": ["TRUE", "FALSE"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Most common resource types are stored in ______ file.",
+    "options": ["HTML", "XML", "TEXT", "JAVA"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "All resources must be stored under the /res project directory in specially named subdirectories that must be lowercase.",
+    "options": ["TRUE", "FALSE"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "You can hide or show views using ______________.",
+    "options": [
+      "setVisibility(int)",
+      "setDisplay(int)",
+      "setShowHide(int)",
+      "setView(int)"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "All controls are available in ____________ package",
+    "options": ["ui", "control", "widget", "awt"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "___________ controls determine how and where on the screen child controls are drawn.",
+    "options": ["layout", "widget"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "___________ is a user interface element for entering and modifying text",
+    "options": ["TextView", "EditText", "Label", "Button"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "_________ allow the user to select one option from a set.",
+    "options": ["Button", "Radio Button", "Checkbox", "EditText"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "You can configure almost any ViewGroup or View (or View subclass) attribute using the XML layout resource files.",
+    "options": ["TRUE", "FALSE"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "You can't set layout attributes at runtime programmatically",
+    "options": ["TRUE", "FALSE"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "_________ is designed to block out an area on the screen to display a single item.",
+    "options": ["FlowLayout", "RelativeLayout", "LinearLayout", "TableLayout"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Examples of View container control include __________",
+    "options": [
+      "ListView",
+      "GridView",
+      "GalleryView",
+      "ListView, GridView, and GalleryView"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "An ___________ binds each element of the array to a single View object within the layout resource",
+    "options": [
+      "CursorAdapter",
+      "ArrayAdapter",
+      "WrapperListAdapter",
+      "SpinnerAdapter"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which of the following is a data storage options that are given by Android?",
+    "options": [
+      "Shared Preferences",
+      "Internal Storage",
+      "External Storage",
+      "SQLite Databases",
+      "Shared Preferences, Internal Storage, External Storage and SQLite Databases"
+    ],
+    "correctAnswer": 4,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "__________ is storage that is not accessible by any outsider or user, except developer.",
+    "options": [
+      "Shared Preferences",
+      "Internal Storage",
+      "External Storage",
+      "SQLite Databases"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "SQLite does not support all the relational database features.",
+    "options": ["true", "false"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "_________ gives you the way to save and retrieve data in the form of key,value pair.",
+    "options": [
+      "Shared Preferences",
+      "Internal Storage",
+      "External Storage",
+      "SQLite Databases"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "_________ A View that displays web pages.",
+    "options": ["VideoView", "WebView", "SearchView", "ListView"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "__________ is a class which is used to provide the controls for the video playback.",
+    "options": ["VideoView", "MediaController", "MediaPlayer", "ListView"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "_______ Method of helper is called only once when database is created for the first time.",
+    "options": [
+      "public abstract void onCreate(SQLiteDatabase db)",
+      "public abstract void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)",
+      "both",
+      "none of these"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "SQLite is a ___________ SQL database",
+    "options": [
+      "opensource",
+      "relational",
+      "opensource and relational",
+      "properitary"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "In order to access ________ database, you don't need to establish any kind of connections for it",
+    "options": ["SQLite", "Access", "SQL Server", "MySQL"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "SQLite database stores the structured data in a ___________ database.",
+    "options": ["public", "private", "protected"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Web services generally exchange data messaging usually ___________ throughout the internet.",
+    "options": ["HTML", "SGML", "XML", "SVG"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Android provides support to parse the _____________",
+    "options": ["JSON object", "JSON array", "JSON object and JSON array"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "XML stands for ______________",
+    "options": [
+      "Extensible Markup Language",
+      "External Markup Language",
+      "Extendable Markup Language",
+      "Expert Markup language"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "JSON is extended from ______________",
+    "options": ["Java", "JavaScript", "VBScript", "AJAX"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "To represent same data, JSON File size is ____________ to XML",
+    "options": [
+      "smaller as compared",
+      "large as compared",
+      "equal",
+      "not equal"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "JSON is _____________",
+    "options": [
+      "data-oriented",
+      "document-oriented",
+      "presented using XSS",
+      "extended from SGML"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "In a JSON, ___________ represents JSON array.",
+    "options": ["curly bracket", "square bracket", "parenthesis"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "In a JSON ______________ represents a JSON object.",
+    "options": ["curly bracket", "square bracket", "parenthesis"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "A content provider is a component. It supplies data from one application to others on request.",
+    "options": ["TRUE", "FALSE"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "AsyncTasks should ideally be used for __________ operations",
+    "options": ["Long", "Medium", "Short", "Any duration"],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Animations in android apps can be performed through ___________________",
+    "options": ["XML", "Code", "XML or android code"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "___________ is the rate of change in animation.",
+    "options": [
+      "android:interpolator",
+      "android:duration",
+      "android:startOffset",
+      "android:repeatCount"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "The Android framework provides a rich set of powerful APIs for drawing custom ___________ graphics",
+    "options": ["2D", "3D", "2D and 3D"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Canvas class which is used to draw graphics in android is available in _____________ package",
+    "options": ["animation", "graphics", "media", "drawing"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "___________ animation calculates animation information such as size, rotation, start point, and endpoint.",
+    "options": ["View", "Tweened", "Drawable", "Property"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "_____________ method will clear the animation running on a specific view.",
+    "options": [
+      "startAnimation()",
+      "clearAnimation()",
+      "stopAnimation()",
+      "destroyAnimation()"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which of the following APIs you can use to interact with an Android device's GPU?",
+    "options": ["Vulkun", "Open GL ES", "Vulkan and OpenGL ES"],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which method of MediaPlayer class is used to get the total time duration of song in milliseconds?",
+    "options": [
+      "getDuration()",
+      "getTime()",
+      "getLength()",
+      "getTrackDuration()"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Most common resource types are stored in ______ file.",
+    "options": ["HTML", "XML", "TEXT", "JAVA"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which of the following action will display the phone dialer with the given number filled in?",
+    "options": [
+      "ACTION_VIEW tel:123",
+      "ACTION_DIAL tel:123",
+      "ACTION_DIAL dial:123",
+      "ACTION_VIEW dial:123"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "You can instantiate an object of ConnectivityManager class by calling ______________ method.",
+    "options": [
+      "getSystemService()",
+      "getConnectionService()",
+      "getService()",
+      "getSystemConnection()"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "getAllNetworkInfo method returns an array of Network Info.",
+    "options": ["TRUE", "FALSE"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Android-powered devices with NFC simultaneously support ____________ main modes of operation",
+    "options": ["two", "three", "four", "five"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "You can check for NFC availability at runtime by checking to see if getDefaultAdapter() is null.",
+    "options": ["TRUE", "FALSE"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Android provides a ____________ package for NFC Communication.",
+    "options": ["android.nfc", "android.net", "android.ncf", "android.com"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "You can use the Wi-Fi scanning capabilities provided by the ___________ API to get a list of Wi-Fi access points that are visible from the device.",
+    "options": [
+      "NetManager",
+      "WifiManager",
+      "ConnectionManager",
+      "ConnManager"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "You can request a scan using _____________ method of WifiManager.",
+    "options": ["startScan()", "initScan()", "beginScan()", "createScan()"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "The Telephony provider contains data related to phone operation, specifically SMS and MMS messages, access to the APN list, including the MMSC to use, and the service state.",
+    "options": ["TRUE", "FALSE"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Android 7.0 introduced restrictions regarding permissions and the allowed frequency of Wi-Fi scans.",
+    "options": ["TRUE", "FALSE"],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "By using MediaPlayer class we can play audio or video files with multiple playback options such as play, pause, forward, backward, etc.",
+    "options": ["TRUE", "FALSE"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is full form of ASF",
+    "options": [
+      "Android Sensor Framework",
+      "Android Security Framework",
+      "Android Service Framework"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The software centric sensors mimic hardware based sensors.",
+    "options": ["TRUE", "FALSE"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "You can utilize ___________ class to make an occurrence of the sensor administration.",
+    "options": [
+      "SensorManager",
+      "Sensor",
+      "SensorEvent",
+      "SensorEventListener"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "You can utilize ______ interface to make two callback strategies that get warnings when sensor values change or when sensor accuracy changes.",
+    "options": [
+      "SensorManager",
+      "Sensor",
+      "SensorEvent",
+      "SensorEventListener"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "You can utilize __________ class to make an occurrence of a particular sensor.",
+    "options": [
+      "SensorManager",
+      "Sensor",
+      "SensorEvent",
+      "SensorEventListener"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The sensor raw data monitoring is implemented by ___________",
+    "options": [
+      "onAccuracyChanged()",
+      "onSensorChanged()",
+      "onAccuracyChanged() and onSensorChanged()"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "The android provides the facility to convert speech to text using ___________ class.",
+    "options": [
+      "SpeechRecognizer",
+      "SpeechRecognition",
+      "SpeechSynthesiizer",
+      "SpeechSynthesis"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Android provides the __________ class for detecting common gestures.",
+    "options": [
+      "GestureDetector",
+      "GestureDetection",
+      "GestureDetect",
+      "GestureSense"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "____________ is the last phase of the Android application development process.",
+    "options": ["coding", "testing", "publishing", "selling"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "In Android we can generate _________ type of APK",
+    "options": ["signed", "unsigned", "signed and unsigned"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "WAP was stripped-down version of _______.",
+    "options": ["Gopher", "ftp", "http", "https"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Android is called as ___________ mobile platform",
+    "options": ["Complete", "Complete, open and free", "Free", "Open"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Android Virtual Device (AVD) can be created by __________",
+    "options": [
+      "Tools > AVD Manager",
+      "Click the AVD Manager icon in the toolbar",
+      "Either Tools > AVD Manager or Click the AVD Manager icon in the toolbar",
+      "None of these"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "________ provides standard interfaces that expose device hardware capabilities to the higher-level Java API framework.",
+    "options": [
+      "Android Runtime",
+      "Hardware Abstraction Layer",
+      "Java API Framework",
+      "Linux Kernel"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "The entire feature-set of the Android OS is available to you through APIs written in the ________ language",
+    "options": ["Java", "Kotlin", "Python", "Swift"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "If an activity has lost focus but is still visible, it is _______",
+    "options": ["Destroyed", "Paused", "Running", "Stopped"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "_________ event occurs when the activity becomes visible to the user",
+    "options": ["onCreate()", "onPause()", "onResume()", "onStart()"],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "You can get the context by invoking ___________",
+    "options": [
+      "getApplicationContext()",
+      "getApplicationContext() or getContext() or getBaseContext()",
+      "getBaseContext()",
+      "getContext()"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "The ______ file describes important information about your app",
+    "options": ["Context", "Manifest", "Resource", "Setting"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "You can use Intents and Activities to launch services using the ____________ Method(s).",
+    "options": [
+      "bindService()",
+      "createService()",
+      "startService()",
+      "startService() and bindService()"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "_________ is an abstract description of an operation to be performed",
+    "options": ["Activity", "Context", "Intent", "Service"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The primary pieces of information in intent is/are ____________",
+    "options": ["Action", "Action and Data", "Category", "Data"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "The process of ___________ maps an Intent to an Activity, BroadcastReceiver, or Service that can handle it.",
+    "options": [
+      "Intent bindin",
+      "Intent filtering",
+      "Intent mapping",
+      "Intent resolution"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Intents are used to __________.",
+    "options": [
+      "All of these",
+      "display a web page",
+      "send message between two activities",
+      "start activity, send broadcast receiver, start services"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "In mobile with Android 6.0 and higher, the request for permission is requested to user at __________",
+    "options": [
+      "Runtime",
+      "Install-time",
+      "Either Runtime or Install-Time",
+      "Neither Runtime nor Install-Time"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which of the following is a protection level that affects third-party apps?",
+    "options": [
+      "Normal",
+      "Signature",
+      "Dangerous",
+      "Normal, Signature and Dangerous"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "The android package contains all kinds of resources, which you can browse by looking in the _________ subclasses",
+    "options": ["android.R", "android.Res", "android.Row", "android.Resource"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "SET_WALLPAPER is ____________ type of permission",
+    "options": ["Normal", "Signature", "Dangerous", "Mandetory"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "All resources must be stored under the /res project directory in specially named subdirectories that must be _________",
+    "options": ["Uppercase", "Lowercase", "TitleCase", "SentenceCase"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "___________ is the base class for widgets, which are used to create interactive UI components (buttons, text fields, etc.)",
+    "options": ["View", "Component", "Container", "ViewGroup"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The types of layouts built-in to the Android SDK framework includes __________",
+    "options": [
+      "FlowLayout",
+      "RelativeLayout",
+      "LinearLayout",
+      "FlowLayout, RelativeLayout and LinearLayout"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "A _________ view organizes its child View objects in a single row or column, depending on whether its orientation attribute is set to horizontal or vertical.",
+    "options": ["FlowLayout", "RelativeLayout", "LinearLayout", "TableLayout"],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "We can create Layout using _________________",
+    "options": [
+      "XML Resources",
+      "Programmatically",
+      "Either XML Resources or Programmatically",
+      "None of these"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "A ___________ is a good choice to use when using data from a database.",
+    "options": ["CursorAdapter", "ArrayAdapter", "ArrayList", "StringArray"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "An ________ binds each element of the array to a single View object within the layout resource",
+    "options": ["CursorAdapter", "ArrayAdapter", "ArrayList", "StringArray"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "_______________ is an opensource SQL database that stores data to a text file on a device",
+    "options": ["SQLite", "Access", "SQL Server", "MySQL"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "_____________ option stores private data on the device memory (which cannot accessed by other users or applications)",
+    "options": [
+      "Shared Preferences",
+      "Internal Storage",
+      "External Storage",
+      "SQLite Databases"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "___________ option stores the structured data in a private database",
+    "options": [
+      "Shared Preferences",
+      "Internal Storage",
+      "External Storage",
+      "SQLite Databases"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which of the following statement dynamically assigns an image named car in the drawable folder to an ImageView control?",
+    "options": [
+      "image.setImageDrawable(R.drawable.car)",
+      "image.setResource(R.drawable.car)",
+      "image.setImage(R.drawable.car)",
+      "image.setImageResource(R.drawable.car)"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "VideoView option can be choose from the palette category",
+    "options": ["Common", "Text", "Widget", "Container"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The first step when working with SQLite is to create a class that inherits from a helper class, what is it?",
+    "options": [
+      "SQLiteHelper",
+      "SQLiteDatabaseHelper",
+      "SQLiteOpenHelper",
+      "SQLiteDatabase"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "____________ Method of AsyncTasks invoked on the UI thread after the background computation finishes",
+    "options": [
+      "doInBackground(Params...)",
+      "onPostExecute(Result)",
+      "onPreExecute()",
+      "onProgressUpdate(Progress...)"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "In a JSON, ___________ represents JSON array.",
+    "options": [
+      "Curly Bracket",
+      "Square Bracket",
+      "Double Quotes",
+      "Single Quotes"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "JSON is _____________.",
+    "options": [
+      "tag oriented",
+      "data oriented",
+      "document oriented",
+      "security oriented"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "For same data File size in JSON is ___________ as compared to XML",
+    "options": ["Larger", "Smaller", "Equal", "Larger or Smaller"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "JSON is an alternative to ___________",
+    "options": ["HTML", "DHTML", "SGML", "XML"],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "AsyncTasks must override at least one method ____________________",
+    "options": [
+      "doInBackground(Params...)",
+      "onPostExecute(Result)",
+      "onPreExecute()",
+      "onProgressUpdate(Progress...)"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "___________ is a user interface element for entering and modifying text.",
+    "options": ["TextView", "EditText", "Spinner", "ListView"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "________________ stores the primitive data that is private in key-value pairs.",
+    "options": [
+      "Shared Preferences",
+      "Internal Storage",
+      "External Storage",
+      "SQLite Databases"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "To embed a web browser in your activity which view you will use?",
+    "options": ["VideoView", "WebView", "SearchView", "ListView"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "In order to use shared preferences, one needs to call a method ___________",
+    "options": [
+      "getPreferences()",
+      "getSharedPreferences()",
+      "getSharedPref()",
+      "getShared()"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The ________ is the base class for layouts",
+    "options": ["View", "Component", "Container", "ViewGroup"],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The types of layouts built-in to the Android SDK framework includes __________",
+    "options": [
+      "FlowLayout",
+      "RelativeLayout",
+      "LinearLayout",
+      "FlowLayout, RelativeLayout and LinearLayout"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "A _________ view enables you to specify where the child view controls are in relation to each other.",
+    "options": ["FlowLayout", "RelativeLayout", "LinearLayout", "TableLayout"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "All Android applications is composed of ___________",
+    "options": [
+      "Functionality",
+      "Data",
+      "Functionality and Data",
+      "Permission"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "READ_VOICEMAIL is ____________ type of permission",
+    "options": ["Normal", "Signature", "Dangerous", "Mandetory"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "When you use an ______ intent, the Android system finds the appropriate component to start by comparing the contents of the intent to the intent filters declared in the manifest file of other apps on the device",
+    "options": [
+      "Explicit",
+      "Explicit or Implicit",
+      "Implicit",
+      "None of these"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "________ specifies an explicit type (a MIME type) of the intent data",
+    "options": ["Category", "Data", "Extras", "Type"],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which of the following method takes intent as an argument",
+    "options": [
+      "All of these",
+      "sendBroadcast()",
+      "startActivity()",
+      "startService()"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Android version 6.0 is known as ____________",
+    "options": ["Kit Kat", "Lolipop", "Marshmallow", "Nougat"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The foundation of the Android platform is the _________",
+    "options": [
+      "Android Runtime",
+      "Hardware Abstraction Layer",
+      "Java API Framework",
+      "Linux Kernel"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "_____ file is a byte code format designed especially for Android that's optimized for minimal memory footprint",
+    "options": ["BEX", "DEX", "HEX", "JEX"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "______ is an emulator configuration that lets you model an actual device by defining hardware and software options to be emulated by the Android Emulator",
+    "options": ["AVD", "Espresso", "IDE", "IDEA"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The only required attribute for this element is ________ which specifies the class name of the activity",
+    "options": ["android:class", "android:id", "android:key", "android:name"],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which of the following is not a method of Log class",
+    "options": ["Log.d()", "Log.e()", "Log.h()", "Log.i()"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "In Android a _________ is an application that runs in the background without any interaction with the user",
+    "options": ["Activity", "Fragment", "Native application", "Service"],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Most apps contain multiple screens, which means they comprise multiple _____",
+    "options": ["Activities", "Contexts", "Intents", "Services"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "JSON stands for ______________",
+    "options": [
+      "JavaScript Object Notation",
+      "JavaScript Oriented Notation",
+      "JavaScript Object Naming",
+      "Java Object Notation"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "A JSON object contains a key that is always a ____________",
+    "options": ["Integer", "Double", "Boolean", "String"],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Videos are stores in ____________ resource directory",
+    "options": ["/res/xml/", "/res/raw/", "/res/layout/", "/res/values/"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  }
+]

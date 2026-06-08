@@ -16,15 +16,15 @@ const questionSchema = new mongoose.Schema(
       type: [String],
       required: true,
       validate: {
-        validator: (arr) => arr.length === 4,
-        message: "Exactly 4 options are required",
+        validator: (arr) => arr.length >= 2 && arr.length <= 5,
+        message: "Between 2 and 5 options are required",
       },
     },
     correctAnswer: {
       type: Number,
       required: true,
       min: 0,
-      max: 3,
+      max: 4,
     },
     difficulty: {
       type: String,
