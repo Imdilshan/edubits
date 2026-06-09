@@ -40,7 +40,7 @@ export default function TaskPage() {
                 alignItems: "center",
                 gap: "10px",
                 lineHeight: 1,
-                color: "#22c55e",
+                color: "#22d3ee",
 
                 fontFamily: "'DM Sans', sans-serif",
                 fontWeight: 800,
@@ -51,7 +51,7 @@ export default function TaskPage() {
                 size={30}
                 strokeWidth={2.3}
                 style={{
-                  color: "#22c55e",
+                  color: "#22d3ee",
                 }}
               />
 
