@@ -33,30 +33,17 @@ function Field({ id, label, max, value, onChange }) {
     const el = inputRef.current;
     if (!el) return;
     el.style.animation = "none";
-    el.offsetHeight; 
+    el.offsetHeight;
     el.style.animation = "im-shake 0.35s ease";
     setTimeout(() => { if (el) el.style.animation = "none"; }, 380);
   };
 
   const handleChange = (e) => {
     const raw = e.target.value;
-
-    if (raw === "") {
-      setError("");
-      onChange("");
-      return;
-    }
-
+    if (raw === "") { setError(""); onChange(""); return; }
     const num = parseFloat(raw);
-
     if (isNaN(num)) return;
-
-    if (num < 0) {
-      setError(`Min marks: 0`);
-      shake();
-      return;
-    }
-
+    if (num < 0) { setError("Min marks: 0"); shake(); return; }
     if (num > max) {
       setError(`Max marks: ${max}`);
       shake();
@@ -64,17 +51,12 @@ function Field({ id, label, max, value, onChange }) {
       setTimeout(() => setError(""), 1500);
       return;
     }
-
     setError("");
     onChange(raw);
   };
 
   const handleKeyDown = (e) => {
-    if (["e", "E", "+", "-"].includes(e.key)) {
-      e.preventDefault();
-      return;
-    }
-
+    if (["e", "E", "+", "-"].includes(e.key)) { e.preventDefault(); return; }
     const currentVal = parseFloat(value || "0");
     if (!isNaN(currentVal) && currentVal >= max && /^\d$/.test(e.key)) {
       e.preventDefault();
@@ -97,10 +79,7 @@ function Field({ id, label, max, value, onChange }) {
         step="0.5"
         placeholder={`0 – ${max}`}
         value={value}
-        style={{
-          ...S.input,
-          borderColor: error ? "#f87171" : "rgba(255,255,255,0.12)",
-        }}
+        style={{ ...S.input, borderColor: error ? "#f87171" : "rgba(255,255,255,0.12)" }}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         onFocus={(e) => { e.target.style.borderColor = error ? "#f87171" : "#3b82f6"; e.target.style.background = "rgba(255,255,255,0.11)"; }}
@@ -111,7 +90,88 @@ function Field({ id, label, max, value, onChange }) {
   );
 }
 
-export default function Theory() {
+// ── 1st Year Theory ──────────────────────────────────────────────────────────
+// Attendance 2→2, MST1 20→10, MST2 20→10, ExtTheory 60→50 (optional),
+// Assignment 12→12, Surprise/Quiz 12→6, Case Study 20→10. Total w/o ET=50, with=100.
+function TheoryFirstYear() {
+  const [data, setData] = useState({});
+  const [result, setResult] = useState(null);
+
+  const handle = (k, v) => setData(p => ({ ...p, [k]: v }));
+  const reset  = () => { setData({}); setResult(null); };
+
+  const calculate = () => {
+    const g = (k, max) => getNum(data[k], max);
+    const etProvided = data.t1_exttheory !== "" && data.t1_exttheory !== undefined;
+    const et = Number(data.t1_exttheory || 0);
+    const total =
+      g("t1_attendance",  2)  / 2  * 2  +
+      g("t1_mst1",       20)  / 20 * 10 +
+      g("t1_mst2",       20)  / 20 * 10 +
+      g("t1_assignment", 12)  / 12 * 12 +
+      g("t1_surprise",   12)  / 12 * 6  +
+      g("t1_casestudy",  20)  / 20 * 10 +
+      (etProvided ? et / 60 * 50 : 0);
+    const max = etProvided ? 100 : 50;
+    setResult({ total, max, pct: (total / max) * 100 });
+  };
+
+  const fields = [
+    ["t1_attendance",  "Attendance Marks",          2],
+    ["t1_mst1",        "Mid-Semester Test-1",       20],
+    ["t1_mst2",        "Mid-Semester Test-2",       20],
+    ["t1_assignment",  "Assignment",                12],
+    ["t1_surprise",    "Surprise Test / Quiz",      12],
+    ["t1_casestudy",   "Case Study / Course Project",20],
+    ["t1_exttheory",   "External Theory",           60],
+  ];
+
+  return (
+    <div style={S.grid}>
+      <div style={S.section}>
+        <h3 style={S.h3}>Theory Subject</h3>
+        {fields.map(([key, label, max]) => (
+          <Field key={key} id={key} label={label} max={max}
+            value={data[key] ?? ""}
+            onChange={(v) => handle(key, v)}
+          />
+        ))}
+        <p style={{ ...S.hint, marginTop:4 }}>External Theory is optional — leave blank for internal-only result.</p>
+      </div>
+
+      <div style={S.section}>
+        <h3 style={S.h3}>Output</h3>
+        {result ? (
+          <div>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"6px 0", color:"#dde8f0", fontSize:14 }}>
+              <span style={S.small}>Obtained</span>
+              <span style={{ color:"#eef2ff" }}>{result.total.toFixed(2)} / {result.max}</span>
+            </div>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"6px 0", borderTop:"1px solid rgba(255,255,255,0.06)" }}>
+              <span style={S.small}>Percentage</span>
+              <span style={S.highlight}>{result.pct.toFixed(2)}%</span>
+            </div>
+            <div style={S.progress}>
+              <div style={{ width:`${result.pct}%`, height:"100%", background:"linear-gradient(90deg,#3b82f6,#22c55e)", borderRadius:8, transition:"width 0.4s ease" }} />
+            </div>
+          </div>
+        ) : (
+          <p style={{ color:"#6b7280", fontSize:13, margin:0 }}>Fill in marks and click Calculate.</p>
+        )}
+      </div>
+
+      <div style={S.bottomBar}>
+        <button style={S.btnReset} onClick={reset}>Reset</button>
+        <button style={S.btnCalc}  onClick={calculate}>Calculate Theory</button>
+      </div>
+    </div>
+  );
+}
+
+// ── Senior Theory (2nd/3rd/4th Year) — unchanged logic ──────────────────────
+// Assignment 10→10, MST1 20→10, MST2 20→10, Surprise 12→4, Quiz 4→4,
+// Attendance 2→2, EndWritten 60→60 (optional). Total w/o ESW=40, with=100.
+function TheorySenior() {
   const [data, setData] = useState({});
   const [result, setResult] = useState(null);
 
@@ -123,22 +183,25 @@ export default function Theory() {
     const endProvided = data.t_endwritten !== "" && data.t_endwritten !== undefined;
     const end = Number(data.t_endwritten || 0);
     const total =
-      g("t_mst1",20)/20*10 + g("t_mst2",20)/20*10 +
-      g("t_assignment",10)/10*10 + g("t_quiz",4)/4*4 +
-      g("t_surprise",12)/12*4 + g("t_attendance",2)/2*2 +
-      (endProvided ? end/60*60 : 0);
+      g("t_mst1",       20) / 20 * 10 +
+      g("t_mst2",       20) / 20 * 10 +
+      g("t_assignment", 10) / 10 * 10 +
+      g("t_quiz",        4) / 4  * 4  +
+      g("t_surprise",   12) / 12 * 4  +
+      g("t_attendance",  2) / 2  * 2  +
+      (endProvided ? end / 60 * 60 : 0);
     const max = endProvided ? 100 : 40;
-    setResult({ total, max, pct: (total/max)*100 });
+    setResult({ total, max, pct: (total / max) * 100 });
   };
 
   const fields = [
-    ["t_assignment","Assignment",10],
-    ["t_mst1","MST 1",20],
-    ["t_mst2","MST 2",20],
-    ["t_surprise","Surprise Test",12],
-    ["t_quiz","Quiz",4],
-    ["t_attendance","Attendance",2],
-    ["t_endwritten","End Sem Written",60],
+    ["t_assignment",  "Assignment",       10],
+    ["t_mst1",        "MST 1",            20],
+    ["t_mst2",        "MST 2",            20],
+    ["t_surprise",    "Surprise Test",    12],
+    ["t_quiz",        "Quiz",              4],
+    ["t_attendance",  "Attendance",        2],
+    ["t_endwritten",  "End Sem Written",  60],
   ];
 
   return (
@@ -180,4 +243,8 @@ export default function Theory() {
       </div>
     </div>
   );
+}
+
+export default function Theory({ year }) {
+  return year === "1" ? <TheoryFirstYear /> : <TheorySenior />;
 }

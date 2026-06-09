@@ -93,7 +93,146 @@ function Field({ id, label, max, value, onChange }) {
   );
 }
 
-export default function Hybrid() {
+// ── 1st Year Hybrid ───────────────────────────────────────────────────────────
+// PracticalEvals 40→20, Attendance 2→2, MST1 20→5, MST2 20→5,
+// PA1 30→7.5, PA2 30→7.5, PA3/Project 30→7.5, CaseStudy 20→5,
+// PracticalMidTerm 30→7.5, SurpriseOrQuiz 12→3, Assignment 12→5,
+// EndTermTheory 60→25 (optional). Total w/o ET=75, with=100.
+function HybridFirstYear() {
+  const [data, setData]     = useState({});
+  const [errors, setErrors] = useState({});
+  const [result, setResult] = useState(null);
+
+  const limits = {
+    h1_praceval:40, h1_attendance:2, h1_mst1:20, h1_mst2:20,
+    h1_pa1:30, h1_pa2:30, h1_pa3:30, h1_casestudy:20,
+    h1_pmidterm:30, h1_surprise:12, h1_assignment:12, h1_endtheory:60,
+  };
+
+  const handle = (k, v) => setData(p => ({ ...p, [k]: v }));
+  const reset  = () => { setData({}); setErrors({}); setResult(null); };
+
+  const calculate = () => {
+    const { ok, errors } = validateAll(data, limits);
+    setErrors(errors);
+    if (!ok) return;
+
+    const g = (k, max) => getNum(data[k], max);
+    const etProvided = data.h1_endtheory !== "" && data.h1_endtheory !== undefined;
+    const et = Number(data.h1_endtheory || 0);
+
+    const internal =
+      g("h1_praceval",   40) / 40 * 20 +
+      g("h1_attendance",  2) / 2  * 2  +
+      g("h1_mst1",       20) / 20 * 5  +
+      g("h1_mst2",       20) / 20 * 5  +
+      g("h1_pa1",        30) / 30 * 7.5 +
+      g("h1_pa2",        30) / 30 * 7.5 +
+      g("h1_pa3",        30) / 30 * 7.5 +
+      g("h1_casestudy",  20) / 20 * 5  +
+      g("h1_pmidterm",   30) / 30 * 7.5 +
+      g("h1_surprise",   12) / 12 * 3  +
+      g("h1_assignment", 12) / 12 * 5;
+    const internalMax = 75;
+
+    const external = etProvided ? et / 60 * 25 : 0;
+    const externalMax = etProvided ? 25 : 0;
+
+    const total    = internal + external;
+    const totalMax = internalMax + externalMax;
+
+    setResult({
+      internal, internalMax, internalPct: (internal / internalMax) * 100,
+      external, externalMax,
+      total, totalMax, pct: (total / totalMax) * 100,
+    });
+  };
+
+  const hasErrors = Object.values(errors).some(Boolean);
+
+  const leftFields = [
+    ["h1_praceval",   "Practical Evaluations",           40],
+    ["h1_attendance", "Attendance Marks",                 2],
+    ["h1_mst1",       "MST-1 Hybrid",                   20],
+    ["h1_mst2",       "MST-2 Hybrid",                   20],
+    ["h1_pa1",        "Practical Assessment-1",          30],
+    ["h1_pa2",        "Practical Assessment-2",          30],
+  ];
+
+  const rightFields = [
+    ["h1_pa3",        "Practical Assessment-3 / Project",30],
+    ["h1_casestudy",  "Case Study / Course Project",     20],
+    ["h1_pmidterm",   "Practical Mid Term",              30],
+    ["h1_surprise",   "Surprise Test or Quiz",           12],
+    ["h1_assignment", "Assignment Mark",                 12],
+    ["h1_endtheory",  "End Term Theory Exam",            60],
+  ];
+
+  return (
+    <div style={S.grid}>
+      <div style={S.section}>
+        <h3 style={S.h3}>Theory &amp; Practical Components</h3>
+        {leftFields.map(([key, label, max]) => (
+          <Field key={key} id={key} label={label} max={max}
+            value={data[key] ?? ""}
+            onChange={(v) => handle(key, v)}
+          />
+        ))}
+      </div>
+
+      <div style={S.section}>
+        <h3 style={S.h3}>&nbsp;</h3>
+        {rightFields.map(([key, label, max]) => (
+          <Field key={key} id={key} label={label} max={max}
+            value={data[key] ?? ""}
+            onChange={(v) => handle(key, v)}
+          />
+        ))}
+        <p style={{ ...S.hint, marginTop:4 }}>End Term Theory is optional — leave blank for internal-only result.</p>
+      </div>
+
+      {result && (
+        <div style={S.resultBox}>
+          <div style={{ ...S.resultRow, borderTop:"none" }}>
+            <span style={S.small}>Internal (75)</span>
+            <span style={{ color:"#eef2ff" }}>{result.internal.toFixed(2)} / {result.internalMax} ({result.internalPct.toFixed(1)}%)</span>
+          </div>
+          {result.externalMax > 0 && (
+            <div style={S.resultRow}>
+              <span style={S.small}>External Theory (25)</span>
+              <span style={{ color:"#eef2ff" }}>{result.external.toFixed(2)} / {result.externalMax}</span>
+            </div>
+          )}
+          <div style={S.resultRow}>
+            <span style={S.highlight}>Final</span>
+            <span style={S.highlight}>{result.total.toFixed(2)} / {result.totalMax}</span>
+          </div>
+          <div style={S.resultRow}>
+            <span style={S.highlight}>Final %</span>
+            <span style={S.highlight}>{result.pct.toFixed(2)}%</span>
+          </div>
+          <div style={S.progress}>
+            <div style={{ width:`${result.pct}%`, height:"100%", background:"linear-gradient(90deg,#3b82f6,#22c55e)", borderRadius:8, transition:"width 0.45s ease" }} />
+          </div>
+        </div>
+      )}
+
+      <div style={S.bottomBar}>
+        <button style={S.btnReset} onClick={reset}>Reset</button>
+        <button
+          style={{ ...S.btnCalc, ...(hasErrors ? S.btnCalcDisabled : {}) }}
+          onClick={calculate}
+          disabled={hasErrors}
+        >
+          Calculate Hybrid
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ── Senior Hybrid (2nd/3rd/4th Year) — unchanged logic ───────────────────────
+function HybridSenior() {
   const [data, setData]     = useState({});
   const [errors, setErrors] = useState({});
   const [result, setResult] = useState(null);
@@ -114,58 +253,60 @@ export default function Hybrid() {
     if (!ok) return;
 
     const g = (k, max) => getNum(data[k], max);
-    const ewProvided = data.hy_endwritten !== "" && data.hy_endwritten !== undefined;
+    const ewProvided = data.hy_endwritten  !== "" && data.hy_endwritten  !== undefined;
     const epProvided = data.hy_endpractical !== "" && data.hy_endpractical !== undefined;
-    const ew = Number(data.hy_endwritten || 0);
+    const ew = Number(data.hy_endwritten   || 0);
     const ep = Number(data.hy_endpractical || 0);
 
     const theory =
-      g("hy_mst1",20)/20*5 + g("hy_mst2",20)/20*5 + g("hy_classperf",10)/10*5 +
-      g("hy_assignment",10)/10*2 + g("hy_quiz",4)/4*2 + g("hy_surprise",12)/12*2 +
-      g("hy_attendance",2)/2*2 + (ewProvided ? ew/60*30 : 0);
+      g("hy_mst1",      20) / 20 * 5 + g("hy_mst2",     20) / 20 * 5 +
+      g("hy_classperf", 10) / 10 * 5 + g("hy_assignment",10) / 10 * 2 +
+      g("hy_quiz",       4) / 4  * 2 + g("hy_surprise",  12) / 12 * 2 +
+      g("hy_attendance", 2) / 2  * 2 + (ewProvided ? ew / 60 * 30 : 0);
     const theoryMax = ewProvided ? 53 : 23;
 
     const practical =
-      g("hy_ws1",30)/30*5 + g("hy_ws2",30)/30*5 + g("hy_ws3",30)/30*5 + g("hy_ws4",30)/30*5 +
-      g("hy_miniproject",5)/5*2 + g("hy_industry",10)/10*5 + (epProvided ? ep/40*20 : 0);
+      g("hy_ws1", 30) / 30 * 5 + g("hy_ws2",30) / 30 * 5 +
+      g("hy_ws3", 30) / 30 * 5 + g("hy_ws4",30) / 30 * 5 +
+      g("hy_miniproject", 5) / 5 * 2 + g("hy_industry",10) / 10 * 5 +
+      (epProvided ? ep / 40 * 20 : 0);
     const practicalMax = epProvided ? 47 : 27;
 
     const total    = theory + practical;
     const totalMax = theoryMax + practicalMax;
 
     setResult({
-      theory, theoryMax, theoryPct: (theory/theoryMax)*100,
-      practical, practicalMax, practicalPct: (practical/practicalMax)*100,
-      total, totalMax, pct: (total/totalMax)*100,
+      theory, theoryMax, theoryPct: (theory / theoryMax) * 100,
+      practical, practicalMax, practicalPct: (practical / practicalMax) * 100,
+      total, totalMax, pct: (total / totalMax) * 100,
     });
   };
 
   const hasErrors = Object.values(errors).some(Boolean);
 
   const theoryFields = [
-    ["hy_assignment","Assignment",10],
-    ["hy_mst1","MST 1",20],
-    ["hy_mst2","MST 2",20],
-    ["hy_surprise","Surprise Test",12],
-    ["hy_quiz","Quiz",4],
-    ["hy_classperf","Class Performance",10],
-    ["hy_attendance","Attendance",2],
-    ["hy_endwritten","End Sem Written",60],
+    ["hy_assignment", "Assignment",           10],
+    ["hy_mst1",       "MST 1",               20],
+    ["hy_mst2",       "MST 2",               20],
+    ["hy_surprise",   "Surprise Test",        12],
+    ["hy_quiz",       "Quiz",                  4],
+    ["hy_classperf",  "Class Performance",    10],
+    ["hy_attendance", "Attendance",            2],
+    ["hy_endwritten", "End Sem Written",      60],
   ];
 
   const practicalFields = [
-    ["hy_ws1","Experiment 1",30],
-    ["hy_ws2","Experiment 2",30],
-    ["hy_ws3","Experiment 3",30],
-    ["hy_ws4","Experiment 4",30],
-    ["hy_miniproject","Course Project",5],
-    ["hy_industry","Industry Aligned Assessment",10],
-    ["hy_endpractical","End Sem Practical",40],
+    ["hy_ws1",         "Experiment 1",                  30],
+    ["hy_ws2",         "Experiment 2",                  30],
+    ["hy_ws3",         "Experiment 3",                  30],
+    ["hy_ws4",         "Experiment 4",                  30],
+    ["hy_miniproject", "Course Project",                 5],
+    ["hy_industry",    "Industry Aligned Assessment",   10],
+    ["hy_endpractical","End Sem Practical",             40],
   ];
 
   return (
     <div style={S.grid}>
-
       <div style={S.section}>
         <h3 style={S.h3}>Theory Component</h3>
         {theoryFields.map(([key, label, max]) => (
@@ -222,4 +363,8 @@ export default function Hybrid() {
       </div>
     </div>
   );
+}
+
+export default function Hybrid({ year }) {
+  return year === "1" ? <HybridFirstYear /> : <HybridSenior />;
 }

@@ -44,6 +44,24 @@
   overflow: hidden;
 }
 
+.tab-btn.aptitude.active {
+  background: #f97316;   /* orange — tweak this hex */
+  color: #fff;
+}
+
+.tab-btn.aptitude:hover:not(.active) {
+  color: #f97316;
+}
+
+.tab-btn.softskill.active {
+  background: #eab308;   /* yellow — tweak this hex */
+  color: #000;           /* dark text on yellow */
+}
+
+.tab-btn.softskill:hover:not(.active) {
+  color: #eab308;
+}
+
 @media (max-width: 600px) {
   .internal-tabs { flex-direction: column; gap: 8px; }
 }

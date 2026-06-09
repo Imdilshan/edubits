@@ -90,7 +90,82 @@ function Field({ id, label, max, value, onChange }) {
   );
 }
 
-export default function Practical() {
+// ── 1st Year Practical ────────────────────────────────────────────────────────
+// ExternalViva 40→40 (optional), PA1 30→15, PA2 30→15, PA3/Project 30→15,
+// Practical MST 30→15. Total w/o viva = 60, with = 100.
+function PracticalFirstYear() {
+  const [data, setData] = useState({});
+  const [result, setResult] = useState(null);
+
+  const handle = (k, v) => setData(p => ({ ...p, [k]: v }));
+  const reset  = () => { setData({}); setResult(null); };
+
+  const calculate = () => {
+    const g = (k, max) => getNum(data[k], max);
+    const vivaProvided = data.p1_viva !== "" && data.p1_viva !== undefined;
+    const viva = Number(data.p1_viva || 0);
+    const total =
+      g("p1_pa1",  30) / 30 * 15 +
+      g("p1_pa2",  30) / 30 * 15 +
+      g("p1_pa3",  30) / 30 * 15 +
+      g("p1_pmst", 30) / 30 * 15 +
+      (vivaProvided ? viva / 40 * 40 : 0);
+    const max = vivaProvided ? 100 : 60;
+    setResult({ total, max, pct: (total / max) * 100 });
+  };
+
+  const fields = [
+    ["p1_pa1",  "Practical Assessment 1",             30],
+    ["p1_pa2",  "Practical Assessment 2",             30],
+    ["p1_pa3",  "Practical Assessment 3 / Project",   30],
+    ["p1_pmst", "Practical MST",                      30],
+    ["p1_viva", "External Viva / Voce",               40],
+  ];
+
+  return (
+    <div style={S.grid}>
+      <div style={S.section}>
+        <h3 style={S.h3}>Practical Subject</h3>
+        {fields.map(([key, label, max]) => (
+          <Field key={key} id={key} label={label} max={max}
+            value={data[key] ?? ""}
+            onChange={(v) => handle(key, v)}
+          />
+        ))}
+        <p style={{ ...S.hint, marginTop:4 }}>External Viva is optional — leave blank for internal-only result.</p>
+      </div>
+
+      <div style={S.section}>
+        <h3 style={S.h3}>Output</h3>
+        {result ? (
+          <div>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"6px 0", color:"#dde8f0", fontSize:14 }}>
+              <span style={S.small}>Obtained</span>
+              <span style={{ color:"#eef2ff" }}>{result.total.toFixed(2)} / {result.max}</span>
+            </div>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"6px 0", borderTop:"1px solid rgba(255,255,255,0.06)" }}>
+              <span style={S.small}>Percentage</span>
+              <span style={S.highlight}>{result.pct.toFixed(2)}%</span>
+            </div>
+            <div style={S.progress}>
+              <div style={{ width:`${result.pct}%`, height:"100%", background:"linear-gradient(90deg,#3b82f6,#22c55e)", borderRadius:8, transition:"width 0.4s ease" }} />
+            </div>
+          </div>
+        ) : (
+          <p style={{ color:"#6b7280", fontSize:13, margin:0 }}>Fill in marks and click Calculate.</p>
+        )}
+      </div>
+
+      <div style={S.bottomBar}>
+        <button style={S.btnReset} onClick={reset}>Reset</button>
+        <button style={S.btnCalc}  onClick={calculate}>Calculate Practical</button>
+      </div>
+    </div>
+  );
+}
+
+// ── Senior Practical (2nd/3rd/4th Year) — unchanged logic ────────────────────
+function PracticalSenior() {
   const [data, setData] = useState({});
   const [result, setResult] = useState(null);
 
@@ -102,23 +177,27 @@ export default function Practical() {
     const endProvided = data.pr_endpractical !== "" && data.pr_endpractical !== undefined;
     const end = Number(data.pr_endpractical || 0);
     const total =
-      g("pr_ws1",30)/30*10 + g("pr_ws2",30)/30*10 +
-      g("pr_ws3",30)/30*10 + g("pr_ws4",30)/30*10 +
-      g("pr_classperf",10)/10*5 + g("pr_miniproject",5)/5*5 +
-      g("pr_industry",10)/10*10 + (endProvided ? end/40*40 : 0);
+      g("pr_ws1",        30) / 30 * 10 +
+      g("pr_ws2",        30) / 30 * 10 +
+      g("pr_ws3",        30) / 30 * 10 +
+      g("pr_ws4",        30) / 30 * 10 +
+      g("pr_classperf",  10) / 10 * 5  +
+      g("pr_miniproject", 5) / 5  * 5  +
+      g("pr_industry",   10) / 10 * 10 +
+      (endProvided ? end / 40 * 40 : 0);
     const max = endProvided ? 100 : 60;
-    setResult({ total, max, pct: (total/max)*100 });
+    setResult({ total, max, pct: (total / max) * 100 });
   };
 
   const fields = [
-    ["pr_ws1","Experiment 1",30],
-    ["pr_ws2","Experiment 2",30],
-    ["pr_ws3","Experiment 3",30],
-    ["pr_ws4","Experiment 4",30],
-    ["pr_classperf","Class Performance",10],
-    ["pr_miniproject","Course Project",5],
-    ["pr_industry","Industry Aligned Assessment",10],
-    ["pr_endpractical","End Sem Practical",40],
+    ["pr_ws1",         "Experiment 1",                  30],
+    ["pr_ws2",         "Experiment 2",                  30],
+    ["pr_ws3",         "Experiment 3",                  30],
+    ["pr_ws4",         "Experiment 4",                  30],
+    ["pr_classperf",   "Class Performance",             10],
+    ["pr_miniproject", "Course Project",                 5],
+    ["pr_industry",    "Industry Aligned Assessment",   10],
+    ["pr_endpractical","End Sem Practical",             40],
   ];
 
   return (
@@ -160,4 +239,8 @@ export default function Practical() {
       </div>
     </div>
   );
+}
+
+export default function Practical({ year }) {
+  return year === "1" ? <PracticalFirstYear /> : <PracticalSenior />;
 }
