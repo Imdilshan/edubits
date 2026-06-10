@@ -2,11 +2,8 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useToast } from "../context/ToastContext";
-import { ArrowRight } from "lucide-react";
-import { Loader } from "lucide-react";
-
+import { ArrowRight, Loader } from "lucide-react";
 import "./login.css";
-import ToolPreview from "../components/ToolPreview";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -59,99 +56,86 @@ export default function Register() {
   };
 
   return (
-  <div className="login-container">
-    <div className="auth-layout">
+    <div className="auth-page">
+      <div className="auth-left">
+        <div className="auth-left-brand" style={{ cursor: "pointer" }} onClick={() => navigate("/")}>
+          <img src="/images/logo.webp" alt="Edubits" width="32" height="32" />
+          <span>Edubits</span>
+        </div>
 
-      <div className="side left">
-        <ToolPreview 
-          title="SGPA Calculator" 
-          image="/images/sgpa.webp"
-        />
-        <ToolPreview
-          title="Internal Marks Calculator" 
-          image="/images/imc.webp"
+        <div className="auth-left-copy">
+          <h2>Engineering made <br /> easier.</h2>
+          <p>SGPA calculators, PYQs, Playlists, quizzes, and productivity tools — all in one place.</p>
+        </div>
+
+        <img
+          src="/images/graduation.svg"
+          alt="Students celebrating graduation"
+          className="auth-illustration"
         />
       </div>
 
-      <div className="center">
-        <form className="login-card" onSubmit={handleRegister}>
-          
-          <div className="login-header">
-            <div className="logo" onClick={() => navigate("/")}>
-              <img src="/images/logo.webp" alt="Edubits Logo" width="40" height="40" />
-              <span className="logo-text">Edubits</span>
+      <div className="auth-right">
+        <div className="auth-form-wrap">
+          <div className="auth-form-header">
+            <h1>Create your account</h1>
+            <p>It's free. No ads, Not now, Not ever.</p>
+          </div>
+
+          <form onSubmit={handleRegister}>
+            <div className="input-group">
+              <input
+                type="text"
+                placeholder=" "
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+              <label>Full Name</label>
             </div>
 
-            <h1>Create Account</h1>
-            <p className="subtitle">Smile! You are awesome.</p>
-          </div>
+            <div className="input-group">
+              <input
+                type="email"
+                placeholder=" "
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <label>Email</label>
+            </div>
 
-          <div className="input-group">
-            <input
-              type="text"
-              placeholder=" "
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-            <label>Full Name</label>
-          </div>
+            <div className="input-group">
+              <input
+                type="password"
+                placeholder=" "
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <label>Password</label>
+            </div>
 
-          <div className="input-group">
-            <input
-              type="email"
-              placeholder=" "
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <label>Email</label>
-          </div>
+            <button type="submit" className="auth-submit-btn" disabled={loading}>
+              {loading ? (
+                <span className="btn-loading">
+                  <Loader size={16} className="spin-icon" />
+                  Waking server...
+                </span>
+              ) : (
+                "Create account"
+              )}
+            </button>
+          </form>
 
-          <div className="input-group">
-            <input
-              type="password"
-              placeholder=" "
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <label>Password</label>
-          </div>
-
-          <button type="submit" disabled={loading}>
-            {loading ? (
-              <span className="btn-loading">
-                <Loader size={16} className="spin-icon" />
-                Waking server...
-              </span>
-            ) : (
-              "Register"
-            )}
-          </button>
-
-          <div className="login-footer">
-            <span className="footer-text">Already have an account?</span>
-            <Link to="/login" className="footer-link">
-              Login <ArrowRight size={16} className="arrow-icon" />
+          <p className="auth-footer">
+            Already have an account?
+            <Link to="/login">
+              Log in <ArrowRight size={14} />
             </Link>
-          </div>
-
-        </form>
+          </p>
+        </div>
       </div>
-
-      <div className="side right">
-        <ToolPreview 
-          title="Task Tracker" 
-          image="/images/task.webp"
-        />
-        <ToolPreview
-          title="Pyq's" 
-          image="/images/pyq.webp"
-        />
-      </div>
-
     </div>
-  </div>
-);
+  );
 }

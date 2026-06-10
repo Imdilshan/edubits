@@ -2,10 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import { useToast } from "../context/ToastContext";
-import { ArrowRight } from "lucide-react";
-import { Loader } from "lucide-react";
-
-import ToolPreview from "../components/ToolPreview";
+import { ArrowRight, Loader } from "lucide-react";
 import "./login.css";
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -56,35 +53,45 @@ export default function Login() {
   };
 
   return (
-    <div className="login-container">
-      <div className="auth-layout">
-
-        <div className="side left">
-          <ToolPreview 
-            title="SGPA Calculator" 
-            image="/images/sgpa.webp"
-          />
-          <ToolPreview
-            title="Internal Marks Calculator" 
-            image="/images/imc.webp"
-          />
+    <div className="auth-page">
+      <div className="auth-left">
+        <div className="auth-left-brand">
+          <img src="/images/logo.webp" alt="Edubits" width="32" height="32" />
+          <span>Edubits</span>
         </div>
 
-        <div className="center">
-          <form className="login-card" onSubmit={handleLogin}>
-            
-            <div className="login-header">
-              <div className="logo">
-                <img src="/images/logo.webp" alt="Edubits Logo" width="40" height="40" />
-                <span className="logo-text">Edubits</span>
-              </div>
+        <div className="auth-left-copy">
+          <h2>Engineering made <br /> easier.</h2>
+          <p>SGPA calculators, PYQs, Playlists, quizzes, and productivity tools — all in one place.</p>
+        </div>
 
-              <h1>Welcome Back</h1>
-              <p className="subtitle">
-                Continue your focused learning journey
-              </p>
-            </div>
+        <img
+          src="/images/graduation.svg"
+          alt="Students celebrating graduation"
+          className="auth-illustration"
+        />
+      </div>
 
+      <div className="auth-right">
+        <div className="auth-form-wrap">
+          <div className="auth-form-header">
+            <h1>Welcome back</h1>
+            <p>Log in to continue your learning journey</p>
+          </div>
+
+          <button type="button" className="google-btn" onClick={handleGoogleLogin}>
+            <img
+              src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+              alt="Google"
+              width="20"
+              height="20"
+            />
+            Continue with Google
+          </button>
+
+          <div className="auth-divider">or</div>
+
+          <form onSubmit={handleLogin}>
             <div className="input-group">
               <input
                 type="email"
@@ -107,59 +114,25 @@ export default function Login() {
               <label>Password</label>
             </div>
 
-            <button type="submit" disabled={loading}>
-
+            <button type="submit" className="auth-submit-btn" disabled={loading}>
               {loading ? (
                 <span className="btn-loading">
                   <Loader size={16} className="spin-icon" />
                   Waking server...
                 </span>
               ) : (
-                "Login"
+                "Log in"
               )}
             </button>
-
-
-
-            <div className="login-footer">
-              <span className="footer-text">New to Edubits?</span>
-              <Link to="/register" className="footer-link">
-                Register{" "}
-                <ArrowRight size={16} className="arrow-icon" />
-              </Link>
-            </div>
-
-            <div className="login-divider">
-              <span>or</span>
-            </div>
-
-            <button
-              type="button"
-              className="google-btn"
-              onClick={handleGoogleLogin}
-            >
-              <img
-                src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
-                alt="Google"
-                width="20"
-                height="20"
-              />
-              Continue with Google
-            </button>
           </form>
-        </div>
 
-        <div className="side right">
-          <ToolPreview 
-            title="Task Tracker" 
-            image="/images/task.webp"
-          />
-          <ToolPreview
-            title="Pyq's" 
-            image="/images/pyq.webp"
-          />
+          <p className="auth-footer">
+            New to Edubits?
+            <Link to="/register">
+              Create account <ArrowRight size={14} />
+            </Link>
+          </p>
         </div>
-
       </div>
     </div>
   );
