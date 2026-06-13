@@ -13,8 +13,6 @@ const STORAGE_KEY = "edubits_local_pyqs";
 
 const emptyForm = { question: "", subject: "", year: "", topic: "", marks: "", answer: "" };
 
-// ─── Data ────────────────────────────────────────────────────────────────────
-
 const PAPER_SOURCES = [
   {
     year: "1st Year",
@@ -220,42 +218,66 @@ const PLAYLIST_SOURCES = [
     year: "2nd Year",
     subjects: [
       {
-        subject: "Software Engineering",
+        subject: "Discrete Mathematics",
         playlists: [
-          { id: "se-all", title: "Complete SE Playlist", channel: "Gate Smashers", playlistId: "PLxCzCOWd7aiEed7SKZBnC6ypFDWYLRvB2", thumbVideoId: "kcvEiMFOcoE" },
+          { id: "set_theory", title: "Set Theory", channel: "Ganitya", playlistId: "PL15h-I4HvELIY_Odms6A5Ekl8Durr6d_0", thumbVideoId: "-BiRPYH5OLA" },
+          { id: "relations", title: "Relations", channel: "Ganitya", playlistId: "PL15h-I4HvELIXZVZ8X7GBWgYWoPM_7YBY", thumbVideoId: "fPzLXQ80jqQ" },
+          { id: "relations_and_functions", title: "Relaions and Functions", channel: "Pradeep Giri Academy", playlistId: "PLT3bOBUU3L9gF5nz4y1j2lb6q6IDbA6PQ", thumbVideoId: "ynHoB_0li_o" },
+          { id: "propositional_calculus", title: "Propositional Calculus", channel: "Ganitya", playlistId: "PL15h-I4HvELJVQvge-ZdEXC-1RHWJtAbx", thumbVideoId: "MbZVsM39Ufw" },
+          { id: "recurrence_relations", title: "Recurrence Relations", channel: "Ganitya", playlistId: "PL15h-I4HvELIYna1VWmeaWmWv0e3tFHaR", thumbVideoId: "5BYGJbqCqy0" },
+          { id: "recurrence_relations_practice", title: "Recurrence Relation (Practice-Heavy)", channel: "MATHS HUB by Dr. Tania Bose", playlistId: "PLh2qFr0QFywExmizxtQywAJtAHQh6Xq3O", thumbVideoId: "pMCFs-EyfQI" },
+          { id: "combinatorial_mathematics", title: "Combinatorial Mathematics", channel: "Pradeep Giri Academy", playlistId: "PLhx1hByyAqsZ-v0QBKgBTcUIn8IbyC6pe", thumbVideoId: "lG1tGGpqye0" },
+          { id: "graph_theory", title: "Graph Theory", channel: "Ganitya", playlistId: "PL15h-I4HvELIhCh5VwKcvh9BQFFRnAFJr", thumbVideoId: "Vscfb6fKBck" },
+          { id: "trees", title: "Trees", channel: "Ganitya", playlistId: "PL15h-I4HvELKNfNZdrIpS0b_orXoCMO3f", thumbVideoId: "KbExLoAlWdw" },
+          { id: "graph_theory_practice", title: "Graph Theory (Practice-Heavy)", channel: "MATHS HUB by Dr. Tania Bose", playlistId: "PLh2qFr0QFywHC2lxeFquAOyr85Y74fEMu", thumbVideoId: "C2It_eG88EU" },
+          { id: "trees_practice", title: "Trees (Practice-Heavy)", channel: "MATHS HUB by Dr. Tania Bose", playlistId: "PLh2qFr0QFywFz0FhE14Zu_e2xd2806wVv", thumbVideoId: "boi_v4rd9eM" }
         ],
       },
       {
-        subject: "OOPS Using Java",
+        subject: "ADSA",
         playlists: [
-          { id: "java-all", title: "Complete Java Playlist", channel: "Easy Engineering Classes", playlistId: "PLV8vIYTIdSnbL_fSaqiYpPh-KwNCavjIr", thumbVideoId: "4Y0N43i2RNs" },
-        ],
-      },
-      {
-        subject: "Operating System",
-        playlists: [
-          { id: "os-all", title: "Complete OS Playlist", channel: "Gate Smashers", playlistId: "PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p", thumbVideoId: "WJ-UaAaumNA" },
-          { id: "os-og",  title: "OS One Shot",          channel: "5 Minutes Engineering", playlistId: "PLhx1hByyAqsYn0JMNNPN-uFiLb0XdZtSG", thumbVideoId: "A4G0hOI6XyQ" },
-        ],
-      },
-      {
-        subject: "DAA",
-        playlists: [
-          { id: "daa-p1", title: "DAA Unit 1", channel: "Gate Smashers", playlistId: "PLhx1hByyAqsZ3ZMkKbN9FcSUYad1ShZ3G", thumbVideoId: "0IAPZzGSbME" },
-          { id: "daa-p2", title: "DAA Unit 2", channel: "Gate Smashers", playlistId: "PLhx1hByyAqsbCKEJu0ntERx33fTeNigw2", thumbVideoId: "I8w2XN0w-fQ" },
-          { id: "daa-p3", title: "DAA Unit 3", channel: "Striver",        playlistId: "PLhx1hByyAqsaJcVgBApIKLaKucaRpW3Om", thumbVideoId: "M3_pLsDdeuU" },
+          { id: "daa0", title: "DAA Unit 1", channel: "Gate Smashers", playlistId: "PLhx1hByyAqsZ3ZMkKbN9FcSUYad1ShZ3G", thumbVideoId: "0IAPZzGSbME" },
+          { id: "daa1", title: "DAA Unit 2", channel: "Gate Smashers", playlistId: "PLhx1hByyAqsbCKEJu0ntERx33fTeNigw2", thumbVideoId: "I8w2XN0w-fQ" },
+          { id: "daa2", title: "DAA Unit 3", channel: "Striver",        playlistId: "PLhx1hByyAqsaJcVgBApIKLaKucaRpW3Om", thumbVideoId: "M3_pLsDdeuU" },
         ],
       },
       {
         subject: "DBMS",
         playlists: [
-          { id: "dbms-p1", title: "DBMS Unit 2", channel: "Gate Smashers", playlistId: "PLhx1hByyAqsYFoBvR5gjsfw2qQHfI4IiO", thumbVideoId: "5GDTIUVlHB8" },
+          { id: "dbms0", title: "DBMS Complete Playlist", channel: "Gate Smashers", playlistId: "PLxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y", thumbVideoId: "kBdlM6hNDAE" },
         ],
       },
       {
         subject: "COA",
         playlists: [
-          { id: "coa-p1", title: "Complete COA Playlist", channel: "5 Minutes Engineering", playlistId: "PLYwpaL_SFmcCaiXeUEjcTzHwIfJqH1qCN", thumbVideoId: "1rUevQ3bSEY" },
+          { id: "coa0", title: "Complete COA Playlist", channel: "5 Minutes Engineering", playlistId: "PLYwpaL_SFmcCaiXeUEjcTzHwIfJqH1qCN", thumbVideoId: "1rUevQ3bSEY" },
+        ],
+      },
+      {
+        subject: "Software Engineering",
+        playlists: [
+          { id: "se", title: "Complete SE Playlist", channel: "Gate Smashers", playlistId: "PLxCzCOWd7aiEed7SKZBnC6ypFDWYLRvB2", thumbVideoId: "kcvEiMFOcoE" },
+        ],
+      },
+      {
+        subject: "OOPS Using Java",
+        playlists: [
+          { id: "java", title: "Complete Java Playlist", channel: "Easy Engineering Classes", playlistId: "PLV8vIYTIdSnbL_fSaqiYpPh-KwNCavjIr", thumbVideoId: "4Y0N43i2RNs" },
+        ],
+      },
+      {
+        subject: "Operating System",
+        playlists: [
+          { id: "os0", title: "Complete OS Playlist", channel: "Gate Smashers", playlistId: "PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p", thumbVideoId: "WJ-UaAaumNA" },
+          { id: "os1",  title: "OS One Shot",          channel: "5 Minutes Engineering", playlistId: "PLhx1hByyAqsYn0JMNNPN-uFiLb0XdZtSG", thumbVideoId: "A4G0hOI6XyQ" },
+        ],
+      },
+      {
+        subject: "DAA",
+        playlists: [
+          { id: "daa0", title: "DAA Unit 1", channel: "Gate Smashers", playlistId: "PLhx1hByyAqsZ3ZMkKbN9FcSUYad1ShZ3G", thumbVideoId: "0IAPZzGSbME" },
+          { id: "daa1", title: "DAA Unit 2", channel: "Gate Smashers", playlistId: "PLhx1hByyAqsbCKEJu0ntERx33fTeNigw2", thumbVideoId: "I8w2XN0w-fQ" },
+          { id: "daa2", title: "DAA Unit 3", channel: "Striver",        playlistId: "PLhx1hByyAqsaJcVgBApIKLaKucaRpW3Om", thumbVideoId: "M3_pLsDdeuU" },
         ],
       },
     ],
