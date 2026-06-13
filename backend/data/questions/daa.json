@@ -1,20 +1,20 @@
 [
   {
     "text": "What is the time complexity of Binary Search?",
-    "options": ["O(n)", "O(log n)", "O(n log n)", "O(1)"],
-    "correctAnswer": 1,
+    "options": ["O(log n)", "O(n)", "O(n log n)", "O(1)"],
+    "correctAnswer": 0,
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which notation represents worst-case complexity?",
-    "options": ["Ω", "Θ", "O", "None"],
-    "correctAnswer": 2,
+    "options": ["Ω", "Θ", "None", "O"],
+    "correctAnswer": 3,
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
-    "text": "Merge sort follows which technique?",
+    "text": "Merge Sort follows which technique?",
     "options": ["Greedy", "Divide & Conquer", "Dynamic Programming", "Backtracking"],
     "correctAnswer": 1,
     "difficulty": "easy",
@@ -22,8 +22,8 @@
   },
   {
     "text": "Which sorting algorithm is unstable?",
-    "options": ["Merge Sort", "Bubble Sort", "Quick Sort", "Insertion Sort"],
-    "correctAnswer": 2,
+    "options": ["Merge Sort", "Bubble Sort", "Insertion Sort", "Quick Sort"],
+    "correctAnswer": 3,
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
@@ -36,40 +36,39 @@
   },
   {
     "text": "Which data structure is used in BFS?",
-    "options": ["Stack", "Queue", "Heap", "Tree"],
-    "correctAnswer": 1,
+    "options": ["Stack", "Heap", "Queue", "Tree"],
+    "correctAnswer": 2,
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
-    "text": "DFS traversal uses?",
+    "text": "DFS traversal uses which data structure?",
     "options": ["Queue", "Stack", "Array", "Graph"],
     "correctAnswer": 1,
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
-    "text": "Which algorithm finds shortest path?",
-    "options": ["Prim", "Dijkstra", "Kruskal", "DFS"],
-    "correctAnswer": 1,
+    "text": "Which algorithm finds the shortest path in a weighted graph?",
+    "options": ["Prim", "DFS", "BFS", "Dijkstra"],
+    "correctAnswer": 3,
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
-    "text": "Which is a greedy algorithm?",
-    "options": ["Merge Sort", "Dijkstra", "DFS", "BFS"],
-    "correctAnswer": 1,
+    "text": "Dijkstra's algorithm is which type?",
+    "options": ["Greedy", "Divide & Conquer", "DP", "Backtracking"],
+    "correctAnswer": 0,
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which algorithm finds MST?",
-    "options": ["Prim", "DFS", "Binary Search", "Merge"],
+    "options": ["Prim", "DFS", "Binary Search", "Merge Sort"],
     "correctAnswer": 0,
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
-
   {
     "text": "Counting sort complexity is?",
     "options": ["O(n)", "O(n+k)", "O(log n)", "O(n²)"],
@@ -78,9 +77,9 @@
     "timeLimitSeconds": 25
   },
   {
-    "text": "Radix sort is?",
-    "options": ["Comparison sort", "Non-comparison sort", "Greedy", "DP"],
-    "correctAnswer": 1,
+    "text": "Radix sort is which type of sort?",
+    "options": ["Comparison sort", "Greedy", "DP", "Non-comparison sort"],
+    "correctAnswer": 3,
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
@@ -92,24 +91,23 @@
     "timeLimitSeconds": 20
   },
   {
-    "text": "AVL tree is?",
-    "options": ["Balanced tree", "Unbalanced tree", "Heap", "Graph"],
-    "correctAnswer": 0,
+    "text": "AVL tree is a?",
+    "options": ["Graph", "Unbalanced tree", "Heap", "Balanced BST"],
+    "correctAnswer": 3,
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
-    "text": "BST property is?",
-    "options": ["Left > Right", "Left < Right", "Equal", "None"],
+    "text": "BST property states?",
+    "options": ["Left > Right", "Left < Right", "Equal nodes", "None of these"],
     "correctAnswer": 1,
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
-
   {
-    "text": "0/1 Knapsack uses?",
-    "options": ["Greedy", "DP", "DFS", "BFS"],
-    "correctAnswer": 1,
+    "text": "0/1 Knapsack uses which technique?",
+    "options": ["Greedy", "DFS", "BFS", "DP"],
+    "correctAnswer": 3,
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
@@ -128,89 +126,584 @@
     "timeLimitSeconds": 25
   },
   {
-    "text": "Travelling Salesman is?",
+    "text": "Travelling Salesman Problem is classified as?",
     "options": ["P", "NP", "NP-hard", "None"],
     "correctAnswer": 2,
     "difficulty": "hard",
     "timeLimitSeconds": 30
   },
   {
-    "text": "Topological sorting is for?",
-    "options": ["Tree", "Graph", "DAG", "Heap"],
-    "correctAnswer": 2,
-    "difficulty": "medium",
-    "timeLimitSeconds": 25
-  },
-
-  {
-    "text": "Bellman-Ford handles?",
-    "options": ["Positive weights", "Negative weights", "Only trees", "None"],
-    "correctAnswer": 1,
+    "text": "Topological sorting applies to?",
+    "options": ["Tree", "Graph", "Heap", "DAG"],
+    "correctAnswer": 3,
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
-    "text": "Floyd Warshall is used for?",
-    "options": ["Single source", "All pair shortest path", "Sorting", "Searching"],
-    "correctAnswer": 1,
-    "difficulty": "medium",
-    "timeLimitSeconds": 25
-  },
-  {
-    "text": "Prim algorithm uses?",
-    "options": ["Heap", "Queue", "Stack", "Graph"],
+    "text": "Bellman-Ford algorithm handles?",
+    "options": ["Negative weights", "Positive weights only", "Only trees", "None"],
     "correctAnswer": 0,
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
-    "text": "Kruskal algorithm uses?",
+    "text": "Floyd-Warshall is used for?",
+    "options": ["Single source shortest path", "All-pair shortest path", "Sorting", "Searching"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "N-Queens problem is solved using?",
+    "options": ["Greedy", "DP", "Backtracking", "BFS"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Branch and Bound is primarily used for?",
+    "options": ["Sorting", "Searching", "Graph traversal", "Optimization"],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Huffman coding is used for?",
+    "options": ["Data compression", "Sorting", "Searching", "Graph problems"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Kruskal's algorithm sorts edges by?",
+    "options": ["Vertex degree", "Edge weight", "Component size", "Vertex label"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Fractional Knapsack is solved by?",
+    "options": ["DP", "Backtracking", "Divide & Conquer", "Greedy"],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Strassen's algorithm improves which operation?",
+    "options": ["Matrix multiplication", "Sorting", "Graph traversal", "Shortest path"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "KMP algorithm is used for?",
+    "options": ["Sorting", "String pattern matching", "Graph traversal", "Hashing"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Rabin-Karp uses which technique?",
+    "options": ["Suffix trees", "Sorting", "Hashing", "DP"],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Boyer-Moore is a?",
+    "options": ["Sorting algorithm", "Graph algorithm", "Tree algorithm", "String matching algorithm"],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Euclid's algorithm computes?",
+    "options": ["GCD", "LCM", "Prime factors", "Modular inverse"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Chinese Remainder Theorem is used in?",
+    "options": ["Graph theory", "Modular arithmetic", "Sorting", "String matching"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Convex Hull problem finds?",
+    "options": ["Shortest path", "Sorted points", "Minimum spanning tree", "Smallest enclosing polygon"],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "P class problems are solvable in?",
+    "options": ["Polynomial time", "Exponential time", "Constant time", "Logarithmic time"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "NP-Complete problems belong to?",
+    "options": ["P only", "Both NP and NP-hard", "NP-hard only", "None"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which traversal visits root node first?",
+    "options": ["Inorder", "Postorder", "Preorder", "Level order"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "A queue follows which principle?",
+    "options": ["LIFO", "FILO", "Random", "FIFO"],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Inorder traversal of a BST produces?",
+    "options": ["Sorted output", "Reverse sorted", "Level order", "Random order"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Memoization is used in which DP approach?",
+    "options": ["Bottom-up", "Top-down", "Iterative", "Greedy"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Prim's algorithm grows MST by adding?",
+    "options": ["Random edge", "Cheapest edge to non-tree vertex", "Most expensive edge", "Any tree edge"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Worst case of Quick Sort occurs when pivot is?",
+    "options": ["Median element", "Smallest or largest element", "Random element", "Middle element"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Space complexity of Merge Sort is?",
+    "options": ["O(1)", "O(log n)", "O(n)", "O(n²)"],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Subset Sum problem is solved by?",
+    "options": ["Sorting", "Greedy", "Binary Search", "DP or Backtracking"],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Optimal substructure means?",
+    "options": ["Subproblems overlap", "Greedy works always", "Optimal solution contains optimal sub-solutions", "Sorting is needed"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Heap Sort time complexity is?",
+    "options": ["O(n log n)", "O(n²)", "O(log n)", "O(n)"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Building a heap from n elements takes?",
+    "options": ["O(log n)", "O(n)", "O(n log n)", "O(n²)"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Insertion Sort best case is?",
+    "options": ["O(n²)", "O(n log n)", "O(n)", "O(log n)"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "A spanning tree of V vertices has how many edges?",
+    "options": ["V", "V+1", "V²", "V-1"],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "BFS gives shortest path in?",
+    "options": ["Weighted graphs", "Unweighted graphs", "DAGs only", "Trees only"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Adjacency matrix space complexity is?",
+    "options": ["O(V+E)", "O(E)", "O(V²)", "O(V)"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Hamiltonian Cycle is solved using?",
+    "options": ["Greedy", "Sorting", "BFS", "Backtracking"],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which notation gives a tight bound?",
+    "options": ["O", "Ω", "Θ", "None"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Red-Black tree is a?",
+    "options": ["Self-balancing BST", "Heap", "Graph", "Unbalanced BST"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Tabulation uses which DP approach?",
+    "options": ["Top-down", "Bottom-up", "Recursive", "Greedy"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Greedy algorithm makes choices that are?",
+    "options": ["Based on future states", "Exhaustive", "Globally optimal always", "Locally optimal at each step"],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The Master Theorem applies to recurrences of the form?",
+    "options": ["T(n) = aT(n/b) + f(n)", "T(n) = T(n-1) + f(n)", "T(n) = nT(n-1)", "T(n) = T(n/2) + T(n/3)"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Substitution method involves?",
+    "options": ["Guessing and proving by induction", "Drawing a recursion tree", "Applying Master Theorem", "Expanding all levels"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Recursion tree method works by?",
+    "options": ["Applying a formula", "Guessing the answer", "Visualizing recursive calls as a tree", "Sorting subproblems"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Hash table average lookup is?",
+    "options": ["O(1)", "O(n)", "O(log n)", "O(n²)"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Hashing with chaining handles collisions using?",
+    "options": ["Open addressing", "Linked lists", "Binary trees", "Stacks"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Postorder traversal visits nodes in order?",
+    "options": ["Root, Left, Right", "Left, Root, Right", "Left, Right, Root", "Right, Left, Root"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Fibonacci without memoization has complexity?",
+    "options": ["O(n)", "O(n log n)", "O(n²)", "O(2ⁿ)"],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Optimal Merge Pattern is an application of?",
+    "options": ["DP", "Greedy", "Backtracking", "Branch and Bound"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which problem uses state space tree?",
+    "options": ["DP", "Greedy", "Backtracking", "Sorting"],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Dijkstra uses which data structure for efficiency?",
+    "options": ["Stack", "Queue", "Linked List", "Priority Queue"],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which graph algorithm detects negative weight cycles?",
+    "options": ["Bellman-Ford", "Dijkstra", "Prim", "BFS"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Adjacency list space complexity is?",
+    "options": ["O(V²)", "O(V+E)", "O(E²)", "O(V)"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which sorting is best for nearly sorted data?",
+    "options": ["Quick Sort", "Merge Sort", "Insertion Sort", "Radix Sort"],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Sollin's algorithm finds?",
+    "options": ["Single source shortest path", "All-pair shortest path", "Topological order", "Minimum Spanning Tree"],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "A problem is in NP if its solution is?",
+    "options": ["Verifiable in polynomial time", "Solvable in polynomial time", "Unsolvable", "Solvable in O(n)"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "SAT problem is an example of?",
+    "options": ["P problem", "NP-Complete problem", "NP-hard but not NP", "Greedy problem"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "KMP preprocessing builds which structure?",
+    "options": ["Suffix array", "Hash table", "Failure function", "Sorted array"],
+    "correctAnswer": 2,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Convex Hull using Graham Scan has complexity?",
+    "options": ["O(n)", "O(n log n)", "O(n²)", "O(log n)"],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Bucket sort works best when input is?",
+    "options": ["Nearly sorted", "Reverse sorted", "Uniformly distributed", "All duplicates"],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Counting sort requires values to be?",
+    "options": ["Floating point", "Negative integers", "Strings", "Non-negative integers in a range"],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Bellman-Ford time complexity is?",
+    "options": ["O(V log V)", "O(VE)", "O(V+E)", "O(V²)"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Floyd-Warshall time complexity is?",
+    "options": ["O(V²)", "O(VE)", "O(V³)", "O(E log V)"],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which is an in-place sorting algorithm?",
+    "options": ["Merge Sort", "Counting Sort", "Quick Sort", "Radix Sort"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Selection sort is?",
+    "options": ["Stable and O(n log n)", "Unstable and O(n²)", "Stable and O(n)", "Unstable and O(n log n)"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Complete binary tree height with n nodes is?",
+    "options": ["O(n)", "O(n²)", "O(log n)", "O(1)"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which sort has the best worst-case among comparison sorts?",
+    "options": ["Quick Sort", "Bubble Sort", "Insertion Sort", "Heap Sort"],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "AVL tree rebalancing is triggered when balance factor is?",
+    "options": ["Greater than 1 or less than -1", "Equal to 0", "Equal to 1", "Equal to -1"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Divide and Conquer splits into which type of subproblems?",
+    "options": ["Overlapping", "Non-overlapping", "Dependent", "Single"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Modular exponentiation computes aⁿ mod m in?",
+    "options": ["O(n)", "O(n²)", "O(log n)", "O(1)"],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "A graph is bipartite if colorable with?",
+    "options": ["One color", "Two colors", "Three colors", "Four colors"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Number of edges in a complete graph with n vertices is?",
+    "options": ["n", "n-1", "n²", "n(n-1)/2"],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Strongly Connected Components are found using?",
+    "options": ["Kosaraju's algorithm", "Prim's algorithm", "Kruskal's algorithm", "BFS only"],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Change making problem is a variant of?",
+    "options": ["Graph problem", "Knapsack problem", "Sorting problem", "Tree problem"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Boyer-Moore scans the pattern from?",
+    "options": ["Left to right", "Middle outward", "Right to left", "Random position"],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "DP differs from Divide & Conquer because DP?",
+    "options": ["Does not recurse", "Stores overlapping subproblem solutions", "Uses more memory always", "Works on graphs only"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Binary Search requires the array to be?",
+    "options": ["Unsorted", "Sorted", "Distinct elements only", "Randomly ordered"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Euclid's algorithm complexity is?",
+    "options": ["O(log min(a,b))", "O(n)", "O(n²)", "O(log n²)"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which is a stable sorting algorithm?",
+    "options": ["Quick Sort", "Heap Sort", "Selection Sort", "Merge Sort"],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Bubble Sort best case complexity is?",
+    "options": ["O(n²)", "O(n log n)", "O(log n)", "O(n)"],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Searching in a balanced BST is?",
+    "options": ["O(1)", "O(n)", "O(log n)", "O(n log n)"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Rabin-Karp worst case complexity is?",
+    "options": ["O(n+m)", "O(nm)", "O(n log m)", "O(m log n)"],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Omega notation Ω represents?",
+    "options": ["Worst case", "Average case", "Best case", "Exact case"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "A stack follows which principle?",
+    "options": ["FIFO", "Random", "FILO", "LIFO"],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Kruskal's algorithm uses which data structure for cycle detection?",
     "options": ["Union-Find", "Stack", "Queue", "Array"],
     "correctAnswer": 0,
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
-    "text": "Recurrence relation solves?",
-    "options": ["Sorting", "Time complexity", "Searching", "Trees"],
+    "text": "Which recurrence T(n)=2T(n/2)+n is solved by which Master case?",
+    "options": ["Case 1", "Case 2", "Case 3", "None"],
     "correctAnswer": 1,
-    "difficulty": "easy",
-    "timeLimitSeconds": 20
-  },
-
-  {
-    "text": "Backtracking is used in?",
-    "options": ["Sorting", "N-Queen", "Searching", "Heap"],
-    "correctAnswer": 1,
-    "difficulty": "medium",
-    "timeLimitSeconds": 25
-  },
-  {
-    "text": "Branch and Bound is used for?",
-    "options": ["Optimization", "Sorting", "Searching", "Graph"],
-    "correctAnswer": 0,
-    "difficulty": "medium",
-    "timeLimitSeconds": 25
-  },
-  {
-    "text": "Huffman coding is?",
-    "options": ["Sorting", "Compression", "Searching", "Graph"],
-    "correctAnswer": 1,
-    "difficulty": "easy",
-    "timeLimitSeconds": 20
-  },
-  {
-    "text": "Hashing is used for?",
-    "options": ["Searching", "Sorting", "Graph", "Tree"],
-    "correctAnswer": 0,
-    "difficulty": "easy",
-    "timeLimitSeconds": 20
-  },
-  {
-    "text": "Graph traversal includes?",
-    "options": ["BFS & DFS", "Sorting", "Searching", "DP"],
-    "correctAnswer": 0,
-    "difficulty": "easy",
-    "timeLimitSeconds": 20
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
   }
 ]

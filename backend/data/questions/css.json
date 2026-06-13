@@ -1,142 +1,1502 @@
 [
   {
-    "text": "Which property changes text color?",
-    "options": ["color", "text-color", "font-color", "bgcolor"],
-    "correctAnswer": 0,
+    "text": "Which property controls display layout?",
+    "options": [
+      "position",
+      "display",
+      "layout",
+      "float"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property sets the letter spacing?",
+    "options": [
+      "text-spacing",
+      "word-spacing",
+      "letter-spacing",
+      "char-spacing"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which at-rule imports another CSS file?",
+    "options": [
+      "@use",
+      "@import",
+      "@require",
+      "@include"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property sets the color of the text shadow?",
+    "options": [
+      "text-color",
+      "shadow-color",
+      "color",
+      "text-shadow"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property sets minimum and maximum values for a length?",
+    "options": [
+      "range()",
+      "clamp()",
+      "max()",
+      "min()"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which pseudo-class targets the first child?",
+    "options": [
+      ":child-first",
+      ":first",
+      "::first-child",
+      ":first-child"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which layout system is 2D (rows and columns)?",
+    "options": [
+      "block",
+      "inline",
+      "flexbox",
+      "grid"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which selector targets elements with a class?",
+    "options": [
+      "#class",
+      "class",
+      "*class",
+      ".class"
+    ],
+    "correctAnswer": 3,
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which property sets background color?",
-    "options": ["background-color", "bgcolor", "color", "background"],
+    "options": [
+      "background",
+      "background-color",
+      "color",
+      "bgcolor"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property adds box shadow?",
+    "options": [
+      "border-shadow",
+      "box-shadow",
+      "text-shadow",
+      "shadow"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which shorthand sets top, right, bottom, and left margins individually?",
+    "options": [
+      "padding: T R B L",
+      "margin-all",
+      "margin: top right",
+      "margin: T R B L"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which property specifies which grid column an item spans?",
+    "options": [
+      "span-column",
+      "column-span",
+      "grid-column",
+      "grid-span"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which at-rule defines keyframes?",
+    "options": [
+      "@frames",
+      "@animation",
+      "@keyframes",
+      "@motion"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which property defines grid rows?",
+    "options": [
+      "grid-layout",
+      "grid-template-rows",
+      "row-template",
+      "grid-rows"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property wraps flex items?",
+    "options": [
+      "flex-wrap",
+      "wrap",
+      "flex-flow",
+      "flex-line"
+    ],
     "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property removes list bullets?",
+    "options": [
+      "remove",
+      "no-bullet",
+      "none",
+      "hidden"
+    ],
+    "correctAnswer": 2,
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which display value creates flex container?",
-    "options": ["flex", "block", "inline", "grid"],
+    "options": [
+      "flex",
+      "grid",
+      "inline",
+      "block"
+    ],
     "correctAnswer": 0,
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
-    "text": "Which property sets font size?",
-    "options": ["font-size", "text-size", "size", "font"],
+    "text": "Which value makes text italic?",
+    "options": [
+      "slant",
+      "bold",
+      "oblique",
+      "italic"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property sets the cursor appearance?",
+    "options": [
+      "hover",
+      "cursor",
+      "pointer",
+      "mouse"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property clips an element to a shape?",
+    "options": [
+      "shape",
+      "clip",
+      "clip-path",
+      "mask"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which value clips overflowing text with an ellipsis?",
+    "options": [
+      "hide",
+      "ellipsis",
+      "clip",
+      "truncate"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property controls how elements are stacked in flex/grid overflow?",
+    "options": [
+      "justify-content",
+      "align-items",
+      "align-content",
+      "flex-wrap"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which property sets border width?",
+    "options": [
+      "border-size",
+      "edge-width",
+      "border",
+      "border-width"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property sets flex item shrink factor?",
+    "options": [
+      "flex",
+      "flex-shrink",
+      "flex-grow",
+      "flex-basis"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which property clears float effects?",
+    "options": [
+      "reset",
+      "float",
+      "overflow",
+      "clear"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which keyword auto-fills as many columns as fit?",
+    "options": [
+      "fill",
+      "auto-fit",
+      "auto-fill",
+      "auto"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which property controls scroll snapping on the container?",
+    "options": [
+      "scroll-snap-type",
+      "scroll-behavior",
+      "snap",
+      "scroll-snap"
+    ],
     "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which combinator selects all siblings?",
+    "options": [
+      "*",
+      ">",
+      "+",
+      "~"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which property controls 3D transform style for children?",
+    "options": [
+      "perspective-style",
+      "transform-style",
+      "3d-style",
+      "child-transform"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which property creates CSS keyframe animations?",
+    "options": [
+      "transition",
+      "keyframe",
+      "motion",
+      "animation"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property controls element width?",
+    "options": [
+      "extent",
+      "width",
+      "length",
+      "size"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property aligns flex items along main axis?",
+    "options": [
+      "main-align",
+      "flex-align",
+      "align-items",
+      "justify-content"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property controls text transformation (uppercase/lowercase)?",
+    "options": [
+      "text-transform",
+      "font-transform",
+      "text-case",
+      "text-change"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which CSS function adds an alpha channel to a color?",
+    "options": [
+      "hsl()",
+      "opacity()",
+      "rgba()",
+      "rgb()"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property controls element height?",
+    "options": [
+      "size",
+      "extent",
+      "height",
+      "length"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which value scales object proportionally to cover the box?",
+    "options": [
+      "cover",
+      "fill",
+      "stretch",
+      "contain"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property sets the outline (outside the border)?",
+    "options": [
+      "outline",
+      "glow",
+      "frame",
+      "border"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which unit is relative to the viewport width?",
+    "options": [
+      "vw",
+      "rem",
+      "em",
+      "vh"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property sets the font weight?",
+    "options": [
+      "text-weight",
+      "font-size",
+      "font-weight",
+      "font-style"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property sets flex item growth factor?",
+    "options": [
+      "flex-grow",
+      "flex-shrink",
+      "flex-basis",
+      "flex"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which selector targets an element by ID?",
+    "options": [
+      "id",
+      "#id",
+      ".id",
+      "*id"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property sets animation duration?",
+    "options": [
+      "animation-speed",
+      "animation-time",
+      "animation-duration",
+      "transition-duration"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which value stops background image from repeating?",
+    "options": [
+      "stop",
+      "once",
+      "none",
+      "no-repeat"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which position stays fixed to the viewport?",
+    "options": [
+      "fixed",
+      "absolute",
+      "sticky",
+      "relative"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property sets gap between grid/flex items?",
+    "options": [
+      "space",
+      "spacing",
+      "gutter",
+      "gap"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which value removes underline from a link?",
+    "options": [
+      "none",
+      "no-underline",
+      "hide",
+      "remove"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property specifies the font family?",
+    "options": [
+      "font-family",
+      "font-name",
+      "typeface",
+      "font"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property repeats an animation indefinitely?",
+    "options": [
+      "forever",
+      "repeat",
+      "infinite",
+      "loop"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property sets the pointer-events behavior?",
+    "options": [
+      "click",
+      "pointer-events",
+      "mouse-events",
+      "cursor-events"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which property sets border style?",
+    "options": [
+      "border-style",
+      "edge-style",
+      "border-type",
+      "border"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which filter value adds a blur effect?",
+    "options": [
+      "blur()",
+      "fade()",
+      "soft()",
+      "shadow()"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which unit is relative to parent font size?",
+    "options": [
+      "em",
+      "mm",
+      "cm",
+      "px"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property makes an element scrollable inside a container?",
+    "options": [
+      "scroll",
+      "scrollable",
+      "overflow: scroll",
+      "overflow: auto"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property aligns flex items along cross axis?",
+    "options": [
+      "flex-align",
+      "align-items",
+      "justify-content",
+      "cross-align"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property applies a CSS filter (like blur or brightness)?",
+    "options": [
+      "css-filter",
+      "filter",
+      "effect",
+      "visual"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which value is the default position for all elements?",
+    "options": [
+      "absolute",
+      "relative",
+      "none",
+      "static"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which pseudo-element adds content before an element?",
+    "options": [
+      "::before",
+      "::after",
+      ":before",
+      "::start"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property sets border color?",
+    "options": [
+      "edge-color",
+      "border-color",
+      "border",
+      "outline-color"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which position stays fixed relative to nearest positioned ancestor?",
+    "options": [
+      "fixed",
+      "sticky",
+      "absolute",
+      "relative"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property sets a border around an element?",
+    "options": [
+      "frame",
+      "outline",
+      "border",
+      "edge"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property sets the float direction?",
+    "options": [
+      "align",
+      "float",
+      "position",
+      "flow"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which at-rule applies styles for specific screen sizes?",
+    "options": [
+      "@breakpoint",
+      "@media",
+      "@responsive",
+      "@screen"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property sets text decoration?",
+    "options": [
+      "text-decoration",
+      "text-underline",
+      "decoration",
+      "text-style"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property positions an object inside its box?",
+    "options": [
+      "object-position",
+      "img-position",
+      "object-align",
+      "fit-position"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which property controls table border collapse?",
+    "options": [
+      "border-collapse",
+      "border-spacing",
+      "table-border",
+      "collapse"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property controls flex direction?",
+    "options": [
+      "flex-flow",
+      "flex-direction",
+      "direction",
+      "flex-axis"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property controls element resizability?",
+    "options": [
+      "draggable",
+      "resizable",
+      "resize",
+      "scale"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property controls whether an element is visible?",
+    "options": [
+      "opacity",
+      "display",
+      "visibility",
+      "show"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property sets the list style type?",
+    "options": [
+      "marker",
+      "list-style-type",
+      "bullet",
+      "list-type"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which transform function scales an element?",
+    "options": [
+      "scale()",
+      "resize()",
+      "size()",
+      "zoom()"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which CSS function performs math calculations?",
+    "options": [
+      "formula()",
+      "calc()",
+      "math()",
+      "compute()"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which transform function skews an element?",
+    "options": [
+      "tilt()",
+      "skew()",
+      "slant()",
+      "angle()"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which property defines how many columns a text flows into?",
+    "options": [
+      "columns",
+      "text-columns",
+      "column-count",
+      "flow-columns"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which property sets minimum height?",
+    "options": [
+      "height-min",
+      "limit-height",
+      "min-height",
+      "min"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property is used to rotate an element?",
+    "options": [
+      "rotate",
+      "spin",
+      "transform",
+      "move"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property controls inner spacing?",
+    "options": [
+      "margin",
+      "padding",
+      "border",
+      "gap"
+    ],
+    "correctAnswer": 1,
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which property controls spacing between elements?",
-    "options": ["margin", "padding", "spacing", "gap"],
-    "correctAnswer": 0,
+    "options": [
+      "spacing",
+      "margin",
+      "padding",
+      "gap"
+    ],
+    "correctAnswer": 1,
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
-    "text": "Which property controls inner spacing?",
-    "options": ["padding", "margin", "border", "gap"],
-    "correctAnswer": 0,
-    "difficulty": "easy",
-    "timeLimitSeconds": 20
-  },
-  {
-    "text": "Which position removes element from flow?",
-    "options": ["absolute", "relative", "static", "fixed"],
+    "text": "Which position toggles between relative and fixed on scroll?",
+    "options": [
+      "sticky",
+      "absolute",
+      "fixed",
+      "relative"
+    ],
     "correctAnswer": 0,
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
-    "text": "Which unit is relative?",
-    "options": ["em", "px", "cm", "mm"],
+    "text": "Which property sets padding on all sides at once?",
+    "options": [
+      "padding-all",
+      "padding",
+      "inner",
+      "spacing"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which function repeats grid track definitions?",
+    "options": [
+      "grid-repeat()",
+      "auto()",
+      "repeat()",
+      "track()"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which value includes padding and border in element width?",
+    "options": [
+      "padding-box",
+      "box",
+      "border-box",
+      "content-box"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which CSS function reads a custom property?",
+    "options": [
+      "env()",
+      "calc()",
+      "var()",
+      "use()"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property controls background position?",
+    "options": [
+      "image-position",
+      "background-align",
+      "background-position",
+      "bg-position"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which display value completely removes an element from the layout?",
+    "options": [
+      "removed",
+      "none",
+      "invisible",
+      "hidden"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property sets the word spacing?",
+    "options": [
+      "word-spacing",
+      "letter-spacing",
+      "text-spacing",
+      "char-spacing"
+    ],
     "correctAnswer": 0,
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
-    "text": "Which property controls display layout?",
-    "options": ["display", "position", "layout", "float"],
-    "correctAnswer": 0,
+    "text": "Which property sets an element's top offset?",
+    "options": [
+      "offset-top",
+      "position-top",
+      "y",
+      "top"
+    ],
+    "correctAnswer": 3,
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
-    "text": "Which property aligns text center?",
-    "options": ["text-align", "align", "center", "justify"],
-    "correctAnswer": 0,
-    "difficulty": "easy",
-    "timeLimitSeconds": 20
+    "text": "Which property sets the box sizing model?",
+    "options": [
+      "width-model",
+      "sizing",
+      "box-model",
+      "box-sizing"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
   },
   {
-    "text": "Which property adds shadow?",
-    "options": ["box-shadow", "shadow", "border-shadow", "text-shadow"],
+    "text": "Which transform function moves an element?",
+    "options": [
+      "offset()",
+      "shift()",
+      "move()",
+      "translate()"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which position removes element from normal flow?",
+    "options": [
+      "absolute",
+      "relative",
+      "static",
+      "fixed"
+    ],
     "correctAnswer": 0,
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
-    "text": "Which layout system is 2D?",
-    "options": ["grid", "flexbox", "block", "inline"],
+    "text": "Which property controls content overflow?",
+    "options": [
+      "flow",
+      "overflow",
+      "hidden",
+      "clip"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property aligns text horizontally?",
+    "options": [
+      "text-align",
+      "center",
+      "align",
+      "justify"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which CSS function defines a color using red, green, and blue values?",
+    "options": [
+      "hex()",
+      "rgb()",
+      "color()",
+      "hsl()"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which value makes background cover the container?",
+    "options": [
+      "cover",
+      "contain",
+      "stretch",
+      "fill"
+    ],
     "correctAnswer": 0,
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
-    "text": "Which selector targets class?",
-    "options": [".class", "#class", "class", "*class"],
-    "correctAnswer": 0,
+    "text": "Which property sets the transition timing function?",
+    "options": [
+      "timing",
+      "transition-timing-function",
+      "transition-easing",
+      "ease"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which property sets maximum width?",
+    "options": [
+      "limit-width",
+      "max-width",
+      "width-max",
+      "max"
+    ],
+    "correctAnswer": 1,
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
-    "text": "Which selector targets id?",
-    "options": ["#id", ".id", "id", "*id"],
-    "correctAnswer": 0,
+    "text": "Which CSS selector targets every element?",
+    "options": [
+      "body",
+      "*",
+      "all",
+      "every"
+    ],
+    "correctAnswer": 1,
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
-    "text": "Which property controls overflow?",
-    "options": ["overflow", "flow", "hidden", "clip"],
+    "text": "Which property prevents text from wrapping?",
+    "options": [
+      "overflow",
+      "text-wrap",
+      "white-space",
+      "nowrap"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property sets the aspect ratio of an element?",
+    "options": [
+      "size-ratio",
+      "proportion",
+      "aspect-ratio",
+      "ratio"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property controls object fitting inside its box?",
+    "options": [
+      "object-fit",
+      "contain",
+      "img-fit",
+      "fit"
+    ],
     "correctAnswer": 0,
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
-    "text": "Which property sets border?",
-    "options": ["border", "outline", "frame", "edge"],
+    "text": "Which property changes text color?",
+    "options": [
+      "bgcolor",
+      "text-color",
+      "font-color",
+      "color"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which unit is relative to the viewport height?",
+    "options": [
+      "rem",
+      "vw",
+      "em",
+      "vh"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which pseudo-element styles the first line?",
+    "options": [
+      ":first-line",
+      "::first",
+      "::line",
+      "::first-line"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property controls stacking order?",
+    "options": [
+      "depth",
+      "z-index",
+      "layer",
+      "z"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property changes element transparency?",
+    "options": [
+      "alpha",
+      "visibility",
+      "transparent",
+      "opacity"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property aligns a flex item individually?",
+    "options": [
+      "align-self",
+      "item-align",
+      "justify-self",
+      "self-align"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which value hides an element but keeps its space?",
+    "options": [
+      "collapse",
+      "hidden",
+      "invisible",
+      "none"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which pseudo-class targets hovered elements?",
+    "options": [
+      ":hover",
+      ":active",
+      ":focus",
+      "::hover"
+    ],
     "correctAnswer": 0,
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
-    "text": "Which property rotates element?",
-    "options": ["transform", "rotate", "spin", "move"],
+    "text": "Which CSS variable syntax is used to declare a custom property?",
+    "options": [
+      "--name: value",
+      "var-name: value",
+      "$name: value",
+      "@name: value"
+    ],
     "correctAnswer": 0,
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
-    "text": "Which property changes opacity?",
-    "options": ["opacity", "visibility", "alpha", "transparent"],
-    "correctAnswer": 0,
+    "text": "Which unit is relative to the root element font size?",
+    "options": [
+      "vw",
+      "px",
+      "em",
+      "rem"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property sets margin on all sides at once?",
+    "options": [
+      "spacing",
+      "outer",
+      "margin-all",
+      "margin"
+    ],
+    "correctAnswer": 3,
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
-    "text": "Which property controls z-axis?",
-    "options": ["z-index", "depth", "layer", "z"],
+    "text": "Which property applies a perspective to 3D transforms?",
+    "options": [
+      "3d",
+      "z-depth",
+      "perspective",
+      "depth"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which property sets the background image?",
+    "options": [
+      "background",
+      "background-image",
+      "bg-image",
+      "image"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which CSS function applies multiple transforms?",
+    "options": [
+      "transform",
+      "rotate()",
+      "scale()",
+      "translate()"
+    ],
     "correctAnswer": 0,
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
-    "text": "Which property sets cursor type?",
-    "options": ["cursor", "pointer", "mouse", "hover"],
+    "text": "Which property sets the line height?",
+    "options": [
+      "line-height",
+      "row-height",
+      "text-height",
+      "leading"
+    ],
     "correctAnswer": 0,
     "difficulty": "easy",
     "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which combinator selects a direct child?",
+    "options": [
+      ">",
+      "space",
+      "+",
+      "~"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which property adds transitions to CSS changes?",
+    "options": [
+      "transform",
+      "animation",
+      "change",
+      "transition"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property sets how overflowing text is handled visually?",
+    "options": [
+      "clip",
+      "overflow",
+      "text-clip",
+      "text-overflow"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property controls background size?",
+    "options": [
+      "image-size",
+      "background-size",
+      "bg-size",
+      "background-scale"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property rounds element corners?",
+    "options": [
+      "corner-radius",
+      "border-curve",
+      "round",
+      "border-radius"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which pseudo-class targets focused elements?",
+    "options": [
+      ":active",
+      ":hover",
+      ":focus",
+      "::focus"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property controls animation timing function?",
+    "options": [
+      "timing",
+      "animation-easing",
+      "animation-curve",
+      "animation-timing-function"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which CSS function defines a color with hue, saturation, lightness?",
+    "options": [
+      "hsl()",
+      "hsv()",
+      "color()",
+      "rgb()"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "Which property sets an element's left offset?",
+    "options": [
+      "offset-left",
+      "left",
+      "x",
+      "position-left"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property sets font size?",
+    "options": [
+      "font-size",
+      "size",
+      "font",
+      "text-size"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property defines grid columns?",
+    "options": [
+      "grid-columns",
+      "column-template",
+      "grid-layout",
+      "grid-template-columns"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
   }
 ]

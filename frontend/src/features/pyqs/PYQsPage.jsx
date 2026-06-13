@@ -186,8 +186,20 @@ const PLAYLIST_SOURCES = [
       {
         subject: "Mathematics-II",
         playlists: [
-          { id: "math2-p1", title: "Complete Math-II Course", channel: "Will add soon.", playlistId: "PLxyz", thumbVideoId: "" },
+          { id: "set_theory", title: "Set Theory", channel: "Ganitya", playlistId: "PL15h-I4HvELIY_Odms6A5Ekl8Durr6d_0", thumbVideoId: "-BiRPYH5OLA" },
+          { id: "relations", title: "Relations", channel: "Ganitya", playlistId: "PL15h-I4HvELIXZVZ8X7GBWgYWoPM_7YBY", thumbVideoId: "fPzLXQ80jqQ" },
+          { id: "relations_and_functions", title: "Relaions and Functions", channel: "Pradeep Giri Academy", playlistId: "PLT3bOBUU3L9gF5nz4y1j2lb6q6IDbA6PQ", thumbVideoId: "ynHoB_0li_o" },
+          { id: "propositional_calculus", title: "Propositional Calculus", channel: "Ganitya", playlistId: "PL15h-I4HvELJVQvge-ZdEXC-1RHWJtAbx", thumbVideoId: "MbZVsM39Ufw" },
+          { id: "recurrence_relations", title: "Recurrence Relations", channel: "Ganitya", playlistId: "PL15h-I4HvELIYna1VWmeaWmWv0e3tFHaR", thumbVideoId: "5BYGJbqCqy0" },
+          { id: "recurrence_relations_practice", title: "Recurrence Relation (Practice-Heavy)", channel: "Gate Smashers", playlistId: "PLh2qFr0QFywExmizxtQywAJtAHQh6Xq3O", thumbVideoId: "pMCFs-EyfQI" },
+          { id: "algebraic_structure", title: "Algebraic Structure", channel: "Pradeep Giri Academy", playlistId: "PLT3bOBUU3L9hF90HlMkgIHAm5kecjmK_X", thumbVideoId: "" },
+          { id: "combinatorial_mathematics", title: "Combinatorial Mathematics", channel: "Neso Academy", playlistId: "PLhx1hByyAqsZ-v0QBKgBTcUIn8IbyC6pe", thumbVideoId: "" },
+          { id: "graph_theory", title: "Graph Theory", channel: "Ganitya", playlistId: "PL15h-I4HvELIhCh5VwKcvh9BQFFRnAFJr", thumbVideoId: "" },
+          { id: "trees", title: "Trees", channel: "Ganitya", playlistId: "PL15h-I4HvELKNfNZdrIpS0b_orXoCMO3f", thumbVideoId: "" },
+          { id: "graph_theory_practice", title: "Graph Theory (Practice-Heavy)", channel: "Gate Smashers", playlistId: "PLh2qFr0QFywHC2lxeFquAOyr85Y74fEMu", thumbVideoId: "" },
+          { id: "trees_practice", title: "Trees (Practice-Heavy)", channel: "Gate Smashers", playlistId: "PLh2qFr0QFywFz0FhE14Zu_e2xd2806wVv", thumbVideoId: "" }
         ],
+            
       },
     ],
   },
