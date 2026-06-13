@@ -1,33 +1,30 @@
 .pyq-page { min-height: 100vh; }
 
+
 .pyq-mode-bar {
   display: flex;
-  gap: 3px;
-  background: var(--surface-2);
-  border-bottom: 1px solid var(--border);
-  padding: 10px 24px;
+  justify-content: center;
+  gap: 8px;
+  margin: 12px 0 20px;
 }
 
 .pyq-mode-tab {
-  display: flex;
-  align-items: center;
-  padding: 8px 18px;
-  border: 1px solid transparent;
+  padding: 7px 20px;
   border-radius: 8px;
-  background: transparent;
-  color: var(--muted);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   font-family: 'DM Sans', sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 13px;
   cursor: pointer;
-  transition: all 0.18s;
-  letter-spacing: 0.02em;
+  transition: all 0.15s;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.55);
 }
-.pyq-mode-tab:hover { color: var(--text); }
+
 .pyq-mode-tab.active {
-  background: var(--surface);
-  color: var(--primary);
-  border-color: rgba(74, 144, 226, 0.3);
+  background: #ef4444;
+  color: #fff;
+  border-color: #ef4444;
 }
 
 .tab-content {
@@ -810,6 +807,14 @@
 .pyq-manual-save-btn:hover {
   background: rgba(74, 144, 226, 0.2);
   border-color: rgba(74, 144, 226, 0.5);
+}
+
+.pyq-playlist-card .pyq-thumb-img-wrap {
+  aspect-ratio: 16 / 9;
+}
+
+.pyq-playlist-card .pyq-thumb-img {
+  object-fit: cover;
 }
 
 /* ── Animations ──────────────────────────────────────────────────────────── */
