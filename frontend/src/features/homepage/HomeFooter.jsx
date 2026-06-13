@@ -6,7 +6,7 @@ const CONTRIBUTORS = [
   { name: "Md Dilshan",    github: "Imdilshan" },
   { name: "Ishita Bansal", github: "ishitabansal08" },
   { name: "Rahul Raj", github: "Rahul130405" },
-  // { name: "Chetan Raj", github: "Rahul130405" },
+  { name: "Chetan Raj", github: "Rajchetan16" },
   { name: "Ranbir Khurana", github: "DevRanbir" },
   // add more: { name: "Name", github: "username" }
 ];
