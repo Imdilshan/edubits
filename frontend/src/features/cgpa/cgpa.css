@@ -285,8 +285,8 @@
   background: var(--surface);
   border-radius: var(--radius);
   border: none;
-  border-left: 3px solid rgba(251,191,36,0.5);
-  box-shadow: 0 6px 24px rgba(0,0,0,0.25), -4px 0 16px rgba(251,191,36,0.1);
+  border-left: 3px solid rgba(248,113,113,0.5);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.25), -4px 0 16px rgba(248,113,113,0.1);
   padding: 24px;
 }
 
@@ -300,14 +300,14 @@
 }
 .simulator-card .sim-icon {
   font-size: 22px;
-  color: #fbbf24;
+  color: #f87171;
   margin-top: 2px;
   flex-shrink: 0;
 }
 .simulator-card .simulator-title {
   font-size: 20px;
   font-weight: 700;
-  color: #fbbf24;
+  color: #f87171;
   margin: 0 0 4px;
   letter-spacing: 0.3px;   
 }
@@ -348,9 +348,9 @@
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 .simulator-card .sim-input:focus {
-  border-color: #fbbf24;
+  border-color: #f87171;
   outline: none;
-  box-shadow: 0 0 0 2px rgba(251,191,36,0.15);
+  box-shadow: 0 0 0 2px rgba(248,113,113,0.15);
   color: #ffffff !important;
   -webkit-text-fill-color: #ffffff !important;
 }
@@ -364,9 +364,9 @@
 .simulator-card .sim-input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
 
 .simulator-card .btn-sim {
-  background: rgba(251,191,36,0.1);
-  border: 1px solid rgba(251,191,36,0.25);
-  color: #fbbf24;
+  background: rgba(248,113,113,0.1);
+  border: 1px solid rgba(248,113,113,0.25);
+  color: #f87171;
   border-radius: 10px;
   padding: 0 18px;
   height: 40px;
@@ -377,8 +377,8 @@
   transition: background 0.15s, border-color 0.15s;
 }
 .simulator-card .btn-sim:hover {
-  background: rgba(251,191,36,0.16);
-  border-color: rgba(251,191,36,0.4);
+  background: rgba(248,113,113,0.16);
+  border-color: rgba(248,113,113,0.4);
 }
 
 .simulator-card .sim-result {
@@ -402,13 +402,13 @@
 .simulator-card .sim-result-value {
   font-size: 32px;
   font-weight: 700;
-  color: #fbbf24;
+  color: #f87171;
   letter-spacing: -0.02em;
 }
 .simulator-card .sim-impossible { color: #f87171 !important; font-size: 20px; }
 .simulator-card .sim-insight    { font-size: 13px; margin: 10px 0 0; }
 .simulator-card .insight-easy   { color: #4ade80; }
-.simulator-card .insight-medium { color: #fbbf24; }
+.simulator-card .insight-medium { color: #f87171; }
 .simulator-card .insight-hard   { color: #f87171; }
 .simulator-card .sim-error      { color: #f87171; font-size: 13px; margin: 0; }
 
