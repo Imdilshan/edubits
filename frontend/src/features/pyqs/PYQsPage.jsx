@@ -191,17 +191,23 @@ const PLAYLIST_SOURCES = [
           { id: "relations_and_functions", title: "Relaions and Functions", channel: "Pradeep Giri Academy", playlistId: "PLT3bOBUU3L9gF5nz4y1j2lb6q6IDbA6PQ", thumbVideoId: "ynHoB_0li_o" },
           { id: "propositional_calculus", title: "Propositional Calculus", channel: "Ganitya", playlistId: "PL15h-I4HvELJVQvge-ZdEXC-1RHWJtAbx", thumbVideoId: "MbZVsM39Ufw" },
           { id: "recurrence_relations", title: "Recurrence Relations", channel: "Ganitya", playlistId: "PL15h-I4HvELIYna1VWmeaWmWv0e3tFHaR", thumbVideoId: "5BYGJbqCqy0" },
-
           { id: "recurrence_relations_practice", title: "Recurrence Relation (Practice-Heavy)", channel: "MATHS HUB by Dr. Tania Bose", playlistId: "PLh2qFr0QFywExmizxtQywAJtAHQh6Xq3O", thumbVideoId: "pMCFs-EyfQI" },
           { id: "algebraic_structure", title: "Algebraic Structure", channel: "Pradeep Giri Academy", playlistId: "PLT3bOBUU3L9hF90HlMkgIHAm5kecjmK_X", thumbVideoId: "UP2SX1aLJ60" },
-
           { id: "combinatorial_mathematics", title: "Combinatorial Mathematics", channel: "Pradeep Giri Academy", playlistId: "PLhx1hByyAqsZ-v0QBKgBTcUIn8IbyC6pe", thumbVideoId: "lG1tGGpqye0" },
           { id: "graph_theory", title: "Graph Theory", channel: "Ganitya", playlistId: "PL15h-I4HvELIhCh5VwKcvh9BQFFRnAFJr", thumbVideoId: "Vscfb6fKBck" },
-
           { id: "trees", title: "Trees", channel: "Ganitya", playlistId: "PL15h-I4HvELKNfNZdrIpS0b_orXoCMO3f", thumbVideoId: "KbExLoAlWdw" },
-
           { id: "graph_theory_practice", title: "Graph Theory (Practice-Heavy)", channel: "MATHS HUB by Dr. Tania Bose", playlistId: "PLh2qFr0QFywHC2lxeFquAOyr85Y74fEMu", thumbVideoId: "C2It_eG88EU" },
           { id: "trees_practice", title: "Trees (Practice-Heavy)", channel: "MATHS HUB by Dr. Tania Bose", playlistId: "PLh2qFr0QFywFz0FhE14Zu_e2xd2806wVv", thumbVideoId: "boi_v4rd9eM" }
+        ],
+      },
+      {
+        subject: "Digital Electronics",
+        playlists: [
+          { id: "digital_electronics0", title: "G.O.A.T", channel: "Neso Academy", playlistId: "PLBlnK6fEyqRjMH3mWf6kwqiTbT798eAOm", thumbVideoId: "M0mx8S05v60" },
+          { id: "digital_electronics1", title: "Animated Explainations", channel: "ALL ABOUT ELECTRONICS", playlistId: "PLwjK_iyK4LLBC_so3odA64E2MLgIRKafl", thumbVideoId: "DBTna2ydmC0" },
+          { id: "digital_electronics2", title: "Last night study", channel: "ALL ABOUT ELECTRONICS", playlistId: "PLhx1hByyAqsYaznnTI13Qoc9Ck2P9Dfq0", thumbVideoId: "9Tn9M98yER8" },
+
+
         ],
             
       },
