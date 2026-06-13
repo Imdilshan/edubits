@@ -381,7 +381,7 @@ export default function CGPA({ sgpaList, removeSGPA }) {
         })}
 
         <div className="cgpa-actions">
-          <button className="btn btn-primary" onClick={addManual}>+ Add Previous Semester</button>
+          <button className="btn btn-primary" onClick={addManual}>+ Add Next Semester</button>
           <button className="btn btn-success" onClick={calculateCGPA}>Calculate CGPA</button>
         </div>
 
