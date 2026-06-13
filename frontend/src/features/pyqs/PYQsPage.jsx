@@ -206,10 +206,13 @@ const PLAYLIST_SOURCES = [
           { id: "digital_electronics0", title: "G.O.A.T", channel: "Neso Academy", playlistId: "PLBlnK6fEyqRjMH3mWf6kwqiTbT798eAOm", thumbVideoId: "M0mx8S05v60" },
           { id: "digital_electronics1", title: "Animated Explainations", channel: "ALL ABOUT ELECTRONICS", playlistId: "PLwjK_iyK4LLBC_so3odA64E2MLgIRKafl", thumbVideoId: "DBTna2ydmC0" },
           { id: "digital_electronics2", title: "Last night study", channel: "ALL ABOUT ELECTRONICS", playlistId: "PLhx1hByyAqsYaznnTI13Qoc9Ck2P9Dfq0", thumbVideoId: "9Tn9M98yER8" },
-
-
         ],
-            
+      },
+      {
+        subject: "Biology",
+        playlists: [
+          { id: "biology0", title: "G.O.A.T", channel: "Prep 4 Semester", playlistId: "PLbCAq4ggAQuHRqN2HnIVa_yOGy-FnMnNL", thumbVideoId: "O_bpzGe6rGA" },
+        ],
       },
     ],
   },
