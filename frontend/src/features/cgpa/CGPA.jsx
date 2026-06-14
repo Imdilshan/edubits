@@ -278,10 +278,20 @@ export default function CGPA({ sgpaList, removeSGPA }) {
   const handleManualChange = (i, field, val) =>
     setManualSems((p) => p.map((s, idx) => idx === i ? { ...s, [field]: val } : s));
 
-  const allSemesters = [
-    ...sgpaList.map((s, i) => ({ ...s, auto: true,  label: s.label || `Sem ${i + 1}` })),
-    ...manualSems.map((s, i) => ({ ...s, auto: false, originalIndex: i, label: `Sem ${sgpaList.length + i + 1}` })),
-  ];
+  // const allSemesters = [
+  //   ...sgpaList.map((s, i) => ({ ...s, auto: true,  label: s.label || `Sem ${i + 1}` })),
+  //   ...manualSems.map((s, i) => ({ ...s, auto: false, originalIndex: i, label: `Sem ${sgpaList.length + i + 1}` })),
+  // ];
+
+//   const allSemesters = [
+//   ...manualSems.map((s, i) => ({ ...s, auto: false, originalIndex: i, label: `Sem ${i + 1}` })),
+//   ...sgpaList.map((s, i) => ({ ...s, auto: true, label: s.label || `Sem ${manualSems.length + i + 1}` })),
+// ];
+
+const allSemesters = [
+  ...manualSems.map((s, i) => ({ ...s, auto: false, originalIndex: i, label: `Sem ${i + 1}` })),
+  ...sgpaList.map((s, i) => ({ ...s, auto: true, label: `Sem ${manualSems.length + i + 1}` })),
+];
 
   const calculateCGPA = () => {
     let totalPoints = 0, totalCredits = 0;

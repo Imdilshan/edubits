@@ -55,7 +55,8 @@ export default function SGPAPage() {
           SGPA + CGPA Calculator
         </h1>
 
-        <SGPA setSgpaList={setSgpaList} />
+        {/* <SGPA setSgpaList={setSgpaList} /> */}
+        <SGPA setSgpaList={setSgpaList} sgpaCount={sgpaList.length} />
         <CGPA sgpaList={sgpaList} removeSGPA={removeSGPA} />
       </div>
     </>

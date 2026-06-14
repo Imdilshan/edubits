@@ -92,8 +92,9 @@ function SGPADisplay({ value, animate }) {
   );
 }
 
-export default function SGPA({ setSgpaList }) {
+// export default function SGPA({ setSgpaList }) {
 
+export default function SGPA({ setSgpaList, sgpaCount }) {
   const [isExample, setIsExample] = useState(() => {
   try {
     return !localStorage.getItem("subjects");
@@ -172,7 +173,8 @@ const [subjects, setSubjects] = useState(() => {
         id: Date.now(),
         sgpa: liveResult,
         credits: totalCredits,
-        label: `Semester ${prev.length + 1}`,
+        // label: `Semester ${prev.length + 1}`,
+        label: `Sem ${sgpaCount + 1}`,
       },
     ]);
     setSaved(true);
