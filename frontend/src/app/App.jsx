@@ -12,7 +12,6 @@ const SGPAPage = lazy(() => import("../features/sgpa/pages/SGPAPage"));
 const InternalMarksPage = lazy(() => import("../features/internalMarks/InternalMarksPage"));
 const PYQsPage = lazy(() => import("../features/pyqs/PYQsPage"));
 const UGLifeTrackerPage = lazy(() => import("../features/ug-life-tracker/UGLifeTrackerPage"));
-const AboutPage = lazy(() => import("../features/about/AboutPage"));
 const AdminUpload = lazy(() => import("../pages/AdminUpload"));
 
 const TopicsPage = lazy(() => import("../features/quiz/pages/TopicsPage"));
@@ -20,8 +19,6 @@ const QuizPage = lazy(() => import("../features/quiz/pages/QuizPage"));
 const ResultsPage = lazy(() => import("../features/quiz/pages/ResultsPage"));
 const LeaderboardPage = lazy(() => import("../features/quiz/pages/LeaderboardPage"));
 const HistoryPage = lazy(() => import("../features/quiz/pages/HistoryPage"));
-
-
 
 function PublicNavbar() {
   return (
@@ -96,7 +93,7 @@ function AppInner() {
               <Route path="/admin-upload" element={<AdminUpload />} />
 
               <Route path="/tracker" element={<UGLifeTrackerPage />} />
-              <Route path="/about"   element={<AboutPage />} />
+            
 
               <Route path="/quizzes" element={<TopicsPage />} />
               <Route path="/quizzes/:topicId" element={<QuizPage />} />

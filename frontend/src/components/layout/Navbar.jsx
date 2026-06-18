@@ -101,11 +101,11 @@ export default function Navbar() {
         </div>
 
         <div className="nav-center desktop-nav">
-          <Link to="/sgpa"     className={`nav-link ${isActive("/sgpa")     ? "active" : ""}`}>SGPA</Link>
-          <Link to="/internal" className={`nav-link ${isActive("/internal") ? "active" : ""}`}>Internals</Link>
-          <Link to="/tasks"    className={`nav-link ${isActive("/tasks")    ? "active" : ""}`}>Tasks</Link>
           <Link to="/pyqs"     className={`nav-link ${isActive("/pyqs")     ? "active" : ""}`}>Resources</Link>
           <Link to="/quizzes"  className={`nav-link ${isQuizActive()        ? "active" : ""}`}>QuizEngine</Link>
+          <Link to="/sgpa"     className={`nav-link ${isActive("/sgpa")     ? "active" : ""}`}>Grades</Link>
+          <Link to="/internal" className={`nav-link ${isActive("/internal") ? "active" : ""}`}>Internals</Link>
+          <Link to="/tasks"    className={`nav-link ${isActive("/tasks")    ? "active" : ""}`}>Tasks</Link>
           <Link to="/tracker"  className={`nav-link ${isActive("/tracker") ? "active" : ""}`}>Tracker</Link>
         </div>
 
@@ -154,25 +154,26 @@ export default function Navbar() {
       </nav>
 
       <nav className="mobile-bottom-nav">
-        <Link to="/sgpa"     className={`mobile-nav-item ${isActive("/sgpa")     ? "active" : ""}`}>
-          <Calculator size={20} /><span>SGPA</span>
-        </Link>
-        <Link to="/internal" className={`mobile-nav-item ${isActive("/internal") ? "active" : ""}`}>
-          <ClipboardList size={20} /><span>Internals</span>
-        </Link>
-        <Link to="/tasks"    className={`mobile-nav-item ${isActive("/tasks")    ? "active" : ""}`}>
-          <CheckSquare size={20} /><span>Tasks</span>
-        </Link>
         <Link to="/pyqs"     className={`mobile-nav-item ${isActive("/pyqs")     ? "active" : ""}`}>
           <BookOpen size={20} /><span>Resources</span>
         </Link>
+
         <Link to="/quizzes"  className={`mobile-nav-item ${isQuizActive()        ? "active" : ""}`}>
           <Brain size={20} /><span>Quiz</span>
         </Link>
-        <Link to="/tracker" className={`mobile-nav-item ${isActive("/tracker") ? "active" : ""}`}>
-          <BookMarked size={20} /> <span>Tracker</span>
+
+        <Link to="/sgpa"     className={`mobile-nav-item ${isActive("/sgpa")     ? "active" : ""}`}>
+          <Calculator size={20} /><span>SGPA</span>
         </Link>
 
+        <Link to="/internal" className={`mobile-nav-item ${isActive("/internal") ? "active" : ""}`}>
+          <ClipboardList size={20} /><span>Internals</span>
+        </Link>
+        
+        <Link to="/tasks"    className={`mobile-nav-item ${isActive("/tasks")    ? "active" : ""}`}>
+          <CheckSquare size={20} /><span>Tasks</span>
+        </Link>
+      
       </nav>
       {showEditProfile && (
         <EditProfileModal onClose={() => setShowEditProfile(false)} />

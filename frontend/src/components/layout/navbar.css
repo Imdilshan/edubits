@@ -2,14 +2,11 @@
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-
   padding: 0 32px;
   height: 64px;
-
   background: rgba(10, 15, 25, 0.85);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(12px);
-
   position: sticky;
   top: 0;
   z-index: 500;
@@ -20,16 +17,13 @@
   display: flex;
   align-items: center;
   gap: 10px;
-
   font-family: 'DM Sans', sans-serif;
   font-weight: 800;
   font-size: 1.3rem;
-
   background: linear-gradient(135deg, var(--primary), var(--success));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-
   text-decoration: none;
 }
 
@@ -50,13 +44,11 @@
   display: inline-block;
   position: relative;
   padding: 6px 10px;
-
   color: var(--muted);
   font-size: 13.5px;
   font-weight: 600;
   font-family: 'DM Sans', sans-serif;
   text-decoration: none;
-
   transition: color 0.2s ease;
 }
 
@@ -70,10 +62,8 @@
   bottom: -6px;
   width: 0%;
   height: 2px;
-
   background: linear-gradient(90deg, var(--primary), var(--success));
   border-radius: 2px;
-
   transition: width 0.25s ease;
   transform: translateX(-50%);
 }
@@ -91,15 +81,12 @@
 .profile {
   width: 36px;
   height: 36px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 50%;
   background: var(--surface-2);
   border: 1px solid var(--border);
-
   cursor: pointer;
   transition: background 0.2s;
 }
@@ -124,20 +111,16 @@
   position: absolute;
   top: calc(100% + 12px);
   right: 0;
-
   width: 220px;
   padding: 10px;
-
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(12px);
-
   display: flex;
   flex-direction: column;
   gap: 4px;
-
   z-index: 9999;
 }
 
@@ -168,15 +151,12 @@
   display: flex;
   align-items: center;
   gap: 8px;
-
   width: 100%;
   padding: 8px 10px;
   border-radius: 8px;
-
   background: transparent;
   border: none;
   color: var(--text);
-
   font-size: 13px;
   font-family: 'DM Sans', sans-serif;
   cursor: pointer;
@@ -264,15 +244,12 @@
     left: 0;
     width: 100%;
     height: 60px;
-
     justify-content: space-around;
     align-items: center;
-
     background: rgba(10, 15, 25, 0.97);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-
     z-index: 9999;
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
@@ -284,18 +261,14 @@
     justify-content: center;
     gap: 3px;
     flex: 1;
-
     text-decoration: none;
     color: #6b7280;
-
     font-size: 9px;
     font-weight: 600;
     font-family: 'DM Sans', sans-serif;
-
     padding: 6px 2px;
     border-radius: 10px;
     min-height: 48px;
-
     transition: color 0.18s ease, background 0.18s ease;
   }
 

@@ -3,13 +3,12 @@ import { MessageCircle } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const CONTRIBUTORS = [
-  { name: "Md Dilshan",    github: "Imdilshan" },
-  { name: "Ishita Bansal", github: "ishitabansal08" },
-  { name: "Rahul Raj", github: "Rahul130405" },
-  { name: "Chetan Raj", github: "Rajchetan16" },
-  { name: "Ranbir Khurana", github: "DevRanbir" },
-  { name: "Subhayu Mukherjee", github: "subhayu18" },
-  
+  { name: "Md Dilshan",         github: "Imdilshan" },
+  { name: "Ishita Bansal",      github: "ishitabansal08" },
+  { name: "Rahul Raj",          github: "Rahul130405" },
+  { name: "Chetan Raj",         github: "Rajchetan16" },
+  { name: "Ranbir Khurana",     github: "DevRanbir" },
+  { name: "Subhayu Mukherjee",  github: "subhayu18" },
 ];
 
 export default function HomeFooter() {
@@ -18,16 +17,18 @@ export default function HomeFooter() {
       <div className="hp-footer-grid">
         <div className="hp-footer-brand">
           <div className="hp-logo">Edubits</div>
-          <p className="hp-sub">Last night's study deserves better tools.</p>
+          <p className="hp-sub">Engineering is difficult enough. These tools make it easier.</p>
         </div>
 
         <div className="hp-footer-col">
           <h4>Tools</h4>
           <ul>
-            <li><Link to="/sgpa">SGPA Calculator</Link></li>
-            <li><Link to="/internal">Internal Marks Calculator</Link></li>
-            <li><Link to="/tasks">Task Tracker</Link></li>
             <li><Link to="/pyqs">Resources</Link></li>
+            <li><Link to="/quizzes">QuizEngine</Link></li>
+            <li><Link to="/sgpa">Grades</Link></li>
+            <li><Link to="/internal">Internals</Link></li>
+            <li><Link to="/tasks">Tasks</Link></li>
+            
           </ul>
         </div>
 
@@ -36,7 +37,7 @@ export default function HomeFooter() {
           <div className="hp-founders-list">
             <div className="hp-founder-item">
               <img
-                src="/images/md.webp"
+                src="/images/md.jpeg"
                 alt="Md Dilshan"
                 className="hp-founder-avatar"
                 loading="lazy"

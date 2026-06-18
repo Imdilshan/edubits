@@ -36,7 +36,7 @@ function Row({ data, onChange, onDelete }) {
         <option value="6">C+</option>
         <option value="5">C</option>
         <option value="4">D</option>
-        <option value="0">E/F</option>
+        <option value="0">F</option>
       </select>
 
       <button className="btn btn-danger" onClick={onDelete}>

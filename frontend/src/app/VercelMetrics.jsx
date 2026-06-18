@@ -4,7 +4,6 @@ const scheduleIdle = (callback) => {
   if ("requestIdleCallback" in window) {
     return window.requestIdleCallback(callback, { timeout: 3000 });
   }
-
   return window.setTimeout(callback, 1500);
 };
 
@@ -13,7 +12,6 @@ const cancelIdle = (id) => {
     window.cancelIdleCallback(id);
     return;
   }
-
   window.clearTimeout(id);
 };
 

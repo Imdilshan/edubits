@@ -92,8 +92,6 @@ function SGPADisplay({ value, animate }) {
   );
 }
 
-// export default function SGPA({ setSgpaList }) {
-
 export default function SGPA({ setSgpaList, sgpaCount }) {
   const [isExample, setIsExample] = useState(() => {
   try {
@@ -107,7 +105,6 @@ const [subjects, setSubjects] = useState(() => {
   } catch {}
   return EXAMPLE_SUBJECTS;
 });
-
 
   const [saved, setSaved] = useState(false);
   const [animResult, setAnimResult] = useState(false);
@@ -173,7 +170,6 @@ const [subjects, setSubjects] = useState(() => {
         id: Date.now(),
         sgpa: liveResult,
         credits: totalCredits,
-        // label: `Semester ${prev.length + 1}`,
         label: `Sem ${sgpaCount + 1}`,
       },
     ]);
@@ -244,6 +240,7 @@ const [subjects, setSubjects] = useState(() => {
               handleChange(index, "grade", selected ? selected.value : "")
             }
             placeholder="Select grade"
+            isSearchable={false}
             formatOptionLabel={formatGradeOption}
             className="react-select-container"
             classNamePrefix="react-select"
@@ -262,7 +259,7 @@ const [subjects, setSubjects] = useState(() => {
       <div className="sgpa-actions">
         <button className="btn btn-primary" onClick={addSubject}>+ Add Subject</button>
         <button className="btn btn-save" onClick={saveSemester} disabled={!liveResult}>
-          {saved ? "✓ Saved to CGPA" : "Save Semester"}
+          {saved ? "✓ Saved to CGPA" : "Add to CGPA"}
         </button>
         <button className="btn btn-outline-danger" onClick={clearAll}>Clear All</button>
       </div>
