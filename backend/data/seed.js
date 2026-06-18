@@ -30,7 +30,7 @@ async function seed() {
     {
       name: "HTML Fundamentals",
       description: "Learn the building blocks of the web",
-      icon: "🌐",
+      icon: "",
       color: "#e34c26",
       position: { x: 100, y: 250 },
       passingScore: 60,
@@ -39,7 +39,7 @@ async function seed() {
     {
       name: "CSS Styling",
       description: "Style and layout web pages beautifully",
-      icon: "🎨",
+      icon: "",
       color: "#264de4",
       position: { x: 300, y: 250 },
       passingScore: 60,
@@ -48,7 +48,7 @@ async function seed() {
     {
       name: "JavaScript Basics",
       description: "Add interactivity with programming fundamentals",
-      icon: "⚡",
+      icon: "",
       color: "#f7df1e",
       position: { x: 500, y: 250 },
       passingScore: 60,
@@ -57,7 +57,7 @@ async function seed() {
     {
       name: "DAA (Algorithms)",
       description: "Learn problem solving and algorithm design",
-      icon: "🧠",
+      icon: "",
       color: "#22c55e",
       position: { x: 700, y: 150 },
       passingScore: 70,
@@ -66,7 +66,7 @@ async function seed() {
     {
       name: "Java Programming",
       description: "Object-oriented programming with Java",
-      icon: "☕",
+      icon: "",
       color: "#f97316",
       position: { x: 700, y: 350 },
       passingScore: 70,
@@ -75,7 +75,7 @@ async function seed() {
     {
       name: "Mobile App Development",
       description: "Build mobile apps for Android and iOS",
-      icon: "📱",
+      icon: "",
       color: "#8b5cf6",
       position: { x: 900, y: 250 },
       passingScore: 60,

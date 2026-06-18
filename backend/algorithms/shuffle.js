@@ -1,4 +1,3 @@
-
 function fisherYatesShuffle(array) {
   const arr = [...array];
 
