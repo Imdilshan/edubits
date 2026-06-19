@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import api from "../utils/api";
 import { formatTime } from "../utils/algorithms";
+import { trackEvent } from "../../../utils/analytics";
 import {
   ArrowRight,
   Check,
@@ -156,6 +157,17 @@ export default function QuizPage() {
         timeTakenSeconds: totalTime,
       });
 
+      trackEvent("quiz_complete", {
+        topic_name: topic?.name,
+        topic_id: topic?._id,
+        score: data.score,
+        percentage: data.percentage,
+        passed: data.passed,
+        duration_seconds: totalTime,
+        duration_minutes: Math.round(totalTime / 60),
+        question_count: questions.length,
+      });
+
       updateScore(data.newTotalScore);
       navigate("/quizzes/results", {
         state: { result: data, topic, questions },
@@ -193,7 +205,14 @@ export default function QuizPage() {
         <h1>{topic?.name}</h1>
         <button
           className="quiz-action-btn primary"
+
           onClick={() => {
+            trackEvent("quiz_start", {
+              topic_name: topic?.name,
+              topic_id: topic?._id,
+              question_count: questions.length,
+            });
+
             startTimeRef.current = Date.now();
             setPhase("question");
           }}
