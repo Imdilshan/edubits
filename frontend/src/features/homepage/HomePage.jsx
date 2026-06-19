@@ -17,6 +17,26 @@ const HomeFooter = lazy(() => import("./HomeFooter"));
 
 const tools = [
   {
+    href: "/pyqs",
+    icon: <BookOpen />,
+    name: "Resources",
+    desc: "Important questions, PYQs and playlists for last night preparation.",
+    tag: "Practice",
+    cardClass: "card-purple",
+    iconClass: "icon-purple",
+    tagClass: "tag-purple",
+  },
+  {
+    href: "/quizzes",
+    icon: <Zap />,
+    name: "QuizEngine",
+    desc: "Prepare for viva with MCQ based quiz practice.",
+    tag: "Practice",
+    cardClass: "card-yellow",
+    iconClass: "icon-yellow",
+    tagClass: "tag-yellow",
+  },
+  {
     href: "/sgpa",
     icon: <Calculator />,
     name: "SGPA & CGPA Calculator",
@@ -45,26 +65,6 @@ const tools = [
     cardClass: "card-cyan",
     iconClass: "icon-cyan",
     tagClass: "tag-cyan",
-  },
-  {
-    href: "/pyqs",
-    icon: <BookOpen />,
-    name: "Resources",
-    desc: "Important questions, PYQs and playlists for last night preparation.",
-    tag: "Practice",
-    cardClass: "card-purple",
-    iconClass: "icon-purple",
-    tagClass: "tag-purple",
-  },
-  {
-    href: "/quizzes",
-    icon: <Zap />,
-    name: "QuizEngine",
-    desc: "Prepare for viva with MCQ based quiz practice.",
-    tag: "Practice",
-    cardClass: "card-yellow",
-    iconClass: "icon-yellow",
-    tagClass: "tag-yellow",
   },
   {
     href: "/tracker",
