@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import "./homepage.css";
+import { trackEvent } from "../../utils/analytics";
 
 import {
   Calculator,
@@ -117,6 +118,11 @@ export default function HomePage() {
                 to={t.href}
                 className={`hp-tool-card ${t.cardClass}`}
                 key={i}
+                onClick={() =>
+                  trackEvent("tool_open", {
+                  tool_name: t.name,
+                  tool_tag: t.tag,
+                }) }
               >
                 <div className={`hp-tool-icon ${t.iconClass}`}>{t.icon}</div>
                 <div className="hp-tool-name">{t.name}</div>
