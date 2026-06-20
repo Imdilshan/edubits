@@ -91,7 +91,7 @@ export default function HomePage() {
         <div className="hp-hero-cta">
           <a href="#tools" className="hp-btn-primary">
             {" "}
-            <Rocket className="hp-btn-icon" /> Explore tools
+            <Rocket className="hp-btn-icon" /> Get Started
           </a>
         </div>
       </div>
