@@ -101,7 +101,7 @@ export default function HomeFooter() {
               </div>
               <div className="hp-founder-links">
                 <a
-                  href="https://www.linkedin.com/in/ishita-bansal-9112b931a/"
+                  href="https://www.linkedin.com/in/rahulrajjaiswal/"
                   target="_blank"
                   rel="noreferrer"
                   title="LinkedIn"
@@ -109,7 +109,7 @@ export default function HomeFooter() {
                   <FaLinkedin />
                 </a>
                 <a
-                  href="https://github.com/ishitabansal08"
+                  href="https://github.com/Rahul130405"
                   target="_blank"
                   rel="noreferrer"
                   title="GitHub"
