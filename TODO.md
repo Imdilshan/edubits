@@ -1,7 +1,7 @@
 # Edubits TODO
 
 ## Doing
-- [ ] Quiz Engine: fix ~3s loading time
+
 
 ## Will do
 
@@ -34,6 +34,7 @@
 - [ ] Preview system — show counts, tags, difficulty before opening
 
 ### Quiz Engine
+- [ ] Quiz Engine: fix ~3s loading time
 - [ ] Update color scheme per subject
 - [ ] Concentric circle visualization in results
 - [ ] Show correct option at end with tick/cross feedback
