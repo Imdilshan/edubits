@@ -41,9 +41,9 @@ const PAPER_SOURCES = [
         subject: "Engineering Physics",
         image: "/images/ep.svg",
         papers: [
-          { id: "ep-mst1", title: "MST 1", type: "pdf", url: "", solutionUrl: "" },
-          { id: "ep-mst2", title: "MST 2", type: "pdf", url: "https://drive.google.com/file/d/1w8Ialuz1Yfa-bJ4XEwJJsTSu6CHbsalw/preview", solutionUrl: "" },
-          { id: "ep-est1", title: "EST 1", type: "pdf", url: "https://drive.google.com/file/d/1w8Ialuz1Yfa-bJ4XEwJJsTSu6CHbsalw/preview", solutionUrl: "" },
+          { id: "ep-mst1", title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1w8Ialuz1Yfa-bJ4XEwJJsTSu6CHbsalw/preview", solutionUrl: "" },
+          { id: "ep-mst2", title: "MST 2", type: "pdf", url: "https://drive.google.com/file/d/1yeOJ3gkZiyvUheOzfQusK1aIzvhzT5z2/preview", solutionUrl: "" },
+          { id: "ep-est1", title: "EST 1", type: "pdf", url: "https://drive.google.com/file/d/1bbhygnl7EsdvdQxeiciUztm_a72ZFxdA/preview", solutionUrl: "" },
         ],
       },
       {
