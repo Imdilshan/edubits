@@ -20,6 +20,9 @@ const ResultsPage = lazy(() => import("../features/quiz/pages/ResultsPage"));
 const LeaderboardPage = lazy(() => import("../features/quiz/pages/LeaderboardPage"));
 const HistoryPage = lazy(() => import("../features/quiz/pages/HistoryPage"));
 
+const ProgrammingPage = lazy(() => import("../features/programming/pages/ProgrammingPage"));
+const TopicProblemsPage = lazy(() => import("../features/programming/pages/TopicProblemsPage"));
+
 function PublicNavbar() {
   return (
     <nav style={{
@@ -100,6 +103,9 @@ function AppInner() {
               <Route path="/quizzes/results" element={<ResultsPage />} />
               <Route path="/quizzes/leaderboard" element={<LeaderboardPage />} />
               <Route path="/quizzes/history" element={<HistoryPage />} />
+
+              <Route path="/programming" element={<ProgrammingPage />} /> 
+              <Route path="/programming/:topicId" element={<TopicProblemsPage />} />
 
               <Route path="/login"    element={<Navigate to="/" />} />
               <Route path="/register" element={<Navigate to="/" />} />

@@ -7,7 +7,7 @@ import EditProfileModal from "./EditProfileModal";
 
 import {
   LogOut, Pencil, Image,
-  Calculator, ClipboardList, CheckSquare, BookOpen, Brain, BookMarked,
+  Calculator, ClipboardList, CheckSquare, BookOpen, Brain, BookMarked, Code2,
 } from "lucide-react";
 
 export default function Navbar() {
@@ -87,6 +87,7 @@ export default function Navbar() {
 
   const isActive     = (path) => location.pathname === path;
   const isQuizActive = ()     => location.pathname.startsWith("/quizzes");
+  const isProgActive = () => location.pathname.startsWith("/programming");
 
   const avatarSrc = preview || user?.avatar || "/images/default-avatar.jpg";
 
@@ -103,6 +104,7 @@ export default function Navbar() {
         <div className="nav-center desktop-nav">
           <Link to="/pyqs"     className={`nav-link ${isActive("/pyqs")     ? "active" : ""}`}>Resources</Link>
           <Link to="/quizzes"  className={`nav-link ${isQuizActive()        ? "active" : ""}`}>QuizEngine</Link>
+          <Link to="/programming" className={`nav-link ${isProgActive() ? "active" : ""}`}>Programming</Link>
           <Link to="/sgpa"     className={`nav-link ${isActive("/sgpa")     ? "active" : ""}`}>Grades</Link>
           <Link to="/internal" className={`nav-link ${isActive("/internal") ? "active" : ""}`}>Internals</Link>
           <Link to="/tasks"    className={`nav-link ${isActive("/tasks")    ? "active" : ""}`}>Tasks</Link>
@@ -160,6 +162,10 @@ export default function Navbar() {
 
         <Link to="/quizzes"  className={`mobile-nav-item ${isQuizActive()        ? "active" : ""}`}>
           <Brain size={20} /><span>Quiz</span>
+        </Link>
+
+        <Link to="/programming" className={`mobile-nav-item ${isProgActive() ? "active" : ""}`}>
+          <Code2 size={20} /><span>Code</span>
         </Link>
 
         <Link to="/sgpa"     className={`mobile-nav-item ${isActive("/sgpa")     ? "active" : ""}`}>
