@@ -64,6 +64,7 @@ app.use("/api/questions",   require("./routes/questions"));
 app.use("/api/quiz",        require("./routes/quiz"));
 app.use("/api/leaderboard", require("./routes/leaderboard"));
 app.use("/api/users",       require("./routes/users"));
+app.use("/api/programming", require("./features/programming/routes/programmingRoutes"));
 
 app.get("/api/test-cloudinary", async (req, res) => {
   try {

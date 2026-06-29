@@ -1,0 +1,229 @@
+const mongoose = require("mongoose");
+const ProgrammingTopic = require("../models/ProgrammingTopic");
+const ProgrammingProblem = require("../models/ProgrammingProblem");
+
+// ---------- Topics ----------
+
+const getTopics = async (req, res) => {
+  try {
+    const topics = await ProgrammingTopic.find()
+      .populate("parentTopic", "_id name")
+      .sort({ order: 1 })
+      .lean();
+
+    res.json({ topics });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+const getTopic = async (req, res) => {
+  try {
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ error: "Invalid topic id" });
+    }
+
+    const topic = await ProgrammingTopic.findById(req.params.id).populate(
+      "parentTopic"
+    );
+
+    if (!topic) {
+      return res.status(404).json({ error: "Topic not found" });
+    }
+
+    res.json({ topic });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+const createTopic = async (req, res) => {
+  try {
+    const topic = await ProgrammingTopic.create(req.body);
+    res.status(201).json({ topic });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+};
+
+const updateTopic = async (req, res) => {
+  try {
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ error: "Invalid topic id" });
+    }
+
+    const topic = await ProgrammingTopic.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+
+    if (!topic) {
+      return res.status(404).json({ error: "Topic not found" });
+    }
+
+    res.json({ topic });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+};
+
+const deleteTopic = async (req, res) => {
+  try {
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ error: "Invalid topic id" });
+    }
+
+    const topic = await ProgrammingTopic.findByIdAndDelete(req.params.id);
+
+    if (!topic) {
+      return res.status(404).json({ error: "Topic not found" });
+    }
+
+    // Cascade delete problems
+    await ProgrammingProblem.deleteMany({ topic: topic._id });
+
+    res.json({ message: "Topic deleted" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+// ---------- Problems ----------
+
+const getProblems = async (req, res) => {
+  try {
+    const { topicId, difficulty } = req.query;
+
+    const filter = {};
+
+    if (topicId) {
+      if (!mongoose.Types.ObjectId.isValid(topicId)) {
+        return res.status(400).json({
+          error: "Invalid topic id",
+        });
+      }
+
+      filter.topic = topicId;
+    }
+
+    if (difficulty) {
+      filter.difficulty = difficulty;
+    }
+
+    const problems = await ProgrammingProblem.find(filter).lean();
+
+    res.json({
+      problems,
+      count: problems.length,
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+const getProblem = async (req, res) => {
+  try {
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ error: "Invalid problem id" });
+    }
+
+    const problem = await ProgrammingProblem.findById(req.params.id);
+
+    if (!problem) {
+      return res.status(404).json({ error: "Problem not found" });
+    }
+
+    res.json({ problem });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+const createProblem = async (req, res) => {
+  try {
+    if (!mongoose.Types.ObjectId.isValid(req.body.topic)) {
+      return res.status(400).json({ error: "Invalid topic id" });
+    }
+
+    const topicExists = await ProgrammingTopic.exists({
+      _id: req.body.topic,
+    });
+
+    if (!topicExists) {
+      return res.status(404).json({ error: "Topic not found" });
+    }
+
+    const problem = await ProgrammingProblem.create(req.body);
+
+    res.status(201).json({ problem });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+};
+
+const updateProblem = async (req, res) => {
+  try {
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ error: "Invalid problem id" });
+    }
+
+    if (
+      req.body.topic &&
+      !mongoose.Types.ObjectId.isValid(req.body.topic)
+    ) {
+      return res.status(400).json({ error: "Invalid topic id" });
+    }
+
+    const problem = await ProgrammingProblem.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+
+    if (!problem) {
+      return res.status(404).json({ error: "Problem not found" });
+    }
+
+    res.json({ problem });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+};
+
+const deleteProblem = async (req, res) => {
+  try {
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ error: "Invalid problem id" });
+    }
+
+    const problem = await ProgrammingProblem.findByIdAndDelete(req.params.id);
+
+    if (!problem) {
+      return res.status(404).json({ error: "Problem not found" });
+    }
+
+    res.json({ message: "Problem deleted" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+module.exports = {
+  getTopics,
+  getTopic,
+  createTopic,
+  updateTopic,
+  deleteTopic,
+  getProblems,
+  getProblem,
+  createProblem,
+  updateProblem,
+  deleteProblem,
+};
