@@ -6,6 +6,10 @@ export default function FixTab({ problem }) {
 
   const code = problem.fixCode?.[language] || "// No buggy code added for this language yet.";
 
+  console.log(problem.fixCode.java);
+  console.log(JSON.stringify(problem.fixCode.java));
+  console.log(problem.fixCode.java.split("\n"));
+
   return (
     <div className="prog-editor-wrap">
       <div className="prog-lang-toggle">
