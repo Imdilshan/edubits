@@ -1,0 +1,866 @@
+[
+  {
+    "text": "What is Blockchain?",
+    "options": [
+      "A centralized database",
+      "A networking protocol",
+      "A decentralized ledger",
+      "A type of database"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is the first block of a Blockchain called?",
+    "options": [
+      "Seed Block",
+      "Origin Block",
+      "Genesis Block",
+      "Root Block"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Who introduced blockchain technology?",
+    "options": [
+      "Gavin Wood",
+      "Satoshi Nakamoto",
+      "Charles Hoskinson",
+      "Vitalik Buterin"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which of the following is a key feature of blockchain?",
+    "options": [
+      "Immutability",
+      "Insecure data transfer",
+      "High centralization",
+      "Dependence on a single server"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which is the first cryptocurrency to use blockchain technology?",
+    "options": [
+      "Ripple",
+      "Litecoin",
+      "Ethereum",
+      "Bitcoin"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is the primary purpose of blockchain technology?",
+    "options": [
+      "To replace all traditional databases",
+      "To provide a secure and transparent record of transactions",
+      "To create cryptocurrencies",
+      "To centralize data storage"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What type of database is blockchain?",
+    "options": [
+      "Centralized relational database",
+      "Decentralized ledger",
+      "Distributed cache",
+      "Hierarchical"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is the unit structure of a blockchain called?",
+    "options": [
+      "Node",
+      "Transaction",
+      "Block",
+      "Record"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is the main advantage of decentralization in blockchain?",
+    "options": [
+      "Reduced security risks",
+      "Faster central decision-making",
+      "Increased dependency on intermediaries",
+      "Higher data redundancy"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What does the term \"distributed ledger\" imply in blockchain?",
+    "options": [
+      "Data is stored offline",
+      "Data is copied and synchronized across multiple locations",
+      "Data is stored in a central server",
+      "Data can be edited by any participant"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What does a blockchain ledger store?",
+    "options": [
+      "Cryptocurrency wallets",
+      "Node-specific information",
+      "Any type of verified data",
+      "Only monetary transactions"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is the main component of a blockchain that contains transaction data?",
+    "options": [
+      "Chain",
+      "Node",
+      "Block",
+      "Hash"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is the purpose of a Merkle tree in blockchain architecture?",
+    "options": [
+      "Generating private keys",
+      "Storing cryptocurrency",
+      "Encrypting data",
+      "Efficiently verifying data integrity"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which component of blockchain ensures data immutability?",
+    "options": [
+      "Consensus algorithm",
+      "Peer-to-peer network",
+      "Cryptographic hashing",
+      "Private key encryption"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is a full node in blockchain?",
+    "options": [
+      "A node used for mining rewards",
+      "A node that stores the entire blockchain ledger",
+      "A node that processes only recent transactions",
+      "A node responsible for creating new blocks"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What type of network structure does blockchain use?",
+    "options": [
+      "Peer-to-peer (P2P)",
+      "Ring topology",
+      "Star topology",
+      "Client-server"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is the function of a consensus algorithm in blockchain?",
+    "options": [
+      "Synchronizing the private keys",
+      "Ensuring agreement on the state of the blockchain",
+      "Encrypting transactions",
+      "Reducing transaction speed"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What does a miner do in a blockchain network?",
+    "options": [
+      "Encrypts smart contracts",
+      "Creates private keys",
+      "Validates and adds transactions to the blockchain",
+      "Stores cryptocurrency"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is a cryptocurrency?",
+    "options": [
+      "A centralized banking system",
+      "A type of database encryption",
+      "A physical form of money used in online transactions",
+      "A digital or virtual currency secured by cryptography"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What process is used to create new cryptocurrencies in Bitcoin's blockchain?",
+    "options": [
+      "Tokenization",
+      "Proof of Authority",
+      "Mining",
+      "Proof of Stake"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which cryptocurrency is known for introducing smart contracts?",
+    "options": [
+      "Cardano",
+      "Polkadot",
+      "Ethereum",
+      "Bitcoin"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What does the term \"altcoin\" refer to?",
+    "options": [
+      "Coins with lower value than Bitcoin",
+      "All coins other than Bitcoin",
+      "Coins used for specific industries",
+      "Coins stored on centralized platforms"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is a private key in cryptocurrency?",
+    "options": [
+      "A public identifier of a cryptocurrency wallet",
+      "A code for creating new tokens",
+      "A method to encrypt blockchain data",
+      "A secret code that allows access to funds in a wallet"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What is the function of a cryptocurrency wallet?",
+    "options": [
+      "To store physical coins",
+      "To facilitate cryptocurrency mining",
+      "To store and manage private and public keys for transactions",
+      "To convert cryptocurrencies to fiat currencies"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What is a stablecoin?",
+    "options": [
+      "A coin used exclusively for mining rewards",
+      "A cryptocurrency pegged to a stable asset like the US Dollar",
+      "A coin with a constant supply limit",
+      "A cryptocurrency with fixed transaction fees"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What does \"Proof of Stake\" (PoS) mean in cryptocurrency?",
+    "options": [
+      "A consensus mechanism where validators are chosen based on the number of coins they hold",
+      "A method of burning tokens to create scarcity",
+      "A mining process requiring high computational power",
+      "A form of security in centralized exchanges"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What is a smart contract?",
+    "options": [
+      "A legally binding document stored on the blockchain",
+      "A physical contract digitized for use in cryptocurrencies",
+      "A self-executing program with pre-defined rules on the blockchain",
+      "A contract requiring a central authority for validation"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What programming language is primarily used to write Ethereum smart contracts?",
+    "options": [
+      "Java",
+      "Go",
+      "Python",
+      "Solidity"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What ensures the execution of a smart contract?",
+    "options": [
+      "Manual approval by nodes",
+      "Miners verifying legal compliance",
+      "The underlying blockchain's consensus mechanism",
+      "Centralized servers"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which of the following is NOT a characteristic of smart contracts?",
+    "options": [
+      "Automation",
+      "Manual intervention",
+      "Irreversibility",
+      "Transparency"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What happens if a bug exists in a deployed smart contract?",
+    "options": [
+      "The blockchain automatically corrects it",
+      "The contract may behave incorrectly or be exploited",
+      "The consensus mechanism ignores the bug",
+      "The contract is undeployed and reset"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "How do smart contracts interact with the real world?",
+    "options": [
+      "Using oracles to fetch external data",
+      "Through centralized applications",
+      "By manual data entry from blockchain administrators",
+      "Through nodes interpreting real-world data"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What is \"gas\" in the context of Ethereum smart contracts?",
+    "options": [
+      "The energy consumption of the blockchain",
+      "A fee paid to execute operations",
+      "The storage capacity for contracts",
+      "A term for transaction speed"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is a limitation of smart contracts?",
+    "options": [
+      "They are not secure",
+      "They lack scalability",
+      "They require a central authority",
+      "They cannot interact with off-chain data without oracles"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What is the primary purpose of a blockchain development framework like Truffle?",
+    "options": [
+      "Managing private keys",
+      "Encrypting blockchain transactions",
+      "Simplifying the development, testing, and deployment of smart contracts",
+      "Creating cryptocurrency wallets"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What does the term \"dApp\" stand for in blockchain development?",
+    "options": [
+      "Distributed Asset Platform",
+      "Data Application Protocol",
+      "Digital Application Platform",
+      "Decentralized Application"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is Web3.js used for in blockchain development?",
+    "options": [
+      "To manage the database in blockchain applications",
+      "To create private blockchain networks",
+      "To design front-end interfaces for dApps",
+      "To interact with the Ethereum blockchain via JavaScript"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What is a \"testnet\" in blockchain development?",
+    "options": [
+      "A blockchain network used for testing applications without real cryptocurrency",
+      "A private blockchain used for storing data",
+      "A peer-to-peer network for dApp deployment",
+      "A mining pool for new developers"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is a common challenge in blockchain development?",
+    "options": [
+      "Overreliance on centralized servers",
+      "Lack of programming languages",
+      "Limited use cases for blockchain",
+      "Ensuring scalability and security while maintaining decentralization"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What does a blockchain developer use to deploy a smart contract on Ethereum?",
+    "options": [
+      "A command-line interface (CLI) tool like Hardhat or Truffle",
+      "Wallet software",
+      "A miner node",
+      "Public keys only"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "How does blockchain benefit the healthcare industry?",
+    "options": [
+      "By managing electronic health records securely",
+      "By decentralizing hospital administration",
+      "By creating virtual currencies for medical professionals",
+      "By replacing human doctors with AI"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "How is blockchain used in supply chain management?",
+    "options": [
+      "To create new cryptocurrencies",
+      "To replace all supply chain personnel",
+      "To improve transparency and traceability of goods",
+      "To encrypt supply chain data for security"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is the primary reason blockchain is considered secure?",
+    "options": [
+      "Real-time human monitoring",
+      "Frequent audits by government bodies",
+      "Use of centralized databases",
+      "Encryption and consensus mechanisms"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which cryptographic technique ensures the immutability of blockchain data?",
+    "options": [
+      "Public-key cryptography",
+      "Symmetric encryption",
+      "Tokenization",
+      "Hashing"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What role do private keys play in blockchain security?",
+    "options": [
+      "They authorize access to blockchain transactions",
+      "They encrypt data blocks",
+      "They ensure transaction anonymity",
+      "They are used to manage mining operations"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What is a \"Sybil attack\" in blockchain?",
+    "options": [
+      "Manipulating transaction timestamps",
+      "Flooding the network with duplicate transactions",
+      "Using fake nodes to disrupt the network",
+      "Hacking individual wallets"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What is a potential drawback of public blockchains in terms of security?",
+    "options": [
+      "Lack of encryption",
+      "Vulnerability to network congestion",
+      "High trust in central authority",
+      "Exposure to DDoS attacks and scalability issues"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What is the primary challenge of blockchain scalability?",
+    "options": [
+      "Eliminating cryptographic protocols",
+      "Balancing transaction speed, throughput, and decentralization",
+      "Reducing the number of nodes",
+      "Increasing transaction fees"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "How does sharding improve blockchain scalability?",
+    "options": [
+      "By replacing mining with staking",
+      "By increasing the size of the blocks",
+      "By reducing transaction fees",
+      "By dividing the blockchain network into smaller, manageable parts"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What blockchain mechanism does Ethereum 2.0 use to improve scalability?",
+    "options": [
+      "Time-locked transactions",
+      "Hybrid mining protocols",
+      "Proof of Stake and sharding",
+      "Proof of Work"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What is a rollup in the context of blockchain scalability?",
+    "options": [
+      "A tool for compressing blockchain data",
+      "A feature for creating private blockchains",
+      "A security measure for smart contracts",
+      "A Layer 2 solution that bundles multiple transactions into one"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What is the block time in blockchain technology?",
+    "options": [
+      "The total time taken to mine one cryptocurrency",
+      "The interval for resetting consensus protocols",
+      "The time nodes take to synchronize data",
+      "The time required to generate a new block and add it to the blockchain"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is the term \"blockchain governance\" generally referring to?",
+    "options": [
+      "The exclusive control of miners",
+      "The process of verifying transactions only through mining",
+      "The decentralized decision-making process among stakeholders",
+      "The central authority managing blockchain infrastructure"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "How do developers contribute to blockchain governance?",
+    "options": [
+      "By restricting access to smart contracts",
+      "By creating forks and patches",
+      "By interacting with mining pools",
+      "By upgrading and maintaining protocol code"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What is a \"hard fork\" in blockchain governance?",
+    "options": [
+      "A permanent split in protocol versions requiring different updates",
+      "Temporary synchronization of blockchain miners",
+      "An attack on blockchain nodes",
+      "Standard encryption updates"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What role do validators play in blockchain governance?",
+    "options": [
+      "They handle hardware repairs",
+      "They approve and validate transactions on blockchain networks",
+      "They secure nodes with encryption",
+      "They manage private wallets"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What advantage does blockchain offer in financial transactions for businesses?",
+    "options": [
+      "Lack of auditing capabilities",
+      "More paperwork requirements",
+      "Slower processing times",
+      "Lower fees and increased transparency"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "How does blockchain help in financial auditing and compliance for businesses?",
+    "options": [
+      "By making audits more time-consuming",
+      "By offering immutable transaction records",
+      "By removing compliance standards",
+      "By relying solely on human verification"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "How does blockchain improve data integrity in business analytics?",
+    "options": [
+      "By losing transaction details",
+      "By storing data in spreadsheets",
+      "By storing encrypted, unalterable data records",
+      "By depending on paper documentation"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is a major benefit of using blockchain in customer loyalty programs?",
+    "options": [
+      "Transparent tracking of loyalty rewards",
+      "Increasing purchase delays",
+      "Dependence on paper-based systems",
+      "Centralized reward distribution"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which blockchain platform is widely known for supporting DeFi applications?",
+    "options": [
+      "Polkadot",
+      "Bitcoin",
+      "Ripple",
+      "Ethereum"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is the primary goal of Decentralized Finance (DeFi)?",
+    "options": [
+      "To restrict access to financial markets",
+      "To remove intermediaries in financial operations",
+      "To centralize financial transactions",
+      "To increase government control over transactions"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is the purpose of collateral in DeFi lending protocols?",
+    "options": [
+      "To secure the borrowed assets and minimize default risks",
+      "To reduce transparency in financial operations",
+      "To centralize transaction approvals",
+      "To slow down blockchain confirmations"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What is a Non-Fungible Token (NFT)?",
+    "options": [
+      "A cryptocurrency with interchangeable value",
+      "A centralized database record",
+      "A method for encrypting transaction details only",
+      "A unique digital asset stored on the blockchain"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What are some common use cases for NFTs in the digital world?",
+    "options": [
+      "Solely text-based content storage",
+      "Data encryption for traditional finance transactions",
+      "Digital art, gaming assets, music, and collectibles",
+      "Only cryptocurrency mining"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is an NFT marketplace?",
+    "options": [
+      "A centralized search engine",
+      "An offline art gallery",
+      "A platform for cryptocurrency exchanges",
+      "A site where users can mint, buy, and sell NFTs"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "How does blockchain interact with Artificial Intelligence (AI) in modern applications?",
+    "options": [
+      "By avoiding data encryption",
+      "By storing and securing AI-generated data on a decentralized ledger",
+      "By replacing all AI algorithms",
+      "By slowing down AI processing speed"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "How is blockchain connected to Big Data analytics?",
+    "options": [
+      "By slowing down data processing",
+      "By removing metadata entirely",
+      "By storing large datasets only on paper",
+      "By providing a decentralized and transparent storage mechanism"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What is the role of blockchain in improving data privacy with cloud computing?",
+    "options": [
+      "By removing transaction verification steps",
+      "By offering encrypted, tamper-proof storage solutions",
+      "By avoiding decentralized storage",
+      "By relying solely on centralized servers"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Why is regulation necessary in blockchain technology?",
+    "options": [
+      "To slow down blockchain transactions",
+      "To prevent decentralization",
+      "To protect users and investors from fraud and scams",
+      "To remove all forms of encryption"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is the purpose of Blockchain as a Service (BaaS) in the future landscape?",
+    "options": [
+      "To avoid integration with cloud services",
+      "To enable businesses to deploy blockchain solutions without building their infrastructure",
+      "To remove digital asset storage",
+      "To make blockchain less accessible"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What is the primary advantage of decentralization in Blockchain?",
+    "options": [
+      "Faster transaction speed",
+      "Lower hardware costs",
+      "Reduced need for intermediaries",
+      "Easy tampering of records"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  }
+]
