@@ -7,6 +7,7 @@ const CONTRIBUTORS = [
   { name: "Chetan Raj", github: "Rajchetan16" },
   { name: "Ranbir Khurana", github: "DevRanbir" },
   { name: "Subhayu Mukherjee", github: "subhayu18" },
+  { name: "Kajal", github: "Kajal-RKR" },
 ];
 
 export default function HomeFooter() {
