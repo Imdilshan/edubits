@@ -43,7 +43,7 @@ async function seed() {
       description: "Learn React fundamentals",
       icon: "",
       color: "#61dafb",
-      position: { x: 1300, y: 250 },
+      position: { x: 700, y: 250 },
       passingScore: 60,
       order: 1,
     },
@@ -52,7 +52,7 @@ async function seed() {
       description: "Object-oriented programming with Java",
       icon: "",
       color: "#f97316",
-      position: { x: 700, y: 350 },
+      position: { x: 900, y: 350 },
       passingScore: 70,
       order: 2,
     },
@@ -79,7 +79,7 @@ async function seed() {
       description: "Learn problem solving and algorithm design",
       icon: "",
       color: "#22c55e",
-      position: { x: 700, y: 150 },
+      position: { x: 900, y: 150 },
       passingScore: 70,
       order: 5,
     },
@@ -88,7 +88,7 @@ async function seed() {
       description: "Blockchain, Cryptocurrency and Web3",
       icon: "",
       color: "#06b6d4",
-      position: { x: 1100, y: 250 },
+      position: { x: 1300, y: 250 },
       passingScore: 70,
       order: 6,
     },
@@ -97,7 +97,7 @@ async function seed() {
       description: "Build mobile apps for Android and iOS",
       icon: "",
       color: "#8b5cf6",
-      position: { x: 900, y: 250 },
+      position: { x: 1100, y: 250 },
       passingScore: 60,
       order: 7,
     },
@@ -122,10 +122,7 @@ async function seed() {
   await Topic.findByIdAndUpdate(topics["JavaScript Basics"]._id, {
     prerequisites: [topics["CSS Styling"]._id],
   });
-  
-  await Topic.findByIdAndUpdate(topics["React"]._id, {
-  prerequisites: [topics["JavaScript Basics"]._id],
-});
+
 
   console.log("🔗 Prerequisites linked");
   const questions = [
