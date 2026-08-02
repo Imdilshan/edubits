@@ -115,13 +115,13 @@ async function seed() {
   }
 
   console.log("✅ Topics upserted");
-  await Topic.findByIdAndUpdate(topics["CSS Styling"]._id, {
-    prerequisites: [topics["HTML Fundamentals"]._id],
-  });
+  // await Topic.findByIdAndUpdate(topics["CSS Styling"]._id, {
+  //   prerequisites: [topics["HTML Fundamentals"]._id],
+  // });
 
-  await Topic.findByIdAndUpdate(topics["JavaScript Basics"]._id, {
-    prerequisites: [topics["CSS Styling"]._id],
-  });
+  // await Topic.findByIdAndUpdate(topics["JavaScript Basics"]._id, {
+  //   prerequisites: [topics["CSS Styling"]._id],
+  // });
 
 
   console.log("🔗 Prerequisites linked");
