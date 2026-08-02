@@ -12,6 +12,7 @@ const daaQ  = require("./questions/daa");
 const javaQ = require("./questions/java");
 const madQ  = require("./questions/mad");
 const blockchainQ = require("./questions/blockchain");
+const reactQ = require("./questions/react");
 
 const MONGO_URI =
   process.env.MONGO_URI ||
@@ -29,21 +30,21 @@ async function seed() {
 
   const topicData = [
     {
-      name: "Blockchain",
-      description: "Blockchain, Cryptocurrency and Web3",
+      name: "JavaScript Basics",
+      description: "Add interactivity with programming fundamentals",
       icon: "",
-      color: "#06b6d4",
-      position: { x: 1100, y: 250 },
-      passingScore: 70,
+      color: "#f7df1e",
+      position: { x: 500, y: 250 },
+      passingScore: 60,
       order: 0,
     },
     {
-      name: "DAA (Algorithms)",
-      description: "Learn problem solving and algorithm design",
+      name: "React",
+      description: "Learn React fundamentals",
       icon: "",
-      color: "#22c55e",
-      position: { x: 700, y: 150 },
-      passingScore: 70,
+      color: "#61dafb",
+      position: { x: 1300, y: 250 },
+      passingScore: 60,
       order: 1,
     },
     {
@@ -56,22 +57,13 @@ async function seed() {
       order: 2,
     },
     {
-      name: "Mobile App Development",
-      description: "Build mobile apps for Android and iOS",
-      icon: "",
-      color: "#8b5cf6",
-      position: { x: 900, y: 250 },
-      passingScore: 60,
-      order: 3,
-    },
-    {
       name: "HTML Fundamentals",
       description: "Learn the building blocks of the web",
       icon: "",
       color: "#e34c26",
       position: { x: 100, y: 250 },
       passingScore: 60,
-      order: 4,
+      order: 3,
     },
     {
       name: "CSS Styling",
@@ -80,16 +72,34 @@ async function seed() {
       color: "#264de4",
       position: { x: 300, y: 250 },
       passingScore: 60,
+      order: 4,
+    },
+    {
+      name: "DAA (Algorithms)",
+      description: "Learn problem solving and algorithm design",
+      icon: "",
+      color: "#22c55e",
+      position: { x: 700, y: 150 },
+      passingScore: 70,
       order: 5,
     },
     {
-      name: "JavaScript Basics",
-      description: "Add interactivity with programming fundamentals",
+      name: "Blockchain",
+      description: "Blockchain, Cryptocurrency and Web3",
       icon: "",
-      color: "#f7df1e",
-      position: { x: 500, y: 250 },
-      passingScore: 60,
+      color: "#06b6d4",
+      position: { x: 1100, y: 250 },
+      passingScore: 70,
       order: 6,
+    },
+    {
+      name: "Mobile App Development",
+      description: "Build mobile apps for Android and iOS",
+      icon: "",
+      color: "#8b5cf6",
+      position: { x: 900, y: 250 },
+      passingScore: 60,
+      order: 7,
     },
   ];
 
@@ -122,6 +132,7 @@ async function seed() {
     ...javaQ.map(q => ({ ...q, topicId: topics["Java Programming"]._id })),
     ...madQ.map(q  => ({ ...q, topicId: topics["Mobile App Development"]._id })),
     ...blockchainQ.map(q => ({ ...q, topicId: topics["Blockchain"]._id })),
+    ...reactQ.map(q => ({ ...q, topicId: topics["React"]._id })),
   ];
 
   if (questions.length === 0) {

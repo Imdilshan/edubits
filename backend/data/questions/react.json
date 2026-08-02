@@ -1,0 +1,1202 @@
+[
+  {
+    "text": "What is the Virtual DOM in React?",
+    "options": [
+      "An actual copy of the browser's DOM stored on the server",
+      "A lightweight, in-memory JavaScript representation of the real DOM",
+      "A CSS rendering engine used by React",
+      "A browser API for manipulating HTML directly"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Why does React use a Virtual DOM instead of updating the real DOM directly?",
+    "options": [
+      "Because the real DOM cannot be updated by JavaScript",
+      "To minimize expensive direct DOM manipulations and improve performance",
+      "Because browsers don't support the DOM API anymore",
+      "To make React work without JavaScript"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What process compares the old and new Virtual DOM trees to find changes?",
+    "options": [
+      "Hydration",
+      "Diffing",
+      "Bundling",
+      "Transpiling"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is 'reconciliation' in React?",
+    "options": [
+      "Converting JSX into HTML at build time",
+      "The process of updating the real DOM to match Virtual DOM changes",
+      "Merging two separate React applications",
+      "A process used only in class components"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is React's diffing algorithm's approximate time complexity, compared to a naive O(n³) tree-diff algorithm?",
+    "options": [
+      "O(n)",
+      "O(n²)",
+      "O(log n)",
+      "O(n!)"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which internal engine, introduced in React 16, powers reconciliation?",
+    "options": [
+      "Redux",
+      "Fiber",
+      "Babel",
+      "Webpack"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What key capability does React Fiber add over the old 'stack' reconciler?",
+    "options": [
+      "Ability to pause, abort, or resume rendering work",
+      "Automatic CSS minification",
+      "Server-side compilation of components",
+      "Native mobile rendering without React Native"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "During diffing, what does React do when it encounters two elements of different types (e.g., <div> replaced by <span>)?",
+    "options": [
+      "It merges their attributes",
+      "It tears down the old subtree and builds a new one from scratch",
+      "It ignores the change",
+      "It throws a runtime error"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is the primary purpose of the 'key' prop when rendering lists?",
+    "options": [
+      "To style list items differently",
+      "To help React identify which items changed, were added, or removed",
+      "To sort the list automatically",
+      "To make list items clickable"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What potential problem arises from using the array index as a 'key' in a dynamic, reorderable list?",
+    "options": [
+      "No problem at all, it's always safe",
+      "It can cause incorrect UI state/re-renders when items are reordered or removed",
+      "React will refuse to render the list",
+      "It automatically sorts the array"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Does modifying the Virtual DOM immediately update what the user sees in the browser?",
+    "options": [
+      "Yes, instantly and directly",
+      "No, changes are applied to the real DOM only after diffing/reconciliation",
+      "Only if useEffect is used",
+      "Only in class components"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which of the following statements about the Virtual DOM is FALSE?",
+    "options": [
+      "It is a JavaScript object tree",
+      "It helps React batch and optimize DOM updates",
+      "It completely replaces and eliminates the real DOM from the page",
+      "It is recreated on every render"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What is 'batching' in React rendering?",
+    "options": [
+      "Splitting a component into smaller files",
+      "Grouping multiple state updates into a single re-render for efficiency",
+      "Loading multiple components lazily",
+      "Compiling multiple JSX files together"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "In React 18, automatic batching was extended to also cover updates inside:",
+    "options": [
+      "Only synthetic event handlers (same as before)",
+      "Promises, setTimeout, and native event handlers as well",
+      "Only class component lifecycle methods",
+      "Only useEffect with empty dependency array"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What typically triggers the reconciliation process to start?",
+    "options": [
+      "A CSS file being imported",
+      "A change in a component's state or props",
+      "The browser being resized",
+      "A component being exported"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which of these is a genuine benefit of using the Virtual DOM approach?",
+    "options": [
+      "It eliminates the need for JavaScript entirely",
+      "It reduces costly, direct real-DOM manipulations by batching minimal updates",
+      "It guarantees zero re-renders ever",
+      "It automatically writes your CSS"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 40
+  },
+  {
+    "text": "True or False: React always re-renders and updates the entire real DOM tree on every state change.",
+    "options": [
+      "True",
+      "False",
+      "Only in production mode",
+      "Only for class components"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 40
+  },
+  {
+    "text": "What exactly does React compare during the diffing step?",
+    "options": [
+      "The previous Virtual DOM tree with the newly generated Virtual DOM tree",
+      "The CSS file with the JS bundle",
+      "Two different browsers' DOM implementations",
+      "The server response with the client cache"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimitSeconds": 40
+  },
+  {
+    "text": "Which package/library is actually responsible for applying Virtual DOM changes onto the real, browser DOM?",
+    "options": [
+      "React (react package)",
+      "ReactDOM",
+      "Redux",
+      "React Router"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 40
+  },
+  {
+    "text": "What is the main goal of React's diffing heuristics (e.g., comparing elements of the same type/key recursively)?",
+    "options": [
+      "To achieve a perfectly accurate but slow diff",
+      "To achieve efficient, near-linear-time diffing suitable for real-time UI updates",
+      "To avoid using JavaScript objects",
+      "To force full page reloads on every change"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 40
+  },
+  {
+    "text": "What happens first when a functional component mounts for the first time?",
+    "options": [
+      "componentDidMount runs",
+      "The component function itself executes, returning JSX to render",
+      "useEffect runs before anything else",
+      "The virtual DOM is deleted"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What are the three main phases of a React component's lifecycle?",
+    "options": [
+      "Mounting, Updating, Unmounting",
+      "Loading, Saving, Deleting",
+      "Init, Render, Destroy (only in class components)",
+      "Fetch, Parse, Paint"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "In a class component, which lifecycle method runs right after the component's first render is committed to the DOM?",
+    "options": [
+      "componentWillMount",
+      "componentDidMount",
+      "componentDidUpdate",
+      "shouldComponentUpdate"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which class-component lifecycle method is the correct place to clean up (timers, subscriptions) before removal?",
+    "options": [
+      "componentDidMount",
+      "componentDidUpdate",
+      "componentWillUnmount",
+      "render"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which class-component lifecycle method runs after every update (state/props change)?",
+    "options": [
+      "componentDidMount",
+      "componentDidUpdate",
+      "componentWillUnmount",
+      "constructor"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What does it mean when we say a component 're-renders'?",
+    "options": [
+      "The component is deleted and a new file is created",
+      "React calls the component function again to compute updated output due to state/prop changes",
+      "The browser reloads the whole page",
+      "The CSS is reapplied"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which of the following can trigger a component re-render?",
+    "options": [
+      "Calling a useState setter with a new value",
+      "The parent component re-rendering",
+      "A consumed context value changing",
+      "All of the above"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "By default, if a parent re-renders, does the child also re-render even if the child's props haven't changed?",
+    "options": [
+      "No, children never re-render unless their own state changes",
+      "Yes, by default, unless the child is wrapped in React.memo",
+      "Only class-component children re-render",
+      "Only if useEffect is used in the child"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is React.memo primarily used for?",
+    "options": [
+      "To memoize the result of a calculation inside a component",
+      "To wrap a component so it skips re-rendering when its props haven't changed",
+      "To create memoized routes",
+      "To cache API responses"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "During the render phase, does React directly mutate the real browser DOM?",
+    "options": [
+      "Yes, immediately",
+      "No, the render phase only computes what should change; the DOM is untouched here",
+      "Only for text nodes",
+      "Only in Strict Mode"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "React's rendering process is split into which two high-level phases?",
+    "options": [
+      "Render phase and Commit phase",
+      "Build phase and Deploy phase",
+      "Parse phase and Compile phase",
+      "Mount phase and Delete phase"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which phase actually applies the computed changes to the real DOM?",
+    "options": [
+      "Render phase",
+      "Commit phase",
+      "Bundle phase",
+      "Hydration-only phase"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "In Concurrent React, can the render phase be paused and resumed?",
+    "options": [
+      "No, never",
+      "Yes, it can be interrupted and resumed later",
+      "Only for class components",
+      "Only during SSR"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Can the commit phase (where DOM mutations happen) be interrupted?",
+    "options": [
+      "Yes, at any point",
+      "No, it runs synchronously and cannot be interrupted",
+      "Only in development mode",
+      "Only with useTransition"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which of these commonly causes an infinite re-render loop bug?",
+    "options": [
+      "Calling the state setter unconditionally inside the component's render body",
+      "Using useEffect with a correctly specified dependency array",
+      "Using props instead of state",
+      "Wrapping a component in React.memo"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What does React's StrictMode do in development related to rendering?",
+    "options": [
+      "It disables all warnings",
+      "It intentionally double-invokes certain functions (like component bodies) to help surface side-effect bugs",
+      "It speeds up production builds",
+      "It removes the Virtual DOM"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 40
+  },
+  {
+    "text": "If you call a state setter with the exact same value the state already holds, what may React do?",
+    "options": [
+      "Always re-render regardless",
+      "Potentially bail out and skip the re-render (for primitive equal values)",
+      "Throw an error",
+      "Reset all other state variables"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 40
+  },
+  {
+    "text": "How does useLayoutEffect differ from useEffect in terms of timing within the render cycle?",
+    "options": [
+      "They are identical in every way",
+      "useLayoutEffect runs synchronously after DOM mutations but before the browser paints; useEffect runs asynchronously after paint",
+      "useLayoutEffect only works in class components",
+      "useEffect runs before the render phase"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 40
+  },
+  {
+    "text": "What is the correct order of lifecycle-related calls when a class component first mounts?",
+    "options": [
+      "render → constructor → componentDidMount",
+      "constructor → render → componentDidMount",
+      "componentDidMount → constructor → render",
+      "componentWillUnmount → constructor → render"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 40
+  },
+  {
+    "text": "What is the 'children' prop typically used for during rendering?",
+    "options": [
+      "Storing a component's internal state",
+      "Passing nested JSX/content from a parent to be rendered inside a child component",
+      "Defining CSS classes",
+      "Triggering re-renders manually"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 40
+  },
+  {
+    "text": "What are 'props' in React?",
+    "options": [
+      "Mutable internal data owned by a component",
+      "Read-only data passed from a parent component to a child component",
+      "CSS style objects only",
+      "Global variables shared across the whole app automatically"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Can a child component directly modify the props it receives?",
+    "options": [
+      "Yes, freely",
+      "No, props are read-only from the child's perspective",
+      "Only in class components",
+      "Only using useEffect"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is 'state' in React?",
+    "options": [
+      "Read-only data passed down from a parent",
+      "Mutable data that is local to and managed within a component",
+      "A CSS property",
+      "A type of prop that never changes"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "In a functional component, which is the correct way to update state?",
+    "options": [
+      "Directly assigning to the state variable, e.g. count = 5",
+      "Using the setter function returned by useState, e.g. setCount(5)",
+      "Calling this.state = 5",
+      "Reassigning props"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Can a component change the props it receives from its parent?",
+    "options": [
+      "Yes, using setProps()",
+      "No, props must be changed by the parent that owns them",
+      "Only numeric props",
+      "Only if wrapped in useState"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "In which direction does data flow via props in React by default?",
+    "options": [
+      "Two-way binding, like Angular",
+      "One-way, from parent to child",
+      "Child to parent only",
+      "Random, decided by React at runtime"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What happens to a component when its own state changes?",
+    "options": [
+      "Nothing happens automatically",
+      "The component re-renders to reflect the updated state",
+      "The whole page reloads",
+      "The component unmounts"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is 'prop drilling'?",
+    "options": [
+      "A performance optimization technique",
+      "Passing props through several nested intermediate components just to reach a deeply nested child",
+      "A way to delete unused props",
+      "A CSS technique for nested elements"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which React feature is commonly used to avoid deep prop drilling?",
+    "options": [
+      "useEffect",
+      "Context API",
+      "useState",
+      "key prop"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Are props ever directly mutable inside the child component that receives them?",
+    "options": [
+      "Yes, always",
+      "No, they are always read-only within the child",
+      "Only arrays passed as props",
+      "Only functions passed as props"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What is the purpose of 'default props'?",
+    "options": [
+      "To lock a prop so it can never be changed",
+      "To provide a fallback value when the parent doesn't pass that particular prop",
+      "To convert props into state",
+      "To validate prop types at compile time"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Given function Greeting(props) { return <h1>Hello, {props.name}</h1>; }, how do you access the 'name' value passed in?",
+    "options": [
+      "props['Name']",
+      "props.name",
+      "this.name",
+      "state.name"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "True or False: State is local to the component that declares it, unless deliberately lifted up.",
+    "options": [
+      "True",
+      "False",
+      "Only true for class components",
+      "Only true in Strict Mode"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What does 'lifting state up' mean in React?",
+    "options": [
+      "Moving state into a separate CSS file",
+      "Moving shared state to the closest common ancestor so multiple children can access/update it via props",
+      "Converting state into props permanently",
+      "Deleting unused state variables"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Can a parent component pass a function as a prop to a child component?",
+    "options": [
+      "No, only primitive values can be passed as props",
+      "Yes, functions are valid prop values, often used as callbacks",
+      "Only in class components",
+      "Only using Redux"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What is the safest way to update state that depends on the previous state value?",
+    "options": [
+      "setCount(count + 1) always",
+      "setCount(prevCount => prevCount + 1), using the functional updater form",
+      "count = count + 1",
+      "useEffect(() => count++)"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 40
+  },
+  {
+    "text": "Is a state update guaranteed to be reflected immediately on the very next line of code after calling the setter?",
+    "options": [
+      "Yes, always synchronous",
+      "Not necessarily — updates can be batched/asynchronous, so the variable may not reflect the new value immediately",
+      "Only in class components",
+      "Only inside useEffect"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 40
+  },
+  {
+    "text": "Which statement correctly summarizes the difference between props and state?",
+    "options": [
+      "Both are mutable and owned by the same component",
+      "Props are external, read-only inputs; state is internal, mutable data managed by the component itself",
+      "Props are for class components only; state is for functional components only",
+      "There is no real difference"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 40
+  },
+  {
+    "text": "What happens if you try to directly mutate state, e.g. `state.value = 5` (in a class component), instead of calling setState?",
+    "options": [
+      "It works exactly like setState",
+      "React won't know the state changed, so the UI may not update correctly",
+      "It throws a compile-time error",
+      "It automatically converts to a functional update"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 40
+  },
+  {
+    "text": "Which hook is used inside a functional component to read a value provided by React Context (helping avoid prop drilling)?",
+    "options": [
+      "useState",
+      "useEffect",
+      "useContext",
+      "useCallback"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "hard",
+    "timeLimitSeconds": 40
+  },
+  {
+    "text": "What does the useState hook return?",
+    "options": [
+      "A single value only",
+      "An array containing the current state value and a function to update it",
+      "An object with a 'get' and 'set' method",
+      "Nothing, it works via side effects"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is the correct syntax to declare a piece of state using useState?",
+    "options": [
+      "let state = useState(0);",
+      "const [state, setState] = useState(0);",
+      "const state = useState.create(0);",
+      "state.useState(0);"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Can useState hold complex data types such as objects and arrays?",
+    "options": [
+      "No, only primitives like numbers and strings",
+      "Yes, useState can hold any JavaScript value including objects and arrays",
+      "Only arrays, not objects",
+      "Only if wrapped in JSON.stringify"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "When you call the setter with a brand-new object, e.g. setUser({...user, age: 30}), what happens to the previous state object?",
+    "options": [
+      "React automatically merges it with the old object (like class setState)",
+      "The old state is fully replaced by the new object you provided",
+      "Only the changed key is updated automatically",
+      "React throws an error for objects"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is a 'lazy initial state' in useState?",
+    "options": [
+      "Passing a function to useState so the (possibly expensive) initial value is computed only once, on the first render",
+      "Delaying state updates by a fixed number of milliseconds",
+      "A feature that skips the first render",
+      "Storing state in localStorage automatically"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Where must useState be called within a functional component?",
+    "options": [
+      "Anywhere, including inside if-statements and loops",
+      "At the top level of the component, not inside conditionals or loops",
+      "Only inside useEffect",
+      "Only after the return statement"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What problem can occur if useState (or any hook) is called conditionally?",
+    "options": [
+      "Nothing, React handles it automatically",
+      "It can break the order/number of hook calls between renders, causing bugs or errors",
+      "It makes the component render faster",
+      "It automatically converts the component to a class component"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "If you call the useState setter with a value that is identical (Object.is) to the current state, what can React do?",
+    "options": [
+      "It must always trigger a re-render regardless",
+      "It may bail out of re-rendering that component since the value hasn't changed",
+      "It resets all hooks in the component",
+      "It throws a warning that crashes the app"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "How many independent state variables can a single functional component manage using useState?",
+    "options": [
+      "Only one",
+      "As many as needed — multiple useState calls are allowed",
+      "A maximum of three",
+      "Zero, useState only works with useReducer"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "In functional components, useState's setter function most directly replaces which class-component API?",
+    "options": [
+      "componentDidMount",
+      "this.setState()",
+      "componentWillUnmount",
+      "render()"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Is a call to a useState setter function inside an event handler guaranteed to update the variable synchronously within that same handler?",
+    "options": [
+      "Yes, always immediately reflected",
+      "No, updates are typically batched, so the variable read right after the call may still show the old value",
+      "Only for boolean state",
+      "Only inside useEffect"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What risk arises from reading and using the raw current state value (instead of the functional updater form) across several rapid, successive updates?",
+    "options": [
+      "No risk, both approaches always behave identically",
+      "You may act on a stale value, leading to incorrect final state (a 'stale closure' issue)",
+      "The app will crash immediately",
+      "React will automatically fix it for you"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "True or False: You can call useState more than once inside the same functional component.",
+    "options": [
+      "True",
+      "False",
+      "Only in class components",
+      "Only with useReducer instead"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimitSeconds": 40
+  },
+  {
+    "text": "What kind of value can be passed as the initial value argument to useState(initialValue)?",
+    "options": [
+      "Only numbers",
+      "Only strings",
+      "Any JavaScript value: number, string, boolean, object, array, or function",
+      "Only null"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "hard",
+    "timeLimitSeconds": 40
+  },
+  {
+    "text": "Does calling the useState setter automatically merge the new state with the previous state object, similar to class components' setState()?",
+    "options": [
+      "Yes, automatically merges shallowly",
+      "No, it fully replaces the state value unless you manually spread the old state",
+      "Only for arrays",
+      "Only in Strict Mode"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 40
+  },
+  {
+    "text": "What is the primary purpose of the useEffect hook?",
+    "options": [
+      "To declare new state variables",
+      "To perform side effects (like data fetching, subscriptions, or manual DOM changes) in functional components",
+      "To create new components dynamically",
+      "To style components with CSS"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is the second argument passed to useEffect commonly called?",
+    "options": [
+      "The callback array",
+      "The dependency array",
+      "The render array",
+      "The prop array"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What happens if the dependency array is completely omitted from useEffect?",
+    "options": [
+      "The effect never runs",
+      "The effect runs after every single render",
+      "The effect runs only once",
+      "React throws a compile error"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What happens if you pass an empty dependency array [] to useEffect?",
+    "options": [
+      "The effect runs after every render",
+      "The effect runs only once, after the initial mount",
+      "The effect never runs at all",
+      "It causes an infinite loop"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "How do you clean up a side effect (e.g., remove an event listener) set up inside useEffect?",
+    "options": [
+      "Call useEffect again with no arguments",
+      "Return a cleanup function from within the effect callback",
+      "Use componentWillUnmount inside a functional component",
+      "Cleanup is automatic and cannot be customized"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "When exactly does the cleanup function returned by useEffect run?",
+    "options": [
+      "Only when the app crashes",
+      "Before the effect runs again (on dependency change) and when the component unmounts",
+      "Immediately, before the effect's main code even runs",
+      "Only during server-side rendering"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which of these is a typical, appropriate use case for useEffect?",
+    "options": [
+      "Declaring a new local variable",
+      "Fetching data from an API, setting up subscriptions, or manually altering the DOM",
+      "Defining a component's JSX return value",
+      "Passing props to a child"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Does useEffect run synchronously and block the browser from painting the screen?",
+    "options": [
+      "Yes, always",
+      "No, it runs asynchronously after the browser has painted (use useLayoutEffect if you need synchronous behavior)",
+      "Only in production builds",
+      "Only if the dependency array is empty"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What bug commonly results from omitting a variable that IS used inside the effect from the dependency array?",
+    "options": [
+      "The app will refuse to compile",
+      "A 'stale closure' bug, where the effect keeps using an outdated value",
+      "The effect will run twice as fast",
+      "Nothing, it's always safe to omit dependencies"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Can a single functional component contain more than one useEffect hook?",
+    "options": [
+      "No, only one is allowed per component",
+      "Yes, multiple useEffect calls are allowed and commonly used to separate concerns",
+      "Only if using class components",
+      "Only if wrapped in useCallback"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Does the code inside useEffect run during server-side rendering (SSR)?",
+    "options": [
+      "Yes, always",
+      "No, useEffect only runs in the browser after the component has rendered/mounted",
+      "Only if dependency array is empty",
+      "Only for class components"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Combined, which class lifecycle methods can useEffect (with different dependency arrays) replicate?",
+    "options": [
+      "Only componentDidMount",
+      "componentDidMount, componentDidUpdate, and componentWillUnmount, depending on how it's configured",
+      "Only render()",
+      "Only the constructor"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "If a value inside the dependency array changes between renders, what happens to the associated effect?",
+    "options": [
+      "Nothing happens until the component unmounts",
+      "The effect's cleanup (if any) runs, then the effect body runs again after the render commits",
+      "The component throws an error",
+      "The dependency array is ignored"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 40
+  },
+  {
+    "text": "Why is it usually a mistake to put a freshly created object or array literal directly in the dependency array, e.g. useEffect(() => {...}, [{a:1}])?",
+    "options": [
+      "It's actually a recommended best practice",
+      "A new object/array reference is created on every render, so the effect will run on every render, defeating the dependency check",
+      "React automatically deep-compares objects, so it's fine",
+      "It causes a compile-time syntax error"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 40
+  },
+  {
+    "text": "What does the eslint-plugin-react-hooks 'exhaustive-deps' rule help catch?",
+    "options": [
+      "Unused imports",
+      "Missing or incorrect dependencies in useEffect's (or similar hooks') dependency array",
+      "CSS specificity conflicts",
+      "Unclosed JSX tags"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 40
+  },
+  {
+    "text": "What does the useCallback hook return?",
+    "options": [
+      "A memoized computed value",
+      "A memoized version of the callback (function) itself",
+      "A new component",
+      "A cleanup function"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Why would a developer use useCallback in a React component?",
+    "options": [
+      "To fetch data from an API",
+      "To avoid unnecessary re-creation of a function on every render, which helps prevent unneeded re-renders of memoized child components",
+      "To style a component",
+      "To create new state variables"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What determines whether useCallback returns the same function reference or a new one on a given render?",
+    "options": [
+      "It always returns a new reference every render",
+      "It returns the same reference unless one of the values in its dependency array has changed",
+      "It is randomly decided by React",
+      "It depends on the component's file name"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "Which expression is functionally equivalent to useCallback(fn, deps)?",
+    "options": [
+      "useEffect(fn, deps)",
+      "useMemo(() => fn, deps)",
+      "useState(fn)",
+      "useReducer(fn, deps)"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "In which scenario is useCallback most beneficial?",
+    "options": [
+      "When a component has no children at all",
+      "When passing a callback prop to a child wrapped in React.memo, to prevent that child from re-rendering unnecessarily",
+      "When declaring CSS classes",
+      "When the component never re-renders"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 40
+  },
+  {
+    "text": "What does the useMemo hook return?",
+    "options": [
+      "A memoized function",
+      "A memoized (cached) computed value",
+      "A React element",
+      "A cleanup callback"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "When does useMemo recompute the memoized value?",
+    "options": [
+      "On every single render, no matter what",
+      "Only when one of the values in its dependency array has changed since the last render",
+      "Only once, when the app first loads, regardless of the component",
+      "Never, the value is fixed forever"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is a typical, appropriate use case for useMemo?",
+    "options": [
+      "Declaring new state variables",
+      "Avoiding expensive recalculations (e.g., heavy filtering/sorting) being repeated on every render",
+      "Fetching data from a server",
+      "Cleaning up subscriptions"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What is a real risk of overusing useMemo for very cheap computations?",
+    "options": [
+      "It will make the app crash",
+      "The overhead of memoization (memory + comparison cost) can outweigh the benefit, adding unnecessary complexity",
+      "It permanently disables re-renders",
+      "It converts the component into a class component"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What is the key conceptual difference between useMemo and useCallback?",
+    "options": [
+      "They are exactly identical in every way",
+      "useMemo memoizes a computed value, while useCallback memoizes a function reference",
+      "useMemo is for class components; useCallback is for functional components",
+      "useCallback can only be used with strings"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 40
+  }
+]

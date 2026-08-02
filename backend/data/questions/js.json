@@ -138,5 +138,1758 @@
     "correctAnswer": 0,
     "difficulty": "medium",
     "timeLimitSeconds": 25
+  },
+  {
+    "text": "The web development environment (JavaScript) offers which standard construct for data validation of the input entered by the user?",
+    "options": [
+      "Controlled loop constructs",
+      "Server page access",
+      "Client side Event",
+      "Permit server-side"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The main purpose of a \"Live Wire\" in NetScape is to ________",
+    "options": [
+      "Create linkage between client side and server side",
+      "Permit server side, JavaScript code, to connect to RDBMS",
+      "Support only non relational database",
+      "To interpret JavaScript code"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The script tag must be placed in __________",
+    "options": [
+      "the head tag",
+      "the head or body",
+      "the title or head",
+      "after the body tag"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "A JavaScript program developed on a Unix Machine ________",
+    "options": [
+      "will throw errors and exceptions",
+      "must be restricted to a Unix Machine only",
+      "will work perfectly well on a Windows Machine",
+      "will be displayed as a JavaScript text on the browser"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "JavaScript is ideal to ________",
+    "options": [
+      "make computations in HTML simpler",
+      "minimize storage requirements on the web server",
+      "increase the download time for the client",
+      "increase the loading time of the website"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which attribute is used to specify that the script is executed when the page has finished parsing? (only for external scripts)",
+    "options": [
+      "parse",
+      "async",
+      "defer",
+      "type"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "JavaScript Code can be called by using ____________",
+    "options": [
+      "RMI",
+      "Triggering Event",
+      "Preprocessor",
+      "Function/Method"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "JavaScript can be written __________",
+    "options": [
+      "directly into JS file and included into HTML",
+      "directly on the server page",
+      "directly into HTML pages",
+      "directly into the CSS file"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which of the following attribute is used to include external JavaScript code inside your HTML document?",
+    "options": [
+      "src",
+      "ext",
+      "script",
+      "link"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "A proper scripting language is a __________",
+    "options": [
+      "High level programming language",
+      "Assembly level programming language",
+      "Machine level programming language",
+      "Low level programming language"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+    {
+    "text": "What will be the output of the following JavaScript code?\n\nvar txt1 = \"good\";\nvar txt2 = \"day\";\ndocument.getElementById(\"demo\").innerHTML = txt1 + txt2;",
+    "options": [
+      "good day",
+      "goodday",
+      "error",
+      "undefined"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nvar x = 5;\nvar y = 2;\nvar z = x % y;\ndocument.getElementById(\"demo\").innerHTML = z;",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "5"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nvar x = 10;\nx *= 5;\ndocument.getElementById(\"demo\").innerHTML = x;",
+    "options": [
+      "5",
+      "10",
+      "50",
+      "Error"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\ntxt1 = \"one\";\ntxt1 += \"two\";\ndocument.getElementById(\"demo\").innerHTML = txt1;",
+    "options": [
+      "onetwo",
+      "one two",
+      "error",
+      "undefined"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\ndocument.getElementById(\"demo\").innerHTML = typeof \"John\";",
+    "options": [
+      "integer",
+      "number",
+      "string",
+      "error"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "JavaScript Code can be called by using ___________",
+    "options": [
+      "RMI",
+      "Triggering Event",
+      "Preprocessor",
+      "Function/Method"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The type of a variable that is volatile is _______________",
+    "options": [
+      "Volatile variable",
+      "Mutable variable",
+      "Immutable variable",
+      "Dynamic variable"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "A hexadecimal literal begins with __________",
+    "options": [
+      "00",
+      "0x",
+      "0X",
+      "Both 0x and 0X"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The generalised syntax for a real number representation is __________",
+    "options": [
+      "[digits][.digits][(E|e)[(+|-) ]digits]",
+      "[digits][+digits][(E|e)[(+|-) ]digits]",
+      "[digits][(E|e)[(+|-) ]digits]",
+      "[.digits][digits][(E|e)[(+|-) ]digits]"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "JavaScript _________ when there is an indefinite or an infinite value during an arithmetic computation.",
+    "options": [
+      "Prints an exception error",
+      "Prints an overflow error",
+      "Displays \"Infinity\"",
+      "Prints the value as such"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which of the following is not considered as an error in JavaScript?",
+    "options": [
+      "Syntax error",
+      "Missing of semicolons",
+      "Division by zero",
+      "Missing of Bracket"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The escape sequence '\\f' stands for _________",
+    "options": [
+      "Floating numbers",
+      "Representation of functions that returns a value",
+      "\\f is not present in JavaScript",
+      "Form feed"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The snippet that has to be used to check if \"a\" is not equal to null is _________",
+    "options": [
+      "if(a!=null)",
+      "if(!a)",
+      "if(a!null)",
+      "if(a!==null)"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+  {
+    "text": "The statement a===b refers to _________",
+    "options": [
+      "Both a and b are equal in value, type and reference address",
+      "Both a and b are equal in value",
+      "Both a and b are equal in value and type",
+      "There is no such statement"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Assume that we have to convert \"false\" that is a non-string to string. The command that we use is (without invoking the \"new\" operator).",
+    "options": [
+      "false.toString()",
+      "String(false)",
+      "String newvariable = \"false\"",
+      "Both false.toString() and String(false)"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 25
+  },
+    {
+    "text": "What will be the output of the following JavaScript code?\n\nfunction compare() {\n  let a = 2.0;\n  let b = 2;\n  if (a == b)\n    return true;\n  else\n    return false;\n}",
+    "options": [
+      "true",
+      "false",
+      "runtime error",
+      "compilation error"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nfunction equalto() {\n  let num = 10;\n  if (num === \"10\")\n    return true;\n  else\n    return false;\n}",
+    "options": [
+      "true",
+      "false",
+      "runtime error",
+      "compilation error"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nfunction compare() {\n  let a = 1;\n  let b = '1';\n  if (a.toString() === b)\n    return true;\n  else\n    return false;\n}",
+    "options": [
+      "true",
+      "false",
+      "runtime error",
+      "logical error"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nlet a = 2;\nlet b = 4;\nlet ans = a + b;\nconsole.log(ans);",
+    "options": [
+      "2",
+      "6",
+      "0",
+      "error"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nlet a;\nif (a !== null)\n  return 1;\nelse\n  return 0;",
+    "options": [
+      "0",
+      "1",
+      "runtime error",
+      "compiler error"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nvar string1 = \"123\";\nvar intvalue = 123;\nalert(string1 + intvalue);",
+    "options": [
+      "123246",
+      "246",
+      "123123",
+      "Exception"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "A function definition expression can be called as __________",
+    "options": [
+      "Function prototype",
+      "Function literal",
+      "Function calling",
+      "Function declaration"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The property of a primary expression is ____________",
+    "options": [
+      "stand-alone expressions",
+      "basic expressions containing all necessary functions",
+      "contains variable references alone",
+      "contains only keywords"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Consider the following JavaScript statements:\n\nvar text = \"testing: 1, 2, 3\";\nvar pattern = /\\d+/g;\n\nIn order to check if the pattern matches with the string \"text\", the statement is ____________",
+    "options": [
+      "text == pattern",
+      "text.equals(pattern)",
+      "text.test(pattern)",
+      "pattern.test(text)"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The expression of calling (or executing) a function or method in JavaScript is called ________",
+    "options": [
+      "Primary expression",
+      "Functional expression",
+      "Invocation expression",
+      "Property Access Expression"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What kind of expression is \"new Point(2,3)\"?",
+    "options": [
+      "Primary Expression",
+      "Object Creation Expression",
+      "Invocation Expression",
+      "Constructor Calling Expression"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which operator is used to test if a particular property exists or not?",
+    "options": [
+      "in",
+      "exist",
+      "within",
+      "exists"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Among the following, which one is a ternary operator?",
+    "options": [
+      "+",
+      ":",
+      "-",
+      "?:"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "\"An expression that can legally appear on the left side of an assignment expression\" is called ___________.",
+    "options": [
+      "Properties",
+      "Prototypes",
+      "Lvalue",
+      "Definition"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the equivalent output of the following JavaScript code snippet?\n\nx = ~-y;\nw = x = y = z;\nq = a ? b : c ? d : e ? f : g;",
+    "options": [
+      "x = ~(-y); w = (x = (y = z)); q = a ? b : (c ? d : (e ? f : g));",
+      "x = a ? b : (c ? d : (e ? f : g)); q = ~(-y); w = (x = (y = z));",
+      "x = (x = (y = z)); w = ~(-y); q = a ? b : (c ? d : (e ? f : g));",
+      "x = ~(-y); w = (x = (y = z)); q = (c ? d : (e ? f : g));"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nfunction output(option) {\n  return (option ? \"yes\" : \"no\");\n}\nbool ans = true;\nconsole.log(output(ans));",
+    "options": [
+      "Yes",
+      "No",
+      "Runtime error",
+      "Compilation error"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nvar obj = {\n  length: 20,\n  height: 35\n};\nif ('breadth' in obj === false) {\n  obj.breadth = 12;\n}\nconsole.log(obj.breadth);",
+    "options": [
+      "20",
+      "12",
+      "undefined",
+      "error"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nfunction height() {\n  var height = 123.56;\n  var type = (height >= 190) ? \"tall\" : \"short\";\n  return type;\n}",
+    "options": [
+      "123.56",
+      "190",
+      "tall",
+      "short"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nstring a = \"hi\";\nstring b = \"there\";\nalert(a + b);",
+    "options": [
+      "hi",
+      "there",
+      "hithere",
+      "undefined"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nfunction output(object) {\n  var place = object ? object.place : \"Italy\";\n  return \"clean:\" + place;\n}\nconsole.log(output({ place: \"India\" }));",
+    "options": [
+      "clean:India",
+      "clean:Italy",
+      "error",
+      "undefined"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nfunction myFunction() {\n  document.getElementById(\"demo\").innerHTML = Math.abs(-7.25);\n}",
+    "options": [
+      "7.25",
+      "-7.25",
+      "7",
+      "-7"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nfunction myFunction() {\n  document.getElementById(\"demo\").innerHTML = Math.cbrt(125);\n}",
+    "options": [
+      "125",
+      "25",
+      "5",
+      "Error"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nfunction myFunction() {\n  document.getElementById(\"demo\").innerHTML = Math.acos(0.5);\n}",
+    "options": [
+      "1.01",
+      "1.047",
+      "1.00",
+      "1.4"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "JavaScript is a _______________ language.",
+    "options": [
+      "Object-Oriented",
+      "High-level",
+      "Assembly-language",
+      "Object-Based"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nvar a = 5, b = 1;\nvar obj = { a: 10 };\nwith (obj) {\n  alert(b);\n}",
+    "options": [
+      "10",
+      "Error",
+      "1",
+      "5"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "A conditional expression is also called a _______________.",
+    "options": [
+      "Alternative to if-else",
+      "Immediate if",
+      "If-then-else statement",
+      "Switch statement"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which is a more efficient JavaScript code snippet?",
+    "options": [
+      "Code 1 (for loop)",
+      "Code 2 (while loop)",
+      "Both Code 1 and Code 2",
+      "Cannot Compare"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is a block statement in JavaScript?",
+    "options": [
+      "Conditional block",
+      "Block that contains a single statement",
+      "Both conditional block and a single statement",
+      "Block that combines multiple statements into a single compound statement"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "When an empty statement is encountered, a JavaScript interpreter __________.",
+    "options": [
+      "Ignores the statement",
+      "Prompts to complete the statement",
+      "Throws an error",
+      "Shows a warning"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The \"var\" and \"function\" are __________.",
+    "options": [
+      "Keywords",
+      "Declaration statements",
+      "Data types",
+      "Prototypes"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+
+  {
+    "text": "In the following switch syntax, the expression is compared with the case labels using which operator?\n\nswitch(expression) {\n  statements\n}",
+    "options": [
+      "==",
+      "equals",
+      "equal",
+      "==="
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What happens in the following JavaScript code snippet?\n\nvar count = 0;\nwhile (count < 10) {\n  console.log(count);\n  count++;\n}",
+    "options": [
+      "The values of count are logged or stored in a particular location or storage",
+      "The value of count from 0 to 9 is displayed in the console",
+      "An error is displayed",
+      "An exception is thrown"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The enumeration order becomes implementation dependent and non-interoperable if ___________.",
+    "options": [
+      "The object inherits enumerable properties",
+      "The object does not have the properties present in the integer array indices",
+      "The delete keyword is never used",
+      "Object.defineProperty() is not used"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nlet a = 1;\nif (a > 10) {\n  document.write(10);\n} else {\n  document.write(a > 10);\n}",
+    "options": [
+      "10",
+      "0",
+      "1",
+      "false"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nvar B = 65;\nvar grade = B;\nvar result = 0;\nswitch (grade) {\n  case 'A':\n    result += 10;\n    break;\n  case 'B':\n    result += 9;\n    break;\n  case 'C':\n    result += 8;\n    break;\n  default:\n    result += 0;\n}\ndocument.write(result);",
+    "options": [
+      "74",
+      "75",
+      "73",
+      "0"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nvar grade = 'A';\nvar result = 0;\nswitch (grade) {\n  case 'A':\n    result += 10;\n  case 'B':\n    result += 9;\n  case 'C':\n    result += 8;\n  default:\n    result += 0;\n}\ndocument.write(result);",
+    "options": [
+      "10",
+      "27",
+      "8",
+      "0"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nvar a = 4;\nvar b = 1;\nvar c = 0;\nif (a === b)\n  document.write(a);\nelse if (a === c)\n  document.write(a);\nelse\n  document.write(c);",
+    "options": [
+      "4",
+      "1",
+      "Error",
+      "0"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+   {
+    "text": "What will be the output of the following JavaScript code?\n\nvar grade = 'C';\nvar result = '';\nswitch (grade) {\n  case 'A':\n    result += ' 10';\n  case 'B':\n    result += ' 9';\n  case 'C':\n    result += ' 8';\n  default:\n    result += ' 0';\n}\ndocument.write(result);",
+    "options": [
+      "8",
+      "9",
+      "10",
+      "None of the mentioned"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nfunction printArray(a) {\n  var len = a.length, i = 0;\n  if (len == 0)\n    console.log('Empty Array');\n  else {\n    do {\n      console.log(a[i]);\n    } while (++i < len);\n  }\n}",
+    "options": [
+      "Prints the numbers in the array in order",
+      "Prints the numbers in the array in the reverse order",
+      "Prints 0 to the length of the array",
+      "Prints \"Empty Array\""
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What are the three important manipulations done in a for loop on a loop variable?",
+    "options": [
+      "Updation, Incrementation, Initialization",
+      "Initialization, Testing, Updation",
+      "Testing, Updation, Testing",
+      "Initialization, Testing, Incrementation"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will the following JavaScript code snippet do?\n\nfunction tail(o) {\n  for (; o.next; o = o.next);\n  return o;\n}",
+    "options": [
+      "No, this will throw an exception as only numerics can be used in a for loop",
+      "No, this will not iterate",
+      "Yes, this will work",
+      "No, this will result in a runtime error with the message \"Cannot use Linked List\""
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the equivalent code of the following JavaScript code?\n\nfor (var p in o)\n  console.log(o[p]);",
+    "options": [
+      "for (var i = 0; i < a.length; i++) console.log(a[i]);",
+      "for (int i = 0; i < a.length; i++) console.log(a[i]);",
+      "for (var i = 0; i <= a.length; i++) console.log(a[i]);",
+      "for (var i = 1; i < a.length; i++) console.log(a[i]);"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "One of the special features of an interpreter in reference with the for loop is that ___________.",
+    "options": [
+      "Before each iteration, the interpreter evaluates the variable expression and assigns the name of the property",
+      "The iterations can be infinite when an interpreter is used",
+      "The body of the loop is executed only once",
+      "The iteration is finite when an interpreter is used"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What will happen if the body of a for/in loop deletes a property that has not yet been enumerated?",
+    "options": [
+      "The property will be stored in a cache",
+      "The loop will not run",
+      "That property will not be enumerated",
+      "The property will be enumerated"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the step of the interpreter in a jump statement when an exception is thrown?",
+    "options": [
+      "The interpreter stops its work",
+      "The interpreter throws another exception",
+      "The interpreter jumps to the nearest enclosing exception handler",
+      "The interpreter throws an error"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the role of the continue keyword in the following JavaScript code snippet?\n\nwhile (a != 0) {\n  if (a == 1)\n    continue;\n  else\n    a++;\n}",
+    "options": [
+      "The continue keyword restarts the loop",
+      "The continue keyword skips the next iteration",
+      "The continue keyword skips the rest of the statements in that iteration",
+      "The continue keyword breaks out of the loop"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+    {
+    "text": "What could be the task of the debugger statement in the following JavaScript code?\n\nfunction f(o) {\n  if (o === undefined) debugger;\n}",
+    "options": [
+      "It does nothing but acts as a simple breakpoint",
+      "It debugs the error in that statement and restarts the statement's execution",
+      "It is used as a keyword that debugs the entire program at once",
+      "It is used to find an error in the statement"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Among the keywords below, which one is not a statement?",
+    "options": [
+      "debugger",
+      "with",
+      "if",
+      "use strict"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nfunction range(length) {\n  var a = 5;\n  for (var i = 0; i < length; i++) {\n    console.log(a);\n  }\n}\nrange(3);",
+    "options": [
+      "5",
+      "555",
+      "3",
+      "error"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nvar a = 10;\ndo {\n  a += 1;\n  console.log(a);\n} while (a < 5);",
+    "options": [
+      "11121314",
+      "1112",
+      "12345",
+      "11"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nvar a = 0;\nvar b = 0;\nwhile (a < 3) {\n  a++;\n  b += a;\n  console.log(b);\n}",
+    "options": [
+      "136",
+      "123",
+      "013",
+      "01"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nlet size = 5;\nlet a = 5;\nfor (let j = size; j >= 0; j = a) {\n  document.write(a);\n  a = a - 2;\n}",
+    "options": [
+      "5555",
+      "5321",
+      "531",
+      "Infinite loop"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nlet a = 0;\nfor (a; a < 5; a++);\nconsole.log(a);",
+    "options": [
+      "0",
+      "error",
+      "4",
+      "5"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is the observation made in the following JavaScript code?\n\nvar count = [1, , 3];",
+    "options": [
+      "The omitted value takes \"undefined\"",
+      "This results in an error",
+      "This results in an exception",
+      "The omitted value takes an integer value"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nvar a1 = [,,,];\nvar a2 = new Array(3);\n0 in a1\n0 in a2",
+    "options": [
+      "true false",
+      "false true",
+      "true true",
+      "false false"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "The pop() method of an array does which of the following task?",
+    "options": [
+      "Decrements the total length by 1",
+      "Increments the total length by 1",
+      "Prints the first element but has no effect on the length",
+      "Updates an element"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is the observation made in the following JavaScript code?\n\nif (!a[i]) continue;",
+    "options": [
+      "Skips the defined elements",
+      "Skips the existent elements",
+      "Skips the null elements",
+      "Skips the defined & existent elements"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will happen if reverse() and join() methods are used simultaneously?",
+    "options": [
+      "Reverses and stores in the same array",
+      "Reverses and concatenates the elements of the array",
+      "Only reverses the array",
+      "Stores the elements of the array in normal order"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the possible output of the following JavaScript code?\n\nvar a = [1,2,3,4,5];\na.slice(0,3);",
+    "options": [
+      "Returns [1,2,3]",
+      "Returns [4,5]",
+      "Returns [1,2,3,4]",
+      "Returns [1,2,3,4,5]"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nvar a = [];\na.unshift(1);\na.unshift(22);\na.shift();\na.unshift(3,[4,5]);\na.shift();\na.shift();\nvar output = a.shift();\ndocument.writeln(output);",
+    "options": [
+      "1",
+      "[4,5]",
+      "[3,4,5]",
+      "Exception is thrown"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "The primary purpose of the array map() function is that it __________.",
+    "options": [
+      "Maps the elements of another array into itself",
+      "Passes each element of the array and returns the necessary mapped elements",
+      "Passes each element of the array to a function and returns an array containing the values returned by that function",
+      "Passes the elements of the array into another array"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The reduce() and reduceRight() methods follow a common operation called __________.",
+    "options": [
+      "Filter and fold",
+      "Inject and fold",
+      "Finger and fold",
+      "Fold"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "The method or operator used to identify the array is __________.",
+    "options": [
+      "isarrayType()",
+      "==",
+      "===",
+      "typeof"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nvar val1 = [1,2,3];\nvar val2 = [6,7,8];\nvar result = val1.concat(val2);\ndocument.writeln(result);",
+    "options": [
+      "1, 2, 3",
+      "Error",
+      "1, 2, 3, 6, 7, 8",
+      "123"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nvar values = [1,2,3,4];\nvar ans = values.slice(1);\ndocument.writeln(ans);",
+    "options": [
+      "1, 2, 3, 4",
+      "2, 3, 4",
+      "1, 3, 4",
+      "Error"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nlet sum = 0;\nvar arr = [10, 15, 20, 30];\narr.forEach(function myFunction(element) {\n  sum = sum + element;\n});\ndocument.writeln(sum);",
+    "options": [
+      "70",
+      "75",
+      "10",
+      "error"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nvar values = [\"one\", \"two\", \"Three\"];\nvar ans = values.shift();\ndocument.writeln(ans);",
+    "options": [
+      "one",
+      "two",
+      "three",
+      "error"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nconst array = [1, 2, 3, 4, 5];\nconst startIndex = 1;\nconst endIndex = 3;\nconst portionToReverse = array.slice(startIndex, endIndex + 1);\nportionToReverse.reverse();\nfor (let i = startIndex, j = 0; i <= endIndex; i++, j++) {\n  array[i] = portionToReverse[j];\n}\nconsole.log(array);",
+    "options": [
+      "1, 2, 3, 4, 5",
+      "1, 4, 3, 2, 5",
+      "1, 5, 4, 3, 2",
+      "5, 4, 3, 2, 1"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What kind of scoping does JavaScript use?",
+    "options": [
+      "Literal",
+      "Lexical",
+      "Segmental",
+      "Sequential"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What must be done in order to implement lexical scoping?",
+    "options": [
+      "Get the object",
+      "Dereference the current scope chain",
+      "Reference the current scope chain",
+      "Return the value"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is closure?",
+    "options": [
+      "Function objects",
+      "Scope where function's variables are resolved",
+      "Both Function objects and Scope where function's variables are resolved",
+      "Function return value"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which of the following is not an example of closures?",
+    "options": [
+      "Objects",
+      "Variables",
+      "Functions",
+      "Graphics"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which of the following uses a lot of CPU cycles?",
+    "options": [
+      "GUI",
+      "Statically generated graphics",
+      "Dynamically generated graphics",
+      "Generic scoping"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the function of the following JavaScript code?\n\nvar scope = \"global scope\";\nfunction checkscope() {\n  var scope = \"local scope\";\n  function f() {\n    return scope;\n  }\n  return f;\n}",
+    "options": [
+      "Returns value null",
+      "Returns exception",
+      "Returns the value in scope",
+      "Shows an error message"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is the fundamental rule of lexical scoping?",
+    "options": [
+      "Functions are declared in the scope",
+      "Functions are executed using the scope chain",
+      "Functions are declared outside the scope",
+      "Variables are declared within the function"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is the opposite approach to lexical scoping?",
+    "options": [
+      "Literal scoping",
+      "Static scoping",
+      "Dynamic scoping",
+      "Generic scoping"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is the purpose of dynamic scoping?",
+    "options": [
+      "Variables can be declared outside the scope",
+      "Variables must be declared outside the scope",
+      "Variables cannot be declared outside the scope",
+      "Variables cannot be declared within the function"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which of the following algorithmic languages is not standardized for lexical scoping?",
+    "options": [
+      "Ada",
+      "Pascal",
+      "Modula2",
+      "HTML"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript statement?\n\nvar grand_Total = eval(\"10*10+5\");",
+    "options": [
+      "10*10+5",
+      "105 as a string",
+      "105 as an integer value",
+      "Exception is thrown"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Do functions in JavaScript necessarily return a value?",
+    "options": [
+      "It is mandatory",
+      "Not necessary",
+      "Few functions return values by default",
+      "Some functions do not return any value"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Will the following JavaScript code work?\n\nvar tensquared = (function(x) { return x * x; }(10));",
+    "options": [
+      "Yes, perfectly",
+      "Error",
+      "Exception will be thrown",
+      "Memory leak"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nvar string2Num = parseInt(\"123xyz\");",
+    "options": [
+      "123",
+      "123xyz",
+      "Exception",
+      "NaN"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The one-liner code that concatenates all strings passed into a function is ____________",
+    "options": [
+      "String.prototype.concat('', arguments)",
+      "String.prototype.apply('', arguments)",
+      "String.concat.apply('', arguments)",
+      "String.prototype.concat.apply('', arguments)"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "If you have a function f and an object o, you can define a method named m of o with ________",
+    "options": [
+      "o.m = m.f;",
+      "o.m = f;",
+      "o = f.m;",
+      "o = f;"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the equivalent statement of the following JavaScript statement?\n\nvar o = new Object();",
+    "options": [
+      "var o = Object();",
+      "var o;",
+      "var o = new Object;",
+      "Object o = new Object();"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is the difference between the following JavaScript expressions?\n\n!!(obj1 && obj2);\n(obj1 && obj2);",
+    "options": [
+      "Both lines result in a boolean value true",
+      "Both lines result in a boolean value false",
+      "Both lines only check for the existence of the objects",
+      "The first returns a real boolean value, while the second returns a truthy/falsy value"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What will be the state stored in d in the following JavaScript code?\n\nvar c = counter(), d = counter();\nc.count();\nd.count();\nc.reset();\nc.count();\nd.count();",
+    "options": [
+      "1",
+      "0",
+      "Null",
+      "Undefined"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What will the last statement return in the following JavaScript code?\n\nfunction constfuncs() {\n  var funcs = [];\n  for (var i = 0; i < 10; i++)\n    funcs[i] = function() { return i; };\n  return funcs;\n}\nvar funcs = constfuncs();\nfuncs[5]();",
+    "options": [
+      "9",
+      "0",
+      "10",
+      "12"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "hard",
+    "timeLimitSeconds": 30
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nvar arr = [7, 5, 9, 1];\nvar min = Math.min.apply(null, arr);\ndocument.writeln(min);",
+    "options": [
+      "7",
+      "5",
+      "1",
+      "9"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nvar add = new Function(\"num1\", \"num2\", \"return num1 + num2\");\ndocument.writeln(add(2,5));",
+    "options": [
+      "2",
+      "5",
+      "Error",
+      "7"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nvar a = 3.7;\nvar b = 2;\na = Math.ceil(a);\ndocument.writeln(a * b);",
+    "options": [
+      "6",
+      "7.4",
+      "7.5",
+      "8"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nvar a = 2.99;\nvar ans = Math.floor(a) * Math.floor(a);\nconsole.log(ans);",
+    "options": [
+      "9",
+      "8.31",
+      "Error",
+      "4"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nvar a = 225;\ndocument.writeln(Math.sqrt(a));",
+    "options": [
+      "225",
+      "15",
+      "Error",
+      "Undefined"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nfunction myFunction() {\n  document.getElementById(\"demo\").innerHTML = Math.asinh(1);\n}",
+    "options": [
+      "0.80",
+      "0.88",
+      "0.50",
+      "0.78"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nfunction myFunction() {\n  document.getElementById(\"demo\").innerHTML = Math.atan2(8, 4);\n}",
+    "options": [
+      "1.00",
+      "1.01",
+      "1.05",
+      "1.10"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which function lets you register a function to be invoked once after a specified delay?",
+    "options": [
+      "setTimeout()",
+      "setTotaltime()",
+      "setInterval()",
+      "settime()"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which function lets you register a function to be invoked repeatedly after a specified interval?",
+    "options": [
+      "setTimeout()",
+      "setTotaltime()",
+      "setInterval()",
+      "settime()"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which handler method is used to invoke when uncaught JavaScript exceptions occur?",
+    "options": [
+      "Onhalt",
+      "Onerror",
+      "Both onhalt and onerror",
+      "Onsuspend"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property is used to obtain browser vendor and version information?",
+    "options": [
+      "modal",
+      "version",
+      "browser",
+      "navigator"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which method receives the return value of setInterval() to cancel future invocations?",
+    "options": [
+      "clearInvocation()",
+      "cancelInvocation()",
+      "clearInterval()",
+      "clear()"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The setTimeout() method belongs to which object?",
+    "options": [
+      "Element",
+      "Window",
+      "Location",
+      "Event"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+
+  {
+    "text": "Which method receives the return value of setTimeout() to cancel future invocations?",
+    "options": [
+      "clearTimeout()",
+      "clearInterval()",
+      "clearSchedule()",
+      "cancelInvocation()"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will happen if we call setTimeout() with a time of 0 ms?",
+    "options": [
+      "Placed in stack",
+      "Placed in queue",
+      "Will run continuously",
+      "Will execute immediately"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "To which object does the location property belong?",
+    "options": [
+      "Window",
+      "Position",
+      "Element",
+      "Location"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What is the result of the following code snippet?\n\nwindow.location === document.location",
+    "options": [
+      "False",
+      "True",
+      "0",
+      "1"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nfunction getcube() {\n  var number = document.getElementById(\"number\").value;\n  alert(number * number * number);\n}\n\n<input type=\"text\" id=\"number\" value=\"3\">",
+    "options": [
+      "9",
+      "27",
+      "Error",
+      "Undefined"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nfunction totalelements() {\n  var allgenders = document.getElementsByName(\"gender\");\n  alert(\"Total Genders: \" + allgenders.length);\n}",
+    "options": [
+      "0",
+      "Error",
+      "2",
+      "1"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nfunction counth2() {\n  var totalh2 = document.getElementsByTagName(\"h2\");\n  alert(totalh2.length);\n}\n\n<h2>hello</h2>\n<h2>hello</h2>",
+    "options": [
+      "0",
+      "hello",
+      "h2",
+      "2"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nfunction validate() {\n  var msg;\n  if (document.myForm.userPass.value.length > 5) {\n    msg = \"good\";\n  } else {\n    msg = \"poor\";\n  }\n  document.getElementById(\"mylocation\").innerText = msg;\n}\n\nPassword value: \"rhuld\"",
+    "options": [
+      "Strength: good",
+      "Strength: poor",
+      "Strength: no strength",
+      "Undefined"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "What will be the output of the following JavaScript code?\n\nfunction showcommentform() {\n  var data = \"new text\";\n  document.getElementById(\"mylocation\").innerHTML = data;\n}",
+    "options": [
+      "Comment",
+      "new text",
+      "Error",
+      "Undefined"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The type that specifies what kind of event occurred is ____________.",
+    "options": [
+      "Event type",
+      "Event target",
+      "Both event type and event target",
+      "Interface"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which is the object on which the event occurred or with which the event is associated?",
+    "options": [
+      "Event type",
+      "Event target",
+      "Both event type and event target",
+      "Interface"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+    {
+    "text": "In general, an event handler is nothing but ____________.",
+    "options": [
+      "Function",
+      "Interface",
+      "Event",
+      "Handler"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "When will the browser invoke the event handler?",
+    "options": [
+      "When the program begins",
+      "When any event occurs",
+      "When the specified event occurs",
+      "When the webpage loads"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which property specifies the type of the event?",
+    "options": [
+      "Type",
+      "Target",
+      "Manner",
+      "Program"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The process by which the browser decides which objects to trigger event handlers on is ____________.",
+    "options": [
+      "Event Triggering",
+      "Event Listening",
+      "Event Handling",
+      "Event propagation"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "Which form of event propagation handles the registered container elements?",
+    "options": [
+      "Event Propagation",
+      "Event Registration",
+      "Event Capturing",
+      "Default Actions"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The events that are directly tied to a specific input device are ____________.",
+    "options": [
+      "Device-independent input events",
+      "Device-dependent input events",
+      "User interface events",
+      "State change events"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The high-level events among the following events are ____________.",
+    "options": [
+      "User interface events",
+      "Device-independent events",
+      "Device-dependent events",
+      "State change events"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
+  },
+  {
+    "text": "The events that are not directly tied to a specific input device are _____________.",
+    "options": [
+      "User interface events",
+      "Device-independent events",
+      "Device-dependent events",
+      "State change events"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimitSeconds": 20
   }
 ]
+
+
+
+
+  
+
+
+ 
