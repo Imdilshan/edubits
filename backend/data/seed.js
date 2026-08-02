@@ -122,6 +122,10 @@ async function seed() {
   await Topic.findByIdAndUpdate(topics["JavaScript Basics"]._id, {
     prerequisites: [topics["CSS Styling"]._id],
   });
+  
+  await Topic.findByIdAndUpdate(topics["React"]._id, {
+  prerequisites: [topics["JavaScript Basics"]._id],
+});
 
   console.log("🔗 Prerequisites linked");
   const questions = [
