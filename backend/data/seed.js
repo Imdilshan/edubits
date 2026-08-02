@@ -114,6 +114,8 @@ async function seed() {
     topics[t.name] = topic;
   }
 
+  
+
   console.log("✅ Topics upserted");
   // await Topic.findByIdAndUpdate(topics["CSS Styling"]._id, {
   //   prerequisites: [topics["HTML Fundamentals"]._id],
