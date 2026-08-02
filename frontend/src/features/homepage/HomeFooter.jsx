@@ -88,7 +88,7 @@ export default function HomeFooter() {
 
             <div className="hp-founder-item">
               <img
-                src="/images/rahul.jpg"
+                src="/images/rahul.jpeg"
                 alt="Rahul Raj"
                 className="hp-founder-avatar"
                 loading="lazy"
