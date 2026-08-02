@@ -57,7 +57,7 @@ export default function ResultsPage() {
           {topic?.name || "Quiz"} complete
         </p>
 
-        <div style={{
+        {/* <div style={{
           width: 120,
           height: 120,
           borderRadius: "50%",
@@ -75,7 +75,69 @@ export default function ResultsPage() {
           }}>
             {percentage}%
           </span>
+        </div> */}
+
+        <div
+          style={{
+            width: 150,
+            height: 150,
+            margin: "0 auto 2rem",
+            position: "relative",
+          }}
+        >
+          {/* Outer progress ring */}
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              borderRadius: "50%",
+              background: `conic-gradient(
+                from -90deg,
+                ${gradeColor} ${percentage * 3.6}deg,
+                var(--bg-3) 0deg
+              )`,
+            }}
+          />
+
+          {/* Inner circle */}
+          <div
+            style={{
+              position: "absolute",
+              inset: 20,
+              borderRadius: "50%",
+              background: "var(--bg-2)",
+              border: "2px solid var(--border)",
+
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <div
+              style={{
+                fontSize: "2rem",
+                fontWeight: 800,
+                color: gradeColor,
+                lineHeight: 1,
+              }}
+            >
+              {percentage}%
+            </div>
+
+            <div
+              style={{
+                marginTop: 6,
+                fontSize: ".8rem",
+                color: "var(--text-2)",
+              }}
+            >
+              Score
+            </div>
+          </div>
         </div>
+
+
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1rem" }}>
           {[
