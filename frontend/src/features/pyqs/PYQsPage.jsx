@@ -326,7 +326,34 @@ const PLAYLIST_SOURCES = [
   {
     year: "3rd Year",
     image: "/images/3rd.svg",
-    subjects: [],
+    subjects: [
+      {
+        subject: "Computer Networks",
+        image: "/images/coa.svg",
+        playlists: [
+          { id: "cn1", title: "Unit 1", channel: "Gate Smashers", playlistId: "PLNlA76cRprwA", thumbVideoId: "4D55Cmj2t-A" },
+        ],
+      },
+      {
+        subject: "PBL in Java",
+        image: "/images/java.svg",
+        playlists: [
+          { id: "pbljava1", title: "Java Fundamentals", channel: "Learn Coding", playlistId: "PLE2cF7tVvXPQ", thumbVideoId: "4Y0N43i2RNs" },
+          { id: "pbljava2", title: "OOPS using Java", channel: "Easy Engineering Classes", playlistId: "PLSPR4nZ76QqY", thumbVideoId: "Hs6CnxTNvxg" },
+          { id: "pbljava3", title: "Exception Handling", channel: "Learn Coding", playlistId: "PLceHdQTUTGTE", thumbVideoId: "bxcZ7cXbDI0" },
+        ],
+      },
+      {
+        subject: "Probability & Statistics",
+        image: "/images/maths2.svg",
+        playlists: [
+          { id: "pns1", title: "Measures of Central Tendency", channel: "Dream Maths", playlistId: "PLceBS6W7XAAI", thumbVideoId: "rqQjkhuraws" },
+          { id: "pns2", title: "Measure of Dispersion", channel: "Dream Maths", playlistId: "PLBbrgHyZKZGE", thumbVideoId: "a-5S15o_N7U" },
+          { id: "pns3", title: "Moments skewness and kurtosis", channel: "Dream Maths", playlistId: "PLEHGYFbPuuMF_DhK0YZ4AXAvwrtULsQac", thumbVideoId: "AJmkNqqZBH4" },
+          { id: "pns1", title: "Probability Distributions", channel: "Dream Maths", playlistId: "PLaTRYhg5SXFI", thumbVideoId: "XifBOZPO5HI" },
+        ],
+      },
+    ],
   },
   {
     year: "4th Year",
