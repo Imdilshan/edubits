@@ -22,19 +22,20 @@ const PAPER_SOURCES = [
     image: "/images/1st.svg",
     subjects: [
       {
-        subject: "Mathematics-II",
+        subject: "Mathematics-I",
         image: "/images/maths2.svg",
         papers: [
           // { id: "math-mst1",  title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1587LMIzAkGPijJ7FbCS8qpiTB3lUKqsK/preview", solutionUrl: "" },
           // { id: "math-mst2",  title: "MST 2", type: "pdf", url: "https://drive.google.com/file/d/16Q-zKnfSGzNTlJLafuKthQ8JloxISB1A/preview", solutionUrl: "" },
           // { id: "math-est1",  title: "EST 1", type: "pdf", url: "https://drive.google.com/file/d/10E2i7EtHD6_WJuVSL-1u7kgmNjF3DgR0/preview", solutionUrl: "" },
+          { id: "math-mst1",  title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1SHASHyHuVHyFFHRtY98qOm2WTyeb9JZi/preview", solutionUrl: "" }, 
         ],
       },
       {
         subject: "Digital Electronics",
         image: "/images/fede.svg",
         papers: [
-          // { id: "de-mst1", title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1ImyfrlPSahDY7jn6llVrNWPgdZObh6re/preview", solutionUrl: "" },
+           { id: "de-mst1", title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1DT1ZcQQJed1XBjpt0KYtI-5caziuvjnk/preview", solutionUrl: "" },
           // { id: "de-mst2", title: "MST 2", type: "pdf", url: "https://drive.google.com/file/d/1X7MXH57AHA-uLCG2aORk-TAWQF_fgyWc/preview", solutionUrl: "" },
           // { id: "de-est1", title: "EST 1", type: "pdf", url: "https://drive.google.com/file/d/1BPyBOPekIi3N7b2i-oW5AfEfoCd5kFQB/preview", solutionUrl: "" },
         ],
@@ -43,16 +44,16 @@ const PAPER_SOURCES = [
         subject: "Engineering Physics",
         image: "/images/ep.svg",
         papers: [
-          // { id: "ep-mst1", title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1w8Ialuz1Yfa-bJ4XEwJJsTSu6CHbsalw/preview", solutionUrl: "" },
+           { id: "ep-mst1", title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1cEV_CehOoDN-Brb36PrTv_PwuIfDLoho/preview", solutionUrl: "" },
           // { id: "ep-mst2", title: "MST 2", type: "pdf", url: "https://drive.google.com/file/d/1yeOJ3gkZiyvUheOzfQusK1aIzvhzT5z2/preview", solutionUrl: "" },
           // { id: "ep-est1", title: "EST 1", type: "pdf", url: "https://drive.google.com/file/d/1bbhygnl7EsdvdQxeiciUztm_a72ZFxdA/preview", solutionUrl: "" },
         ],
       },
       {
-        subject: "DSA",
+        subject: "LTPS",
         image: "/images/dsa.svg",
         papers: [
-          // { id: "dsa-mst1", title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1o6z_egRoKrI7WTkwA5tT5tZbGwMH1mHC/preview", solutionUrl: "" },
+          { id: "dsa-mst1", title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1J8YpqOEmQZSET_MtDLTim98OpD6m55ia/preview", solutionUrl: "" },
           // { id: "dsa-mst2", title: "MST 2", type: "pdf", url: "https://drive.google.com/file/d/1X0qFl7mR3sOcwiulVyfWfYPf3HS60TFL/preview", solutionUrl: "" },
         ],
       },
@@ -60,20 +61,20 @@ const PAPER_SOURCES = [
         subject: "Biology",
         image: "/images/bio.svg",
         papers: [
-          // { id: "bio-mst1", title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1ofSik_XcO2gGTUvsdFZdT_2th-K_sj8y/preview", solutionUrl: "" },
+          { id: "bio-mst1", title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1B99tsBJjJSHS4q1En8y1UJLFZ0-AqKAd/preview", solutionUrl: "" },
           // { id: "bio-mst2", title: "MST 2", type: "pdf", url: "https://drive.google.com/file/d/1sMChNTNpI8137MsNZoocTz11BhJOowgr/preview", solutionUrl: "" },
           // { id: "bio-est1", title: "EST 1", type: "pdf", url: "https://drive.google.com/file/d/19IDIHzvpaCe4gbi-pekZ850hKJtHxsWq/preview", solutionUrl: "" },
         ],
       },
-      {
-        subject: "Semi-conductor Physics",
-        image: "/images/semi.svg",
-        papers: [
-          // { id: "sc-mst1", title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1PZSdjk16DTnpNGj0tSjwIGcFkLHoHtGs/preview", solutionUrl: "" },
-          // { id: "sc-mst2", title: "MST 2", type: "pdf", url: "https://drive.google.com/file/d/1F1Yw8lMvORhKcyIPWrL6ZMSJjz-McPCI/preview", solutionUrl: "" },
-          // { id: "sc-est1", title: "EST 1", type: "pdf", url: "https://drive.google.com/file/d/1EOjUvk0nwY3JuBDXUcW9maXTjmio5N-V/preview", solutionUrl: "" },
-        ],
-      },
+      // {
+      //   subject: "Semi-conductor Physics",
+      //   image: "/images/semi.svg",
+      //   papers: [
+      //     // { id: "sc-mst1", title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1PZSdjk16DTnpNGj0tSjwIGcFkLHoHtGs/preview", solutionUrl: "" },
+      //     // { id: "sc-mst2", title: "MST 2", type: "pdf", url: "https://drive.google.com/file/d/1F1Yw8lMvORhKcyIPWrL6ZMSJjz-McPCI/preview", solutionUrl: "" },
+      //     // { id: "sc-est1", title: "EST 1", type: "pdf", url: "https://drive.google.com/file/d/1EOjUvk0nwY3JuBDXUcW9maXTjmio5N-V/preview", solutionUrl: "" },
+      //   ],
+      // },
     ],
   },
   {
@@ -84,7 +85,7 @@ const PAPER_SOURCES = [
         subject: "COA",
         image: "/images/coa.svg",
         papers: [
-          // { id: "coa-2022",  title: "Practice 0", type: "pdf", url: "https://drive.google.com/file/d/1uDjwVvsbKiJA9PgOTaVfzvHfwsQrCmJ8/preview", solutionUrl: "" },
+           { id: "coa-mst1",  title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/10fWPcZyGFJrKX4Eqrl-zZoaIIrt6gOTh/preview", solutionUrl: "" },
           // { id: "coa-2024",  title: "Practice 1", type: "pdf", url: "https://drive.google.com/file/d/1MZvRTq6k1Lqm42U1MEr7LK-VWWzSGPzA/preview", solutionUrl: "" },
           // { id: "coa-2025a", title: "Practice 2", type: "pdf", url: "https://drive.google.com/file/d/1tluGNXvQpey4jKaZQFfhEHfrRboqbszd/preview", solutionUrl: "" },
           // { id: "coa-2025b", title: "Practice 3", type: "pdf", url: "https://drive.google.com/file/d/1MgKPlMGl6HTxwMtV625CJ77pQKpWaLPF/preview", solutionUrl: "" },
@@ -93,38 +94,20 @@ const PAPER_SOURCES = [
         ],
       },
       {
-        subject: "Software Engineering",
-        image: "/images/se.svg",
+        subject: "DBMS",
+        image: "/images/dbms.svg",
         papers: [
-          // { id: "se-imp",   title: "Important Questions", type: "pdf", url: "https://drive.google.com/file/d/1sAZN2omjcdJdDbsW5-6EM4jQvzWvRYoI/preview", solutionUrl: "" },
-          // { id: "se-2022a", title: "Practice 0", type: "pdf", url: "https://drive.google.com/file/d/1pJDM_KSEQ1LHwz_UzBWVvNXcnFUqQZQq/preview", solutionUrl: "" },
-          // { id: "se-2022b", title: "Practice 1", type: "pdf", url: "https://drive.google.com/file/d/1R_QhIPBYq1ZArm-eLCWSNLKkmcnGHYKR/preview", solutionUrl: "" },
-          // { id: "se-2022c", title: "Practice 2", type: "pdf", url: "https://drive.google.com/file/d/1HIR21u97EsUwdS_OYo90S_1v2IugH55J/preview", solutionUrl: "" },
-          // { id: "se-2023",  title: "Practice 3", type: "pdf", url: "https://drive.google.com/file/d/19mdIZ9ywBlvGKHLnePq2RTTKE_RX58Px/preview", solutionUrl: "" },
-          // { id: "se-2024a", title: "Practice 4", type: "pdf", url: "https://drive.google.com/file/d/1nLLO_IjC9bg_V2eoQBe0233sGiLY7afo/preview", solutionUrl: "" },
-          // { id: "se-2024b", title: "Practice 5", type: "pdf", url: "https://drive.google.com/file/d/1a9JYBJVNxovUmfgzTKDeLg8o-YszreKx/preview", solutionUrl: "" },
-          // { id: "se-2024c", title: "Practice 6", type: "pdf", url: "https://drive.google.com/file/d/1d3l8mUn9-mAxc1c72cgSA20KPH1Dvf4E/preview", solutionUrl: "" },
+           { id: "dbms-mst1", title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1pDuxHqu4MGeR_7CLB2SZY1O5c9qujBFG/preview", solutionUrl: "" },
+          // { id: "dbms-2025b", title: "Practice 1", type: "pdf", url: "https://drive.google.com/file/d/1uCINIGKBrvVXouiXgbCaUzl_KIw0ptDe/preview", solutionUrl: "" },
+          // { id: "dbms-2025c", title: "Practice 2", type: "pdf", url: "https://drive.google.com/file/d/1AbsWHulThFsr_Mhsz1NsiGM8RyWAEnEo/preview", solutionUrl: "" },
+          // { id: "dbms-2025d", title: "Practice 3", type: "pdf", url: "https://drive.google.com/file/d/10hgvm-jo_9lH4GGYZXybkK_WnyJQblA6/preview", solutionUrl: "" },
         ],
       },
       {
-        subject: "Operating System",
-        image: "/images/os.svg",
-        papers: [
-          // { id: "os-0001",  title: "Important Questions", type: "pdf", url: "https://drive.google.com/file/d/1BDOxxGa8fSZqkXKLhtGEqrw4hl4QclIa/preview", solutionUrl: "" },
-          // { id: "os-2022a", title: "Practice 0", type: "pdf", url: "https://drive.google.com/file/d/1ibJ2ZWG07kPhpM2LU4chLAjGlL3Oa9G0/preview", solutionUrl: "" },
-          // { id: "os-2022b", title: "Practice 1", type: "pdf", url: "https://drive.google.com/file/d/1c5EMRXj_LgBRUlRNhWuVGzEPMIVpYYE5/preview", solutionUrl: "" },
-          // { id: "os-2022c", title: "Practice 2", type: "pdf", url: "https://drive.google.com/file/d/1sB0qONnGQyWnVJ_o6qE8VKZp3P3WvwSh/preview", solutionUrl: "" },
-          // { id: "os-2022d", title: "Practice 3", type: "pdf", url: "https://drive.google.com/file/d/13qidPE9bYiAV_a_8l7YvlwtQ4TmkqlSE/preview", solutionUrl: "" },
-          // { id: "os-2023a", title: "Practice 4", type: "pdf", url: "https://drive.google.com/file/d/1dC1ZwltNWd-7ovYM_hZTEsqF8J8z_SXV/preview", solutionUrl: "" },
-          // { id: "os-2023b", title: "Practice 5", type: "pdf", url: "https://drive.google.com/file/d/1VxjuTujtJ58PeuNHFXrRX_3fHSz4gQvm/preview", solutionUrl: "" },
-          // { id: "os-2023c", title: "Practice 6", type: "pdf", url: "https://drive.google.com/file/d/1U3_WL0hT1MzuOuGafpzIZnLzEov9MRVu/preview", solutionUrl: "" },
-        ],
-      },
-      {
-        subject: "DAA",
+        subject: "ADSA",
         image: "/images/daa.svg",
         papers: [
-          // { id: "daa-2023a", title: "Practice 0", type: "pdf", url: "https://drive.google.com/file/d/1znMw3Ve4W4oDl3Vf4UYsjiGk2pz4aQkn/preview", solutionUrl: "" },
+           { id: "daa-mst1", title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1Zs41Fit4qBTTicd3Cg6r9gsbGeOin4Et/preview", solutionUrl: "" },
           // { id: "daa-2023b", title: "Practice 1", type: "pdf", url: "https://drive.google.com/file/d/1bc6iNabOnpnVXRqXGmkGpQ7IEhWL1ylQ/preview", solutionUrl: "" },
           // { id: "daa-2024a", title: "Practice 2", type: "pdf", url: "https://drive.google.com/file/d/13uQsoRoDsmP2Lvo_ktQH5GxW_eJ_zI8w/preview", solutionUrl: "" },
           // { id: "daa-2024b", title: "Practice 3", type: "pdf", url: "https://drive.google.com/file/d/1-LSsXZPLpzim7xwRAVECGbzQMZFVkfta/preview", solutionUrl: "" },
@@ -138,7 +121,7 @@ const PAPER_SOURCES = [
         subject: "Java",
         image: "/images/java.svg",
         papers: [
-          // { id: "java-2023a", title: "Practice 0", type: "pdf", url: "https://drive.google.com/file/d/1OpVDi58n9svRTlENe52f0f6K1renT3h9/preview", solutionUrl: "" },
+          { id: "java-mst1", title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1DTbKrEeSitX1Oq7JRbHooie--nAycyXZ/preview", solutionUrl: "" },
           // { id: "java-2023b", title: "Practice 1", type: "pdf", url: "https://drive.google.com/file/d/1U8gHgZDSz0QXi8mhsuOMXBsyrpPutw1d/preview", solutionUrl: "" },
           // { id: "java-2024a", title: "Practice 2", type: "pdf", url: "https://drive.google.com/file/d/16HxigLF5npg1umcBShN67_R3IhXNkBVh/preview", solutionUrl: "" },
           // { id: "java-2024b", title: "Practice 3", type: "pdf", url: "https://drive.google.com/file/d/16Ywzd3EMTsLiuWowS_I-Ij4EvQWw2xXJ/preview", solutionUrl: "" },
@@ -146,37 +129,79 @@ const PAPER_SOURCES = [
           // { id: "java-2025",  title: "Practice 5", type: "pdf", url: "https://drive.google.com/file/d/1M-JH-3kbRj-8iXT5dOmPwOczBPMCnD9N/preview", solutionUrl: "" },
         ],
       },
-      {
-        subject: "Machine Learning",
-        image: "/images/ml.svg",
-        papers: [
-          // { id: "ml-2022", title: "Practice 0", type: "pdf", url: "https://drive.google.com/file/d/1Xmg5pZTivaf1kV0MFZji-tctGyzvVAu1/preview", solutionUrl: "" },
-          // { id: "ml-2023", title: "Practice 1", type: "pdf", url: "https://drive.google.com/file/d/1neFnvSVhotcJ3PCb__tsBpe0P9YO5Jl5/preview", solutionUrl: "" },
-          // { id: "ml-2024", title: "Practice 2", type: "pdf", url: "https://drive.google.com/file/d/1JAEamc0IeuZXG883wen66p8ogZ2XZqOG/preview", solutionUrl: "" },
-          // { id: "ml-2025", title: "Practice 3", type: "pdf", url: "https://drive.google.com/file/d/1STPAAosbaysOEOzxRfPWb5tWPjsw87kz/preview", solutionUrl: "" },
-        ],
-      },
-      {
-        subject: "DBMS",
-        image: "/images/dbms.svg",
-        papers: [
-          // { id: "dbms-2025a", title: "Practice 0", type: "pdf", url: "https://drive.google.com/file/d/1EUtt2fQUohcXi2GBvlJwf2l2oiOpj-NZ/preview", solutionUrl: "" },
-          // { id: "dbms-2025b", title: "Practice 1", type: "pdf", url: "https://drive.google.com/file/d/1uCINIGKBrvVXouiXgbCaUzl_KIw0ptDe/preview", solutionUrl: "" },
-          // { id: "dbms-2025c", title: "Practice 2", type: "pdf", url: "https://drive.google.com/file/d/1AbsWHulThFsr_Mhsz1NsiGM8RyWAEnEo/preview", solutionUrl: "" },
-          // { id: "dbms-2025d", title: "Practice 3", type: "pdf", url: "https://drive.google.com/file/d/10hgvm-jo_9lH4GGYZXybkK_WnyJQblA6/preview", solutionUrl: "" },
-        ],
-      },
+      // {
+      //   subject: "Software Engineering",
+      //   image: "/images/se.svg",
+      //   papers: [
+      //     // { id: "se-imp",   title: "Important Questions", type: "pdf", url: "https://drive.google.com/file/d/1sAZN2omjcdJdDbsW5-6EM4jQvzWvRYoI/preview", solutionUrl: "" },
+      //     // { id: "se-2022a", title: "Practice 0", type: "pdf", url: "https://drive.google.com/file/d/1pJDM_KSEQ1LHwz_UzBWVvNXcnFUqQZQq/preview", solutionUrl: "" },
+      //     // { id: "se-2022b", title: "Practice 1", type: "pdf", url: "https://drive.google.com/file/d/1R_QhIPBYq1ZArm-eLCWSNLKkmcnGHYKR/preview", solutionUrl: "" },
+      //     // { id: "se-2022c", title: "Practice 2", type: "pdf", url: "https://drive.google.com/file/d/1HIR21u97EsUwdS_OYo90S_1v2IugH55J/preview", solutionUrl: "" },
+      //     // { id: "se-2023",  title: "Practice 3", type: "pdf", url: "https://drive.google.com/file/d/19mdIZ9ywBlvGKHLnePq2RTTKE_RX58Px/preview", solutionUrl: "" },
+      //     // { id: "se-2024a", title: "Practice 4", type: "pdf", url: "https://drive.google.com/file/d/1nLLO_IjC9bg_V2eoQBe0233sGiLY7afo/preview", solutionUrl: "" },
+      //     // { id: "se-2024b", title: "Practice 5", type: "pdf", url: "https://drive.google.com/file/d/1a9JYBJVNxovUmfgzTKDeLg8o-YszreKx/preview", solutionUrl: "" },
+      //     // { id: "se-2024c", title: "Practice 6", type: "pdf", url: "https://drive.google.com/file/d/1d3l8mUn9-mAxc1c72cgSA20KPH1Dvf4E/preview", solutionUrl: "" },
+      //   ],
+      // },
+      // {
+      //   subject: "Operating System",
+      //   image: "/images/os.svg",
+      //   papers: [
+      //     // { id: "os-0001",  title: "Important Questions", type: "pdf", url: "https://drive.google.com/file/d/1BDOxxGa8fSZqkXKLhtGEqrw4hl4QclIa/preview", solutionUrl: "" },
+      //     // { id: "os-2022a", title: "Practice 0", type: "pdf", url: "https://drive.google.com/file/d/1ibJ2ZWG07kPhpM2LU4chLAjGlL3Oa9G0/preview", solutionUrl: "" },
+      //     // { id: "os-2022b", title: "Practice 1", type: "pdf", url: "https://drive.google.com/file/d/1c5EMRXj_LgBRUlRNhWuVGzEPMIVpYYE5/preview", solutionUrl: "" },
+      //     // { id: "os-2022c", title: "Practice 2", type: "pdf", url: "https://drive.google.com/file/d/1sB0qONnGQyWnVJ_o6qE8VKZp3P3WvwSh/preview", solutionUrl: "" },
+      //     // { id: "os-2022d", title: "Practice 3", type: "pdf", url: "https://drive.google.com/file/d/13qidPE9bYiAV_a_8l7YvlwtQ4TmkqlSE/preview", solutionUrl: "" },
+      //     // { id: "os-2023a", title: "Practice 4", type: "pdf", url: "https://drive.google.com/file/d/1dC1ZwltNWd-7ovYM_hZTEsqF8J8z_SXV/preview", solutionUrl: "" },
+      //     // { id: "os-2023b", title: "Practice 5", type: "pdf", url: "https://drive.google.com/file/d/1VxjuTujtJ58PeuNHFXrRX_3fHSz4gQvm/preview", solutionUrl: "" },
+      //     // { id: "os-2023c", title: "Practice 6", type: "pdf", url: "https://drive.google.com/file/d/1U3_WL0hT1MzuOuGafpzIZnLzEov9MRVu/preview", solutionUrl: "" },
+      //   ],
+      // },
+      // {
+      //   subject: "Machine Learning",
+      //   image: "/images/ml.svg",
+      //   papers: [
+      //     // { id: "ml-2022", title: "Practice 0", type: "pdf", url: "https://drive.google.com/file/d/1Xmg5pZTivaf1kV0MFZji-tctGyzvVAu1/preview", solutionUrl: "" },
+      //     // { id: "ml-2023", title: "Practice 1", type: "pdf", url: "https://drive.google.com/file/d/1neFnvSVhotcJ3PCb__tsBpe0P9YO5Jl5/preview", solutionUrl: "" },
+      //     // { id: "ml-2024", title: "Practice 2", type: "pdf", url: "https://drive.google.com/file/d/1JAEamc0IeuZXG883wen66p8ogZ2XZqOG/preview", solutionUrl: "" },
+      //     // { id: "ml-2025", title: "Practice 3", type: "pdf", url: "https://drive.google.com/file/d/1STPAAosbaysOEOzxRfPWb5tWPjsw87kz/preview", solutionUrl: "" },
+      //   ],
+      // },
     ],
   },
   {
     year: "3rd Year",
     image: "/images/3rd.svg",
-    subjects: [],
+    subjects: [
+      {
+        subject: "PBL_Java",
+        image: "/images/java.svg",
+        papers: [
+          { id: "pbljava-mst1", title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1JYD58KolF18T5OJZK-0Ta5zsA_W63Y2l/preview", solutionUrl: "" },
+        ],
+      },
+      {
+        subject: "Computer Networks",
+        image: "/images/coa.svg",
+        papers: [
+          { id: "cn-mst1",   title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1hLFRsS21KBTWWpk_EwM6FWDbDqtmQLas/preview", solutionUrl: "" },
+        ],
+      },
+    ],
   },
   {
     year: "4th Year",
     image: "/images/4th.svg",
-    subjects: [],
+    subjects: [
+      {
+        subject: "Ethical Hacking",
+        image: "/images/java.svg",
+        papers: [
+          { id: "eh-mst1", title: "EST", type: "pdf", url: "https://drive.google.com/file/d/1wtHYNmC7syKb5zxvZSRGjCrY_6VWU5PN/preview", solutionUrl: "" },
+        ],
+      },
+
+    ],
   },
 ];
 
