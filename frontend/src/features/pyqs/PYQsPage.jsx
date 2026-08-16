@@ -195,6 +195,14 @@ const PAPER_SOURCES = [
           { id: "wdf-imp1",   title: "Important Questions(Unit 1)", type: "pdf", url: "https://drive.google.com/file/d/1MzLa9tD0M3etQbF-cvkXSlKdWF3qrJV-/preview", solutionUrl: "" },
         ],
       },
+      {
+        subject: "Business Analytics",
+        image: "/images/business.svg",
+        papers: [
+          { id: "business-mst1",   title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1cb_QXCnYDQGSdy64K6wGYVv42w6YNjrv/preview", solutionUrl: "" },
+          { id: "business-imp1",   title: "Important Questions(Unit 1)", type: "pdf", url: "https://drive.google.com/file/d/1v50_pV7wP7c01LvQpDGY7y9kjdHPgKs6/preview", solutionUrl: "" },
+        ],
+      },
     ],
   },
   {
