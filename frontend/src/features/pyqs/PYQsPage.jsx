@@ -187,6 +187,14 @@ const PAPER_SOURCES = [
           { id: "cn-mst1",   title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1hLFRsS21KBTWWpk_EwM6FWDbDqtmQLas/preview", solutionUrl: "" },
         ],
       },
+      {
+        subject: "Web Development Fundamentals",
+        image: "/images/daa.svg",
+        papers: [
+          { id: "wdf-mst1",   title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1sNKkbr1jFWBmRbBXBzAxWeov3bJ72kxY/preview", solutionUrl: "" },
+          { id: "wdf-imp1",   title: "Important Questions(Unit 1)", type: "pdf", url: "https://drive.google.com/file/d/1MzLa9tD0M3etQbF-cvkXSlKdWF3qrJV-/preview", solutionUrl: "" },
+        ],
+      },
     ],
   },
   {
