@@ -103,8 +103,8 @@ export default function Navbar() {
 
         <div className="nav-center desktop-nav">
           <Link to="/pyqs"     className={`nav-link ${isActive("/pyqs")     ? "active" : ""}`}>Resources</Link>
-          <Link to="/quizzes"  className={`nav-link ${isQuizActive()        ? "active" : ""}`}>QuizEngine</Link>
-          <Link to="/sgpa"     className={`nav-link ${isActive("/sgpa")     ? "active" : ""}`}>Grades</Link>
+          <Link to="/quizzes"  className={`nav-link ${isQuizActive()        ? "active" : ""}`}>Quiz</Link>
+          <Link to="/sgpa"     className={`nav-link ${isActive("/sgpa")     ? "active" : ""}`}>SGPA</Link>
           <Link to="/internal" className={`nav-link ${isActive("/internal") ? "active" : ""}`}>Internals</Link>
           <Link to="/tasks"    className={`nav-link ${isActive("/tasks")    ? "active" : ""}`}>Tasks</Link>
           {/* <Link to="/programming" className={`nav-link ${isProgActive() ? "active" : ""}`}>Programming</Link>
