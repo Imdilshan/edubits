@@ -88,7 +88,7 @@ export default function InternalMarksPage() {
           style={{ ...YEAR_BTN.base, ...(year === "senior" ? YEAR_BTN.active : YEAR_BTN.inactive) }}
           onClick={() => switchYear("senior")}
         >
-          2nd / 3rd / 4th Year
+          2nd Year
         </button>
       </div>
 
