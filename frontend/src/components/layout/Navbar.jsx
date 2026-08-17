@@ -104,11 +104,11 @@ export default function Navbar() {
         <div className="nav-center desktop-nav">
           <Link to="/pyqs"     className={`nav-link ${isActive("/pyqs")     ? "active" : ""}`}>Resources</Link>
           <Link to="/quizzes"  className={`nav-link ${isQuizActive()        ? "active" : ""}`}>QuizEngine</Link>
-          <Link to="/programming" className={`nav-link ${isProgActive() ? "active" : ""}`}>Programming</Link>
           <Link to="/sgpa"     className={`nav-link ${isActive("/sgpa")     ? "active" : ""}`}>Grades</Link>
           <Link to="/internal" className={`nav-link ${isActive("/internal") ? "active" : ""}`}>Internals</Link>
           <Link to="/tasks"    className={`nav-link ${isActive("/tasks")    ? "active" : ""}`}>Tasks</Link>
-          <Link to="/tracker"  className={`nav-link ${isActive("/tracker") ? "active" : ""}`}>Tracker</Link>
+          {/* <Link to="/programming" className={`nav-link ${isProgActive() ? "active" : ""}`}>Programming</Link>
+          <Link to="/tracker"  className={`nav-link ${isActive("/tracker") ? "active" : ""}`}>Tracker</Link> */}
         </div>
 
         <div className="nav-right" ref={dropdownRef}>
@@ -164,9 +164,9 @@ export default function Navbar() {
           <Brain size={20} /><span>Quiz</span>
         </Link>
 
-        <Link to="/programming" className={`mobile-nav-item ${isProgActive() ? "active" : ""}`}>
+        {/* <Link to="/programming" className={`mobile-nav-item ${isProgActive() ? "active" : ""}`}>
           <Code2 size={20} /><span>Code</span>
-        </Link>
+        </Link> */}
 
         <Link to="/sgpa"     className={`mobile-nav-item ${isActive("/sgpa")     ? "active" : ""}`}>
           <Calculator size={20} /><span>SGPA</span>
@@ -176,9 +176,9 @@ export default function Navbar() {
           <ClipboardList size={20} /><span>Internals</span>
         </Link>
         
-        <Link to="/tasks"    className={`mobile-nav-item ${isActive("/tasks")    ? "active" : ""}`}>
+        {/* <Link to="/tasks"    className={`mobile-nav-item ${isActive("/tasks")    ? "active" : ""}`}>
           <CheckSquare size={20} /><span>Tasks</span>
-        </Link>
+        </Link> */}
       
       </nav>
       {showEditProfile && (
