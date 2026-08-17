@@ -1,12 +1,25 @@
 .pyq-page { min-height: 100vh; }
 
 
-.pyq-mode-bar {
+/* .pyq-mode-bar {
   display: flex;
   justify-content: center;
   gap: 8px;
   margin: 12px 0 20px;
+} */
+
+.pyq-mode-bar {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 0 20px;
+  padding: 12px 0;
+  position: sticky;
+  top: 64px;
+  z-index: 400;
+  background: var(--bg);
 }
+
 
 .pyq-mode-tab {
   padding: 7px 20px;
