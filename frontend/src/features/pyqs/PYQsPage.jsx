@@ -1359,7 +1359,9 @@ const PLAYLIST_SOURCES = [
         subject: "OOPS Using Java",
         image: "/images/java.svg",
         playlists: [
-          { id: "java", title: "Complete Java Playlist", channel: "Easy Engineering Classes", playlistId: "PLV8vIYTIdSnbL_fSaqiYpPh-KwNCavjIr", thumbVideoId: "4Y0N43i2RNs" },
+          { id: "pbljava1", title: "Java Fundamentals", channel: "Learn Coding", playlistId: "PLE2cF7tVvXPQ", thumbVideoId: "4Y0N43i2RNs" },
+          { id: "pbljava2", title: "OOPS using Java", channel: "Easy Engineering Classes", playlistId: "PLSPR4nZ76QqY", thumbVideoId: "Hs6CnxTNvxg" },
+          { id: "pbljava3", title: "Exception Handling", channel: "Learn Coding", playlistId: "PLceHdQTUTGTE", thumbVideoId: "bxcZ7cXbDI0" },
         ],
       },
       {
