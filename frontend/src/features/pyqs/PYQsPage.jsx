@@ -1128,6 +1128,7 @@ const PAPER_SOURCES = [
         image: "/images/coa.svg",
         papers: [
            { id: "coa-mst1",  title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/10fWPcZyGFJrKX4Eqrl-zZoaIIrt6gOTh/preview", solutionUrl: "" },
+           { id: "coa-unit1",  title: "Unit1 Important", type: "pdf", url: "https://drive.google.com/file/d/1CLYc8Ul44LlbZTCkPmbTgg465rFUqrtv/preview", solutionUrl: "" },
           // { id: "coa-2024",  title: "Practice 1", type: "pdf", url: "https://drive.google.com/file/d/1MZvRTq6k1Lqm42U1MEr7LK-VWWzSGPzA/preview", solutionUrl: "" },
           // { id: "coa-2025a", title: "Practice 2", type: "pdf", url: "https://drive.google.com/file/d/1tluGNXvQpey4jKaZQFfhEHfrRboqbszd/preview", solutionUrl: "" },
           // { id: "coa-2025b", title: "Practice 3", type: "pdf", url: "https://drive.google.com/file/d/1MgKPlMGl6HTxwMtV625CJ77pQKpWaLPF/preview", solutionUrl: "" },
@@ -1140,6 +1141,7 @@ const PAPER_SOURCES = [
         image: "/images/dbms.svg",
         papers: [
            { id: "dbms-mst1", title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1pDuxHqu4MGeR_7CLB2SZY1O5c9qujBFG/preview", solutionUrl: "" },
+           { id: "dbms-unit1", title: "Unit1 Important", type: "pdf", url: "https://drive.google.com/file/d/1z_r3e6Q7_SplGhEAVD2EJBGnh9bXJMk0/preview", solutionUrl: "" },
           // { id: "dbms-2025b", title: "Practice 1", type: "pdf", url: "https://drive.google.com/file/d/1uCINIGKBrvVXouiXgbCaUzl_KIw0ptDe/preview", solutionUrl: "" },
           // { id: "dbms-2025c", title: "Practice 2", type: "pdf", url: "https://drive.google.com/file/d/1AbsWHulThFsr_Mhsz1NsiGM8RyWAEnEo/preview", solutionUrl: "" },
           // { id: "dbms-2025d", title: "Practice 3", type: "pdf", url: "https://drive.google.com/file/d/10hgvm-jo_9lH4GGYZXybkK_WnyJQblA6/preview", solutionUrl: "" },
@@ -1149,7 +1151,8 @@ const PAPER_SOURCES = [
         subject: "ADSA",
         image: "/images/daa.svg",
         papers: [
-           { id: "daa-mst1", title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1Zs41Fit4qBTTicd3Cg6r9gsbGeOin4Et/preview", solutionUrl: "" },
+           { id: "adsa-mst1", title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1Zs41Fit4qBTTicd3Cg6r9gsbGeOin4Et/preview", solutionUrl: "" },
+           { id: "adsa-unit1", title: "Unit1 Important", type: "pdf", url: "https://drive.google.com/file/d/13cUCyNs6wdC_CSa1opg3QbQwjdAj4mh1/preview", solutionUrl: "" },
           // { id: "daa-2023b", title: "Practice 1", type: "pdf", url: "https://drive.google.com/file/d/1bc6iNabOnpnVXRqXGmkGpQ7IEhWL1ylQ/preview", solutionUrl: "" },
           // { id: "daa-2024a", title: "Practice 2", type: "pdf", url: "https://drive.google.com/file/d/13uQsoRoDsmP2Lvo_ktQH5GxW_eJ_zI8w/preview", solutionUrl: "" },
           // { id: "daa-2024b", title: "Practice 3", type: "pdf", url: "https://drive.google.com/file/d/1-LSsXZPLpzim7xwRAVECGbzQMZFVkfta/preview", solutionUrl: "" },
@@ -1164,6 +1167,7 @@ const PAPER_SOURCES = [
         image: "/images/java.svg",
         papers: [
           { id: "java-mst1", title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1DTbKrEeSitX1Oq7JRbHooie--nAycyXZ/preview", solutionUrl: "" },
+          { id: "java-unit1", title: "Unit1 Important", type: "pdf", url: "https://drive.google.com/file/d/1oZ6VzXxDQ0J23AcnfdZ2bxPN8nw_MxnE/preview", solutionUrl: "" },
           // { id: "java-2023b", title: "Practice 1", type: "pdf", url: "https://drive.google.com/file/d/1U8gHgZDSz0QXi8mhsuOMXBsyrpPutw1d/preview", solutionUrl: "" },
           // { id: "java-2024a", title: "Practice 2", type: "pdf", url: "https://drive.google.com/file/d/16HxigLF5npg1umcBShN67_R3IhXNkBVh/preview", solutionUrl: "" },
           // { id: "java-2024b", title: "Practice 3", type: "pdf", url: "https://drive.google.com/file/d/16Ywzd3EMTsLiuWowS_I-Ij4EvQWw2xXJ/preview", solutionUrl: "" },
@@ -1227,6 +1231,7 @@ const PAPER_SOURCES = [
         image: "/images/coa.svg",
         papers: [
           { id: "cn-mst1",   title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1hLFRsS21KBTWWpk_EwM6FWDbDqtmQLas/preview", solutionUrl: "" },
+          { id: "cn-unit1", title: "Unit1 Important", type: "pdf", url: "https://drive.google.com/file/d/18ZynhlQDVKh__CcJdV8Vl_RW_iK0hg_o/preview", solutionUrl: "" },
         ],
       },
       {
