@@ -526,7 +526,7 @@
 
 .pyq-card-grid--subjects,
 .pyq-card-grid--papers {
-  grid-template-columns: repeat(3, minmax(0, 320px));
+  grid-template-columns: repeat(4, 1fr);
   gap: 32px 28px;
 }
 
