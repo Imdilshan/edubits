@@ -1314,6 +1314,16 @@ const PLAYLIST_SOURCES = [
     image: "/images/2nd.svg",
     subjects: [
       {
+        subject: "Probability & Statistics",
+        image: "/images/maths2.svg",
+        playlists: [
+          { id: "pns1", title: "Measures of Central Tendency", channel: "Dream Maths", playlistId: "PLceBS6W7XAAI", thumbVideoId: "rqQjkhuraws" },
+          { id: "pns2", title: "Measure of Dispersion", channel: "Dream Maths", playlistId: "PLBbrgHyZKZGE", thumbVideoId: "a-5S15o_N7U" },
+          { id: "pns3", title: "Moments skewness and kurtosis", channel: "Dream Maths", playlistId: "PLEHGYFbPuuMF_DhK0YZ4AXAvwrtULsQac", thumbVideoId: "AJmkNqqZBH4" },
+          { id: "pns1", title: "Probability Distributions", channel: "Dream Maths", playlistId: "PLaTRYhg5SXFI", thumbVideoId: "XifBOZPO5HI" },
+        ],
+      },
+      {
         subject: "Discrete Mathematics",
         image: "/images/maths2.svg",
         playlists: [
