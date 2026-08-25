@@ -1327,9 +1327,9 @@ const PLAYLIST_SOURCES = [
         subject: "ADSA",
         image: "/images/dsa.svg",
         playlists: [
-          { id: "daa0", title: "DAA Unit 1", channel: "Gate Smashers", playlistId: "PLhx1hByyAqsZ3ZMkKbN9FcSUYad1ShZ3G", thumbVideoId: "0IAPZzGSbME" },
-          { id: "daa1", title: "DAA Unit 2", channel: "Gate Smashers", playlistId: "PLhx1hByyAqsbCKEJu0ntERx33fTeNigw2", thumbVideoId: "I8w2XN0w-fQ" },
-          { id: "daa2", title: "DAA Unit 3", channel: "Striver",        playlistId: "PLhx1hByyAqsaJcVgBApIKLaKucaRpW3Om", thumbVideoId: "M3_pLsDdeuU" },
+          { id: "adsa0", title: "DAA Unit 1", channel: "Gate Smashers", playlistId: "PLPuiHzboWKoM", thumbVideoId: "7dz8Iaf_weM" },
+          { id: "adsa1", title: "DAA Unit 2", channel: "Gate Smashers", playlistId: "PLhx1hByyAqsbCKEJu0ntERx33fTeNigw2", thumbVideoId: "I8w2XN0w-fQ" },
+          { id: "adsa2", title: "DAA Unit 3", channel: "Striver",        playlistId: "PLhx1hByyAqsaJcVgBApIKLaKucaRpW3Om", thumbVideoId: "M3_pLsDdeuU" },
         ],
       },
       {
