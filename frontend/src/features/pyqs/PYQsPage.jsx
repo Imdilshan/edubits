@@ -1238,8 +1238,8 @@ const PAPER_SOURCES = [
         subject: "Probability & Statistics",
         image: "/images/pns.svg",
         papers: [
-          { id: "cn-mst1",   title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/14riyvaf1gpva_MI7aggc4u2TTPMBylYQ/preview", solutionUrl: "" },
-          { id: "cn-unit1", title: "Unit1 Important", type: "pdf", url: "https://drive.google.com/file/d/1T20eyExpHoeOyIAiXxYit5JKxqoLuwa6/preview", solutionUrl: "" },
+          { id: "pns-mst1",   title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/14riyvaf1gpva_MI7aggc4u2TTPMBylYQ/preview", solutionUrl: "" },
+          { id: "pns-unit1", title: "Unit1 Important", type: "pdf", url: "https://drive.google.com/file/d/1T20eyExpHoeOyIAiXxYit5JKxqoLuwa6/preview", solutionUrl: "" },
         ],
       },
       {
