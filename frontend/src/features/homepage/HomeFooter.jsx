@@ -8,6 +8,7 @@ const CONTRIBUTORS = [
   { name: "Ranbir Khurana", github: "DevRanbir" },
   { name: "Subhayu Mukherjee", github: "subhayu18" },
   { name: "Kajal", github: "Kajal-RKR" },
+  { name: "Ayush", github: "AyushD91" },
 ];
 
 export default function HomeFooter() {
@@ -111,6 +112,40 @@ export default function HomeFooter() {
                 </a>
                 <a
                   href="https://github.com/Rahul130405"
+                  target="_blank"
+                  rel="noreferrer"
+                  title="GitHub"
+                >
+                  <FaGithub />
+                </a>
+              </div>
+            </div>
+
+            <div className="hp-founder-item">
+              <img
+                src="/images/ayush.jpeg"
+                alt="Ayush Dwivedi"
+                className="hp-founder-avatar"
+                loading="lazy"
+                decoding="async"
+                width="52"
+                height="52"
+              />
+              <div className="hp-founder-info">
+                <span className="hp-founder-name">Ayush Dwivedi</span>
+                <span className="hp-founder-role">Growth & Community Lead</span>
+              </div>
+              <div className="hp-founder-links">
+                <a
+                  href="https://www.linkedin.com/in/ayush-dwivedi-7722342a7/"
+                  target="_blank"
+                  rel="noreferrer"
+                  title="LinkedIn"
+                >
+                  <FaLinkedin />
+                </a>
+                <a
+                  href="https://github.com/AyushD91"
                   target="_blank"
                   rel="noreferrer"
                   title="GitHub"
