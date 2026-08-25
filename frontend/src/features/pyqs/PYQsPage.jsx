@@ -1327,9 +1327,9 @@ const PLAYLIST_SOURCES = [
         subject: "ADSA",
         image: "/images/dsa.svg",
         playlists: [
-          { id: "adsa0", title: "DAA Unit 1", channel: "Gate Smashers", playlistId: "PLPuiHzboWKoM", thumbVideoId: "7dz8Iaf_weM" },
-          { id: "adsa1", title: "DAA Unit 2", channel: "Gate Smashers", playlistId: "PLhx1hByyAqsbCKEJu0ntERx33fTeNigw2", thumbVideoId: "I8w2XN0w-fQ" },
-          { id: "adsa2", title: "DAA Unit 3", channel: "Striver",        playlistId: "PLhx1hByyAqsaJcVgBApIKLaKucaRpW3Om", thumbVideoId: "M3_pLsDdeuU" },
+          { id: "adsa0", title: "Unit 1", channel: "Gate Smashers", playlistId: "PLPuiHzboWKoM", thumbVideoId: "7dz8Iaf_weM" },
+          // { id: "adsa1", title: "Unit 2", channel: "Gate Smashers", playlistId: "PLhx1hByyAqsbCKEJu0ntERx33fTeNigw2", thumbVideoId: "I8w2XN0w-fQ" },
+          // { id: "adsa2", title: "Unit 3", channel: "Striver",        playlistId: "PLhx1hByyAqsaJcVgBApIKLaKucaRpW3Om", thumbVideoId: "M3_pLsDdeuU" },
         ],
       },
       {
@@ -1346,13 +1346,13 @@ const PLAYLIST_SOURCES = [
           { id: "coa0", title: "Complete COA Playlist", channel: "5 Minutes Engineering", playlistId: "PLYwpaL_SFmcCaiXeUEjcTzHwIfJqH1qCN", thumbVideoId: "1rUevQ3bSEY" },
         ],
       },
-      {
-        subject: "Software Engineering",
-        image: "/images/se.svg",
-        playlists: [
-          { id: "se", title: "Complete SE Playlist", channel: "Gate Smashers", playlistId: "PLxCzCOWd7aiEed7SKZBnC6ypFDWYLRvB2", thumbVideoId: "kcvEiMFOcoE" },
-        ],
-      },
+      // {
+      //   subject: "Software Engineering",
+      //   image: "/images/se.svg",
+      //   playlists: [
+      //     { id: "se", title: "Complete SE Playlist", channel: "Gate Smashers", playlistId: "PLxCzCOWd7aiEed7SKZBnC6ypFDWYLRvB2", thumbVideoId: "kcvEiMFOcoE" },
+      //   ],
+      // },
       {
         subject: "OOPS Using Java",
         image: "/images/java.svg",
@@ -1370,32 +1370,32 @@ const PLAYLIST_SOURCES = [
           { id: "os1",  title: "OS One Shot",          channel: "5 Minutes Engineering", playlistId: "PLhx1hByyAqsYn0JMNNPN-uFiLb0XdZtSG", thumbVideoId: "A4G0hOI6XyQ" },
         ],
       },
-      {
-        subject: "DAA",
-        image: "/images/daa.svg",
-        playlists: [
-          { id: "daa0", title: "DAA Unit 1", channel: "Gate Smashers", playlistId: "PLhx1hByyAqsZ3ZMkKbN9FcSUYad1ShZ3G", thumbVideoId: "0IAPZzGSbME" },
-          { id: "daa1", title: "DAA Unit 2", channel: "Gate Smashers", playlistId: "PLhx1hByyAqsbCKEJu0ntERx33fTeNigw2", thumbVideoId: "I8w2XN0w-fQ" },
-          { id: "daa2", title: "DAA Unit 3", channel: "Striver",        playlistId: "PLhx1hByyAqsaJcVgBApIKLaKucaRpW3Om", thumbVideoId: "M3_pLsDdeuU" },
-        ],
-      },
-       {
-        subject: "Discrete Mathematics",
-        image: "/images/maths2.svg",
-        playlists: [
-          { id: "set_theory", title: "Set Theory", channel: "Ganitya", playlistId: "PL15h-I4HvELIY_Odms6A5Ekl8Durr6d_0", thumbVideoId: "-BiRPYH5OLA" },
-          { id: "relations", title: "Relations", channel: "Ganitya", playlistId: "PL15h-I4HvELIXZVZ8X7GBWgYWoPM_7YBY", thumbVideoId: "fPzLXQ80jqQ" },
-          { id: "relations_and_functions", title: "Relaions and Functions", channel: "Pradeep Giri Academy", playlistId: "PLT3bOBUU3L9gF5nz4y1j2lb6q6IDbA6PQ", thumbVideoId: "ynHoB_0li_o" },
-          { id: "propositional_calculus", title: "Propositional Calculus", channel: "Ganitya", playlistId: "PL15h-I4HvELJVQvge-ZdEXC-1RHWJtAbx", thumbVideoId: "MbZVsM39Ufw" },
-          { id: "recurrence_relations", title: "Recurrence Relations", channel: "Ganitya", playlistId: "PL15h-I4HvELIYna1VWmeaWmWv0e3tFHaR", thumbVideoId: "5BYGJbqCqy0" },
-          { id: "recurrence_relations_practice", title: "Recurrence Relation (Practice-Heavy)", channel: "MATHS HUB by Dr. Tania Bose", playlistId: "PLh2qFr0QFywExmizxtQywAJtAHQh6Xq3O", thumbVideoId: "pMCFs-EyfQI" },
-          { id: "graph_theory", title: "Graph Theory", channel: "Ganitya", playlistId: "PL15h-I4HvELIhCh5VwKcvh9BQFFRnAFJr", thumbVideoId: "Vscfb6fKBck" },
-          { id: "combinatorial_mathematics", title: "Combinatorial Mathematics", channel: "Pradeep Giri Academy", playlistId: "PLhx1hByyAqsZ-v0QBKgBTcUIn8IbyC6pe", thumbVideoId: "lG1tGGpqye0" },
-          { id: "trees", title: "Trees", channel: "Ganitya", playlistId: "PL15h-I4HvELKNfNZdrIpS0b_orXoCMO3f", thumbVideoId: "KbExLoAlWdw" },
-          { id: "graph_theory_practice", title: "Graph Theory (Practice-Heavy)", channel: "MATHS HUB by Dr. Tania Bose", playlistId: "PLh2qFr0QFywHC2lxeFquAOyr85Y74fEMu", thumbVideoId: "C2It_eG88EU" },
-          { id: "trees_practice", title: "Trees (Practice-Heavy)", channel: "MATHS HUB by Dr. Tania Bose", playlistId: "PLh2qFr0QFywFz0FhE14Zu_e2xd2806wVv", thumbVideoId: "boi_v4rd9eM" }
-        ],
-      },
+      // {
+      //   subject: "DAA",
+      //   image: "/images/daa.svg",
+      //   playlists: [
+      //     { id: "daa0", title: "Unit 1", channel: "Gate Smashers", playlistId: "PLhx1hByyAqsZ3ZMkKbN9FcSUYad1ShZ3G", thumbVideoId: "0IAPZzGSbME" },
+      //     { id: "daa1", title: "Unit 2", channel: "Gate Smashers", playlistId: "PLhx1hByyAqsbCKEJu0ntERx33fTeNigw2", thumbVideoId: "I8w2XN0w-fQ" },
+      //     { id: "daa2", title: "Unit 3", channel: "Striver",        playlistId: "PLhx1hByyAqsaJcVgBApIKLaKucaRpW3Om", thumbVideoId: "M3_pLsDdeuU" },
+      //   ],
+      // },
+      //  {
+      //   subject: "Discrete Mathematics",
+      //   image: "/images/maths2.svg",
+      //   playlists: [
+      //     { id: "set_theory", title: "Set Theory", channel: "Ganitya", playlistId: "PL15h-I4HvELIY_Odms6A5Ekl8Durr6d_0", thumbVideoId: "-BiRPYH5OLA" },
+      //     { id: "relations", title: "Relations", channel: "Ganitya", playlistId: "PL15h-I4HvELIXZVZ8X7GBWgYWoPM_7YBY", thumbVideoId: "fPzLXQ80jqQ" },
+      //     { id: "relations_and_functions", title: "Relaions and Functions", channel: "Pradeep Giri Academy", playlistId: "PLT3bOBUU3L9gF5nz4y1j2lb6q6IDbA6PQ", thumbVideoId: "ynHoB_0li_o" },
+      //     { id: "propositional_calculus", title: "Propositional Calculus", channel: "Ganitya", playlistId: "PL15h-I4HvELJVQvge-ZdEXC-1RHWJtAbx", thumbVideoId: "MbZVsM39Ufw" },
+      //     { id: "recurrence_relations", title: "Recurrence Relations", channel: "Ganitya", playlistId: "PL15h-I4HvELIYna1VWmeaWmWv0e3tFHaR", thumbVideoId: "5BYGJbqCqy0" },
+      //     { id: "recurrence_relations_practice", title: "Recurrence Relation (Practice-Heavy)", channel: "MATHS HUB by Dr. Tania Bose", playlistId: "PLh2qFr0QFywExmizxtQywAJtAHQh6Xq3O", thumbVideoId: "pMCFs-EyfQI" },
+      //     { id: "graph_theory", title: "Graph Theory", channel: "Ganitya", playlistId: "PL15h-I4HvELIhCh5VwKcvh9BQFFRnAFJr", thumbVideoId: "Vscfb6fKBck" },
+      //     { id: "combinatorial_mathematics", title: "Combinatorial Mathematics", channel: "Pradeep Giri Academy", playlistId: "PLhx1hByyAqsZ-v0QBKgBTcUIn8IbyC6pe", thumbVideoId: "lG1tGGpqye0" },
+      //     { id: "trees", title: "Trees", channel: "Ganitya", playlistId: "PL15h-I4HvELKNfNZdrIpS0b_orXoCMO3f", thumbVideoId: "KbExLoAlWdw" },
+      //     { id: "graph_theory_practice", title: "Graph Theory (Practice-Heavy)", channel: "MATHS HUB by Dr. Tania Bose", playlistId: "PLh2qFr0QFywHC2lxeFquAOyr85Y74fEMu", thumbVideoId: "C2It_eG88EU" },
+      //     { id: "trees_practice", title: "Trees (Practice-Heavy)", channel: "MATHS HUB by Dr. Tania Bose", playlistId: "PLh2qFr0QFywFz0FhE14Zu_e2xd2806wVv", thumbVideoId: "boi_v4rd9eM" }
+      //   ],
+      // },
     ],
   },
   {
