@@ -201,7 +201,7 @@ const PAPER_SOURCES = [
         papers: [
           { id: "pns-mst1",   title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/14riyvaf1gpva_MI7aggc4u2TTPMBylYQ/preview", solutionUrl: "" },
           { id: "pns-unit1", title: "Unit1 Important", type: "pdf", url: "https://drive.google.com/file/d/1T20eyExpHoeOyIAiXxYit5JKxqoLuwa6/preview", solutionUrl: "" },
-          { id: "pns-mst2",   title: "MST 2", type: "pdf", url: "https://drive.google.com/file/d/14riyvaf1gpva_MI7aggc4u2TTPMBylYQ/preview", solutionUrl: "" },
+          { id: "pns-mst2",   title: "MST 2", type: "pdf", url: "https://drive.google.com/file/d/1zau3NzZQfxb14hj6DdGS2SfX8_rcUbjh/preview", solutionUrl: "" },
         ],
       },
       {
