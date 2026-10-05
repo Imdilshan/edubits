@@ -87,6 +87,7 @@ const PAPER_SOURCES = [
         papers: [
            { id: "coa-mst1",  title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/10fWPcZyGFJrKX4Eqrl-zZoaIIrt6gOTh/preview", solutionUrl: "" },
            { id: "coa-unit1",  title: "Unit1 Important", type: "pdf", url: "https://drive.google.com/file/d/1CLYc8Ul44LlbZTCkPmbTgg465rFUqrtv/preview", solutionUrl: "" },
+           { id: "coa-mst2",  title: "MST 2", type: "pdf", url: "https://drive.google.com/file/d/10fWPcZyGFJrKX4Eqrl-zZoaIIrt6gOTh/preview", solutionUrl: "" },
           // { id: "coa-2024",  title: "Practice 1", type: "pdf", url: "https://drive.google.com/file/d/1MZvRTq6k1Lqm42U1MEr7LK-VWWzSGPzA/preview", solutionUrl: "" },
           // { id: "coa-2025a", title: "Practice 2", type: "pdf", url: "https://drive.google.com/file/d/1tluGNXvQpey4jKaZQFfhEHfrRboqbszd/preview", solutionUrl: "" },
           // { id: "coa-2025b", title: "Practice 3", type: "pdf", url: "https://drive.google.com/file/d/1MgKPlMGl6HTxwMtV625CJ77pQKpWaLPF/preview", solutionUrl: "" },
@@ -290,7 +291,8 @@ const PLAYLIST_SOURCES = [
           { id: "pns1", title: "Measures of Central Tendency", channel: "Dream Maths", playlistId: "PLceBS6W7XAAI", thumbVideoId: "rqQjkhuraws" },
           { id: "pns2", title: "Measure of Dispersion", channel: "Dream Maths", playlistId: "PLBbrgHyZKZGE", thumbVideoId: "a-5S15o_N7U" },
           { id: "pns3", title: "Moments skewness and kurtosis", channel: "Dream Maths", playlistId: "PLEHGYFbPuuMF_DhK0YZ4AXAvwrtULsQac", thumbVideoId: "AJmkNqqZBH4" },
-          { id: "pns1", title: "Probability Distributions", channel: "Dream Maths", playlistId: "PLaTRYhg5SXFI", thumbVideoId: "XifBOZPO5HI" },
+          { id: "pns4", title: "Probability Distributions", channel: "Dream Maths", playlistId: "PLaTRYhg5SXFI", thumbVideoId: "XifBOZPO5HI" },
+          { id: "pnsunit2", title: "Unit 2", channel: "Dr.Gajendra Purohit", playlistId: "PLZLOq5_kK0xg", thumbVideoId: "Q-J-pa0-rRw" },
         ],
       },
       {
@@ -298,7 +300,7 @@ const PLAYLIST_SOURCES = [
         image: "/images/dsa.svg",
         playlists: [
           { id: "adsa0", title: "Unit 1", channel: "Gate Smashers", playlistId: "PLPuiHzboWKoM", thumbVideoId: "7dz8Iaf_weM" },
-          // { id: "adsa1", title: "Unit 2", channel: "Gate Smashers", playlistId: "PLhx1hByyAqsbCKEJu0ntERx33fTeNigw2", thumbVideoId: "I8w2XN0w-fQ" },
+          { id: "adsa1", title: "Unit 2", channel: "Gate Smashers", playlistId: "PLWi2ZpoRTIJs", thumbVideoId: "Y3Ckd3OW0_g" },
           // { id: "adsa2", title: "Unit 3", channel: "Striver",        playlistId: "PLhx1hByyAqsaJcVgBApIKLaKucaRpW3Om", thumbVideoId: "M3_pLsDdeuU" },
         ],
       },
@@ -306,7 +308,8 @@ const PLAYLIST_SOURCES = [
         subject: "DBMS",
         image: "/images/dbms.svg",
         playlists: [
-          { id: "dbms0", title: "DBMS Complete Playlist", channel: "Gate Smashers", playlistId: "PLxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y", thumbVideoId: "kBdlM6hNDAE" },
+          { id: "dbms0", title: "DBMS Unit 1", channel: "Gate Smashers", playlistId: "PLxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y", thumbVideoId: "kBdlM6hNDAE" },
+          { id: "dbms1", title: "DBMS Unit 2", channel: "Gate Smashers", playlistId: "PLxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y", thumbVideoId: "kBdlM6hNDAE" },
         ],
       },
       {
@@ -314,6 +317,7 @@ const PLAYLIST_SOURCES = [
         image: "/images/coa.svg",
         playlists: [
           { id: "coa0", title: "Complete COA Playlist", channel: "5 Minutes Engineering", playlistId: "PLYwpaL_SFmcCaiXeUEjcTzHwIfJqH1qCN", thumbVideoId: "1rUevQ3bSEY" },
+          { id: "coa1", title: "COA Unit 2", channel: "Shanu Kuttan CSE Classes", playlistId: "PLX8o_28PTo48", thumbVideoId: "k5YMLXPy1SE" },
         ],
       },
       // {
@@ -330,16 +334,17 @@ const PLAYLIST_SOURCES = [
           { id: "pbljava1", title: "Java Fundamentals", channel: "Learn Coding", playlistId: "PLE2cF7tVvXPQ", thumbVideoId: "4Y0N43i2RNs" },
           { id: "pbljava2", title: "OOPS using Java", channel: "Easy Engineering Classes", playlistId: "PLSPR4nZ76QqY", thumbVideoId: "Hs6CnxTNvxg" },
           { id: "pbljava3", title: "Exception Handling", channel: "Learn Coding", playlistId: "PLceHdQTUTGTE", thumbVideoId: "bxcZ7cXbDI0" },
+          { id: "pbljava4", title: "Unit 2", channel: "Learn Coding", playlistId: "PLYdlFpZruBUI", thumbVideoId: "kD_HqZP8MLY" },
         ],
       },
-      {
-        subject: "Operating System",
-        image: "/images/os.svg",
-        playlists: [
-          { id: "os0", title: "Complete OS Playlist", channel: "Gate Smashers", playlistId: "PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p", thumbVideoId: "WJ-UaAaumNA" },
-          { id: "os1",  title: "OS One Shot",          channel: "5 Minutes Engineering", playlistId: "PLhx1hByyAqsYn0JMNNPN-uFiLb0XdZtSG", thumbVideoId: "A4G0hOI6XyQ" },
-        ],
-      },
+      // {
+      //   subject: "Operating System",
+      //   image: "/images/os.svg",
+      //   playlists: [
+      //     { id: "os0", title: "Complete OS Playlist", channel: "Gate Smashers", playlistId: "PLxCzCOWd7aiGz9donHRrE9I3Mwn6XdP8p", thumbVideoId: "WJ-UaAaumNA" },
+      //     { id: "os1",  title: "OS One Shot",          channel: "5 Minutes Engineering", playlistId: "PLhx1hByyAqsYn0JMNNPN-uFiLb0XdZtSG", thumbVideoId: "A4G0hOI6XyQ" },
+      //   ],
+      // },
       // {
       //   subject: "DAA",
       //   image: "/images/daa.svg",
