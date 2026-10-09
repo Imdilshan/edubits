@@ -1,0 +1,1172 @@
+[
+  {
+    "id": 1,
+    "topic": "Cassandra & ZooKeeper",
+    "question": "Which property defines Eventual Consistency?",
+    "options": [
+      "Replicas converge if updates stop.",
+      "No stale reads are possible.",
+      "Reads always return latest value.",
+      "All replicas are instantly synchronized."
+    ],
+    "answer": "Replicas converge if updates stop.",
+    "answer_index": 0
+  },
+  {
+    "id": 2,
+    "topic": "Random Forest, Bagging & Boosting",
+    "question": "Boosting combines:",
+    "options": [
+      "Databases into warehouses",
+      "Clusters into datasets",
+      "Weak classifiers into a strong ensemble",
+      "Strong classifiers only"
+    ],
+    "answer": "Weak classifiers into a strong ensemble",
+    "answer_index": 2
+  },
+  {
+    "id": 3,
+    "topic": "Random Forest, Bagging & Boosting",
+    "question": "Random Forest is best described as:",
+    "options": [
+      "A clustering algorithm",
+      "A single deep decision tree",
+      "A bagging of de-correlated decision trees",
+      "A neural network ensemble"
+    ],
+    "answer": "A bagging of de-correlated decision trees",
+    "answer_index": 2
+  },
+  {
+    "id": 4,
+    "topic": "GraphX",
+    "question": "What is the main goal of GraphX?",
+    "options": [
+      "Replace Spark SQL",
+      "Replace HDFS",
+      "Unify data-parallel and graph-parallel analytics",
+      "Database management"
+    ],
+    "answer": "Unify data-parallel and graph-parallel analytics",
+    "answer_index": 2
+  },
+  {
+    "id": 5,
+    "topic": "Random Forest, Bagging & Boosting",
+    "question": "In Random Forest, at each split:",
+    "options": [
+      "Features are ignored",
+      "All features are always evaluated",
+      "Only one feature exists",
+      "Random subset of features is selected"
+    ],
+    "answer": "Random subset of features is selected",
+    "answer_index": 3
+  },
+  {
+    "id": 6,
+    "topic": "Cluster Analysis & K-Means",
+    "question": "Which metric is commonly used to evaluate K-Means clustering quality?",
+    "options": [
+      "Recall",
+      "Accuracy",
+      "Precision",
+      "WSSE"
+    ],
+    "answer": "WSSE",
+    "answer_index": 3
+  },
+  {
+    "id": 7,
+    "topic": "Big Data & Hadoop Basics",
+    "question": "Apache Spark is faster than Hadoop MapReduce mainly because:",
+    "options": [
+      "It processes data in memory",
+      "It does not use clusters",
+      "It stores less data",
+      "It uses more hardware"
+    ],
+    "answer": "It processes data in memory",
+    "answer_index": 0
+  },
+  {
+    "id": 8,
+    "topic": "Cassandra & ZooKeeper",
+    "question": "Which Cassandra consistency level is the FASTEST for writes?",
+    "options": [
+      "ALL",
+      "QUORUM",
+      "ONE",
+      "ANY"
+    ],
+    "answer": "ANY",
+    "answer_index": 3
+  },
+  {
+    "id": 9,
+    "topic": "Spark Streaming",
+    "question": "Which abstraction represents a stream of data in Spark Streaming?",
+    "options": [
+      "RDD",
+      "DStream",
+      "Dataset",
+      "DataFrame"
+    ],
+    "answer": "DStream",
+    "answer_index": 1
+  },
+  {
+    "id": 10,
+    "topic": "Spark Streaming",
+    "question": "Which function maintains arbitrary state across batches?",
+    "options": [
+      "union()",
+      "updateStateByKey()",
+      "reduceByKey()",
+      "collect()"
+    ],
+    "answer": "updateStateByKey()",
+    "answer_index": 1
+  },
+  {
+    "id": 11,
+    "topic": "Hadoop Ecosystem (Oozie, Flume, ZooKeeper, Hive)",
+    "question": "Hive primarily operates on data stored in:",
+    "options": [
+      "HDFS",
+      "MongoDB",
+      "Redis",
+      "Cassandra"
+    ],
+    "answer": "HDFS",
+    "answer_index": 0
+  },
+  {
+    "id": 12,
+    "topic": "Hadoop Ecosystem (Oozie, Flume, ZooKeeper, Hive)",
+    "question": "Which of the following statements about Oozie is CORRECT?",
+    "options": [
+      "Oozie is a distributed NoSQL database.",
+      "Oozie is used to store data in HDFS.",
+      "Oozie is a workflow scheduler system for Hadoop jobs.",
+      "Oozie is a machine learning library for Spark."
+    ],
+    "answer": "Oozie is a workflow scheduler system for Hadoop jobs.",
+    "answer_index": 2
+  },
+  {
+    "id": 13,
+    "topic": "GraphX",
+    "question": "Which statement best describes GraphX?",
+    "options": [
+      "Unified analytics framework for graph and data processing",
+      "SQL replacement system",
+      "Batch-only processing framework",
+      "Graph-only processing framework"
+    ],
+    "answer": "Unified analytics framework for graph and data processing",
+    "answer_index": 0
+  },
+  {
+    "id": 14,
+    "topic": "Spark Core (RDDs, DAG, Lineage)",
+    "question": "Which Spark component is responsible for splitting a DAG into stages?",
+    "options": [
+      "DAGScheduler",
+      "TaskScheduler",
+      "SparkContext",
+      "BlockManager"
+    ],
+    "answer": "DAGScheduler",
+    "answer_index": 0
+  },
+  {
+    "id": 15,
+    "topic": "GraphX",
+    "question": "Which graph algorithm is commonly used to identify influential vertices?",
+    "options": [
+      "Frequent Pattern Growth",
+      "K-Means",
+      "Apriori",
+      "PageRank"
+    ],
+    "answer": "PageRank",
+    "answer_index": 3
+  },
+  {
+    "id": 16,
+    "topic": "Big Data & Hadoop Basics",
+    "question": "What is Big Data?",
+    "options": [
+      "Data stored only in databases",
+      "Data that is too large and complex for traditional processing systems",
+      "Data generated only from social media",
+      "Small amount of structured data only"
+    ],
+    "answer": "Data that is too large and complex for traditional processing systems",
+    "answer_index": 1
+  },
+  {
+    "id": 17,
+    "topic": "Cassandra & ZooKeeper",
+    "question": "Which ZooKeeper design goal ensures that all updates are processed in a globally agreed order?",
+    "options": [
+      "Ordered",
+      "Fast",
+      "Atomic",
+      "Replicated"
+    ],
+    "answer": "Ordered",
+    "answer_index": 0
+  },
+  {
+    "id": 18,
+    "topic": "Big Data & Hadoop Basics",
+    "question": "Which of the following is NOT one of the 5 V's of Big Data?",
+    "options": [
+      "Volume",
+      "Validation",
+      "Variety",
+      "Velocity"
+    ],
+    "answer": "Validation",
+    "answer_index": 1
+  },
+  {
+    "id": 19,
+    "topic": "HDFS & MapReduce",
+    "question": "In the Reverse Web-Link Graph application, the Mapper emits:",
+    "options": [
+      "(URL, 1)",
+      "(target, source)",
+      "(source, target)",
+      "(target, count)"
+    ],
+    "answer": "(target, source)",
+    "answer_index": 1
+  },
+  {
+    "id": 20,
+    "topic": "Spark Streaming",
+    "question": "What is the fundamental processing model used by Spark Streaming?",
+    "options": [
+      "Batch-only processing",
+      "Micro-batch processing",
+      "Pipeline processing",
+      "Record-at-a-time processing"
+    ],
+    "answer": "Micro-batch processing",
+    "answer_index": 1
+  },
+  {
+    "id": 21,
+    "topic": "Spark Streaming",
+    "question": "Which statement about Spark Streaming fault tolerance is TRUE?",
+    "options": [
+      "Lost data cannot be recovered.",
+      "Only input data is fault tolerant.",
+      "Failures require manual data recreation.",
+      "Transformations are exactly-once and fault-tolerant"
+    ],
+    "answer": "Transformations are exactly-once and fault-tolerant",
+    "answer_index": 3
+  },
+  {
+    "id": 22,
+    "topic": "GraphX",
+    "question": "Which phase is NOT part of the Graph-Parallel Pattern?",
+    "options": [
+      "Shuffle Sort",
+      "Gather",
+      "Apply",
+      "Scatter"
+    ],
+    "answer": "Shuffle Sort",
+    "answer_index": 0
+  },
+  {
+    "id": 23,
+    "topic": "Cassandra & ZooKeeper",
+    "question": "Which statement about Bloom Filters is TRUE?",
+    "options": [
+      "They guarantee exact membership testing.",
+      "They may produce false negatives.",
+      "They never produce false positives.",
+      "They may produce false positives but never false negatives"
+    ],
+    "answer": "They may produce false positives but never false negatives",
+    "answer_index": 3
+  },
+  {
+    "id": 24,
+    "topic": "Random Forest, Bagging & Boosting",
+    "question": "Recommended learning rate for Gradient Boosting is:",
+    "options": [
+      "Equal to 5",
+      "Greater than 1",
+      "Less than or equal to 0.1",
+      "Equal to 10"
+    ],
+    "answer": "Less than or equal to 0.1",
+    "answer_index": 2
+  },
+  {
+    "id": 25,
+    "topic": "GraphX",
+    "question": "Which optimization reduces communication by avoiding unnecessary joins?",
+    "options": [
+      "Join Elimination",
+      "Replication Factor",
+      "Data Duplication",
+      "Hash Partitioning"
+    ],
+    "answer": "Join Elimination",
+    "answer_index": 0
+  },
+  {
+    "id": 26,
+    "topic": "Spark Streaming",
+    "question": "Why is maintaining two separate stacks for batch and streaming considered problematic?",
+    "options": [
+      "Prevents fault tolerance",
+      "Doubles implementation and operational effort",
+      "Reduces throughput",
+      "Eliminates scalability"
+    ],
+    "answer": "Doubles implementation and operational effort",
+    "answer_index": 1
+  },
+  {
+    "id": 27,
+    "topic": "Random Forest, Bagging & Boosting",
+    "question": "Random Forest can naturally support parallel processing because:",
+    "options": [
+      "Trees share memory",
+      "Trees are built independently",
+      "Trees require sequential execution",
+      "Trees use one processor"
+    ],
+    "answer": "Trees are built independently",
+    "answer_index": 1
+  },
+  {
+    "id": 28,
+    "topic": "Random Forest, Bagging & Boosting",
+    "question": "What is the main purpose of Bagging?",
+    "options": [
+      "Reduce dataset size",
+      "Increase bias",
+      "Increase overfitting",
+      "Reduce prediction variance"
+    ],
+    "answer": "Reduce prediction variance",
+    "answer_index": 3
+  },
+  {
+    "id": 29,
+    "topic": "Spark Streaming",
+    "question": "What is the main advantage of Spark Streaming's micro-batch architecture?",
+    "options": [
+      "Supports only offline processing",
+      "Provides fault tolerance and scalability",
+      "Requires no cluster",
+      "Eliminates RDDs"
+    ],
+    "answer": "Provides fault tolerance and scalability",
+    "answer_index": 1
+  },
+  {
+    "id": 30,
+    "topic": "Hadoop Ecosystem (Oozie, Flume, ZooKeeper, Hive)",
+    "question": "Which Hadoop module stores metadata?",
+    "options": [
+      "Reducer",
+      "TaskTracker",
+      "DataNode",
+      "NameNode"
+    ],
+    "answer": "NameNode",
+    "answer_index": 3
+  },
+  {
+    "id": 31,
+    "topic": "GraphX",
+    "question": "Which GraphX feature helps accelerate joins and construct subgraphs efficiently?",
+    "options": [
+      "MemTables",
+      "Bloom Filters",
+      "Commit Logs",
+      "Indexing and Bitmaps"
+    ],
+    "answer": "Indexing and Bitmaps",
+    "answer_index": 3
+  },
+  {
+    "id": 32,
+    "topic": "GraphX",
+    "question": "Triangle Counting is mainly used for:",
+    "options": [
+      "Community detection",
+      "Data compression",
+      "Replication",
+      "Sorting vertices"
+    ],
+    "answer": "Community detection",
+    "answer_index": 0
+  },
+  {
+    "id": 33,
+    "topic": "Hadoop Ecosystem (Oozie, Flume, ZooKeeper, Hive)",
+    "question": "A dataset was highly useful in 2024, but by 2026 the same dataset becomes irrelevant because the information has lost significance. Which \"V\" best describes this situation?",
+    "options": [
+      "Venue",
+      "Volatility",
+      "Veracity",
+      "Validity"
+    ],
+    "answer": "Volatility",
+    "answer_index": 1
+  },
+  {
+    "id": 34,
+    "topic": "Spark Core (RDDs, DAG, Lineage)",
+    "question": "Which statement best explains Spark's fault tolerance mechanism?",
+    "options": [
+      "Spark checkpoints every operation by default.",
+      "Every RDD is replicated across all nodes.",
+      "Spark tracks lineage and recomputes lost partitions.",
+      "Every transformation result is written to HDFS."
+    ],
+    "answer": "Spark tracks lineage and recomputes lost partitions.",
+    "answer_index": 2
+  },
+  {
+    "id": 35,
+    "topic": "Random Forest, Bagging & Boosting",
+    "question": "Bootstrap in Bagging refers to:",
+    "options": [
+      "Feature scaling",
+      "Gradient computation",
+      "Data normalization",
+      "Sampling with replacement"
+    ],
+    "answer": "Sampling with replacement",
+    "answer_index": 3
+  },
+  {
+    "id": 36,
+    "topic": "HDFS & MapReduce",
+    "question": "What is the primary role of a Partitioner in MapReduce?",
+    "options": [
+      "Sort records within a Reducer",
+      "Combine Mapper outputs locally",
+      "Replicate data blocks across HDFS",
+      "Decide which Reducer receives a key-value pair"
+    ],
+    "answer": "Decide which Reducer receives a key-value pair",
+    "answer_index": 3
+  },
+  {
+    "id": 37,
+    "topic": "Hadoop Ecosystem (Oozie, Flume, ZooKeeper, Hive)",
+    "question": "Which of the following is the PRIMARY function of Apache ZooKeeper in a distributed Hadoop environment?",
+    "options": [
+      "Managing distributed coordination, synchronization, and configuration services",
+      "Storing large-scale data across cluster nodes",
+      "Scheduling Hadoop workflows and jobs",
+      "Executing SQL-like queries on HDFS data"
+    ],
+    "answer": "Managing distributed coordination, synchronization, and configuration services",
+    "answer_index": 0
+  },
+  {
+    "id": 38,
+    "topic": "HDFS & MapReduce",
+    "question": "What does HDFS do when a DataNode fails (stops sending heartbeats)?",
+    "options": [
+      "Ignores the failure",
+      "Marks the DataNode and initiates re-replication if needed",
+      "Restarts the DataNode automatically",
+      "Deletes all blocks immediately"
+    ],
+    "answer": "Marks the DataNode and initiates re-replication if needed",
+    "answer_index": 1
+  },
+  {
+    "id": 39,
+    "topic": "Cluster Analysis & K-Means",
+    "question": "Which similarity measure is based on the angle between vectors?",
+    "options": [
+      "Jaccard Distance",
+      "Euclidean Distance",
+      "Cosine Similarity",
+      "Manhattan Distance"
+    ],
+    "answer": "Cosine Similarity",
+    "answer_index": 2
+  },
+  {
+    "id": 40,
+    "topic": "Cluster Analysis & K-Means",
+    "question": "Which is a common application of cluster analysis?",
+    "options": [
+      "CPU scheduling",
+      "Sorting algorithms",
+      "Customer segmentation",
+      "Compiler optimization"
+    ],
+    "answer": "Customer segmentation",
+    "answer_index": 2
+  },
+  {
+    "id": 41,
+    "topic": "Spark Core (RDDs, DAG, Lineage)",
+    "question": "In Spark, which operation triggers actual execution of a DAG?",
+    "options": [
+      "count()",
+      "filter()",
+      "join()",
+      "map()"
+    ],
+    "answer": "count()",
+    "answer_index": 0
+  },
+  {
+    "id": 42,
+    "topic": "Spark Core (RDDs, DAG, Lineage)",
+    "question": "Why is reduceByKey() generally preferred over groupByKey() for aggregation?",
+    "options": [
+      "It creates fewer partitions.",
+      "It uses combiners on the map side.",
+      "It avoids shuffling completely.",
+      "It automatically sorts keys."
+    ],
+    "answer": "It uses combiners on the map side.",
+    "answer_index": 1
+  },
+  {
+    "id": 43,
+    "topic": "Cassandra & ZooKeeper",
+    "question": "In Cassandra, why are writes generally faster than reads?",
+    "options": [
+      "Writes are append-oriented using Commit Logs and MemTables",
+      "Writes avoid disk operations entirely.",
+      "Reads bypass SSTables.",
+      "Reads use only memory."
+    ],
+    "answer": "Writes are append-oriented using Commit Logs and MemTables",
+    "answer_index": 0
+  },
+  {
+    "id": 44,
+    "topic": "Spark Streaming",
+    "question": "Which of the following is NOT a supported Spark Streaming input source?",
+    "options": [
+      "HDFS Block Replicator",
+      "Twitter",
+      "Flume",
+      "Kafka"
+    ],
+    "answer": "HDFS Block Replicator",
+    "answer_index": 0
+  },
+  {
+    "id": 45,
+    "topic": "Cluster Analysis & K-Means",
+    "question": "Which similarity measure calculates straight-line distance between two points?",
+    "options": [
+      "Cosine Similarity",
+      "Euclidean Distance",
+      "Manhattan Distance",
+      "Hamming Distance"
+    ],
+    "answer": "Euclidean Distance",
+    "answer_index": 1
+  },
+  {
+    "id": 46,
+    "topic": "Random Forest, Bagging & Boosting",
+    "question": "Gradient Boosting builds models:",
+    "options": [
+      "Without training",
+      "Iteratively",
+      "Randomly",
+      "In a single step"
+    ],
+    "answer": "Iteratively",
+    "answer_index": 1
+  },
+  {
+    "id": 47,
+    "topic": "HDFS & MapReduce",
+    "question": "Which HDFS component is primarily responsible for monitoring replica counts and initiating re-replication when a block becomes under-replicated?",
+    "options": [
+      "DataNode",
+      "Secondary NameNode",
+      "NameNode",
+      "Client"
+    ],
+    "answer": "NameNode",
+    "answer_index": 2
+  },
+  {
+    "id": 48,
+    "topic": "GraphX",
+    "question": "Which GraphX operator joins vertices and edges together?",
+    "options": [
+      "subgraph()",
+      "reverse()",
+      "mapV()",
+      "triplets"
+    ],
+    "answer": "triplets",
+    "answer_index": 3
+  },
+  {
+    "id": 49,
+    "topic": "HDFS & MapReduce",
+    "question": "Which YARN component is responsible for detecting task failures for a specific job?",
+    "options": [
+      "DataNode",
+      "Resource Manager (RM)",
+      "Application Master (AM)",
+      "Node Manager (NM)"
+    ],
+    "answer": "Application Master (AM)",
+    "answer_index": 2
+  },
+  {
+    "id": 50,
+    "topic": "HDFS & MapReduce",
+    "question": "What is the primary purpose of introducing the HDFS Federation?",
+    "options": [
+      "Increase replication factor",
+      "Reduce block size",
+      "Increase namespace scalability",
+      "Eliminate DataNodes"
+    ],
+    "answer": "Increase namespace scalability",
+    "answer_index": 2
+  },
+  {
+    "id": 51,
+    "topic": "Cluster Analysis & K-Means",
+    "question": "Cluster analysis is primarily a:",
+    "options": [
+      "Deep learning technique",
+      "Supervised learning technique",
+      "Reinforcement learning technique",
+      "Unsupervised learning technique"
+    ],
+    "answer": "Unsupervised learning technique",
+    "answer_index": 3
+  },
+  {
+    "id": 52,
+    "topic": "Big Data & Hadoop Basics",
+    "question": "Which language is used by Apache Hive for querying data?",
+    "options": [
+      "SQL",
+      "C++",
+      "HiveQL",
+      "JavaScript"
+    ],
+    "answer": "HiveQL",
+    "answer_index": 2
+  },
+  {
+    "id": 53,
+    "topic": "Random Forest, Bagging & Boosting",
+    "question": "In Gradient Boosted Trees, the base learners are usually:",
+    "options": [
+      "Decision Trees",
+      "Neural Networks",
+      "K-Means Clusters",
+      "Support Vectors"
+    ],
+    "answer": "Decision Trees",
+    "answer_index": 0
+  },
+  {
+    "id": 54,
+    "topic": "Spark Core (RDDs, DAG, Lineage)",
+    "question": "SparkContext is:",
+    "options": [
+      "Storage system",
+      "Main entry point to Spark functionality",
+      "Scheduler",
+      "Worker node"
+    ],
+    "answer": "Main entry point to Spark functionality",
+    "answer_index": 1
+  },
+  {
+    "id": 55,
+    "topic": "HDFS & MapReduce",
+    "question": "What is the default value of the parameter dfs.replication?",
+    "options": [
+      "1",
+      "4",
+      "3",
+      "2"
+    ],
+    "answer": "3",
+    "answer_index": 2
+  },
+  {
+    "id": 56,
+    "topic": "Cluster Analysis & K-Means",
+    "question": "If WSSE decreases, it generally indicates:",
+    "options": [
+      "Better cluster compactness",
+      "More classification errors",
+      "Data loss",
+      "Worse clustering"
+    ],
+    "answer": "Better cluster compactness",
+    "answer_index": 0
+  },
+  {
+    "id": 57,
+    "topic": "Big Data & Hadoop Basics",
+    "question": "In Hadoop, MapReduce consists of which two phases?",
+    "options": [
+      "Input and Output",
+      "Store and Retrieve",
+      "Map and Reduce",
+      "Read and Write"
+    ],
+    "answer": "Map and Reduce",
+    "answer_index": 2
+  },
+  {
+    "id": 58,
+    "topic": "Spark Core (RDDs, DAG, Lineage)",
+    "question": "Which statement about RDDs is FALSE?",
+    "options": [
+      "RDDs are immutable.",
+      "RDDs support direct modification of existing partitions.",
+      "RDDs can be cached for reuse.",
+      "RDDs automatically rebuild lost data using lineage."
+    ],
+    "answer": "RDDs support direct modification of existing partitions.",
+    "answer_index": 1
+  },
+  {
+    "id": 59,
+    "topic": "Cluster Analysis & K-Means",
+    "question": "K-Means stops iterating when:",
+    "options": [
+      "Dataset becomes empty",
+      "Accuracy becomes 100%",
+      "No changes occur in centroids",
+      "Number of features decreases"
+    ],
+    "answer": "No changes occur in centroids",
+    "answer_index": 2
+  },
+  {
+    "id": 60,
+    "topic": "Hadoop Ecosystem (Oozie, Flume, ZooKeeper, Hive)",
+    "question": "Oozie can directly coordinate which of the following Hadoop ecosystem components?",
+    "options": [
+      "Hive, Pig, Sqoop, and MapReduce",
+      "Spark MLlib and GraphX only",
+      "HDFS, NameNode, DataNode, and YARN only",
+      "Cassandra, MongoDB, and Redis only"
+    ],
+    "answer": "Hive, Pig, Sqoop, and MapReduce",
+    "answer_index": 0
+  },
+  {
+    "id": 61,
+    "topic": "Cluster Analysis & K-Means",
+    "question": "What is the main goal of cluster analysis?",
+    "options": [
+      "Reduce storage space",
+      "Organize similar items into groups",
+      "Classify labeled data",
+      "Predict future values"
+    ],
+    "answer": "Organize similar items into groups",
+    "answer_index": 1
+  },
+  {
+    "id": 62,
+    "topic": "Cassandra & ZooKeeper",
+    "question": "Which Cassandra replication strategy is specifically designed for multi-datacenter deployments?",
+    "options": [
+      "Simple Strategy",
+      "Byte Ordered Partitioner",
+      "Random Partitioner",
+      "Network Topology Strategy"
+    ],
+    "answer": "Network Topology Strategy",
+    "answer_index": 3
+  },
+  {
+    "id": 63,
+    "topic": "Cluster Analysis & K-Means",
+    "question": "What is the first step of the K-Means algorithm?",
+    "options": [
+      "Compute accuracy",
+      "Remove outliers",
+      "Select initial centroids",
+      "Normalize output"
+    ],
+    "answer": "Select initial centroids",
+    "answer_index": 2
+  },
+  {
+    "id": 64,
+    "topic": "Hadoop Ecosystem (Oozie, Flume, ZooKeeper, Hive)",
+    "question": "What is the primary role of Apache ZooKeeper in a Hadoop ecosystem?",
+    "options": [
+      "Workflow scheduling",
+      "SQL query processing",
+      "Distributed coordination and synchronization",
+      "Distributed data storage"
+    ],
+    "answer": "Distributed coordination and synchronization",
+    "answer_index": 2
+  },
+  {
+    "id": 65,
+    "topic": "Cassandra & ZooKeeper",
+    "question": "What is the primary purpose of Cassandra's Bloom Filter?",
+    "options": [
+      "Quickly determine if a key may exist in an SSTable",
+      "Store key-value pairs permanently",
+      "Compress SSTables",
+      "Replace indexing structures"
+    ],
+    "answer": "Quickly determine if a key may exist in an SSTable",
+    "answer_index": 0
+  },
+  {
+    "id": 66,
+    "topic": "HDFS & MapReduce",
+    "question": "Which statement about the Reduce function is TRUE?",
+    "options": [
+      "It processes only one value at a time.",
+      "It cannot aggregate values.",
+      "It accepts an intermediate key and a set of values.",
+      "It always produces multiple output values."
+    ],
+    "answer": "It accepts an intermediate key and a set of values.",
+    "answer_index": 2
+  },
+  {
+    "id": 67,
+    "topic": "Hadoop Ecosystem (Oozie, Flume, ZooKeeper, Hive)",
+    "question": "Which of the following best describes Apache Hive?",
+    "options": [
+      "A distributed coordination service",
+      "A data warehouse system built on Hadoop",
+      "A NoSQL database",
+      "A workflow scheduler"
+    ],
+    "answer": "A data warehouse system built on Hadoop",
+    "answer_index": 1
+  },
+  {
+    "id": 68,
+    "topic": "Spark Streaming",
+    "question": "Which requirement is NOT listed for a stream-processing framework in Spark Streaming?",
+    "options": [
+      "Scalability",
+      "Efficient fault tolerance",
+      "Fixed single-node execution",
+      "Second-scale latency"
+    ],
+    "answer": "Fixed single-node execution",
+    "answer_index": 2
+  },
+  {
+    "id": 69,
+    "topic": "Big Data & Hadoop Basics",
+    "question": "What is the primary function of HDFS in Hadoop?",
+    "options": [
+      "Machine Learning",
+      "Data Visualization",
+      "Query Optimization",
+      "Distributed Storage"
+    ],
+    "answer": "Distributed Storage",
+    "answer_index": 3
+  },
+  {
+    "id": 70,
+    "topic": "Big Data & Hadoop Basics",
+    "question": "Which of the following is an example of unstructured data?",
+    "options": [
+      "Relational Database Table",
+      "Video File",
+      "Excel Table",
+      "Student Marks Sheet"
+    ],
+    "answer": "Video File",
+    "answer_index": 1
+  },
+  {
+    "id": 71,
+    "topic": "GraphX",
+    "question": "Which GraphX optimization reuses routing tables, edge adjacency information, and indices across graphs and subgraphs?",
+    "options": [
+      "Join Elimination",
+      "Substantial Index and Data Reuse",
+      "Pregel Messaging",
+      "Active Edge Indexing"
+    ],
+    "answer": "Substantial Index and Data Reuse",
+    "answer_index": 1
+  },
+  {
+    "id": 72,
+    "topic": "Big Data & Hadoop Basics",
+    "question": "Which framework is widely used for distributed processing of Big Data?",
+    "options": [
+      "Photoshop",
+      "Notepad",
+      "MS Word",
+      "Hadoop"
+    ],
+    "answer": "Hadoop",
+    "answer_index": 3
+  },
+  {
+    "id": 73,
+    "topic": "HDFS & MapReduce",
+    "question": "Which of the following is directly affected by the number of HDFS blocks?",
+    "options": [
+      "Neither NameNode memory usage nor number of Map tasks",
+      "Number of Map tasks only",
+      "Both NameNode memory usage and number of Map tasks",
+      "NameNode memory usage only"
+    ],
+    "answer": "Both NameNode memory usage and number of Map tasks",
+    "answer_index": 2
+  },
+  {
+    "id": 74,
+    "topic": "Cassandra & ZooKeeper",
+    "question": "What is the default type of znode in ZooKeeper?",
+    "options": [
+      "Sequential",
+      "Ephemeral",
+      "Temporary",
+      "Persistent"
+    ],
+    "answer": "Persistent",
+    "answer_index": 3
+  },
+  {
+    "id": 75,
+    "topic": "Spark Streaming",
+    "question": "In Spark Streaming, every interval results in:",
+    "options": [
+      "A new ZooKeeper node",
+      "A new Kafka broker",
+      "An RDD graph computation",
+      "A new DataNode"
+    ],
+    "answer": "An RDD graph computation",
+    "answer_index": 2
+  },
+  {
+    "id": 76,
+    "topic": "GraphX",
+    "question": "In GraphX, a Property Graph consists of:",
+    "options": [
+      "Tables only",
+      "Vertices and edges with properties",
+      "Only vertices",
+      "Only edges"
+    ],
+    "answer": "Vertices and edges with properties",
+    "answer_index": 1
+  },
+  {
+    "id": 77,
+    "topic": "Hadoop Ecosystem (Oozie, Flume, ZooKeeper, Hive)",
+    "question": "What is the primary purpose of Apache Flume in the Hadoop ecosystem?",
+    "options": [
+      "Collecting and transferring large amounts of log data",
+      "Querying data stored in HDFS",
+      "Managing cluster resources",
+      "Performing machine learning tasks"
+    ],
+    "answer": "Collecting and transferring large amounts of log data",
+    "answer_index": 0
+  },
+  {
+    "id": 78,
+    "topic": "Spark Streaming",
+    "question": "Which Spark Streaming feature helps recover lost data after worker failure?",
+    "options": [
+      "Kafka partitions",
+      "ZooKeeper election",
+      "SQL optimizer",
+      "Replicated input data and RDD lineage"
+    ],
+    "answer": "Replicated input data and RDD lineage",
+    "answer_index": 3
+  },
+  {
+    "id": 79,
+    "topic": "Big Data & Hadoop Basics",
+    "question": "Which component of Hadoop manages resources and job scheduling?",
+    "options": [
+      "Hive",
+      "Pig",
+      "HDFS",
+      "YARN"
+    ],
+    "answer": "YARN",
+    "answer_index": 3
+  },
+  {
+    "id": 80,
+    "topic": "Big Data & Hadoop Basics",
+    "question": "Which database type is commonly used in Big Data environments?",
+    "options": [
+      "Compiler",
+      "Spreadsheet",
+      "NoSQL Database",
+      "Text File Only"
+    ],
+    "answer": "NoSQL Database",
+    "answer_index": 2
+  },
+  {
+    "id": 81,
+    "topic": "Cassandra & ZooKeeper",
+    "question": "According to CAP theorem, Cassandra primarily chooses:",
+    "options": [
+      "Consistency and Availability",
+      "Availability and Partition Tolerance",
+      "Consistency and Partition Tolerance",
+      "Atomicity and Durability"
+    ],
+    "answer": "Availability and Partition Tolerance",
+    "answer_index": 1
+  },
+  {
+    "id": 82,
+    "topic": "HDFS & MapReduce",
+    "question": "Which statement about Reduce tasks is TRUE?",
+    "options": [
+      "Reducers execute before Mappers.",
+      "Reducers never use partitioning.",
+      "A key can be processed by multiple Reducers.",
+      "Each key is assigned to exactly one Reducer."
+    ],
+    "answer": "Each key is assigned to exactly one Reducer.",
+    "answer_index": 3
+  },
+  {
+    "id": 83,
+    "topic": "Cassandra & ZooKeeper",
+    "question": "What happens if a ZooKeeper ensemble loses majority availability?",
+    "options": [
+      "System switches to standalone mode.",
+      "Remaining node becomes leader.",
+      "No leader can be elected.",
+      "A new leader is elected immediately."
+    ],
+    "answer": "No leader can be elected.",
+    "answer_index": 2
+  },
+  {
+    "id": 84,
+    "topic": "Hadoop Ecosystem (Oozie, Flume, ZooKeeper, Hive)",
+    "question": "Which pair is correctly matched?",
+    "options": [
+      "GraphX – ETL Tool",
+      "Hive – Stream Processing",
+      "Kafka – Distributed Commit Log",
+      "Sqoop – Graph Analytics"
+    ],
+    "answer": "Kafka – Distributed Commit Log",
+    "answer_index": 2
+  },
+  {
+    "id": 85,
+    "topic": "Spark Core (RDDs, DAG, Lineage)",
+    "question": "Which Spark component launches tasks on worker nodes and retries failed tasks?",
+    "options": [
+      "TaskScheduler",
+      "BlockManager",
+      "SparkContext",
+      "DAGScheduler"
+    ],
+    "answer": "TaskScheduler",
+    "answer_index": 0
+  },
+  {
+    "id": 86,
+    "topic": "Spark Core (RDDs, DAG, Lineage)",
+    "question": "Which operation below is an Action rather than a Transformation?",
+    "options": [
+      "join()",
+      "collect()",
+      "map()",
+      "filter()"
+    ],
+    "answer": "collect()",
+    "answer_index": 1
+  },
+  {
+    "id": 87,
+    "topic": "Spark Core (RDDs, DAG, Lineage)",
+    "question": "Which feature helps Spark recover lost RDD partitions?",
+    "options": [
+      "Lineage",
+      "Replication",
+      "Scheduling",
+      "Compression"
+    ],
+    "answer": "Lineage",
+    "answer_index": 0
+  },
+  {
+    "id": 88,
+    "topic": "Spark Core (RDDs, DAG, Lineage)",
+    "question": "A Spark application performs multiple iterations over the same dataset. Which feature provides the greatest performance improvement?",
+    "options": [
+      "Data compression",
+      "Increasing block size",
+      "Caching/Persistence of RDDs",
+      "HDFS replication"
+    ],
+    "answer": "Caching/Persistence of RDDs",
+    "answer_index": 2
+  },
+  {
+    "id": 89,
+    "topic": "Cluster Analysis & K-Means",
+    "question": "Which algorithm is most commonly associated with cluster analysis?",
+    "options": [
+      "Logistic Regression",
+      "K-Means",
+      "Decision Tree",
+      "Naïve Bayes"
+    ],
+    "answer": "K-Means",
+    "answer_index": 1
+  },
+  {
+    "id": 90,
+    "topic": "Random Forest, Bagging & Boosting",
+    "question": "Cross-validation is mainly used to:",
+    "options": [
+      "Reduce number of features",
+      "Assess model quality and select best parameters",
+      "Perform clustering",
+      "Increase dataset size"
+    ],
+    "answer": "Assess model quality and select best parameters",
+    "answer_index": 1
+  }
+]

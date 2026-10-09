@@ -1,0 +1,3478 @@
+{
+  "total_questions": 120,
+  "questions": [
+    {
+      "id": 1,
+      "source_set": "Set 6 - Risk Management (identification/assessment)",
+      "original_number": 10,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "True or False: The goal of risk assessment is to assign a risk rating or score that represents the relative risk for a specific vulnerability of an information asset.",
+      "options": [
+        {
+          "label": "A",
+          "text": "True",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "False",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "source_set": "Set 7 - Technical Security",
+      "original_number": 10,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Which of the following is the primary function of a SIEM system?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Performing software vulnerability scanning",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Encrypting all network traffic",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Blocking all unauthorized websites",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Collecting, correlating, and analyzing security logs and events",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "source_set": "Set 12 - Privacy Economics & Design",
+      "original_number": 10,
+      "answer_source": "claude (not verified by platform)",
+      "type": "single_choice",
+      "question": "Under the Digital Personal Data Protection Bill, 2022, the individual whose personal data is processed, and who holds the right to give or withdraw consent, is termed:",
+      "options": [
+        {
+          "label": "A",
+          "text": "Data Principal",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "Data Processor",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Data Fiduciary",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Data Protection Officer",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "source_set": "Set 4 - Contingency / Incident Response / BC-DR",
+      "original_number": 8,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Which of the following events are Definite indicators of incidents?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Use of dormant accounts, Changes to logs, Presence of hacker tools, Notifications by partner or peer",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "Unusual consumption of computing resources, Changes to logs, Unusual system crashes, Presence of unfamiliar files",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Activities at unexpected times, Notifications by partner or peers, Unusual system crashes, Presence or execution of unknown programs or processes.",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Notification from IDPS, Presence of new accounts, Unusual system crashes, Use of dormant accounts",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "source_set": "Set 5 - Security Policies",
+      "original_number": 4,
+      "answer_source": "accepted",
+      "type": "multiple_select",
+      "question": "Which of the following approaches are used to create and manage ISSPs within an organization? (Select all that apply. More than one answer may be possible)",
+      "options": [
+        {
+          "label": "A",
+          "text": "Independent ISSP documents, each tailored to a specific issue.",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "A hierarchical ISSP structure in which all issue-specific requirements are incorporated directly into the Enterprise Information Security Policy (EISP).",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "A modular ISSP document that unifies policy creation and administration while maintaining each specific issue’s requirements.",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "A single comprehensive ISSP document that covers all issues.",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "source_set": "Set 1 - InfoSec Fundamentals A",
+      "original_number": 7,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "A security manager wants to ensure that sensitive organizational data cannot be accessed by unauthorized individuals. Which combination of measures best achieves this?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Faster network speeds and upgraded hardware",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Open access for all staff to improve collaboration efficiency",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Information classification, secure storage, and enforced access policies",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "Regular system reboots and software updates only",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "source_set": "Set 6 - Risk Management (identification/assessment)",
+      "original_number": 1,
+      "answer_source": "accepted (from screenshot)",
+      "type": "single_choice",
+      "question": "Match the following:\n1. Risk Assessment\n2. Risk Identification\n3. Risk Management\n4. Risk Control\n\na. The process of identifying risk, assessing its relative magnitude, and taking steps to reduce it to an acceptable level.\nb. The recognition, enumeration, and documentation of risks to an organization's information assets.\nc. The implementation of safeguards that reduce the risk to an acceptable level.\nd. A determination of the extent to which an organization's information assets are exposed to risk.",
+      "options": [
+        {
+          "label": "A",
+          "text": "1 -d, 2 - a, 3 - b, 4 - c",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "1 -a, 2 - d, 3 - c, 4 - b",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "1 -b, 2 - a, 3 - d, 4 - c",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "1 -d, 2 - b, 3 - a, 4 - c",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "source_set": "Set 3 - Governance (COBIT, COSO, NIST, ISO)",
+      "original_number": 6,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "An organization adopts a Governance, Risk, and Compliance (GRC) framework. What benefits can it expect to achieve?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Improved accountability and responsible operations",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Better decisions based on data and insights",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Stronger cybersecurity management",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "All of the above",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "source_set": "Set 2 - InfoSec Fundamentals B",
+      "original_number": 6,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "A security analyst maps their controls across three axes: security goals, data states, and control types. Which framework are they applying, and which dimension addresses how data exists at any given moment?",
+      "options": [
+        {
+          "label": "A",
+          "text": "CIA Triad; the first dimension",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "COBIT; the second dimension",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "NIST CSF; the third dimension",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "McCumber Cube; the second dimension",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "source_set": "Set 11 - GDPR & Indian Data Laws",
+      "original_number": 4,
+      "answer_source": "claude (not verified by platform)",
+      "type": "single_choice",
+      "question": "A person is in a life-threatening situation, and processing their personal data is necessary to save their life. Which legal basis for processing is most appropriate under GDPR?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Vital interests",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "Public interest",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Contract",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Consent",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "source_set": "Set 3 - Governance (COBIT, COSO, NIST, ISO)",
+      "original_number": 9,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Information security governance is the application of the principles of corporate governance to the information security function.",
+      "options": [
+        {
+          "label": "A",
+          "text": "True",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "False",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "source_set": "Set 7 - Technical Security",
+      "original_number": 3,
+      "answer_source": "accepted",
+      "type": "multiple_select",
+      "question": "Which of the following statements are true? (Select all that apply. More than one answer may be possible)",
+      "options": [
+        {
+          "label": "A",
+          "text": "The compression function used in secure hash algorithms falls into one of two categories: a function based on a public-key cryptographic algorithm or an algorithm based on a stream cipher.",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Hash functions can be used for intrusion detection and virus detection.",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "A cryptographic hash function can be used to construct a pseudorandom function (PRF) or a pseudorandom number generator (PRNG)",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "A hash function maps a variable-length message into a fixed-length hash value, or message digest.",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "source_set": "Set 9 - Information Privacy",
+      "original_number": 9,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Alan Westin's 1967 work Privacy and Freedom distinguished \"privacy\" from a related concept concerning personal data. Which pairing correctly reflects that distinction?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Privacy is a legal right; information privacy is a moral principle",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Privacy is derived from property rights; information privacy is derived from bodily security",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Privacy is control over exposure to others; informational self-determination is control over disclosure of personal data",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "Privacy applies to individuals; information privacy applies only to institutions",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "source_set": "Set 6 - Risk Management (identification/assessment)",
+      "original_number": 4,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "_________ is the quantity and nature of risk that organizations are willing to accept as they evaluate the trade-offs between perfect security and unlimited accessibility.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Loss magnitude",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Residual risk",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Loss frequency",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Risk appetite",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "source_set": "Set 10 - Privacy-Preserving Data Mining / GDPR concepts",
+      "original_number": 6,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Completely removing certain columns and reducing the granularity of others, as part of k-anonymization, describes which two techniques?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Generalization and encryption",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Suppression and encryption",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Randomization and suppression",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Suppression and generalization",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "source_set": "Set 9 - Information Privacy",
+      "original_number": 1,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Who first introduced the Fair Information Practice Principles (FIPPs)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The US Secretary's Advisory Committee on Automated Personal Data Systems",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "The European Union",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "The Federal Trade Commission (FTC)",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "A private industry consortium",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "source_set": "Set 1 - InfoSec Fundamentals A",
+      "original_number": 9,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "During an audit, a database record is found to have been silently modified by an unauthorized party. Which information security property has been violated?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Availability",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Confidentiality",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Integrity",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "Authenticity",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "source_set": "Set 12 - Privacy Economics & Design",
+      "original_number": 4,
+      "answer_source": "claude (not verified by platform)",
+      "type": "single_choice",
+      "question": "Before disclosing data, individuals weigh perceived risks against expected benefits. Which theory describes this process?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Individuals have no control over disclosure",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Privacy calculus: a cost-benefit analysis governs the decision to disclose",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "Individuals make irrational disclosure decisions",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Individuals are motivated solely by potential benefits of disclosure",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "source_set": "Set 5 - Security Policies",
+      "original_number": 3,
+      "answer_source": "accepted",
+      "type": "multiple_select",
+      "question": "A policy to be effective and legally enforceable, it should meet which of the criteria? (Select all that apply. More than one answer may be possible)",
+      "options": [
+        {
+          "label": "A",
+          "text": "The organization must be able to demonstrate that the employee understands the requirements and content of the policy.",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "The organization must be able to demonstrate that the policy has been made readily available for review by the employee.",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "The organization must be able to demonstrate that it disseminated the document in an intelligible form.",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "The organization must be able to demonstrate that the employee agrees to comply with the policy through act or affirmation.",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "source_set": "Set 11 - GDPR & Indian Data Laws",
+      "original_number": 2,
+      "answer_source": "claude (not verified by platform)",
+      "type": "single_choice",
+      "question": "An organization continues to retain personal data even though it is no longer required for the purpose for which it was collected. Which principle is most directly concerned with this situation?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Purpose Limitation",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Accountability",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Storage Limitation",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "Accuracy",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "source_set": "Set 10 - Privacy-Preserving Data Mining / GDPR concepts",
+      "original_number": 3,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "In the randomization technique for privacy-preserving data mining, what does the data receiver do with the randomized values transmitted by data providers?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Discards the noise and reconstructs exact original values",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Employs a distribution reconstruction algorithm to estimate the original data distribution",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "Applies k-anonymity to the randomized values",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Encrypts the noise component before use",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "source_set": "Set 1 - InfoSec Fundamentals A",
+      "original_number": 6,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Deploying a firewall alone is sufficient to constitute a complete Information Security program for an organization.",
+      "options": [
+        {
+          "label": "A",
+          "text": "True",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "False",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "source_set": "Set 3 - Governance (COBIT, COSO, NIST, ISO)",
+      "original_number": 1,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Which of the following are the goals of information security governance?\ni. Strategic alignment of information security with business objectives to ensure organizational goals are effectively supported.\nii. Risk management through the implementation of suitable controls and measures to identify, manage, and mitigate risks to information assets.\niii. Resource management by optimizing the utilization of information security expertise, technologies, and infrastructure in an efficient and effective manner.\niv. Performance measurement by evaluating, monitoring, and reporting information security governance metrics to verify that organizational objectives are being achieved.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Only i, ii, and iv are correct",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "i, ii, iii, and iv are correct",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "Only i, ii, and iii are correct",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Only i and ii are correct",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "source_set": "Set 6 - Risk Management (identification/assessment)",
+      "original_number": 7,
+      "answer_source": "accepted (from screenshot)",
+      "type": "single_choice",
+      "question": "Match the following threats with examples:\n1. Espionage or trespass\n2. Sabotage or vandalism\n3. Information extortion\n4. Theft\n\na. Damage to or destruction of systems or information.\nb. Unauthorized access and/or data collection\nc. Illegal confiscation of equipment or information\nd. Blackmail threat of information disclosure",
+      "options": [
+        {
+          "label": "A",
+          "text": "1 - c, 2 - a, 3 - b, 4 - d",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "1 - b, 2 - d, 3 - a, 4 - d",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "1 - b, 2 - a, 3 - d, 4 - c",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "1 - c, 2 - d, 3 - b, 4 - b",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "source_set": "Set 2 - InfoSec Fundamentals B",
+      "original_number": 4,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "A developer ships a web application with an unvalidated input field that allows attackers to inject SQL commands. Before any attack occurs, this unvalidated field is best described as:",
+      "options": [
+        {
+          "label": "A",
+          "text": "An attack vector in active use",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "A threat",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "A vulnerability",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "An exploit",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "source_set": "Set 5 - Security Policies",
+      "original_number": 6,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "________________ consists of details about user access permissions and privileges for an organizational asset or resource, such as a file storage system, software component, or network communications device, and focuses on the assets and the users who can access and use them.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Configuration rules",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Capabilities Table",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "User Policies",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Access Control List",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "source_set": "Set 11 - GDPR & Indian Data Laws",
+      "original_number": 8,
+      "answer_source": "claude (not verified by platform)",
+      "type": "single_choice",
+      "question": "The Information Technology Act of India was enacted in which year?",
+      "options": [
+        {
+          "label": "A",
+          "text": "1998",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "2022",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "2020",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "2000",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "source_set": "Set 11 - GDPR & Indian Data Laws",
+      "original_number": 9,
+      "answer_source": "claude (not verified by platform)",
+      "type": "single_choice",
+      "question": "Which of the following correctly identifies the core principles of the Aadhaar technology system?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Data monetization, vendor-neutrality, security, and data analytics",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Openness, data monetization, security, and data analytics",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Openness, central storage, security, and data monetization",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Openness, vendor-neutrality, security, and data analytics",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "source_set": "Set 4 - Contingency / Incident Response / BC-DR",
+      "original_number": 6,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "The total amount of time the system owner or authorizing official is willing to accept for a business process outage or disruption, including all impact considerations, is known as:",
+      "options": [
+        {
+          "label": "A",
+          "text": "Work Recovery Time",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Maximum Recovery Time",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Maximum Tolerable Downtime",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "Recovery Point Objective",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "source_set": "Set 7 - Technical Security",
+      "original_number": 8,
+      "answer_source": "accepted (from screenshot)",
+      "type": "single_choice",
+      "question": "Match the following\n1. Reconnaissance\n2. Exploitation\n3. Weaponization\n4. Command and Control\n\na. Creating a malicious payload or malware tailored to the target.\nb. Establishing a remote communication channel to control the compromised system.\nc. Triggering the code to breach the system vulnerability.\nd. Gathering target data, scanning networks, and finding weak spots.",
+      "options": [
+        {
+          "label": "A",
+          "text": "1 - b, 2 - c, 3 - b, 4 - a",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "1 - c, 2 - a, 3 - b, 4 - d",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "1 - d, 2 - a, 3 - c, 4 - b",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "1 - d, 2 - c, 3 - a, 4 - b",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "source_set": "Set 5 - Security Policies",
+      "original_number": 1,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Identify the correct statement.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Standards are step-by-step instructions that guide employees in following policies and guidelines.",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Procedures are non-mandatory recommendations that employees may use as a reference when complying with a policy.",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Guidelines are examples of actions that illustrate compliance with policies.",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Practices are examples of actions that illustrate compliance with policies.",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "source_set": "Set 1 - InfoSec Fundamentals A",
+      "original_number": 1,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "An attacker calls an employee, claims to be from the IT helpdesk, and convinces them to reveal their login credentials. Which technique is being used?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Brute Force Attack",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "SQL Injection",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Social Engineering",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "Session Hijacking",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "source_set": "Set 8 - Risk Calculations, Authentication, PKI",
+      "original_number": 10,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "A user wants to verify that a website's public key actually belongs to the organization operating the website. Which entity is primarily responsible for providing this assurance?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Certificate Authority (CA)",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "Registration Authority (RA)",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Identity Provider (IdP)",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Certificate Repository",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "source_set": "Set 7 - Technical Security",
+      "original_number": 1,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Which of the following statements correctly describes the processor protection ring model?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The kernel executes in the highest privilege level, and no software is more privileged than the kernel.",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "All four protection rings are equally privileged.",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Ring 3 is the most privileged ring used by the operating system.",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "User programs execute in Ring 0 because they require maximum privileges.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "source_set": "Set 3 - Governance (COBIT, COSO, NIST, ISO)",
+      "original_number": 8,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Which of the following is not a component of COSO?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Control Activities",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Monitoring",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Risk Response",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "Risk Assessment",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "source_set": "Set 2 - InfoSec Fundamentals B",
+      "original_number": 1,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "The attribute that describes whether information is genuine and original rather than reproduced or fabricated is called Authenticity, not Accuracy.",
+      "options": [
+        {
+          "label": "A",
+          "text": "True",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "False",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "source_set": "Set 5 - Security Policies",
+      "original_number": 8,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "_________ govern how a security system reacts to the data it receives.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Configuration Rules",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "File Integrity Baselines",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Access Control Lists",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "User Policies",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "source_set": "Set 2 - InfoSec Fundamentals B",
+      "original_number": 10,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "An attacker crafts a SQL injection string that takes advantage of an unvalidated input field to dump an entire customer database. The crafted string itself is best described as:",
+      "options": [
+        {
+          "label": "A",
+          "text": "A vulnerability",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "An exploit",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "A threat agent",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "A security patch",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "source_set": "Set 4 - Contingency / Incident Response / BC-DR",
+      "original_number": 9,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "True or False: Incident classification is the process of examining an incident candidate and determining whether it constitutes an actual incident.",
+      "options": [
+        {
+          "label": "A",
+          "text": "True",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "False",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "source_set": "Set 12 - Privacy Economics & Design",
+      "original_number": 3,
+      "answer_source": "claude (not verified by platform)",
+      "type": "single_choice",
+      "question": "Why does understanding users' valuation of personal data protection matter strategically for a business?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It helps develop privacy-enhancing initiatives that provide a competitive advantage",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "It facilitates markets where individuals monetize their own data",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "It allows mandating strict data policies without regard to consumer preference",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "It enables using personal data for maximum commercial gain",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "source_set": "Set 12 - Privacy Economics & Design",
+      "original_number": 5,
+      "answer_source": "claude (not verified by platform)",
+      "type": "single_choice",
+      "question": "Which architectural approach minimizes personal data shared with any central authority (e.g., in contact-tracing system design)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Mandatory participation to maximize effectiveness",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Decentralized, privacy-preserving architecture minimizing data sharing",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "Centralized architecture storing all data with a single authority",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Prioritizing public health benefit over privacy protection",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "source_set": "Set 8 - Risk Calculations, Authentication, PKI",
+      "original_number": 1,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Which of the following statements is not true?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Risk management involves three major undertakings: risk identification, risk assessment, and risk control.",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Risk assessment is the process of identifying risk, assessing its relative magnitude, and taking steps to reduce it to an acceptable level.",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "Risk identification is the recognition, enumeration, and documentation of risks to an organization’s information assets.",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Risk identification also involves classifying, valuing, and prioritizing assets.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "source_set": "Set 8 - Risk Calculations, Authentication, PKI",
+      "original_number": 5,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "An organization's critical server has an Asset Value (AV) of ₹15,00,000 and an Exposure Factor (EF) of 40%. The threat is expected to occur 2 times per year. What is the Annualized Loss Expectancy (ALE)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "₹12,00,000",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "₹20,00,000",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "₹30,00,000",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "₹6,00,000",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "source_set": "Set 10 - Privacy-Preserving Data Mining / GDPR concepts",
+      "original_number": 10,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "On an R-U map plotting disclosure risk against data utility, what does the optimal release point represent?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Maximizing data usefulness while maintaining acceptable privacy risk",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "Complete elimination of all data privacy risks by fully anonymizing all data",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Utilizing all PII data to extract full value without privacy concerns",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "None of the above",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "source_set": "Set 9 - Information Privacy",
+      "original_number": 5,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "What is the equivalent term for \"Data Subject\" under India's Personal Data Protection framework?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Data Fiduciary",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Data Principal",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "Data Controller",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Data Processor",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "source_set": "Set 6 - Risk Management (identification/assessment)",
+      "original_number": 5,
+      "answer_source": "accepted",
+      "type": "multiple_select",
+      "question": "Which of the following are the components of risk identification? (Select all that apply. More than one answer may be possible)",
+      "options": [
+        {
+          "label": "A",
+          "text": "Specify Asset Vulnerabilities",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "Evaluate Loss Magnitude",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Identify, Inventory, & Categorize Assets",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "Classify, Value, & Prioritize Assets",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "source_set": "Set 2 - InfoSec Fundamentals B",
+      "original_number": 3,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "A CISO needs a structured model to assess whether their organization's security program adequately covers the goals, data states, and control types relevant to protecting information. Which model was specifically designed for this purpose?",
+      "options": [
+        {
+          "label": "A",
+          "text": "McCumber Cube",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "OSI Model",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "CIA Triad",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "STRIDE Model",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "source_set": "Set 3 - Governance (COBIT, COSO, NIST, ISO)",
+      "original_number": 2,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Which of the following statements is not correct?",
+      "options": [
+        {
+          "label": "A",
+          "text": "COBIT defines the components to build and sustain a governance system: processes, organizational structures, policies and procedures, information flows, culture and behaviors, skills, and infrastructure.",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "COBIT is not a comprehensive description of an enterprise's IT environment.",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "COBIT is a framework to organize business processes.",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "COBIT defines the design factors the enterprise should consider when building a best-fit governance system.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "source_set": "Set 9 - Information Privacy",
+      "original_number": 6,
+      "answer_source": "accepted",
+      "type": "multiple_select",
+      "question": "(MSQ) Which of the following are among the four dimensions of concern for information privacy? Select all that apply.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Concern on Collection",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "Concern on Encryption Strength",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Concern on Unauthorized Access",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "Concern on Secondary Use",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "source_set": "Set 11 - GDPR & Indian Data Laws",
+      "original_number": 3,
+      "answer_source": "claude (not verified by platform)",
+      "type": "single_choice",
+      "question": "Which of the following statements best describes the applicability of the GDPR?",
+      "options": [
+        {
+          "label": "A",
+          "text": "GDPR applies only to organizations that collect names and email addresses.",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "GDPR applies only when an organization is physically located in the European Union.",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "GDPR applies only to government organizations that process personal data.",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "GDPR can apply to organizations that process personal data, regardless of their location, when the GDPR applies to their processing activities",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "source_set": "Set 7 - Technical Security",
+      "original_number": 6,
+      "answer_source": "accepted (from screenshot)",
+      "type": "single_choice",
+      "question": "Match the following\n1. Stateful Inspection Firewall\n2. Packet Filters\n3. Proxy Firewalls\n4. Next Generation Firewalls\n\na. Examine individual data packets, making decisions to allow or block them based on predefined rules.\nb. Serves as the gateway from one network to another for a specific application.\nc. Allows or blocks traffic based on state, port, and protocol.\nd. Combines traditional stateful firewall functions with application awareness and control, integrated intrusion prevention, advanced threat detection, and user identity awareness.",
+      "options": [
+        {
+          "label": "A",
+          "text": "1 - b, 2 - c, 3 - b, 4 - a",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "1 - b, 2 - c, 3 - b, 4 - d",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "1 - c, 2 - b, 3 - a, 4 - d",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "1 - c, 2 - a, 3 - b, 4 - d",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "source_set": "Set 10 - Privacy-Preserving Data Mining / GDPR concepts",
+      "original_number": 8,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Individuals reporting that they value privacy highly, while freely sharing personal data on social media, illustrates which phenomenon?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Prioritizing convenience over privacy alone",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "The balance between privacy protection and data sharing",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Privacy Paradox",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "Unawareness of behavioral impact on privacy",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "source_set": "Set 11 - GDPR & Indian Data Laws",
+      "original_number": 6,
+      "answer_source": "claude (not verified by platform)",
+      "type": "single_choice",
+      "question": "What is the primary objective of the Digital Personal Data Protection (DPDP) Act, 2023?",
+      "options": [
+        {
+          "label": "A",
+          "text": "To prioritize the prevention of personal-data processing over its legitimate and lawful use.",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "To give organizations unrestricted authority to process personal data when a legitimate purpose exists.",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "To balance the right of individuals to protect their personal data with the need to process such data for lawful purposes.",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "To restrict the processing of digital personal data primarily to government-authorized purposes.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "source_set": "Set 12 - Privacy Economics & Design",
+      "original_number": 7,
+      "answer_source": "claude (not verified by platform)",
+      "type": "single_choice",
+      "question": "The same type of personal data is assigned very different worth by different individuals in different contexts. What does this indicate about privacy valuation?",
+      "options": [
+        {
+          "label": "A",
+          "text": "It is consistent across individuals and contexts",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "It varies based on context and circumstance",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "It is determined solely by economic/market factors",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "It is influenced by external factors but remains stable over time",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "source_set": "Set 3 - Governance (COBIT, COSO, NIST, ISO)",
+      "original_number": 7,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Which of the following is not true?",
+      "options": [
+        {
+          "label": "A",
+          "text": "ISO/IEC 27001 is suitable only for large organizations in the information technology sector and is not relevant to small or medium-sized businesses.",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "Conformity with ISO/IEC 27001 indicates that an organization has established a systematic approach to managing risks associated with the security of the information it owns or processes, and that this approach adheres to the best practices and principles specified in the International Standard.",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "ISO/IEC 27001 enables organizations to develop a risk-aware culture by proactively identifying, assessing, and addressing information security vulnerabilities and weaknesses.",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "ISO/IEC 27001 promotes a comprehensive approach to information security by addressing people, processes, policies, and technology to safeguard organizational information assets.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "source_set": "Set 7 - Technical Security",
+      "original_number": 2,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Which of the following is not true with respect to Public-Key Encryption?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The sender and receiver must share the algorithm and the key.",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "One of the two keys must be kept secret.",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "The sender and receiver must each have one of the matched pair of keys.",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "One algorithm is used for encryption and decryption with a pair of keys, one for encryption and one for decryption.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "source_set": "Set 5 - Security Policies",
+      "original_number": 9,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Which of the following most accurately distinguishes cyber hygiene from cybersecurity?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Cyber hygiene focuses only on personal devices, while cybersecurity is limited to organizations.",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Cyber hygiene involves routine practices for maintaining digital health, whereas cybersecurity encompasses broader strategies, technologies, and incident response.",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "Cyber hygiene is hardware-focused, while cybersecurity is software-focused.",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Cyber hygiene is reactive in nature, while cybersecurity is always proactive.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "source_set": "Set 1 - InfoSec Fundamentals A",
+      "original_number": 10,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "An organization rolls out a data classification scheme, runs employee awareness sessions, and deploys endpoint security tools. Collectively, these efforts are best described as implementing:",
+      "options": [
+        {
+          "label": "A",
+          "text": "Operations Security",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Information Security",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "Network Security",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Physical Security",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "source_set": "Set 6 - Risk Management (identification/assessment)",
+      "original_number": 9,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "An organization's Hospital Electronic Health Record (EHR) System (Asset A) has an asset value of 50 on a scale of 0–100. Industry reports indicate a 10% probability of a cyberattack in a given year. Based on current vulnerabilities and protection mechanisms, the attack has a 50% probability of success if attempted. Information security analysts estimate that a successful attack would result in a 100% loss or compromise of the EHR system's value. The assumptions and data used in the analysis are considered 90% accurate, and the resulting risk value should be adjusted by adding the 10% uncertainty. Using the formula: Risk =(Loss Frequency × Loss Magnitude)+ Uncertainty Term, What is the risk score for Asset A?",
+      "options": [
+        {
+          "label": "A",
+          "text": "2.75",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "2.25",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "5",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "2.5",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "source_set": "Set 10 - Privacy-Preserving Data Mining / GDPR concepts",
+      "original_number": 7,
+      "answer_source": "accepted",
+      "type": "multiple_select",
+      "question": "Which of the following are quasi-identifiers rather than direct identifiers? (Select all that apply)",
+      "options": [
+        {
+          "label": "A",
+          "text": "Gender",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "Passport / ID card number",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Date of birth",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "ZIP code",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "source_set": "Set 12 - Privacy Economics & Design",
+      "original_number": 9,
+      "answer_source": "claude (not verified by platform)",
+      "type": "single_choice",
+      "question": "WTA valuations tend to be substantially higher than WTP valuations for the same privacy good.",
+      "options": [
+        {
+          "label": "A",
+          "text": "True",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "False",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "source_set": "Set 2 - InfoSec Fundamentals B",
+      "original_number": 5,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "When malware slips through a detection system unidentified and causes damage, this is an example of a False Negative.",
+      "options": [
+        {
+          "label": "A",
+          "text": "True",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "False",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "source_set": "Set 7 - Technical Security",
+      "original_number": 7,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "______ masks your Internet protocol (IP) address, creating a private connection from a public wi-fi connection.",
+      "options": [
+        {
+          "label": "A",
+          "text": "VPN",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "IPSEC",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "SSL",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "DNS",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "source_set": "Set 8 - Risk Calculations, Authentication, PKI",
+      "original_number": 4,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "An organization estimates that a data breach would result in a Single Loss Expectancy (SLE) of ₹8,00,000. The Annualized Loss Expectancy (ALE) is estimated to be ₹12,00,000. What is the Annualized Rate of Occurrence (ARO)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "2.0",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "1.0",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "1.5",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "0.5",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "source_set": "Set 7 - Technical Security",
+      "original_number": 4,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "HTTPS refers to the combination of ______ and ______ to implement secure communication between a Web browser and a Web server.",
+      "options": [
+        {
+          "label": "A",
+          "text": "HTTP, SSL",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "HTTP, SSH",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "TCP, SSL",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "UDP, TCP",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "source_set": "Set 4 - Contingency / Incident Response / BC-DR",
+      "original_number": 3,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Which of the following statements is not true?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Tactical planning focuses on short-term undertakings that will be completed within one or two years.",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "An operational plan outlines the required tasks for all relevant departments, along with communication and reporting requirements, which may include weekly meetings, progress reports, and other related activities.",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Strategic planning sets the long-term direction to be taken by the organization and each of its component parts.",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Operational plans are used to create tactical plans, which in turn are used to develop strategic plans.",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "source_set": "Set 1 - InfoSec Fundamentals A",
+      "original_number": 2,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "An attacker uses a commercially available penetration testing toolkit to probe and exploit vulnerabilities in a target network. In this context, the toolkit represents technology functioning as:",
+      "options": [
+        {
+          "label": "A",
+          "text": "A compliance monitoring tool",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "A source of threat",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "A safeguard against external threats",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "A business continuity asset",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "source_set": "Set 1 - InfoSec Fundamentals A",
+      "original_number": 8,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "A hospital receptionist verbally shares a patient's diagnosis and full name with a visitor who claims to be a relative but has no verified authorization. Which category of violation does this represent?",
+      "options": [
+        {
+          "label": "A",
+          "text": "A breach involving Protected Health Information (PHI)",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "An acceptable disclosure under standard hospital protocols",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "A breach of general data privacy with no specific regulatory consequence",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "A network security incident requiring IT intervention",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "source_set": "Set 9 - Information Privacy",
+      "original_number": 7,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "According to Posner's (1975) economic view, when does privacy matter?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Never, it is purely a social construct",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Only insofar as it has economic consequences",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "Always, regardless of cost",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Only in employer-employee relationships",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "figure_description": "Graph: x-axis Sensitivity (%), y-axis Percentage (%). Label 1 = the curve that falls from 100% at sensitivity 0 to ~0% at sensitivity 100. Label 2 = the curve that rises from 0% to 100% as sensitivity increases. Label 3 = the point where the two curves intersect (about 50% sensitivity).",
+      "source_set": "Set 8 - Risk Calculations, Authentication, PKI",
+      "original_number": 7,
+      "answer_source": "accepted (from screenshot)",
+      "type": "single_choice",
+      "question": "Identify the biometric error measures represented by the numbered curves/point in the figure.",
+      "options": [
+        {
+          "label": "A",
+          "text": "1 – FRR, 2 – FAR, 3 – CER",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "1 – FAR, 2 – CER, 3 – FRR",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "1 – CER, 2 – FAR, 3 – FRR",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "1 – FAR, 2 – FRR, 3 – CER",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "source_set": "Set 5 - Security Policies",
+      "original_number": 5,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Which of the following statement is not true?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Systems-specific policies can be developed at the same time as ISSPs, or they can be prepared in advance of their related ISSPs.",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "SysSPs (systems-specific security policies) function as standards or procedures to be used when configuring or maintaining systems.",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Technical specifications SysSP expresses management’s intent for the acquisition, implementation, configuration, and management of a particular technology, written from a business perspective.",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "SysSPs can be separated into two general groups, managerial guidance SysSPs and technical specifications SysSPs...",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "source_set": "Set 9 - Information Privacy",
+      "original_number": 8,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Which era in Westin's (2003) evolution of information privacy is marked by the rise of the Internet, the emergence of Web 2.0, and a major geopolitical event that reshaped information-exchange norms?",
+      "options": [
+        {
+          "label": "A",
+          "text": "2nd Era of Privacy (1980-1989)",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Privacy Baseline (1945-1960)",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "1st Era of Privacy (1961-1979)",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "3rd Era of Privacy (1990-2002)",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "source_set": "Set 8 - Risk Calculations, Authentication, PKI",
+      "original_number": 2,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "________is the quantity and nature of risk that an organization is willing to accept while balancing security requirements against business needs such as accessibility and usability.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Risk exposure",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Risk appetite",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "Residual risk",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Risk capacity",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "source_set": "Set 1 - InfoSec Fundamentals A",
+      "original_number": 5,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "A national government wants to safeguard systems that, if disrupted, could destabilize essential public services. Which of the following system types would be the highest priority under Critical Infrastructure Protection (CIP)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "SCADA systems managing water treatment and power distribution",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "Home automation devices",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "University learning management systems",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Consumer mobile apps and entertainment platforms",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "source_set": "Set 8 - Risk Calculations, Authentication, PKI",
+      "original_number": 8,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Which of the following correctly distinguishes between identification and authentication?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Identification is the process of claiming an identity, while authentication verifies that the claimed identity is genuine.",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "Identification verifies the user's identity using a password, while authentication is the process of claiming an identity using a username.",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Identification determines what resources a user can access, while authentication records the user's activities.",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Identification and authentication are two terms used for the same process of verifying a user's identity.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "source_set": "Set 3 - Governance (COBIT, COSO, NIST, ISO)",
+      "original_number": 4,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "COSO's ERM framework emphasizes:",
+      "options": [
+        {
+          "label": "A",
+          "text": "Regulatory compliance",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Operational efficiency",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Risk identification and assessment",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "Human resource management",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 77,
+      "source_set": "Set 2 - InfoSec Fundamentals B",
+      "original_number": 2,
+      "answer_source": "accepted",
+      "type": "multiple_select",
+      "question": "A new IT manager wants to tighten access controls without disrupting productivity. Which of the following practices should they implement? (Select all that apply.)",
+      "options": [
+        {
+          "label": "A",
+          "text": "Assigning permissions based on each employee's role and responsibilities",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "Maintaining and auditing access logs to detect anomalies",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "Providing all staff with administrator-level access to avoid bottlenecks",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Periodically reviewing and revoking unnecessary user access rights",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "source_set": "Set 9 - Information Privacy",
+      "original_number": 3,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Which school of thought holds that privacy has no independent existence and must always be derived from other rights like property or bodily security?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Feminist view",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Reductionism",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "Coherentism",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Economic view",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 79,
+      "source_set": "Set 2 - InfoSec Fundamentals B",
+      "original_number": 8,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "A server sends data packets to a workstation across an office. Which component of the information system made this transfer possible?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The stored data files",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "The operating system software",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "The network infrastructure",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "The server's hardware processor",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 80,
+      "source_set": "Set 5 - Security Policies",
+      "original_number": 2,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Which of the following is not a component of Enterprise Information Security Policies (EISP)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Authorized access and usage of equipment",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "Need for Information Security",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Statement of Purpose",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Information Security Responsibilities and Roles",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 81,
+      "source_set": "Set 4 - Contingency / Incident Response / BC-DR",
+      "original_number": 5,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Which of the following statements are true?\nI. Business Impact Analysis (BIA) is nn investigation and assessment of the various adverse events that can affect the organization, conducted as a preliminary phase of the contingency planning process, which includes a determination of how critical a system or set of information is to the organization’s core processes and recovery priorities.\nII. After the contingency planning (CP) policy is developed, the next step in the CP process is conducting a business impact analysis.\nIII. Business Impact Analysis is a preparatory activity common to both contingency planning (CP) and risk management that helps identify the business functions and information systems most critical to an organization's success.\nIV. The initial phase of the Business Impact Analysis (BIA) involves evaluating and prioritizing business processes within the organization according to their contribution to the organization's mission.",
+      "options": [
+        {
+          "label": "A",
+          "text": "I, II, III and IV are true",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "Only I, II and III are true",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Only II and IV are true",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Only II, III and IV are true",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 82,
+      "source_set": "Set 12 - Privacy Economics & Design",
+      "original_number": 1,
+      "answer_source": "claude (not verified by platform)",
+      "type": "single_choice",
+      "question": "Under GDPR, which of the following are accurate requirements? (1) Transparency about the collection, use, and storage of personal data. (2) Consumer control over how their data is used.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Only (1) is true",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "(1) and (2) are true",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "(1) and (2) are false",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Only (2) is true",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "source_set": "Set 7 - Technical Security",
+      "original_number": 5,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "__________ is the principle that an individual is entrusted to safeguard and control equipment, keying material, and information and is answerable to the proper authority for their loss or misuse, whereas __________ is the principle that ensures actions and events can be traced and reviewed through appropriate records and evidence.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Confidentiality, Auditability",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Auditability, Accountability",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Accountability, Auditability",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "Responsibility, Accountability",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 84,
+      "source_set": "Set 11 - GDPR & Indian Data Laws",
+      "original_number": 1,
+      "answer_source": "claude (not verified by platform)",
+      "type": "single_choice",
+      "question": "Which of the following is not true about personal data as per GDPR?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Location information, ethnicity, gender, biometric data, religious beliefs, web cookies, and political opinions can also be personal data.",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Pseudonymous data is not personal data, even if the individual can be easily re-identified from it",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "Names and email addresses are personal data.",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Personal data is any information that relates to an individual who can be directly or indirectly identified.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 85,
+      "source_set": "Set 4 - Contingency / Incident Response / BC-DR",
+      "original_number": 7,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Which of the following statements is not true?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The disaster recovery plan (DR plan) typically focuses on restoring systems at the original site after disasters occur, and so is closely associated with the BC plan.",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "The incident response plan (IR plan) focuses on immediate response, but if the attack escalates or is disastrous (for example, a fire, flood, earthquake, or total blackout), the process moves on to disaster recovery and the BC plan.",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "The business continuity plan (BC plan) occurs only when DR plan fails and requires more than simple restoration of information and information resources.",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "The BC plan establishes critical business functions at an alternate site.",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "source_set": "Set 10 - Privacy-Preserving Data Mining / GDPR concepts",
+      "original_number": 4,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "What does the k-anonymity requirement state about a released dataset?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Every combination of quasi-identifier values must be indistinctly matched to at least k individuals",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "Every record must be fully anonymous with no identifiers at all",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "At most k attributes can be disclosed per record",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Data must be encrypted using a k-bit key",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "source_set": "Set 1 - InfoSec Fundamentals A",
+      "original_number": 3,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "A threat actor sends a carefully researched email to a senior finance executive, referencing their recent business trip and impersonating their CEO. Which attack type does this describe?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Spear-phishing",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "Vishing",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "General phishing",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Smishing",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "source_set": "Set 4 - Contingency / Incident Response / BC-DR",
+      "original_number": 1,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "A ________ is prepared by the organization to anticipate, react to, and recover from events that threaten the security of information and information assets in the organization.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Disaster Recovery Plan",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Contingency Plan",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "Business Continuity Plan",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Incident Response Plan",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "source_set": "Set 2 - InfoSec Fundamentals B",
+      "original_number": 9,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "An employee receives an email from 'support@micros0ft.com' asking them to click a link and reset their password. What is the most appropriate immediate response?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Open the attachment to verify the content before deciding",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Forward it to colleagues to check if they received the same email",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Click the link since the sender mentions Microsoft",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Verify the sender's legitimacy independently and avoid clicking any links",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 90,
+      "source_set": "Set 4 - Contingency / Incident Response / BC-DR",
+      "original_number": 4,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "True or False: Incident response planning comprises four phases: incident planning, incident detection, incident reaction, and incident recovery.",
+      "options": [
+        {
+          "label": "A",
+          "text": "True",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "False",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 91,
+      "source_set": "Set 6 - Risk Management (identification/assessment)",
+      "original_number": 3,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Which of the following is not a component of Risk Assessment?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Specify Asset Vulnerabilities",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "Determine Loss Frequency",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Calculate Risk",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Assess Risk Acceptability",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 92,
+      "source_set": "Set 8 - Risk Calculations, Authentication, PKI",
+      "original_number": 9,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "An organization wants to ensure that an employee cannot later deny having approved an electronic purchase order. Which mechanism would be most appropriate?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Generating a cryptographic hash of the purchase order",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Encrypting the purchase order using the organization's public key",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Applying a digital signature using the employee's private key",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "Storing the purchase order in an access-controlled database",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 93,
+      "source_set": "Set 10 - Privacy-Preserving Data Mining / GDPR concepts",
+      "original_number": 5,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Data that has been de-identified and encrypted, but for which re-identification remains possible using a separate key, is classified under GDPR as:",
+      "options": [
+        {
+          "label": "A",
+          "text": "Non-personal data once encrypted",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Quasi-identifier data",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Personal data, still within GDPR scope",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "Anonymous data, fully outside GDPR scope",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 94,
+      "source_set": "Set 11 - GDPR & Indian Data Laws",
+      "original_number": 5,
+      "answer_source": "claude (not verified by platform)",
+      "type": "single_choice",
+      "question": "In the context of Aadhaar data, who is considered the Data Principal under DPDP Act?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The individual to whom the Aadhaar number and related personal data belong",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "The Unique Identification Authority of India (UIDAI)",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "The government agency responsible for processing the data",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "The service provider that uses Aadhaar authentication",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 95,
+      "source_set": "Set 10 - Privacy-Preserving Data Mining / GDPR concepts",
+      "original_number": 9,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Which statement correctly distinguishes anonymity, secrecy, and transparency?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Anonymity conceals identity; secrecy is intentional concealment of information; transparency discloses information about oneself",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "Anonymity is intentional concealment of information; secrecy conceals identity; transparency discloses information about oneself",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Anonymity discloses information about oneself; secrecy conceals identity; transparency is intentional concealment",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Anonymity conceals identity; secrecy discloses information about oneself; transparency is intentional concealment",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 96,
+      "source_set": "Set 11 - GDPR & Indian Data Laws",
+      "original_number": 10,
+      "answer_source": "claude (not verified by platform)",
+      "type": "single_choice",
+      "question": "The Indian Telegraph Act, 1885, empowered the government to intercept certain communications under specified circumstances.",
+      "options": [
+        {
+          "label": "A",
+          "text": "True",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "False",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 97,
+      "source_set": "Set 3 - Governance (COBIT, COSO, NIST, ISO)",
+      "original_number": 3,
+      "answer_source": "accepted (from screenshot)",
+      "type": "single_choice",
+      "question": "Match the following\nI. De facto standard\nii. De jure standard\niii. Guidelines\niv. Practices\n\na. A standard that has been formally evaluated, approved, and ratified by a formal standards organization.\nb. Examples of actions that illustrate compliance with policies.\nc. A standard that has been widely adopted or accepted by a public group rather than a formal standards organization.\nd. Nonmandatory recommendations the employee may use as a reference in complying with a policy.",
+      "options": [
+        {
+          "label": "A",
+          "text": "i - b, ii - c, iii - d, iv - a",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "i - c, ii - a, iii - d, iv - b",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "i - c, ii - a, iii - b, iv - d",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "i - a , ii - c, iii - b, iv - d",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 98,
+      "source_set": "Set 8 - Risk Calculations, Authentication, PKI",
+      "original_number": 6,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "A company has an Annualized Loss Expectancy (ALE) of ₹20,00,000 before implementing a security safeguard. After implementing the safeguard, the Annualized Loss Expectancy (ALE) is ₹8,00,000. The Annual Cost of Safeguard (ACS) is ₹3,00,000. What is the Cost-Benefit Estimate (CBE)?",
+      "options": [
+        {
+          "label": "A",
+          "text": "₹8,00,000",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "₹12,00,000",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "₹9,00,000",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "₹5,00,000",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 99,
+      "source_set": "Set 3 - Governance (COBIT, COSO, NIST, ISO)",
+      "original_number": 5,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Which of the following is NOT a fundamental component of the NIST Cybersecurity Framework?",
+      "options": [
+        {
+          "label": "A",
+          "text": "The Framework tiers",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "The Framework core",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "The Framework profile",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "The Framework control",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 100,
+      "source_set": "Set 12 - Privacy Economics & Design",
+      "original_number": 8,
+      "answer_source": "claude (not verified by platform)",
+      "type": "single_choice",
+      "question": "Which of the following are valid components of responsible privacy protection in ML system design?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Safeguarding data privacy within the model itself, alongside responsible data collection and on-device processing where feasible",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "Relying solely on legal disclaimers instead of technical safeguards",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Collecting maximum data upfront to improve model accuracy, then restricting access post-training",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Treating privacy as a one-time compliance checkbox at deployment",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 101,
+      "source_set": "Set 12 - Privacy Economics & Design",
+      "original_number": 2,
+      "answer_source": "claude (not verified by platform)",
+      "type": "single_choice",
+      "question": "Individuals demand a much higher price to give up their data (WTA) than they are willing to pay to protect it (WTP), a gap attributed to loss aversion. Which concept pairing explains this?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Prospect Theory explains why WTA valuations exceed WTP valuations",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "Privacy as a reductionist, derivative right",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Privacy calculus and rational disclosure",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Differential privacy and plausible deniability",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "source_set": "Set 3 - Governance (COBIT, COSO, NIST, ISO)",
+      "original_number": 10,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "ISO standards, such as ________ for risk management or ________ for information security, provide global best practices for compliance and risk management.",
+      "options": [
+        {
+          "label": "A",
+          "text": "ISO 31000, ISO 27001",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "ISO 27001, ISO 17799",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "ISO 27001, ISO 31000",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "ISO 17799, ISO 27001",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "source_set": "Set 10 - Privacy-Preserving Data Mining / GDPR concepts",
+      "original_number": 2,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Which earlier regulatory framework evolved into the GDPR by 2018?",
+      "options": [
+        {
+          "label": "A",
+          "text": "EU Data Protection Directive",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "FTC privacy principles",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "APEC privacy framework",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "OECD Guidelines",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 104,
+      "source_set": "Set 12 - Privacy Economics & Design",
+      "original_number": 6,
+      "answer_source": "claude (not verified by platform)",
+      "type": "single_choice",
+      "question": "People become more risk-averse facing a potential privacy loss than facing an equivalent potential gain. Prospect theory predicts that:",
+      "options": [
+        {
+          "label": "A",
+          "text": "People only maximize financial gains",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Losses are felt more intensely than equivalent gains",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "Gains and losses are valued equally",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Individuals are more risk-seeking for potential gains",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 105,
+      "source_set": "Set 11 - GDPR & Indian Data Laws",
+      "original_number": 7,
+      "answer_source": "claude (not verified by platform)",
+      "type": "single_choice",
+      "question": "According to the Digital Personal Data Protection Act, 2023 (DPDP Act), a person who alone or together with others determines the purpose and means of processing personal data is known as:",
+      "options": [
+        {
+          "label": "A",
+          "text": "Consent Manager",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Data Protection Officer",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Data Processor",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Data Fiduciary",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 106,
+      "source_set": "Set 4 - Contingency / Incident Response / BC-DR",
+      "original_number": 2,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Business Resumption Planning (BRP) consists of the actions taken by senior management to develop and implement a combined_______ and ______, and set of recovery teams.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Incident Response Plan, Business Continuity Plan",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Contingency Plan, Disaster Recovery Plan",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Disaster Recovery Plan, Incident Response Plan",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Disaster Recovery Plan, Business Continuity Plan",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 107,
+      "source_set": "Set 5 - Security Policies",
+      "original_number": 10,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "_______ is an organizational policy that offers detailed, targeted guidance to all members of the organization regarding the use of a resource, such as a process or technology.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Systems-specific security policy",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "General or security program policy",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Issue-specific security policy",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "Enterprise information security policy",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 108,
+      "note": "Options 2-4 were cut off ('...') in the source; options 3 and 4 are identical. Send the original screenshot to complete this.",
+      "source_set": "Set 6 - Risk Management (identification/assessment)",
+      "original_number": 2,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "The risk that remains after the risk management process has concluded. is a combined function of",
+      "options": [
+        {
+          "label": "A",
+          "text": "(1) a threat plus the effect of threat-reducing safeguards...",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "(1) a threat plus the effect of threat-reducing safeguards...",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "(1) a threat less the effect of threat-reducing safeguards, (2) a vulnerability less the effect of vulnerability-reducing safeguards, and (3) an asset less the effect of asset value-reducing safeguards.",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "(1) a threat less the effect of threat-reducing safeguards, (2) a vulnerability plus the effect of vulnerability-reducing safeguards...",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 109,
+      "source_set": "Set 6 - Risk Management (identification/assessment)",
+      "original_number": 6,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "The classification scheme used by the U.S. Classified National Security Information (NSI) system “to information, the unauthorized disclosure of which reasonably could be expected to cause serious damage to the national security that the original classification authority is able to identify or describe.”",
+      "options": [
+        {
+          "label": "A",
+          "text": "Confidential",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Internal",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Top Secret",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Secret",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 110,
+      "figure_description": "Three 'Compromised System' laptops each send traffic (red dashed arrows) through the Internet cloud to a single 'Target Server'.",
+      "source_set": "Set 7 - Technical Security",
+      "original_number": 9,
+      "answer_source": "accepted (from screenshot)",
+      "type": "single_choice",
+      "question": "The following figure depicts which attack?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Brute Force Attack",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Session Hijacking",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "DNS Spoofing",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "DDOS",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 111,
+      "source_set": "Set 2 - InfoSec Fundamentals B",
+      "original_number": 7,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "A security tool quarantines a trusted internal application used daily by the finance team, flagging it as malware. Operations come to a halt. How is this detection outcome classified?",
+      "options": [
+        {
+          "label": "A",
+          "text": "False Negative — a real threat was missed by the system",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "True Negative — a safe file was correctly cleared",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "False Positive — a safe file was incorrectly flagged as malicious",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "True Positive — the threat was correctly identified",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 112,
+      "source_set": "Set 9 - Information Privacy",
+      "original_number": 2,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Who is credited with popularizing \"the right to be let alone\" in American privacy law, and in which year?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Alan Westin, 1967",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Richard Posner, 1975",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Warren & Brandeis, 1890",
+          "correct": true
+        },
+        {
+          "label": "D",
+          "text": "Aristotle, 4th century BCE",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 113,
+      "source_set": "Set 6 - Risk Management (identification/assessment)",
+      "original_number": 8,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "An attacker bypasses or compromises a router, gains access to an organization's network, and encrypts critical data, demanding payment in exchange for the decryption key. This scenario is best classified as:",
+      "options": [
+        {
+          "label": "A",
+          "text": "Espionage or trespass",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Information extortion",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "Sabotage or vandalism",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Software attacks",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 114,
+      "source_set": "Set 1 - InfoSec Fundamentals A",
+      "original_number": 4,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "A victim attempts to open their files after a malware infection but finds every document locked behind an unknown cipher. The attacker then demands payment for the decryption key. Which malware category best explains this behavior?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Ransomware",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "Adware",
+          "correct": false
+        },
+        {
+          "label": "C",
+          "text": "Spyware",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Rootkit",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 115,
+      "source_set": "Set 4 - Contingency / Incident Response / BC-DR",
+      "original_number": 10,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "A fully configured computing facility that includes all services, communications links, and physical plant operations, used for BC operations is known as:",
+      "options": [
+        {
+          "label": "A",
+          "text": "Service Bureau",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Hot Site",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "Cold Site",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Warm site",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 116,
+      "source_set": "Set 10 - Privacy-Preserving Data Mining / GDPR concepts",
+      "original_number": 1,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Confidentiality concerns the externalization of restricted but accurate information to a specific, authorized entity.",
+      "options": [
+        {
+          "label": "A",
+          "text": "True",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "False",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 117,
+      "source_set": "Set 9 - Information Privacy",
+      "original_number": 10,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "(True/False) Coherentism treats privacy as a right derived from other fundamental rights like property and bodily security.",
+      "options": [
+        {
+          "label": "A",
+          "text": "True",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "False",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 118,
+      "source_set": "Set 9 - Information Privacy",
+      "original_number": 4,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "Which stakeholder in a data ecosystem \"determines the purposes and means of processing personal data,\" termed Data Fiduciary under India's PDP?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Regulator",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "Controller",
+          "correct": true
+        },
+        {
+          "label": "C",
+          "text": "Data Subject",
+          "correct": false
+        },
+        {
+          "label": "D",
+          "text": "Processor",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "id": 119,
+      "source_set": "Set 5 - Security Policies",
+      "original_number": 7,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "True or False: Capability Tables combines the information in Access Control Lists and Access Control Matrix.",
+      "options": [
+        {
+          "label": "A",
+          "text": "True",
+          "correct": false
+        },
+        {
+          "label": "B",
+          "text": "False",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "id": 120,
+      "source_set": "Set 8 - Risk Calculations, Authentication, PKI",
+      "original_number": 3,
+      "answer_source": "accepted",
+      "type": "single_choice",
+      "question": "True or False: Residual risk is a combined function of (1) a threat less the effect of threat-reducing safeguards, (2) a vulnerability less the effect of vulnerability-reducing safeguards, and (3) an asset less the effect of asset value-reducing safeguards.",
+      "options": [
+        {
+          "label": "A",
+          "text": "True",
+          "correct": true
+        },
+        {
+          "label": "B",
+          "text": "False",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}
