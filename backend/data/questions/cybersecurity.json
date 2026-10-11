@@ -53,11 +53,7 @@
       "A modular ISSP document that unifies policy creation and administration while maintaining each specific issue’s requirements.",
       "A single comprehensive ISSP document that covers all issues."
     ],
-    "correctAnswer": [
-      0,
-      2,
-      3
-    ],
+    "correctAnswer": 0,
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -139,11 +135,8 @@
       "A cryptographic hash function can be used to construct a pseudorandom function (PRF) or a pseudorandom number generator (PRNG)",
       "A hash function maps a variable-length message into a fixed-length hash value, or message digest."
     ],
-    "correctAnswer": [
+    "correctAnswer": 
       1,
-      2,
-      3
-    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -227,12 +220,7 @@
       "The organization must be able to demonstrate that it disseminated the document in an intelligible form.",
       "The organization must be able to demonstrate that the employee agrees to comply with the policy through act or affirmation."
     ],
-    "correctAnswer": [
-      0,
-      1,
-      2,
-      3
-    ],
+    "correctAnswer": 0,
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -550,11 +538,7 @@
       "Identify, Inventory, & Categorize Assets",
       "Classify, Value, & Prioritize Assets"
     ],
-    "correctAnswer": [
-      0,
-      2,
-      3
-    ],
+    "correctAnswer":3,
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -590,11 +574,7 @@
       "Concern on Unauthorized Access",
       "Concern on Secondary Use"
     ],
-    "correctAnswer": [
-      0,
-      2,
-      3
-    ],
+    "correctAnswer": 2,
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -726,11 +706,7 @@
       "Date of birth",
       "ZIP code"
     ],
-    "correctAnswer": [
-      0,
-      2,
-      3
-    ],
+    "correctAnswer": 2,
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -930,11 +906,7 @@
       "Providing all staff with administrator-level access to avoid bottlenecks",
       "Periodically reviewing and revoking unnecessary user access rights"
     ],
-    "correctAnswer": [
-      0,
-      1,
-      3
-    ],
+    "correctAnswer": 3,
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },

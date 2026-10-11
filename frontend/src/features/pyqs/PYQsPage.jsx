@@ -100,7 +100,7 @@ const PAPER_SOURCES = [
         papers: [
            { id: "dbms-mst1", title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1pDuxHqu4MGeR_7CLB2SZY1O5c9qujBFG/preview", solutionUrl: "" },
            { id: "dbms-unit1", title: "Unit1 Important", type: "pdf", url: "https://drive.google.com/file/d/1z_r3e6Q7_SplGhEAVD2EJBGnh9bXJMk0/preview", solutionUrl: "" },
-           { id: "dbms-mst2", title: "MST 2", type: "pdf", url: "https://drive.google.com/file/d/1a4CW3XK1VB8xTj9T8dXMJKesevYCjqhT/preview", solutionUrl: "" },
+           { id: "dbms-mst2", title: "MST 2", type: "pdf", url: "https://www.youtube.com/playlist?list=PLTPcM_Aw-dNQ/preview", solutionUrl: "" },
            
 
           // { id: "dbms-2025b", title: "Practice 1", type: "pdf", url: "https://drive.google.com/file/d/1uCINIGKBrvVXouiXgbCaUzl_KIw0ptDe/preview", solutionUrl: "" },
@@ -218,6 +218,8 @@ const PAPER_SOURCES = [
         papers: [
           { id: "wdf-mst1",   title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1sNKkbr1jFWBmRbBXBzAxWeov3bJ72kxY/preview", solutionUrl: "" },
           { id: "wdf-imp1",   title: "Important Questions(Unit 1)", type: "pdf", url: "https://drive.google.com/file/d/1MzLa9tD0M3etQbF-cvkXSlKdWF3qrJV-/preview", solutionUrl: "" },
+
+          { id: "wdf-mst2",   title: "MST 2", type: "pdf", url: "https://drive.google.com/file/d/1WPi1g6uVICXjoOd5VQ8HQoR8O23xjKfe/preview", solutionUrl: "" },
         ],
       },
       {
@@ -226,6 +228,8 @@ const PAPER_SOURCES = [
         papers: [
           { id: "business-mst1",   title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1cb_QXCnYDQGSdy64K6wGYVv42w6YNjrv/preview", solutionUrl: "" },
           { id: "business-imp1",   title: "Important Questions(Unit 1)", type: "pdf", url: "https://drive.google.com/file/d/1v50_pV7wP7c01LvQpDGY7y9kjdHPgKs6/preview", solutionUrl: "" },
+
+          { id: "business-mst1",   title: "MST 2", type: "pdf", url: "https://drive.google.com/file/d/1BAMUJx_AcocTbUHlYTv6wH8gx9E3pysN/preview", solutionUrl: "" },
         ],
       },
     ],
