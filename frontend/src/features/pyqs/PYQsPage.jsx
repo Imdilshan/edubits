@@ -100,7 +100,7 @@ const PAPER_SOURCES = [
         papers: [
            { id: "dbms-mst1", title: "MST 1", type: "pdf", url: "https://drive.google.com/file/d/1pDuxHqu4MGeR_7CLB2SZY1O5c9qujBFG/preview", solutionUrl: "" },
            { id: "dbms-unit1", title: "Unit1 Important", type: "pdf", url: "https://drive.google.com/file/d/1z_r3e6Q7_SplGhEAVD2EJBGnh9bXJMk0/preview", solutionUrl: "" },
-           { id: "dbms-mst2", title: "MST 2", type: "pdf", url: "", solutionUrl: "https://drive.google.com/file/d/1a4CW3XK1VB8xTj9T8dXMJKesevYCjqhT/preview" },
+           { id: "dbms-mst2", title: "MST 2", type: "pdf", url: "https://drive.google.com/file/d/1a4CW3XK1VB8xTj9T8dXMJKesevYCjqhT/preview", solutionUrl: "" },
            
 
           // { id: "dbms-2025b", title: "Practice 1", type: "pdf", url: "https://drive.google.com/file/d/1uCINIGKBrvVXouiXgbCaUzl_KIw0ptDe/preview", solutionUrl: "" },
@@ -320,7 +320,7 @@ const PLAYLIST_SOURCES = [
         image: "/images/dbms.svg",
         playlists: [
           { id: "dbms0", title: "DBMS Unit 1", channel: "Gate Smashers", playlistId: "PLxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y", thumbVideoId: "kBdlM6hNDAE" },
-          { id: "dbms1", title: "DBMS Unit 2", channel: "Gate Smashers", playlistId: "PLTPcM_Aw-dNQ", thumbVideoId: "kBdlM6hNDAE" },
+          { id: "dbms1", title: "DBMS Unit 2", channel: "Gate Smashers", playlistId: "PLTPcM_Aw-dNQ", thumbVideoId: "5GDTIUVlHB8" },
         ],
       },
       {
