@@ -27,7 +27,7 @@ const getTopics = async (req, res) => {
     let result = orderedTopics;
 
     if (req.user) {
-      const user = await User.findById(req.user._id);
+      const user = req.user;
 
       result = orderedTopics.map(topic => {
         const topicId = topic._id.toString();
