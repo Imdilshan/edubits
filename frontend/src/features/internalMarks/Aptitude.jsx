@@ -90,9 +90,6 @@ function Field({ id, label, max, value, onChange }) {
   );
 }
 
-// ── 1st Year Aptitude ────────────────────────────────────────────────────────
-// Attendance 2→2, MST1 20→10, Quiz 4→4, MST2 20→10, ExtTheory 60→50 (optional),
-// Assignment 12→12, Surprise Test 12→12. Total w/o ET = 50, with = 100.
 function AptitudeFirstYear() {
   const [data, setData] = useState({});
   const [result, setResult] = useState(null);
@@ -168,9 +165,6 @@ function AptitudeFirstYear() {
   );
 }
 
-// ── Senior Aptitude (2nd/3rd/4th Year) ───────────────────────────────────────
-// ExtTheory 60→60, Assignment/PBL 12→6, Attendance 4→4,
-// MST1 20→10, Surprise 12→4, MST2 20→10, Quiz 6→6. Total = 100.
 function AptitudeSenior() {
   const [data, setData] = useState({});
   const [result, setResult] = useState(null);

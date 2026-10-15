@@ -34,16 +34,12 @@ const attemptSchema = new mongoose.Schema(
     answers: [
       {
         questionId: { type: mongoose.Schema.Types.ObjectId, ref: "Question" },
-        selectedOption: Number,   
+        selectedOptions: [{ type: Number }],
         isCorrect: Boolean,
         timeTakenSeconds: Number,
-        scoreChange: Number, 
+        scoreChange: Number,
       },
     ],
-    streakBonus: {
-      type: Number,
-      default: 0,
-    },
   },
   { timestamps: true }
 );

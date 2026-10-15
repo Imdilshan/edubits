@@ -57,7 +57,7 @@
 //     eyebrow: "The Future",
 //     title: "Still evolving, slowly and intentionally.",
 //     body: [
-//       "Today, More than 350+ students use Edubits, and it is still evolving slowly.",
+//       "Today, More than 600+ students use Edubits, and it is still evolving slowly.",
 //       "I believe in: \"First make it work. Then improve it.\"",
 //       "So yes, there is still a lot left to refine. Better systems. Better collaboration. More features. More ways students can help other students instead of struggling alone.",
 //       "Because engineering already feels difficult enough.",

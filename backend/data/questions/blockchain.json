@@ -7,7 +7,9 @@
       "A decentralized ledger",
       "A type of database"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -19,7 +21,9 @@
       "Genesis Block",
       "Root Block"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -31,7 +35,9 @@
       "Charles Hoskinson",
       "Vitalik Buterin"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -43,7 +49,9 @@
       "High centralization",
       "Dependence on a single server"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -55,7 +63,9 @@
       "Ethereum",
       "Bitcoin"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -67,7 +77,9 @@
       "To create cryptocurrencies",
       "To centralize data storage"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -79,7 +91,9 @@
       "Distributed cache",
       "Hierarchical"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -91,7 +105,9 @@
       "Block",
       "Record"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -103,7 +119,9 @@
       "Increased dependency on intermediaries",
       "Higher data redundancy"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -115,7 +133,9 @@
       "Data is stored in a central server",
       "Data can be edited by any participant"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -127,7 +147,9 @@
       "Any type of verified data",
       "Only monetary transactions"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -139,7 +161,9 @@
       "Block",
       "Hash"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -151,7 +175,9 @@
       "Encrypting data",
       "Efficiently verifying data integrity"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -163,7 +189,9 @@
       "Cryptographic hashing",
       "Private key encryption"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -175,7 +203,9 @@
       "A node that processes only recent transactions",
       "A node responsible for creating new blocks"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -187,7 +217,9 @@
       "Star topology",
       "Client-server"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -199,7 +231,9 @@
       "Encrypting transactions",
       "Reducing transaction speed"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -211,7 +245,9 @@
       "Validates and adds transactions to the blockchain",
       "Stores cryptocurrency"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -223,7 +259,9 @@
       "A physical form of money used in online transactions",
       "A digital or virtual currency secured by cryptography"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -235,7 +273,9 @@
       "Mining",
       "Proof of Stake"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -247,7 +287,9 @@
       "Ethereum",
       "Bitcoin"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -259,7 +301,9 @@
       "Coins used for specific industries",
       "Coins stored on centralized platforms"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -271,7 +315,9 @@
       "A method to encrypt blockchain data",
       "A secret code that allows access to funds in a wallet"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -283,7 +329,9 @@
       "To store and manage private and public keys for transactions",
       "To convert cryptocurrencies to fiat currencies"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -295,7 +343,9 @@
       "A coin with a constant supply limit",
       "A cryptocurrency with fixed transaction fees"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -307,7 +357,9 @@
       "A mining process requiring high computational power",
       "A form of security in centralized exchanges"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -319,7 +371,9 @@
       "A self-executing program with pre-defined rules on the blockchain",
       "A contract requiring a central authority for validation"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -331,7 +385,9 @@
       "Python",
       "Solidity"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -343,7 +399,9 @@
       "The underlying blockchain's consensus mechanism",
       "Centralized servers"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -355,7 +413,9 @@
       "Irreversibility",
       "Transparency"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -367,7 +427,9 @@
       "The consensus mechanism ignores the bug",
       "The contract is undeployed and reset"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -379,7 +441,9 @@
       "By manual data entry from blockchain administrators",
       "Through nodes interpreting real-world data"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -391,7 +455,9 @@
       "The storage capacity for contracts",
       "A term for transaction speed"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -403,7 +469,9 @@
       "They require a central authority",
       "They cannot interact with off-chain data without oracles"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -415,7 +483,9 @@
       "Simplifying the development, testing, and deployment of smart contracts",
       "Creating cryptocurrency wallets"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -427,7 +497,9 @@
       "Digital Application Platform",
       "Decentralized Application"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -439,7 +511,9 @@
       "To design front-end interfaces for dApps",
       "To interact with the Ethereum blockchain via JavaScript"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -451,7 +525,9 @@
       "A peer-to-peer network for dApp deployment",
       "A mining pool for new developers"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -463,7 +539,9 @@
       "Limited use cases for blockchain",
       "Ensuring scalability and security while maintaining decentralization"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -475,7 +553,9 @@
       "A miner node",
       "Public keys only"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -487,7 +567,9 @@
       "By creating virtual currencies for medical professionals",
       "By replacing human doctors with AI"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -499,7 +581,9 @@
       "To improve transparency and traceability of goods",
       "To encrypt supply chain data for security"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -511,7 +595,9 @@
       "Use of centralized databases",
       "Encryption and consensus mechanisms"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -523,7 +609,9 @@
       "Tokenization",
       "Hashing"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -535,7 +623,9 @@
       "They ensure transaction anonymity",
       "They are used to manage mining operations"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -547,7 +637,9 @@
       "Using fake nodes to disrupt the network",
       "Hacking individual wallets"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -559,7 +651,9 @@
       "High trust in central authority",
       "Exposure to DDoS attacks and scalability issues"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -571,7 +665,9 @@
       "Reducing the number of nodes",
       "Increasing transaction fees"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -583,7 +679,9 @@
       "By reducing transaction fees",
       "By dividing the blockchain network into smaller, manageable parts"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -595,7 +693,9 @@
       "Proof of Stake and sharding",
       "Proof of Work"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -607,7 +707,9 @@
       "A security measure for smart contracts",
       "A Layer 2 solution that bundles multiple transactions into one"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -619,7 +721,9 @@
       "The time nodes take to synchronize data",
       "The time required to generate a new block and add it to the blockchain"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -631,7 +735,9 @@
       "The decentralized decision-making process among stakeholders",
       "The central authority managing blockchain infrastructure"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -643,7 +749,9 @@
       "By interacting with mining pools",
       "By upgrading and maintaining protocol code"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -655,7 +763,9 @@
       "An attack on blockchain nodes",
       "Standard encryption updates"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -667,7 +777,9 @@
       "They secure nodes with encryption",
       "They manage private wallets"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -679,7 +791,9 @@
       "Slower processing times",
       "Lower fees and increased transparency"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -691,7 +805,9 @@
       "By removing compliance standards",
       "By relying solely on human verification"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -703,7 +819,9 @@
       "By storing encrypted, unalterable data records",
       "By depending on paper documentation"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -715,7 +833,9 @@
       "Dependence on paper-based systems",
       "Centralized reward distribution"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -727,7 +847,9 @@
       "Ripple",
       "Ethereum"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -739,7 +861,9 @@
       "To centralize financial transactions",
       "To increase government control over transactions"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -751,7 +875,9 @@
       "To centralize transaction approvals",
       "To slow down blockchain confirmations"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -763,7 +889,9 @@
       "A method for encrypting transaction details only",
       "A unique digital asset stored on the blockchain"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -775,7 +903,9 @@
       "Digital art, gaming assets, music, and collectibles",
       "Only cryptocurrency mining"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -787,7 +917,9 @@
       "A platform for cryptocurrency exchanges",
       "A site where users can mint, buy, and sell NFTs"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -799,7 +931,9 @@
       "By replacing all AI algorithms",
       "By slowing down AI processing speed"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -811,7 +945,9 @@
       "By storing large datasets only on paper",
       "By providing a decentralized and transparent storage mechanism"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -823,7 +959,9 @@
       "By avoiding decentralized storage",
       "By relying solely on centralized servers"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -835,7 +973,9 @@
       "To protect users and investors from fraud and scams",
       "To remove all forms of encryption"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -847,7 +987,9 @@
       "To remove digital asset storage",
       "To make blockchain less accessible"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -859,7 +1001,9 @@
       "Reduced need for intermediaries",
       "Easy tampering of records"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   }

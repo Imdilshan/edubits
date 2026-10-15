@@ -442,6 +442,112 @@
   font-weight: 800;
 }
 
+/* Multi-select (checkbox) styles */
+.quiz-option.is-multi .quiz-option-indicator.checkbox {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  border: 2px solid var(--border);
+  color: var(--success);
+  transition: 0.15s ease;
+}
+
+.quiz-option.is-multi .quiz-option-indicator.checkbox svg {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: 0.15s ease;
+}
+
+.quiz-option.is-multi.is-selected .quiz-option-indicator.checkbox {
+  background: var(--success);
+  border-color: var(--success);
+}
+
+.quiz-option.is-multi.is-selected .quiz-option-indicator.checkbox svg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.quiz-option.is-multi.is-correct .quiz-option-indicator.checkbox {
+  background: var(--success);
+  border-color: var(--success);
+}
+
+.quiz-option.is-multi.is-correct .quiz-option-indicator.checkbox svg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.quiz-option.is-multi.is-wrong .quiz-option-indicator.checkbox {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: white;
+}
+
+/* Radio (single select) indicator */
+.quiz-option-indicator.radio {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  color: var(--primary);
+  transition: 0.15s ease;
+}
+
+.quiz-option-indicator.radio svg {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: 0.15s ease;
+}
+
+.quiz-option.is-selected .quiz-option-indicator.radio {
+  border-color: var(--primary);
+}
+
+.quiz-option.is-selected .quiz-option-indicator.radio svg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.quiz-option.is-correct .quiz-option-indicator.radio {
+  background: var(--success);
+  border-color: var(--success);
+  color: white;
+}
+
+.quiz-option.is-correct .quiz-option-indicator.radio svg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.quiz-option.is-wrong .quiz-option-indicator.radio {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: white;
+}
+
+.quiz-multi-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-style: italic;
+}
+
+.quiz-multi-hint::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--text-2);
+  border-radius: 4px;
+  display: inline-block;
+}
+
 .quiz-explanation,
 .quiz-error {
   display: flex;

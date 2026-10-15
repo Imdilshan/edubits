@@ -66,7 +66,8 @@ export default function HomePage() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "1rem" }}>
           {[
             { label: "Correct Answer",    value: "+4 pts",  color: "var(--success)" },
-            { label: "Wrong Answer",      value: "−1 pt",   color: "var(--error)" },
+            { label: "Wrong Answer",      value: "0 pts",   color: "var(--text-2)" },
+            { label: "Timeout",           value: "0 pts",   color: "var(--text-2)" },
           ].map(({ label, value, color }) => (
             <div key={label} style={{
               background: "var(--bg-3)", borderRadius: "var(--radius-sm)",

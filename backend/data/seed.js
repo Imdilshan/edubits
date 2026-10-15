@@ -28,117 +28,12 @@ async function seed() {
 
   console.log("📦 Connected to MongoDB");
 
-  // Clear existing data
   await Question.deleteMany({});
   await Topic.deleteMany({});
 
   console.log("🧹 Cleared old topics");
   console.log("🧹 Cleared old questions");
-
-  // const topicData = [
-  //   {
-  //     name: "HTML Fundamentals",
-  //     description: "Learn the building blocks of the web",
-  //     icon: "",
-  //     color: "#e34c26",
-  //     position: { x: 100, y: 250 },
-  //     passingScore: 60,
-  //     order: 0,
-  //     prerequisites: [],
-  //   },
-  //   {
-  //     name: "CSS Styling",
-  //     description: "Style and layout web pages beautifully",
-  //     icon: "",
-  //     color: "#264de4",
-  //     position: { x: 300, y: 250 },
-  //     passingScore: 60,
-  //     order: 1,
-  //     prerequisites: [],
-  //   },
-  //   {
-  //     name: "JavaScript Basics",
-  //     description: "Add interactivity with programming fundamentals",
-  //     icon: "",
-  //     color: "#f7df1e",
-  //     position: { x: 500, y: 250 },
-  //     passingScore: 60,
-  //     order: 2,
-  //     prerequisites: [],
-  //   },
-  //   {
-  //     name: "React",
-  //     description: "Learn React fundamentals",
-  //     icon: "",
-  //     color: "#61dafb",
-  //     position: { x: 700, y: 250 },
-  //     passingScore: 60,
-  //     order: 3,
-  //     prerequisites: [],
-  //   },
-  //   {
-  //     name: "Java Programming",
-  //     description: "Object-oriented programming with Java",
-  //     icon: "",
-  //     color: "#f97316",
-  //     position: { x: 900, y: 350 },
-  //     passingScore: 70,
-  //     order: 4,
-  //     prerequisites: [],
-  //   },
-  //   {
-  //     name: "DAA (Algorithms)",
-  //     description: "Learn problem solving and algorithm design",
-  //     icon: "",
-  //     color: "#22c55e",
-  //     position: { x: 900, y: 150 },
-  //     passingScore: 70,
-  //     order: 5,
-  //     prerequisites: [],
-  //   },
-  //   {
-  //     name: "Mobile App Development",
-  //     description: "Build mobile apps for Android and iOS",
-  //     icon: "",
-  //     color: "#8b5cf6",
-  //     position: { x: 1100, y: 250 },
-  //     passingScore: 60,
-  //     order: 6,
-  //     prerequisites: [],
-  //   },
-  //   {
-  //     name: "Blockchain",
-  //     description: "Blockchain, Cryptocurrency and Web3",
-  //     icon: "",
-  //     color: "#06b6d4",
-  //     position: { x: 1300, y: 250 },
-  //     passingScore: 70,
-  //     order: 7,
-  //     prerequisites: [],
-  //   },
-  //   {
-  //     name: "Big Data",
-  //     description: "Big data",
-  //     icon: "",
-  //     color: "#06b6d4",
-  //     position: { x: 1300, y: 250 },
-  //     passingScore: 70,
-  //     order: 8,
-  //     prerequisites: [],
-  //   },
-
-  //   {
-  //     name: "Cyber Security",
-  //     description: "Cyber Security",
-  //     icon: "",
-  //     color: "#06b6d4",
-  //     position: { x: 1300, y: 250 },
-  //     passingScore: 70,
-  //     order: 9,
-  //     prerequisites: [],
-  //   },
-  // ];
-
+  
   const topicData = [
   {
     name: "Big Data",
@@ -287,30 +182,21 @@ async function seed() {
       topicId: topics["Blockchain"]._id,
     })),
     ...bigdataQ.map((q) => ({
-
     ...q,
-
     topicId: topics["Big Data"]._id,
-
   })),
 
   ...cybersecurityQ.map((q) => ({
-
     ...q,
-
     topicId: topics["Cyber Security"]._id,
-
   })),
   ];
 
   if (!questions.length) {
     throw new Error("❌ No questions found");
   }
-
   await Question.insertMany(questions);
-
   console.log(`✅ ${questions.length} questions inserted`);
-
   const existingAdmin = await User.findOne({
     email: "admin@quizengine.dev",
   });
@@ -328,9 +214,7 @@ async function seed() {
   } else {
     console.log("ℹ️ Admin already exists");
   }
-
   console.log("\n🎉 Seed complete");
-
   await mongoose.disconnect();
 }
 

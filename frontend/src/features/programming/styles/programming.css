@@ -22,8 +22,6 @@
   color: var(--danger);
 }
 
-/* ---- Graph ---- */
-
 .prog-graph-hint {
   display: flex;
   align-items: center;

@@ -1,13 +1,5 @@
 .pyq-page { min-height: 100vh; }
 
-
-/* .pyq-mode-bar {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin: 12px 0 20px;
-} */
-
 .pyq-mode-bar {
   display: flex;
   justify-content: center;

@@ -21,10 +21,19 @@ const questionSchema = new mongoose.Schema(
       },
     },
     correctAnswer: {
-      type: Number,
+      type: [Number],
       required: true,
-      min: 0,
-      max: 4,
+      validate: {
+        validator: function (arr) {
+          // Must have at least one correct answer
+          if (!Array.isArray(arr) || arr.length === 0) return false;
+          // Each index must be valid (0-4) and unique
+          const unique = new Set(arr);
+          if (unique.size !== arr.length) return false;
+          return arr.every((idx) => Number.isInteger(idx) && idx >= 0 && idx <= 4);
+        },
+        message: "correctAnswer must be a non-empty array of unique indices (0-4)",
+      },
     },
     difficulty: {
       type: String,
@@ -43,6 +52,15 @@ const questionSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+// Virtual to check if question has multiple correct answers
+questionSchema.virtual("isMultiSelect").get(function () {
+  return this.correctAnswer && this.correctAnswer.length > 1;
+});
+
+// Ensure virtuals are included in JSON
+questionSchema.set("toJSON", { virtuals: true });
+questionSchema.set("toObject", { virtuals: true });
 
 questionSchema.index({ topicId: 1, difficulty: 1 });
 module.exports = mongoose.model("Question", questionSchema);

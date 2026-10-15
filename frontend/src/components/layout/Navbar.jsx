@@ -107,8 +107,6 @@ export default function Navbar() {
           <Link to="/sgpa"     className={`nav-link ${isActive("/sgpa")     ? "active" : ""}`}>SGPA</Link>
           <Link to="/internal" className={`nav-link ${isActive("/internal") ? "active" : ""}`}>Internals</Link>
           <Link to="/tasks"    className={`nav-link ${isActive("/tasks")    ? "active" : ""}`}>Tasks</Link>
-          {/* <Link to="/programming" className={`nav-link ${isProgActive() ? "active" : ""}`}>Programming</Link>
-          <Link to="/tracker"  className={`nav-link ${isActive("/tracker") ? "active" : ""}`}>Tracker</Link> */}
         </div>
 
         <div className="nav-right" ref={dropdownRef}>
@@ -164,10 +162,6 @@ export default function Navbar() {
           <Brain size={20} /><span>Quiz</span>
         </Link>
 
-        {/* <Link to="/programming" className={`mobile-nav-item ${isProgActive() ? "active" : ""}`}>
-          <Code2 size={20} /><span>Code</span>
-        </Link> */}
-
         <Link to="/sgpa"     className={`mobile-nav-item ${isActive("/sgpa")     ? "active" : ""}`}>
           <Calculator size={20} /><span>SGPA</span>
         </Link>
@@ -175,10 +169,6 @@ export default function Navbar() {
         <Link to="/internal" className={`mobile-nav-item ${isActive("/internal") ? "active" : ""}`}>
           <ClipboardList size={20} /><span>Internals</span>
         </Link>
-        
-        {/* <Link to="/tasks"    className={`mobile-nav-item ${isActive("/tasks")    ? "active" : ""}`}>
-          <CheckSquare size={20} /><span>Tasks</span>
-        </Link> */}
       
       </nav>
       {showEditProfile && (

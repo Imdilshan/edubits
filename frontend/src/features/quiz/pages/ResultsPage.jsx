@@ -42,6 +42,21 @@ export default function ResultsPage() {
     percentage >= 60 ? "Good job!" :
     "Keep practising";
 
+  const formatCorrectAnswers = (q) => {
+    if (!q.correctAnswer) return "";
+    const answers = Array.isArray(q.correctAnswer) ? q.correctAnswer : [q.correctAnswer];
+    return answers.map(idx => ["A", "B", "C", "D", "E"][idx]).join(", ");
+  };
+
+  const formatUserAnswers = (h) => {
+    if (!h.selectedOptions || h.selectedOptions.length === 0) {
+      return h.selectedOption !== undefined && h.selectedOption !== null
+        ? ["A", "B", "C", "D", "E"][h.selectedOption]
+        : "No answer";
+    }
+    return h.selectedOptions.map(idx => ["A", "B", "C", "D", "E"][idx]).join(", ");
+  };
+
   return (
     <div className="quiz-shell fade-in" style={{ maxWidth: 760 }}>
       <div className="card" style={{ textAlign: "center", marginBottom: "1.5rem", padding: "2.5rem" }}>
@@ -56,26 +71,6 @@ export default function ResultsPage() {
         <p style={{ color: "var(--text-2)", marginBottom: "2rem" }}>
           {topic?.name || "Quiz"} complete
         </p>
-
-        {/* <div style={{
-          width: 120,
-          height: 120,
-          borderRadius: "50%",
-          border: `8px solid var(--bg-3)`,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          margin: "0 auto 2rem",
-          background: `conic-gradient(${gradeColor} ${percentage * 3.6}deg, var(--bg-3) 0deg)`
-        }}>
-          <span style={{
-            fontSize: "1.75rem",
-            fontWeight: 800,
-            color: gradeColor
-          }}>
-            {percentage}%
-          </span>
-        </div> */}
 
         <div
           style={{
@@ -138,7 +133,6 @@ export default function ResultsPage() {
         </div>
 
 
-
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1rem" }}>
           {[
             { label: "Score", value: `${score} / ${maxPossibleScore}`, color: gradeColor },
@@ -177,15 +171,25 @@ export default function ResultsPage() {
             const q = questionMap.get(h.questionId) || {};
             const isCorrect = h.result === "correct";
             const isTimeout = h.result === "timeout";
+            const isMultiSelect = q.isMultiSelect || (q.correctAnswer && Array.isArray(q.correctAnswer) && q.correctAnswer.length > 1);
 
             return (
               <div key={i} style={{ marginBottom: "1rem" }}>
-                <div>
+                <div style={{ fontSize: "0.85rem", color: "var(--text-2)", marginBottom: "4px" }}>
                   Q{i + 1} • {q.difficulty}
                 </div>
 
-                <div>
+                <div style={{ marginBottom: "8px" }}>
                   {h.questionText || q.text}
+                </div>
+
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginBottom: "8px", fontSize: "0.9rem" }}>
+                  <span style={{ color: "var(--success)" }}>
+                    <strong>Correct:</strong> {formatCorrectAnswers(q)}
+                  </span>
+                  <span style={{ color: isCorrect ? "var(--success)" : "var(--danger)" }}>
+                    <strong>Your answer:</strong> {formatUserAnswers(h)}
+                  </span>
                 </div>
 
                 <div>

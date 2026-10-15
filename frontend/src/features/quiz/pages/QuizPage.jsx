@@ -13,6 +13,7 @@ import {
   Send,
   Trophy,
   X,
+  Square,
 } from "lucide-react";
 
 import { useAuth } from "../../../context/AuthContext";
@@ -31,7 +32,7 @@ export default function QuizPage() {
   const [questions, setQuestions] = useState([]);
   const [topic, setTopic] = useState(state?.topic || null);
   const [current, setCurrent] = useState(0);
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState([]);
   const [revealed, setRevealed] = useState(false);
   const [timeLeft, setTimeLeft] = useState(30);
   const [, setAnswers] = useState([]);
@@ -40,6 +41,10 @@ export default function QuizPage() {
   const timerRef = useRef(null);
   const startTimeRef = useRef(Date.now());
   const answersRef = useRef([]);
+
+  const isMultiSelect = (question) => {
+    return question?.correctAnswer && Array.isArray(question.correctAnswer) && question.correctAnswer.length > 1;
+  };
 
   const recordAnswer = useCallback((answer) => {
     setAnswers((prev) => {
@@ -100,39 +105,58 @@ export default function QuizPage() {
     clearInterval(timerRef.current);
 
     setRevealed(true);
-    setSelected(null);
+    setSelected([]);
 
     recordAnswer({
       questionId: questions[current]._id,
-      selectedOption: null,
+      selectedOptions: [],
       timedOut: true,
       timeTakenSeconds: questions[current]?.timeLimitSeconds || 30,
     });
   };
 
-  const handleSelect = (optIndex) => {
+  const handleToggleOption = (optIndex) => {
+    if (revealed) return;
+
+    const q = questions[current];
+    const multi = isMultiSelect(q);
+
+    if (multi) {
+      setSelected((prev) => {
+        const next = prev.includes(optIndex)
+          ? prev.filter((i) => i !== optIndex)
+          : [...prev, optIndex];
+        return next;
+      });
+    } else {
+      // Single select: radio button behavior
+      setSelected(prev => prev[0] === optIndex ? [] : [optIndex]);
+    }
+  };
+
+  const handleConfirmAnswer = () => {
     if (revealed) return;
     clearInterval(timerRef.current);
 
     const q = questions[current];
+    const multi = isMultiSelect(q);
     const timeTaken = (q.timeLimitSeconds || 30) - timeLeft;
 
-    setSelected(optIndex);
+    // For single-select, require an answer; for multi-select, allow empty
+    if (!multi && selected.length === 0) return;
 
-    setTimeout(() => {
-      setRevealed(true);
+    setRevealed(true);
 
-      recordAnswer({
-        questionId: q._id,
-        selectedOption: optIndex,
-        timedOut: false,
-        timeTakenSeconds: timeTaken,
-      });
-    }, 200);
+    recordAnswer({
+      questionId: q._id,
+      selectedOptions: selected,
+      timedOut: false,
+      timeTakenSeconds: timeTaken,
+    });
   };
 
   const handleNext = () => {
-    setSelected(null);
+    setSelected([]);
     setRevealed(false);
 
     if (current + 1 >= questions.length) {
@@ -225,6 +249,7 @@ export default function QuizPage() {
   }
 
   const q = questions[current];
+  const multi = isMultiSelect(q);
 
   return (
     <div className="quiz-shell">
@@ -242,6 +267,11 @@ export default function QuizPage() {
         </div>
 
         <h2 className="quiz-question-title">{q.text}</h2>
+        {multi && (
+          <div className="quiz-multi-hint" style={{ fontSize: "0.85rem", color: "var(--text-2)", marginBottom: "12px" }}>
+            Multiple correct answers possible. Select all that apply.
+          </div>
+        )}
         {error && (
           <div className="quiz-error">
             <Info size={18} />
@@ -250,28 +280,28 @@ export default function QuizPage() {
         )}
         <div className="quiz-options-grid">
           {q.options.map((opt, i) => {
-            const isSelected = selected === i;
+            const isSelected = selected.includes(i);
+            const isMulti = isMultiSelect(q);
 
-            const isCorrect =
-              revealed && selected !== null && i === q.correctAnswer;
-
-            const isWrong =
-              revealed &&
-              selected === i &&
-              selected !== q.correctAnswer;
+           const correctSet = new Set([].concat(q.correctAnswer ?? []));
+           const isCorrect = revealed && correctSet.has(i);
+           const isWrong = revealed && isSelected && !correctSet.has(i);
 
             return (
               <button
                 key={i}
-                onClick={() => handleSelect(i)}
+                onClick={() => handleToggleOption(i)}
                 disabled={revealed}
-                className={`quiz-option ${!revealed && isSelected ? "is-selected" : ""} ${isCorrect ? "is-correct" : ""} ${isWrong ? "is-wrong" : ""}`}
+                className={`quiz-option ${isMulti ? "is-multi" : ""} ${!revealed && isSelected ? "is-selected" : ""} ${isCorrect ? "is-correct" : ""} ${isWrong ? "is-wrong" : ""}`}
               >
+                <span className={`quiz-option-indicator ${isMulti ? "checkbox" : "radio"}`}>
+                  {isSelected ? <Check size={16} /> : isMulti ? <Square size={16} /> : null}
+                </span>
                 <span className="quiz-option-letter">{["A", "B", "C", "D"][i]}</span>
                 <span style={{ flex: 1 }}>{opt}</span>
 
-                {isCorrect && <Check size={18} />}
-                {isWrong && <X size={18} />}
+                {isCorrect && <Check size={18} style={{ color: "var(--success)" }} />}
+                {isWrong && <X size={18} style={{ color: "var(--danger)" }} />}
               </button>
             );
           })}
@@ -292,6 +322,18 @@ export default function QuizPage() {
           >
             {current + 1 >= questions.length ? "Submit" : "Next"}
             {current + 1 >= questions.length ? <Send size={18} /> : <ArrowRight size={18} />}
+          </button>
+        )}
+
+        {!revealed && (
+          <button
+            className="quiz-action-btn primary"
+            style={{ marginTop: "20px" }}
+            onClick={handleConfirmAnswer}
+            disabled={!multi && selected.length === 0}
+          >
+            {multi ? "Submit Answer" : "Confirm"}
+            <ArrowRight size={18} />
           </button>
         )}
       </div>

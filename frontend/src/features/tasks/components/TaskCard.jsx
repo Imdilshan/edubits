@@ -1,6 +1,5 @@
 import { formatDate } from "./../utils/date";
 
-
 export default function TaskCard({ task, onUpdate, onDelete, onEdit }) {
 
   const advance = (e) => {

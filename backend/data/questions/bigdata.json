@@ -7,7 +7,9 @@
       "Reads always return latest value.",
       "All replicas are instantly synchronized."
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -19,7 +21,9 @@
       "Weak classifiers into a strong ensemble",
       "Strong classifiers only"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -31,7 +35,9 @@
       "A bagging of de-correlated decision trees",
       "A neural network ensemble"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -43,7 +49,9 @@
       "Unify data-parallel and graph-parallel analytics",
       "Database management"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -55,7 +63,9 @@
       "Only one feature exists",
       "Random subset of features is selected"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -67,7 +77,9 @@
       "Precision",
       "WSSE"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -79,7 +91,9 @@
       "It stores less data",
       "It uses more hardware"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -91,7 +105,9 @@
       "ONE",
       "ANY"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -103,7 +119,9 @@
       "Dataset",
       "DataFrame"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -115,7 +133,9 @@
       "reduceByKey()",
       "collect()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -127,7 +147,9 @@
       "Redis",
       "Cassandra"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -139,7 +161,9 @@
       "Oozie is a workflow scheduler system for Hadoop jobs.",
       "Oozie is a machine learning library for Spark."
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -151,7 +175,9 @@
       "Batch-only processing framework",
       "Graph-only processing framework"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -163,7 +189,9 @@
       "SparkContext",
       "BlockManager"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -175,7 +203,9 @@
       "Apriori",
       "PageRank"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -187,7 +217,9 @@
       "Data generated only from social media",
       "Small amount of structured data only"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -199,7 +231,9 @@
       "Atomic",
       "Replicated"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -211,7 +245,9 @@
       "Variety",
       "Velocity"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -223,7 +259,9 @@
       "(source, target)",
       "(target, count)"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -235,7 +273,9 @@
       "Pipeline processing",
       "Record-at-a-time processing"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -247,7 +287,9 @@
       "Failures require manual data recreation.",
       "Transformations are exactly-once and fault-tolerant"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -259,7 +301,9 @@
       "Apply",
       "Scatter"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -271,7 +315,9 @@
       "They never produce false positives.",
       "They may produce false positives but never false negatives"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -283,7 +329,9 @@
       "Less than or equal to 0.1",
       "Equal to 10"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -295,7 +343,9 @@
       "Data Duplication",
       "Hash Partitioning"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -307,7 +357,9 @@
       "Reduces throughput",
       "Eliminates scalability"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -319,7 +371,9 @@
       "Trees require sequential execution",
       "Trees use one processor"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -331,7 +385,9 @@
       "Increase overfitting",
       "Reduce prediction variance"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -343,7 +399,9 @@
       "Requires no cluster",
       "Eliminates RDDs"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -355,7 +413,9 @@
       "DataNode",
       "NameNode"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -367,7 +427,9 @@
       "Commit Logs",
       "Indexing and Bitmaps"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -379,7 +441,9 @@
       "Replication",
       "Sorting vertices"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -391,7 +455,9 @@
       "Veracity",
       "Validity"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -403,7 +469,9 @@
       "Spark tracks lineage and recomputes lost partitions.",
       "Every transformation result is written to HDFS."
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -415,7 +483,9 @@
       "Data normalization",
       "Sampling with replacement"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -427,7 +497,9 @@
       "Replicate data blocks across HDFS",
       "Decide which Reducer receives a key-value pair"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -439,7 +511,9 @@
       "Scheduling Hadoop workflows and jobs",
       "Executing SQL-like queries on HDFS data"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -451,7 +525,9 @@
       "Restarts the DataNode automatically",
       "Deletes all blocks immediately"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -463,7 +539,9 @@
       "Cosine Similarity",
       "Manhattan Distance"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -475,7 +553,9 @@
       "Customer segmentation",
       "Compiler optimization"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -487,7 +567,9 @@
       "join()",
       "map()"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -499,7 +581,9 @@
       "It avoids shuffling completely.",
       "It automatically sorts keys."
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -511,7 +595,9 @@
       "Reads bypass SSTables.",
       "Reads use only memory."
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -523,7 +609,9 @@
       "Flume",
       "Kafka"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -535,7 +623,9 @@
       "Manhattan Distance",
       "Hamming Distance"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -547,7 +637,9 @@
       "Randomly",
       "In a single step"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -559,7 +651,9 @@
       "NameNode",
       "Client"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -571,7 +665,9 @@
       "mapV()",
       "triplets"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -583,7 +679,9 @@
       "Application Master (AM)",
       "Node Manager (NM)"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -595,7 +693,9 @@
       "Increase namespace scalability",
       "Eliminate DataNodes"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -607,7 +707,9 @@
       "Reinforcement learning technique",
       "Unsupervised learning technique"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -619,7 +721,9 @@
       "HiveQL",
       "JavaScript"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -631,7 +735,9 @@
       "K-Means Clusters",
       "Support Vectors"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -643,7 +749,9 @@
       "Scheduler",
       "Worker node"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -655,7 +763,9 @@
       "3",
       "2"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -667,7 +777,9 @@
       "Data loss",
       "Worse clustering"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -679,7 +791,9 @@
       "Map and Reduce",
       "Read and Write"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -691,7 +805,9 @@
       "RDDs can be cached for reuse.",
       "RDDs automatically rebuild lost data using lineage."
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -703,7 +819,9 @@
       "No changes occur in centroids",
       "Number of features decreases"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -715,7 +833,9 @@
       "HDFS, NameNode, DataNode, and YARN only",
       "Cassandra, MongoDB, and Redis only"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -727,7 +847,9 @@
       "Classify labeled data",
       "Predict future values"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -739,7 +861,9 @@
       "Random Partitioner",
       "Network Topology Strategy"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -751,7 +875,9 @@
       "Select initial centroids",
       "Normalize output"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -763,7 +889,9 @@
       "Distributed coordination and synchronization",
       "Distributed data storage"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -775,7 +903,9 @@
       "Compress SSTables",
       "Replace indexing structures"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -787,7 +917,9 @@
       "It accepts an intermediate key and a set of values.",
       "It always produces multiple output values."
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -799,7 +931,9 @@
       "A NoSQL database",
       "A workflow scheduler"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -811,7 +945,9 @@
       "Fixed single-node execution",
       "Second-scale latency"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -823,7 +959,9 @@
       "Query Optimization",
       "Distributed Storage"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -835,7 +973,9 @@
       "Excel Table",
       "Student Marks Sheet"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -847,7 +987,9 @@
       "Pregel Messaging",
       "Active Edge Indexing"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -859,7 +1001,9 @@
       "MS Word",
       "Hadoop"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -871,7 +1015,9 @@
       "Both NameNode memory usage and number of Map tasks",
       "NameNode memory usage only"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -883,7 +1029,9 @@
       "Temporary",
       "Persistent"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -895,7 +1043,9 @@
       "An RDD graph computation",
       "A new DataNode"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -907,7 +1057,9 @@
       "Only vertices",
       "Only edges"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -919,7 +1071,9 @@
       "Managing cluster resources",
       "Performing machine learning tasks"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -931,7 +1085,9 @@
       "SQL optimizer",
       "Replicated input data and RDD lineage"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -943,7 +1099,9 @@
       "HDFS",
       "YARN"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -955,7 +1113,9 @@
       "NoSQL Database",
       "Text File Only"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -967,7 +1127,9 @@
       "Consistency and Partition Tolerance",
       "Atomicity and Durability"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -979,7 +1141,9 @@
       "A key can be processed by multiple Reducers.",
       "Each key is assigned to exactly one Reducer."
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -991,7 +1155,9 @@
       "No leader can be elected.",
       "A new leader is elected immediately."
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -1003,7 +1169,9 @@
       "Kafka – Distributed Commit Log",
       "Sqoop – Graph Analytics"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -1015,7 +1183,9 @@
       "SparkContext",
       "DAGScheduler"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -1027,7 +1197,9 @@
       "map()",
       "filter()"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -1039,7 +1211,9 @@
       "Scheduling",
       "Compression"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -1051,7 +1225,9 @@
       "Caching/Persistence of RDDs",
       "HDFS replication"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -1063,7 +1239,9 @@
       "Decision Tree",
       "Naïve Bayes"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1075,7 +1253,9 @@
       "Perform clustering",
       "Increase dataset size"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   }

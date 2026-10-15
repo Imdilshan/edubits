@@ -1,141 +1,281 @@
 [
   {
     "text": "Which keyword declares variable?",
-    "options": ["let", "var", "const", "All"],
-    "correctAnswer": 3,
+    "options": [
+      "let",
+      "var",
+      "const",
+      "All"
+    ],
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "What is typeof null?",
-    "options": ["null", "object", "undefined", "number"],
-    "correctAnswer": 1,
+    "options": [
+      "null",
+      "object",
+      "undefined",
+      "number"
+    ],
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which method creates new array?",
-    "options": ["map()", "forEach()", "push()", "filter()"],
-    "correctAnswer": 0,
+    "options": [
+      "map()",
+      "forEach()",
+      "push()",
+      "filter()"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which is strict equality?",
-    "options": ["===", "==", "=", "!="],
-    "correctAnswer": 0,
+    "options": [
+      "===",
+      "==",
+      "=",
+      "!="
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which is arrow function?",
-    "options": ["()=>{}", "function()", "=>", "()=>"],
-    "correctAnswer": 0,
+    "options": [
+      "()=>{}",
+      "function()",
+      "=>",
+      "()=>"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "What is closure?",
-    "options": ["Function with scope", "Loop", "Object", "Array"],
-    "correctAnswer": 0,
+    "options": [
+      "Function with scope",
+      "Loop",
+      "Object",
+      "Array"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which method filters array?",
-    "options": ["filter()", "map()", "reduce()", "find()"],
-    "correctAnswer": 0,
+    "options": [
+      "filter()",
+      "map()",
+      "reduce()",
+      "find()"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which is async?",
-    "options": ["Promise", "setTimeout", "Both", "None"],
-    "correctAnswer": 2,
+    "options": [
+      "Promise",
+      "setTimeout",
+      "Both",
+      "None"
+    ],
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "What is NaN?",
-    "options": ["Not a Number", "Null", "String", "Zero"],
-    "correctAnswer": 0,
+    "options": [
+      "Not a Number",
+      "Null",
+      "String",
+      "Zero"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which loop runs at least once?",
-    "options": ["do-while", "for", "while", "foreach"],
-    "correctAnswer": 0,
+    "options": [
+      "do-while",
+      "for",
+      "while",
+      "foreach"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which method joins array?",
-    "options": ["join()", "concat()", "merge()", "append()"],
-    "correctAnswer": 0,
+    "options": [
+      "join()",
+      "concat()",
+      "merge()",
+      "append()"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which is not primitive?",
-    "options": ["object", "number", "string", "boolean"],
-    "correctAnswer": 0,
+    "options": [
+      "object",
+      "number",
+      "string",
+      "boolean"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which keyword stops loop?",
-    "options": ["break", "stop", "exit", "return"],
-    "correctAnswer": 0,
+    "options": [
+      "break",
+      "stop",
+      "exit",
+      "return"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which is event?",
-    "options": ["click", "run", "exec", "call"],
-    "correctAnswer": 0,
+    "options": [
+      "click",
+      "run",
+      "exec",
+      "call"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which converts JSON?",
-    "options": ["JSON.parse", "JSON.stringify", "Both", "None"],
-    "correctAnswer": 2,
+    "options": [
+      "JSON.parse",
+      "JSON.stringify",
+      "Both",
+      "None"
+    ],
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which is array method?",
-    "options": ["push()", "add()", "insert()", "append()"],
-    "correctAnswer": 0,
+    "options": [
+      "push()",
+      "add()",
+      "insert()",
+      "append()"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which keyword defines class?",
-    "options": ["class", "object", "function", "struct"],
-    "correctAnswer": 0,
+    "options": [
+      "class",
+      "object",
+      "function",
+      "struct"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which is promise state?",
-    "options": ["pending", "resolved", "rejected", "All"],
-    "correctAnswer": 3,
+    "options": [
+      "pending",
+      "resolved",
+      "rejected",
+      "All"
+    ],
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which method delays execution?",
-    "options": ["setTimeout", "delay", "wait", "sleep"],
-    "correctAnswer": 0,
+    "options": [
+      "setTimeout",
+      "delay",
+      "wait",
+      "sleep"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which operator spreads array?",
-    "options": ["...", "spread", "*", "&"],
-    "correctAnswer": 0,
+    "options": [
+      "...",
+      "spread",
+      "*",
+      "&"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
@@ -147,7 +287,9 @@
       "Client side Event",
       "Permit server-side"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -159,7 +301,9 @@
       "Support only non relational database",
       "To interpret JavaScript code"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -171,7 +315,9 @@
       "the title or head",
       "after the body tag"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -183,7 +329,9 @@
       "will work perfectly well on a Windows Machine",
       "will be displayed as a JavaScript text on the browser"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -195,7 +343,9 @@
       "increase the download time for the client",
       "increase the loading time of the website"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -207,7 +357,9 @@
       "defer",
       "type"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -219,7 +371,9 @@
       "Preprocessor",
       "Function/Method"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -231,7 +385,9 @@
       "directly into HTML pages",
       "directly into the CSS file"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -243,7 +399,9 @@
       "script",
       "link"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -255,11 +413,13 @@
       "Machine level programming language",
       "Low level programming language"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
-    {
+  {
     "text": "What will be the output of the following JavaScript code?\n\nvar txt1 = \"good\";\nvar txt2 = \"day\";\ndocument.getElementById(\"demo\").innerHTML = txt1 + txt2;",
     "options": [
       "good day",
@@ -267,7 +427,9 @@
       "error",
       "undefined"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -279,7 +441,9 @@
       "2",
       "5"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -291,7 +455,9 @@
       "50",
       "Error"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -303,7 +469,9 @@
       "error",
       "undefined"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -315,7 +483,9 @@
       "string",
       "error"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -327,7 +497,9 @@
       "Preprocessor",
       "Function/Method"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -339,7 +511,9 @@
       "Immutable variable",
       "Dynamic variable"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -351,7 +525,9 @@
       "0X",
       "Both 0x and 0X"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -363,7 +539,9 @@
       "[digits][(E|e)[(+|-) ]digits]",
       "[.digits][digits][(E|e)[(+|-) ]digits]"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
@@ -375,7 +553,9 @@
       "Displays \"Infinity\"",
       "Prints the value as such"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -387,7 +567,9 @@
       "Division by zero",
       "Missing of Bracket"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -399,7 +581,9 @@
       "\\f is not present in JavaScript",
       "Form feed"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -411,7 +595,9 @@
       "if(a!null)",
       "if(a!==null)"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
@@ -423,7 +609,9 @@
       "Both a and b are equal in value and type",
       "There is no such statement"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -435,11 +623,13 @@
       "String newvariable = \"false\"",
       "Both false.toString() and String(false)"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
-    {
+  {
     "text": "What will be the output of the following JavaScript code?\n\nfunction compare() {\n  let a = 2.0;\n  let b = 2;\n  if (a == b)\n    return true;\n  else\n    return false;\n}",
     "options": [
       "true",
@@ -447,7 +637,9 @@
       "runtime error",
       "compilation error"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -459,7 +651,9 @@
       "runtime error",
       "compilation error"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -471,7 +665,9 @@
       "runtime error",
       "logical error"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -483,7 +679,9 @@
       "0",
       "error"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -495,7 +693,9 @@
       "runtime error",
       "compiler error"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -507,7 +707,9 @@
       "123123",
       "Exception"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -519,7 +721,9 @@
       "Function calling",
       "Function declaration"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -531,7 +735,9 @@
       "contains variable references alone",
       "contains only keywords"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -543,7 +749,9 @@
       "text.test(pattern)",
       "pattern.test(text)"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -555,7 +763,9 @@
       "Invocation expression",
       "Property Access Expression"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -567,7 +777,9 @@
       "Invocation Expression",
       "Constructor Calling Expression"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -579,7 +791,9 @@
       "within",
       "exists"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -591,7 +805,9 @@
       "-",
       "?:"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -603,7 +819,9 @@
       "Lvalue",
       "Definition"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -615,11 +833,12 @@
       "x = (x = (y = z)); w = ~(-y); q = a ? b : (c ? d : (e ? f : g));",
       "x = ~(-y); w = (x = (y = z)); q = (c ? d : (e ? f : g));"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 30
   },
-
   {
     "text": "What will be the output of the following JavaScript code?\n\nfunction output(option) {\n  return (option ? \"yes\" : \"no\");\n}\nbool ans = true;\nconsole.log(output(ans));",
     "options": [
@@ -628,7 +847,9 @@
       "Runtime error",
       "Compilation error"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -640,7 +861,9 @@
       "undefined",
       "error"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -652,7 +875,9 @@
       "tall",
       "short"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -664,7 +889,9 @@
       "hithere",
       "undefined"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -676,7 +903,9 @@
       "error",
       "undefined"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -688,7 +917,9 @@
       "7",
       "-7"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -700,11 +931,12 @@
       "5",
       "Error"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
-
   {
     "text": "What will be the output of the following JavaScript code?\n\nfunction myFunction() {\n  document.getElementById(\"demo\").innerHTML = Math.acos(0.5);\n}",
     "options": [
@@ -713,7 +945,9 @@
       "1.00",
       "1.4"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -725,7 +959,9 @@
       "Assembly-language",
       "Object-Based"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -737,7 +973,9 @@
       "1",
       "5"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -749,7 +987,9 @@
       "If-then-else statement",
       "Switch statement"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -761,7 +1001,9 @@
       "Both Code 1 and Code 2",
       "Cannot Compare"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -773,7 +1015,9 @@
       "Both conditional block and a single statement",
       "Block that combines multiple statements into a single compound statement"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -785,7 +1029,9 @@
       "Throws an error",
       "Shows a warning"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -797,11 +1043,12 @@
       "Data types",
       "Prototypes"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
-
   {
     "text": "In the following switch syntax, the expression is compared with the case labels using which operator?\n\nswitch(expression) {\n  statements\n}",
     "options": [
@@ -810,7 +1057,9 @@
       "equal",
       "==="
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -822,7 +1071,9 @@
       "An error is displayed",
       "An exception is thrown"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -834,7 +1085,9 @@
       "The delete keyword is never used",
       "Object.defineProperty() is not used"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 30
   },
@@ -846,7 +1099,9 @@
       "1",
       "false"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -858,7 +1113,9 @@
       "73",
       "0"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -870,7 +1127,9 @@
       "8",
       "0"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -882,11 +1141,13 @@
       "Error",
       "0"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
-   {
+  {
     "text": "What will be the output of the following JavaScript code?\n\nvar grade = 'C';\nvar result = '';\nswitch (grade) {\n  case 'A':\n    result += ' 10';\n  case 'B':\n    result += ' 9';\n  case 'C':\n    result += ' 8';\n  default:\n    result += ' 0';\n}\ndocument.write(result);",
     "options": [
       "8",
@@ -894,7 +1155,9 @@
       "10",
       "None of the mentioned"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -906,7 +1169,9 @@
       "Prints 0 to the length of the array",
       "Prints \"Empty Array\""
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -918,7 +1183,9 @@
       "Testing, Updation, Testing",
       "Initialization, Testing, Incrementation"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -930,7 +1197,9 @@
       "Yes, this will work",
       "No, this will result in a runtime error with the message \"Cannot use Linked List\""
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -942,7 +1211,9 @@
       "for (var i = 0; i <= a.length; i++) console.log(a[i]);",
       "for (var i = 1; i < a.length; i++) console.log(a[i]);"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -954,7 +1225,9 @@
       "The body of the loop is executed only once",
       "The iteration is finite when an interpreter is used"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 30
   },
@@ -966,7 +1239,9 @@
       "That property will not be enumerated",
       "The property will be enumerated"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -978,7 +1253,9 @@
       "The interpreter jumps to the nearest enclosing exception handler",
       "The interpreter throws an error"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -990,11 +1267,13 @@
       "The continue keyword skips the rest of the statements in that iteration",
       "The continue keyword breaks out of the loop"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
-    {
+  {
     "text": "What could be the task of the debugger statement in the following JavaScript code?\n\nfunction f(o) {\n  if (o === undefined) debugger;\n}",
     "options": [
       "It does nothing but acts as a simple breakpoint",
@@ -1002,7 +1281,9 @@
       "It is used as a keyword that debugs the entire program at once",
       "It is used to find an error in the statement"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1014,7 +1295,9 @@
       "if",
       "use strict"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1026,7 +1309,9 @@
       "3",
       "error"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1038,7 +1323,9 @@
       "12345",
       "11"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1050,7 +1337,9 @@
       "013",
       "01"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1062,7 +1351,9 @@
       "531",
       "Infinite loop"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1074,7 +1365,9 @@
       "4",
       "5"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1086,11 +1379,12 @@
       "This results in an exception",
       "The omitted value takes an integer value"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
-
   {
     "text": "What will be the output of the following JavaScript code?\n\nvar a1 = [,,,];\nvar a2 = new Array(3);\n0 in a1\n0 in a2",
     "options": [
@@ -1099,7 +1393,9 @@
       "true true",
       "false false"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 30
   },
@@ -1111,7 +1407,9 @@
       "Prints the first element but has no effect on the length",
       "Updates an element"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1123,7 +1421,9 @@
       "Skips the null elements",
       "Skips the defined & existent elements"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1135,7 +1435,9 @@
       "Only reverses the array",
       "Stores the elements of the array in normal order"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1147,7 +1449,9 @@
       "Returns [1,2,3,4]",
       "Returns [1,2,3,4,5]"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1159,7 +1463,9 @@
       "[3,4,5]",
       "Exception is thrown"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 30
   },
@@ -1171,7 +1477,9 @@
       "Passes each element of the array to a function and returns an array containing the values returned by that function",
       "Passes the elements of the array into another array"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1183,7 +1491,9 @@
       "Finger and fold",
       "Fold"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 30
   },
@@ -1195,7 +1505,9 @@
       "===",
       "typeof"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1207,7 +1519,9 @@
       "1, 2, 3, 6, 7, 8",
       "123"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1219,7 +1533,9 @@
       "1, 3, 4",
       "Error"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1231,7 +1547,9 @@
       "10",
       "error"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1243,7 +1561,9 @@
       "three",
       "error"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1255,7 +1575,9 @@
       "1, 5, 4, 3, 2",
       "5, 4, 3, 2, 1"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1267,7 +1589,9 @@
       "Segmental",
       "Sequential"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1279,7 +1603,9 @@
       "Reference the current scope chain",
       "Return the value"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1291,7 +1617,9 @@
       "Both Function objects and Scope where function's variables are resolved",
       "Function return value"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1303,7 +1631,9 @@
       "Functions",
       "Graphics"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1315,7 +1645,9 @@
       "Dynamically generated graphics",
       "Generic scoping"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1327,7 +1659,9 @@
       "Returns the value in scope",
       "Shows an error message"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1339,7 +1673,9 @@
       "Functions are declared outside the scope",
       "Variables are declared within the function"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1351,7 +1687,9 @@
       "Dynamic scoping",
       "Generic scoping"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1363,7 +1701,9 @@
       "Variables cannot be declared outside the scope",
       "Variables cannot be declared within the function"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1375,7 +1715,9 @@
       "Modula2",
       "HTML"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1387,7 +1729,9 @@
       "105 as an integer value",
       "Exception is thrown"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1399,7 +1743,9 @@
       "Few functions return values by default",
       "Some functions do not return any value"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1411,7 +1757,9 @@
       "Exception will be thrown",
       "Memory leak"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1423,7 +1771,9 @@
       "Exception",
       "NaN"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1435,7 +1785,9 @@
       "String.concat.apply('', arguments)",
       "String.prototype.concat.apply('', arguments)"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 30
   },
@@ -1447,7 +1799,9 @@
       "o = f.m;",
       "o = f;"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1459,7 +1813,9 @@
       "var o = new Object;",
       "Object o = new Object();"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1471,7 +1827,9 @@
       "Both lines only check for the existence of the objects",
       "The first returns a real boolean value, while the second returns a truthy/falsy value"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 30
   },
@@ -1483,7 +1841,9 @@
       "Null",
       "Undefined"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 30
   },
@@ -1495,7 +1855,9 @@
       "10",
       "12"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 30
   },
@@ -1507,7 +1869,9 @@
       "1",
       "9"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1519,7 +1883,9 @@
       "Error",
       "7"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1531,7 +1897,9 @@
       "7.5",
       "8"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1543,7 +1911,9 @@
       "Error",
       "4"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1555,7 +1925,9 @@
       "Error",
       "Undefined"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1567,7 +1939,9 @@
       "0.50",
       "0.78"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1579,7 +1953,9 @@
       "1.05",
       "1.10"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1591,7 +1967,9 @@
       "setInterval()",
       "settime()"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1603,7 +1981,9 @@
       "setInterval()",
       "settime()"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1615,7 +1995,9 @@
       "Both onhalt and onerror",
       "Onsuspend"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1627,7 +2009,9 @@
       "browser",
       "navigator"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1639,7 +2023,9 @@
       "clearInterval()",
       "clear()"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1651,11 +2037,12 @@
       "Location",
       "Event"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
-
   {
     "text": "Which method receives the return value of setTimeout() to cancel future invocations?",
     "options": [
@@ -1664,7 +2051,9 @@
       "clearSchedule()",
       "cancelInvocation()"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1676,7 +2065,9 @@
       "Will run continuously",
       "Will execute immediately"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1688,7 +2079,9 @@
       "Element",
       "Location"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1700,7 +2093,9 @@
       "0",
       "1"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1712,7 +2107,9 @@
       "Error",
       "Undefined"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1724,7 +2121,9 @@
       "2",
       "1"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1736,7 +2135,9 @@
       "h2",
       "2"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1748,7 +2149,9 @@
       "Strength: no strength",
       "Undefined"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1760,7 +2163,9 @@
       "Error",
       "Undefined"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1772,7 +2177,9 @@
       "Both event type and event target",
       "Interface"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1784,11 +2191,13 @@
       "Both event type and event target",
       "Interface"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
-    {
+  {
     "text": "In general, an event handler is nothing but ____________.",
     "options": [
       "Function",
@@ -1796,7 +2205,9 @@
       "Event",
       "Handler"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1808,7 +2219,9 @@
       "When the specified event occurs",
       "When the webpage loads"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1820,7 +2233,9 @@
       "Manner",
       "Program"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1832,7 +2247,9 @@
       "Event Handling",
       "Event propagation"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1844,7 +2261,9 @@
       "Event Capturing",
       "Default Actions"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 20
   },
@@ -1856,7 +2275,9 @@
       "User interface events",
       "State change events"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1868,7 +2289,9 @@
       "Device-dependent events",
       "State change events"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1880,16 +2303,10 @@
       "Device-dependent events",
       "State change events"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   }
 ]
-
-
-
-
-  
-
-
- 

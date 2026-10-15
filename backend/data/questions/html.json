@@ -1,270 +1,533 @@
 [
   {
     "text": "Who is known as the father of HTML?",
-    "options": ["Tim Berners-Lee", "Bill Gates", "Mark Zuckerberg", "Steve Jobs"],
-    "correctAnswer": 0,
+    "options": [
+      "Tim Berners-Lee",
+      "Bill Gates",
+      "Mark Zuckerberg",
+      "Steve Jobs"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "What does HTML stand for?",
-    "options": ["HyperText Markup Language", "High-Level Text Machine Language", "Hyperlink and Text Management Language", "Home Tool Markup Language"],
-    "correctAnswer": 0,
+    "options": [
+      "HyperText Markup Language",
+      "High-Level Text Machine Language",
+      "Hyperlink and Text Management Language",
+      "Home Tool Markup Language"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which tag is used to create a hyperlink in HTML?",
-    "options": ["<link>", "<a>", "<href>", "<hyperlink>"],
-    "correctAnswer": 1,
+    "options": [
+      "<link>",
+      "<a>",
+      "<href>",
+      "<hyperlink>"
+    ],
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "What is the purpose of the <head> tag in HTML?",
-    "options": ["To define the main content of the document", "To define metadata about the document", "To define a header for the document", "To define a footer for the document"],
-    "correctAnswer": 1,
+    "options": [
+      "To define the main content of the document",
+      "To define metadata about the document",
+      "To define a header for the document",
+      "To define a footer for the document"
+    ],
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which attribute is used to uniquely identify an HTML element?",
-    "options": ["class", "id", "name", "type"],
-    "correctAnswer": 1,
+    "options": [
+      "class",
+      "id",
+      "name",
+      "type"
+    ],
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which HTML tag is used to define an internal style sheet?",
-    "options": ["<css>", "<style>", "<script>", "<link>"],
-    "correctAnswer": 1,
+    "options": [
+      "<css>",
+      "<style>",
+      "<script>",
+      "<link>"
+    ],
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "What is the correct HTML element for inserting a line break?",
-    "options": ["<lb>", "<break>", "<br>", "<line>"],
-    "correctAnswer": 2,
+    "options": [
+      "<lb>",
+      "<break>",
+      "<br>",
+      "<line>"
+    ],
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which attribute specifies an alternate text for an image if the image cannot be displayed?",
-    "options": ["src", "alt", "title", "href"],
-    "correctAnswer": 1,
+    "options": [
+      "src",
+      "alt",
+      "title",
+      "href"
+    ],
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which HTML element is used to display a scalar measurement within a range?",
-    "options": ["<meter>", "<progress>", "<range>", "<scale>"],
-    "correctAnswer": 0,
+    "options": [
+      "<meter>",
+      "<progress>",
+      "<range>",
+      "<scale>"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "How can you make a numbered list in HTML?",
-    "options": ["<ul>", "<ol>", "<li>", "<dl>"],
-    "correctAnswer": 1,
+    "options": [
+      "<ul>",
+      "<ol>",
+      "<li>",
+      "<dl>"
+    ],
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which HTML tag is used to define an unordered list?",
-    "options": ["<ul>", "<ol>", "<li>", "<dl>"],
-    "correctAnswer": 0,
+    "options": [
+      "<ul>",
+      "<ol>",
+      "<li>",
+      "<dl>"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which tag is used to display a table in HTML?",
-    "options": ["<table>", "<tr>", "<td>", "<th>"],
-    "correctAnswer": 0,
+    "options": [
+      "<table>",
+      "<tr>",
+      "<td>",
+      "<th>"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which HTML element is used for a definition list?",
-    "options": ["<ul>", "<ol>", "<dl>", "<li>"],
-    "correctAnswer": 2,
+    "options": [
+      "<ul>",
+      "<ol>",
+      "<dl>",
+      "<li>"
+    ],
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which HTML tag is used to define a table header?",
-    "options": ["<th>", "<td>", "<tr>", "<head>"],
-    "correctAnswer": 0,
+    "options": [
+      "<th>",
+      "<td>",
+      "<tr>",
+      "<head>"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "What is the default value of the position property in CSS?",
-    "options": ["static", "relative", "absolute", "fixed"],
-    "correctAnswer": 0,
+    "options": [
+      "static",
+      "relative",
+      "absolute",
+      "fixed"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "How can you include a CSS file in an HTML document?",
-    "options": ["<style>", "<link>", "<css>", "<script>"],
-    "correctAnswer": 1,
+    "options": [
+      "<style>",
+      "<link>",
+      "<css>",
+      "<script>"
+    ],
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "What is the correct HTML element for inserting an image?",
-    "options": ["<img>", "<image>", "<picture>", "<src>"],
-    "correctAnswer": 0,
+    "options": [
+      "<img>",
+      "<image>",
+      "<picture>",
+      "<src>"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which attribute is used to define the destination of a link in HTML?",
-    "options": ["href", "src", "link", "url"],
-    "correctAnswer": 0,
+    "options": [
+      "href",
+      "src",
+      "link",
+      "url"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "How do you make a hyperlink open in a new tab in HTML?",
-    "options": ["target=\"_blank\"", "target=\"_new\"", "target=\"_self\"", "target=\"_parent\""],
-    "correctAnswer": 0,
+    "options": [
+      "target=\"_blank\"",
+      "target=\"_new\"",
+      "target=\"_self\"",
+      "target=\"_parent\""
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "What tag is used to define a footer in HTML5?",
-    "options": ["<footer>", "<bottom>", "<foot>", "<end>"],
-    "correctAnswer": 0,
+    "options": [
+      "<footer>",
+      "<bottom>",
+      "<foot>",
+      "<end>"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
-
-
-
   {
     "text": "Which HTML tag is used to define an input field?",
-    "options": ["<input>", "<text>", "<field>", "<form>"],
-    "correctAnswer": 0,
+    "options": [
+      "<input>",
+      "<text>",
+      "<field>",
+      "<form>"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which tag is used to define a text area in HTML?",
-    "options": ["<input>", "<textarea>", "<text>", "<field>"],
-    "correctAnswer": 1,
+    "options": [
+      "<input>",
+      "<textarea>",
+      "<text>",
+      "<field>"
+    ],
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which attribute is used to specify alternative text for an image in HTML?",
-    "options": ["title", "src", "alt", "href"],
-    "correctAnswer": 2,
+    "options": [
+      "title",
+      "src",
+      "alt",
+      "href"
+    ],
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which HTML tag is used to define a hyperlink?",
-    "options": ["<link>", "<href>", "<hyperlink>", "<a>"],
-    "correctAnswer": 3,
+    "options": [
+      "<link>",
+      "<href>",
+      "<hyperlink>",
+      "<a>"
+    ],
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which tag is used to define a row in an HTML table?",
-    "options": ["<tr>", "<td>", "<th>", "<row>"],
-    "correctAnswer": 0,
+    "options": [
+      "<tr>",
+      "<td>",
+      "<th>",
+      "<row>"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which tag is used to define a table cell in HTML?",
-    "options": ["<tr>", "<td>", "<cell>", "<th>"],
-    "correctAnswer": 1,
+    "options": [
+      "<tr>",
+      "<td>",
+      "<cell>",
+      "<th>"
+    ],
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which tag is used to create a line break in HTML?",
-    "options": ["<break>", "<line>", "<br>", "<lb>"],
-    "correctAnswer": 2,
+    "options": [
+      "<break>",
+      "<line>",
+      "<br>",
+      "<lb>"
+    ],
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which HTML tag is used to define the header of a table?",
-    "options": ["<header>", "<tr>", "<td>", "<th>"],
-    "correctAnswer": 3,
+    "options": [
+      "<header>",
+      "<tr>",
+      "<td>",
+      "<th>"
+    ],
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which tag is used to define a description list in HTML?",
-    "options": ["<dl>", "<ul>", "<ol>", "<list>"],
-    "correctAnswer": 0,
+    "options": [
+      "<dl>",
+      "<ul>",
+      "<ol>",
+      "<list>"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which tag is used to create a division or section in an HTML document?",
-    "options": ["<section>", "<div>", "<span>", "<part>"],
-    "correctAnswer": 1,
+    "options": [
+      "<section>",
+      "<div>",
+      "<span>",
+      "<part>"
+    ],
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which tag is used to define an unordered list in HTML?",
-    "options": ["<ol>", "<list>", "<ul>", "<li>"],
-    "correctAnswer": 2,
+    "options": [
+      "<ol>",
+      "<list>",
+      "<ul>",
+      "<li>"
+    ],
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which tag is used to display an image in HTML?",
-    "options": ["<picture>", "<src>", "<image>", "<img>"],
-    "correctAnswer": 3,
+    "options": [
+      "<picture>",
+      "<src>",
+      "<image>",
+      "<img>"
+    ],
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which tag is used to define a table header in HTML?",
-    "options": ["<th>", "<td>", "<tr>", "<header>"],
-    "correctAnswer": 0,
+    "options": [
+      "<th>",
+      "<td>",
+      "<tr>",
+      "<header>"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "What is the correct HTML tag for inserting a line break?",
-    "options": ["<line>", "<br>", "<lb>", "<break>"],
-    "correctAnswer": 1,
+    "options": [
+      "<line>",
+      "<br>",
+      "<lb>",
+      "<break>"
+    ],
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which tag is used to define a hyperlink in HTML?",
-    "options": ["<href>", "<link>", "<a>", "<hyperlink>"],
-    "correctAnswer": 2,
+    "options": [
+      "<href>",
+      "<link>",
+      "<a>",
+      "<hyperlink>"
+    ],
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which HTML attribute is used to specify the URL of an image?",
-    "options": ["href", "link", "url", "src"],
-    "correctAnswer": 3,
+    "options": [
+      "href",
+      "link",
+      "url",
+      "src"
+    ],
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which tag is used to create a dropdown list in HTML?",
-    "options": ["<select>", "<dropdown>", "<option>", "<list>"],
-    "correctAnswer": 0,
+    "options": [
+      "<select>",
+      "<dropdown>",
+      "<option>",
+      "<list>"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which HTML tag is used to define the body of a document?",
-    "options": ["<head>", "<body>", "<html>", "<main>"],
-    "correctAnswer": 1,
+    "options": [
+      "<head>",
+      "<body>",
+      "<html>",
+      "<main>"
+    ],
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -276,59 +539,107 @@
       "Defines metadata about the document",
       "Defines a paragraph of text"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which tag is used to define a footer in HTML?",
-    "options": ["<bottom>", "<foot>", "<end>", "<footer>"],
-    "correctAnswer": 3,
+    "options": [
+      "<bottom>",
+      "<foot>",
+      "<end>",
+      "<footer>"
+    ],
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
-
-
-
   {
     "text": "What does the <link> tag define in an HTML document?",
-    "options": ["A link to an external resource", "A hyperlink to another page", "A link to a CSS file", "A link to a JavaScript file"],
-    "correctAnswer": 0,
+    "options": [
+      "A link to an external resource",
+      "A hyperlink to another page",
+      "A link to a CSS file",
+      "A link to a JavaScript file"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "What is the purpose of the <iframe> tag in HTML?",
-    "options": ["To create a frame around an image", "To embed another document within the current HTML document", "To define a section of the document", "To create a hyperlink"],
-    "correctAnswer": 1,
+    "options": [
+      "To create a frame around an image",
+      "To embed another document within the current HTML document",
+      "To define a section of the document",
+      "To create a hyperlink"
+    ],
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "What does the <meta> tag define in an HTML document?",
-    "options": ["A section of the document", "A link to an external resource", "Metadata about the document", "A paragraph of text"],
-    "correctAnswer": 2,
+    "options": [
+      "A section of the document",
+      "A link to an external resource",
+      "Metadata about the document",
+      "A paragraph of text"
+    ],
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which tag is used to define a form in HTML?",
-    "options": ["<input>", "<fieldset>", "<submit>", "<form>"],
-    "correctAnswer": 3,
+    "options": [
+      "<input>",
+      "<fieldset>",
+      "<submit>",
+      "<form>"
+    ],
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which tag is used to define a clickable button in HTML?",
-    "options": ["<button>", "<input>", "<click>", "<submit>"],
-    "correctAnswer": 0,
+    "options": [
+      "<button>",
+      "<input>",
+      "<click>",
+      "<submit>"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which attribute is used to define the width of an image in HTML?",
-    "options": ["height", "width", "size", "dimension"],
-    "correctAnswer": 1,
+    "options": [
+      "height",
+      "width",
+      "size",
+      "dimension"
+    ],
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -340,35 +651,65 @@
       "<body style=\"background-color:yellow;\">",
       "<body color=\"yellow\">"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which attribute is used to define the type of an <input> element in an HTML form?",
-    "options": ["input", "name", "value", "type"],
-    "correctAnswer": 3,
+    "options": [
+      "input",
+      "name",
+      "value",
+      "type"
+    ],
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "How do you create an ordered list in HTML?",
-    "options": ["<ol>", "<ul>", "<li>", "<list>"],
-    "correctAnswer": 0,
+    "options": [
+      "<ol>",
+      "<ul>",
+      "<li>",
+      "<list>"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which tag is used to define a table in HTML?",
-    "options": ["<tr>", "<table>", "<td>", "<th>"],
-    "correctAnswer": 1,
+    "options": [
+      "<tr>",
+      "<table>",
+      "<td>",
+      "<th>"
+    ],
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which tag is used to define an HTML paragraph?",
-    "options": ["<para>", "<paragraph>", "<p>", "<text>"],
-    "correctAnswer": 2,
+    "options": [
+      "<para>",
+      "<paragraph>",
+      "<p>",
+      "<text>"
+    ],
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -380,75 +721,135 @@
       "To define a link in the document",
       "To define the title of the document"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which attribute is used to specify the image source in HTML?",
-    "options": ["src", "href", "link", "url"],
-    "correctAnswer": 0,
+    "options": [
+      "src",
+      "href",
+      "link",
+      "url"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which of the following tags is used to display a table heading?",
-    "options": ["<td>", "<th>", "<tr>", "<thead>"],
-    "correctAnswer": 1,
+    "options": [
+      "<td>",
+      "<th>",
+      "<tr>",
+      "<thead>"
+    ],
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which HTML element is used to define a division or section?",
-    "options": ["<section>", "<span>", "<div>", "<part>"],
-    "correctAnswer": 2,
+    "options": [
+      "<section>",
+      "<span>",
+      "<div>",
+      "<part>"
+    ],
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "What is the default value of the <li> tag's list-style-type?",
-    "options": ["circle", "square", "none", "disc"],
-    "correctAnswer": 3,
+    "options": [
+      "circle",
+      "square",
+      "none",
+      "disc"
+    ],
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 30
   },
   {
     "text": "Which tag is used to add a comment in an HTML document?",
-    "options": ["<!-- -->", "<comment>", "<cmt>", "<note>"],
-    "correctAnswer": 0,
+    "options": [
+      "<!-- -->",
+      "<comment>",
+      "<cmt>",
+      "<note>"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which tag is used to define an input field in an HTML form?",
-    "options": ["<text>", "<input>", "<field>", "<form>"],
-    "correctAnswer": 1,
+    "options": [
+      "<text>",
+      "<input>",
+      "<field>",
+      "<form>"
+    ],
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which HTML tag is used to define a checkbox?",
-    "options": ["<checkbox>", "<check>", "<input type=\"checkbox\">", "<input type=\"check\">"],
-    "correctAnswer": 2,
+    "options": [
+      "<checkbox>",
+      "<check>",
+      "<input type=\"checkbox\">",
+      "<input type=\"check\">"
+    ],
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which of the following tags is used to create an unordered list?",
-    "options": ["<ol>", "<li>", "<list>", "<ul>"],
-    "correctAnswer": 3,
+    "options": [
+      "<ol>",
+      "<li>",
+      "<list>",
+      "<ul>"
+    ],
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
-
-
-
-
-
   {
     "text": "What tag is used to render an image on a webpage?",
-    "options": ["<img>", "<image>", "<picture>", "<src>"],
-    "correctAnswer": 0,
+    "options": [
+      "<img>",
+      "<image>",
+      "<picture>",
+      "<src>"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -460,28 +861,51 @@
       "They are deprecated in HTML5",
       "They are used for creating buttons"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which attribute is used to provide a unique name to an HTML element?",
-    "options": ["name", "class", "id", "unique"],
-    "correctAnswer": 2,
+    "options": [
+      "name",
+      "class",
+      "id",
+      "unique"
+    ],
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which HTML element is used to define description data?",
-    "options": ["<dl>", "<dt>", "<dfn>", "<dd>"],
-    "correctAnswer": 3,
+    "options": [
+      "<dl>",
+      "<dt>",
+      "<dfn>",
+      "<dd>"
+    ],
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which HTML tag is used to set up a JavaScript-like client-side scripting language?",
-    "options": ["<script>", "<js>", "<javascript>", "<code>"],
-    "correctAnswer": 0,
+    "options": [
+      "<script>",
+      "<js>",
+      "<javascript>",
+      "<code>"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -493,14 +917,23 @@
       "<p style=\"color:red\">",
       "<p style=\"color red;\">"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which HTML5 element is used to define navigation links?",
-    "options": ["<navigate>", "<links>", "<nav>", "<navigation>"],
-    "correctAnswer": 2,
+    "options": [
+      "<navigate>",
+      "<links>",
+      "<nav>",
+      "<navigation>"
+    ],
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -512,7 +945,9 @@
       "To define a paragraph of text",
       "To define metadata about the document"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
@@ -524,21 +959,37 @@
       "target=\"_tab\"",
       "target=\"_window\""
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which HTML element is used to embed a video in a webpage?",
-    "options": ["<media>", "<video>", "<embed>", "<movie>"],
-    "correctAnswer": 1,
+    "options": [
+      "<media>",
+      "<video>",
+      "<embed>",
+      "<movie>"
+    ],
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which HTML tag is used to define a footer for a document or section?",
-    "options": ["<bottom>", "<foot>", "<footer>", "<end>"],
-    "correctAnswer": 2,
+    "options": [
+      "<bottom>",
+      "<foot>",
+      "<footer>",
+      "<end>"
+    ],
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -550,14 +1001,23 @@
       "<style=\"font-style: italic;\">",
       "<i>"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which HTML5 tag is used to define an independent piece of content?",
-    "options": ["<article>", "<section>", "<div>", "<content>"],
-    "correctAnswer": 0,
+    "options": [
+      "<article>",
+      "<section>",
+      "<div>",
+      "<content>"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
@@ -569,28 +1029,51 @@
       "To provide additional information",
       "To define a table of contents"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which tag is used to represent the progress of a task in HTML5?",
-    "options": ["<meter>", "<task>", "<progress>", "<status>"],
-    "correctAnswer": 2,
+    "options": [
+      "<meter>",
+      "<task>",
+      "<progress>",
+      "<status>"
+    ],
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which HTML tag is used to define a section that contains contact information?",
-    "options": ["<contact>", "<info>", "<details>", "<address>"],
-    "correctAnswer": 3,
+    "options": [
+      "<contact>",
+      "<info>",
+      "<details>",
+      "<address>"
+    ],
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which HTML5 tag is used to define a container for external content like advertisements?",
-    "options": ["<aside>", "<ad>", "<external>", "<container>"],
-    "correctAnswer": 0,
+    "options": [
+      "<aside>",
+      "<ad>",
+      "<external>",
+      "<container>"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
@@ -602,14 +1085,23 @@
       "To define a bookmark",
       "To create a marker"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which HTML5 tag is used to define a user-input control in a form?",
-    "options": ["<control>", "<userinput>", "<input>", "<form>"],
-    "correctAnswer": 2,
+    "options": [
+      "<control>",
+      "<userinput>",
+      "<input>",
+      "<form>"
+    ],
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -621,14 +1113,23 @@
       "To wrap text",
       "To define a word break opportunity"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 30
   },
   {
     "text": "Which tag is used to group related options in a <select> dropdown?",
-    "options": ["<optgroup>", "<group>", "<optiongroup>", "<selectgroup>"],
-    "correctAnswer": 0,
+    "options": [
+      "<optgroup>",
+      "<group>",
+      "<optiongroup>",
+      "<selectgroup>"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
@@ -640,28 +1141,51 @@
       "Prevents scripts from running",
       "Defines a script that does not execute"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which HTML tag is used to define a time and date?",
-    "options": ["<datetime>", "<date>", "<time>", "<timestamp>"],
-    "correctAnswer": 2,
+    "options": [
+      "<datetime>",
+      "<date>",
+      "<time>",
+      "<timestamp>"
+    ],
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which HTML tag is used to define the structure of a document outline?",
-    "options": ["<outline>", "<article>", "<hgroup>", "<section>"],
-    "correctAnswer": 3,
+    "options": [
+      "<outline>",
+      "<article>",
+      "<hgroup>",
+      "<section>"
+    ],
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 30
   },
   {
     "text": "Which tag represents a self-contained piece of content that can be independently distributed or reused?",
-    "options": ["<article>", "<section>", "<div>", "<content>"],
-    "correctAnswer": 0,
+    "options": [
+      "<article>",
+      "<section>",
+      "<div>",
+      "<content>"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
@@ -673,14 +1197,23 @@
       "To define a template for JavaScript",
       "To define a structure for a webpage"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 30
   },
   {
     "text": "Which tag is used to define an interactive area within an image map?",
-    "options": ["<map>", "<interactive>", "<area>", "<clickable>"],
-    "correctAnswer": 2,
+    "options": [
+      "<map>",
+      "<interactive>",
+      "<area>",
+      "<clickable>"
+    ],
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 30
   },
@@ -692,14 +1225,23 @@
       "Adds metadata to a video",
       "Adds subtitles or captions to media"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 30
   },
   {
     "text": "Which HTML tag is used to define important text?",
-    "options": ["<strong>", "<important>", "<bold>", "<em>"],
-    "correctAnswer": 0,
+    "options": [
+      "<strong>",
+      "<important>",
+      "<bold>",
+      "<em>"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -711,21 +1253,37 @@
       "To provide additional details about content",
       "To define a table of contents"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which HTML tag is used to define navigation links?",
-    "options": ["<links>", "<navigate>", "<nav>", "<navigation>"],
-    "correctAnswer": 2,
+    "options": [
+      "<links>",
+      "<navigate>",
+      "<nav>",
+      "<navigation>"
+    ],
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
   {
     "text": "Which HTML tag is used to represent the result of a calculation?",
-    "options": ["<result>", "<calculation>", "<math>", "<output>"],
-    "correctAnswer": 3,
+    "options": [
+      "<result>",
+      "<calculation>",
+      "<math>",
+      "<output>"
+    ],
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
@@ -737,7 +1295,9 @@
       "To define a bookmark",
       "To create a marker"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -749,14 +1309,23 @@
       "<optiongroup>",
       "<selectgroup>"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which HTML tag is used for adding contact information about a document?",
-    "options": ["<contact>", "<info>", "<address>", "<details>"],
-    "correctAnswer": 2,
+    "options": [
+      "<contact>",
+      "<info>",
+      "<address>",
+      "<details>"
+    ],
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
@@ -768,37 +1337,66 @@
       "To define a list of options for a select element",
       "To provide a list of predefined options for an input field"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 30
   },
   {
     "text": "Which HTML tag is used to specify a term that should be defined within the content?",
-    "options": ["<dfn>", "<term>", "<define>", "<meaning>"],
-    "correctAnswer": 0,
+    "options": [
+      "<dfn>",
+      "<term>",
+      "<define>",
+      "<meaning>"
+    ],
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 30
   },
   {
     "text": "Which HTML element is used to specify text that should be displayed as a progress indicator?",
-    "options": ["<meter>", "<progress>", "<status>", "<indicator>"],
-    "correctAnswer": 1,
+    "options": [
+      "<meter>",
+      "<progress>",
+      "<status>",
+      "<indicator>"
+    ],
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which HTML tag is used to represent a self-contained piece of content, such as a blog post?",
-    "options": ["<section>", "<content>", "<article>", "<post>"],
-    "correctAnswer": 2,
+    "options": [
+      "<section>",
+      "<content>",
+      "<article>",
+      "<post>"
+    ],
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 25
   },
   {
     "text": "Which HTML tag is used to embed a video file on a webpage?",
-    "options": ["<media>", "<embed>", "<movie>", "<video>"],
-    "correctAnswer": 3,
+    "options": [
+      "<media>",
+      "<embed>",
+      "<movie>",
+      "<video>"
+    ],
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   }
 ]
-

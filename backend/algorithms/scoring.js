@@ -1,6 +1,6 @@
 const POINTS = {
   CORRECT: 4,
-  WRONG: -1,
+  WRONG: 0,
   TIMEOUT: 0,
 };
 
@@ -18,6 +18,7 @@ class ScoreEngine {
     } else if (result === "wrong") {
       change = POINTS.WRONG;
     }
+    // No negative scoring - floor at 0
     this.totalScore = Math.max(0, this.totalScore + change);
 
     const record = {

@@ -9,42 +9,39 @@ export function fisherYatesShuffle(array) {
 
 export class ScoreEngine {
   constructor() {
-    this.totalScore    = 0;
-    this.currentStreak = 0;
-    this.maxStreak     = 0;
-    this.totalStreakBonus = 0;
+    this.totalScore = 0;
+    this.history = [];
   }
 
   record(isCorrect, timedOut = false) {
-    let base = 0;
-    let streakBonus = 0;
+    let change = 0;
 
     if (timedOut) {
-      base = 0;
+      change = 0;
     } else if (isCorrect) {
-      base = 5;
-      this.currentStreak += 1;
-      this.maxStreak = Math.max(this.maxStreak, this.currentStreak);
-      if      (this.currentStreak % 5 === 0) streakBonus = 5;
-      else if (this.currentStreak % 3 === 0) streakBonus = 2;
+      change = 4;
     } else {
-      base = -1;
-      this.currentStreak = 0;
+      // Wrong answer: 0 points (no negative scoring)
+      change = 0;
     }
 
-    const change = base + streakBonus;
-    this.totalScore       = Math.max(0, this.totalScore + change);
-    this.totalStreakBonus += streakBonus;
+    this.totalScore = Math.max(0, this.totalScore + change);
 
-    return { base, streakBonus, change, totalScore: this.totalScore };
+    const record = {
+      isCorrect,
+      timedOut,
+      scoreChange: change,
+      totalScore: this.totalScore,
+    };
+
+    this.history.push(record);
+    return record;
   }
 
   getState() {
     return {
-      totalScore:       this.totalScore,
-      currentStreak:    this.currentStreak,
-      maxStreak:        this.maxStreak,
-      totalStreakBonus: this.totalStreakBonus,
+      totalScore: this.totalScore,
+      history: this.history,
     };
   }
 }

@@ -58,13 +58,32 @@ const submitQuiz = async (req, res) => {
 
     const gradedAnswers = answers.map((ans) => {
       const question = questionMap.get(ans.questionId?.toString());
-      const isCorrect = question
-        ? ans.selectedOption === question.correctAnswer
-        : false;
+      let isCorrect = false;
+
+      if (question) {
+        const correctAnswers = question.correctAnswer || [];
+        const userAnswers = Array.isArray(ans.selectedOptions)
+          ? ans.selectedOptions
+          : ans.selectedOption !== undefined
+          ? [ans.selectedOption]
+          : [];
+
+        // All-or-nothing: user must select ALL correct answers and NO incorrect answers
+        const correctSet = new Set(correctAnswers);
+        const userSet = new Set(userAnswers);
+
+        isCorrect =
+          correctSet.size === userSet.size &&
+          [...correctSet].every((idx) => userSet.has(idx));
+      }
 
       return {
         questionId: ans.questionId,
-        selectedOption: ans.selectedOption ?? -1,
+        selectedOptions: Array.isArray(ans.selectedOptions)
+          ? ans.selectedOptions
+          : ans.selectedOption !== undefined
+          ? [ans.selectedOption]
+          : [],
         isCorrect,
         timedOut: ans.timedOut ?? false,
         timeTakenSeconds: ans.timeTakenSeconds ?? 0,
@@ -86,7 +105,7 @@ const submitQuiz = async (req, res) => {
       timeTakenSeconds,
       answers: scoring.history.map((h, i) => ({
         questionId: gradedAnswers[i].questionId,
-        selectedOption: gradedAnswers[i].selectedOption,
+        selectedOptions: gradedAnswers[i].selectedOptions,
         isCorrect: gradedAnswers[i].isCorrect,
         timeTakenSeconds: gradedAnswers[i].timeTakenSeconds,
         scoreChange: h.scoreChange,
@@ -106,6 +125,8 @@ const submitQuiz = async (req, res) => {
         correctAnswer: q?.correctAnswer,
         explanation: q?.explanation,
         questionText: q?.text,
+        isMultiSelect: q?.isMultiSelect,
+        selectedOptions: gradedAnswers[i].selectedOptions,
       };
     });
 

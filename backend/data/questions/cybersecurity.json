@@ -5,7 +5,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -17,7 +19,9 @@
       "Blocking all unauthorized websites",
       "Collecting, correlating, and analyzing security logs and events"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -29,7 +33,9 @@
       "Data Fiduciary",
       "Data Protection Officer"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -41,7 +47,9 @@
       "Activities at unexpected times, Notifications by partner or peers, Unusual system crashes, Presence or execution of unknown programs or processes.",
       "Notification from IDPS, Presence of new accounts, Unusual system crashes, Use of dormant accounts"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -53,7 +61,11 @@
       "A modular ISSP document that unifies policy creation and administration while maintaining each specific issue’s requirements.",
       "A single comprehensive ISSP document that covers all issues."
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0,
+      2,
+      3
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -65,7 +77,9 @@
       "Information classification, secure storage, and enforced access policies",
       "Regular system reboots and software updates only"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -77,7 +91,9 @@
       "1 -b, 2 - a, 3 - d, 4 - c",
       "1 -d, 2 - b, 3 - a, 4 - c"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -89,7 +105,9 @@
       "Stronger cybersecurity management",
       "All of the above"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -101,7 +119,9 @@
       "NIST CSF; the third dimension",
       "McCumber Cube; the second dimension"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -113,7 +133,9 @@
       "Contract",
       "Consent"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -123,7 +145,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -135,8 +159,11 @@
       "A cryptographic hash function can be used to construct a pseudorandom function (PRF) or a pseudorandom number generator (PRNG)",
       "A hash function maps a variable-length message into a fixed-length hash value, or message digest."
     ],
-    "correctAnswer": 
+    "correctAnswer": [
       1,
+      2,
+      3
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -148,7 +175,9 @@
       "Privacy is control over exposure to others; informational self-determination is control over disclosure of personal data",
       "Privacy applies to individuals; information privacy applies only to institutions"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -160,7 +189,9 @@
       "Loss frequency",
       "Risk appetite"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -172,7 +203,9 @@
       "Randomization and suppression",
       "Suppression and generalization"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -184,7 +217,9 @@
       "The Federal Trade Commission (FTC)",
       "A private industry consortium"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -196,7 +231,9 @@
       "Integrity",
       "Authenticity"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -208,7 +245,9 @@
       "Individuals make irrational disclosure decisions",
       "Individuals are motivated solely by potential benefits of disclosure"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -220,7 +259,12 @@
       "The organization must be able to demonstrate that it disseminated the document in an intelligible form.",
       "The organization must be able to demonstrate that the employee agrees to comply with the policy through act or affirmation."
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0,
+      1,
+      2,
+      3
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -232,7 +276,9 @@
       "Storage Limitation",
       "Accuracy"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -244,7 +290,9 @@
       "Applies k-anonymity to the randomized values",
       "Encrypts the noise component before use"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -254,7 +302,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -266,7 +316,9 @@
       "Only i, ii, and iii are correct",
       "Only i and ii are correct"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -278,7 +330,9 @@
       "1 - b, 2 - a, 3 - d, 4 - c",
       "1 - c, 2 - d, 3 - b, 4 - b"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -290,7 +344,9 @@
       "A vulnerability",
       "An exploit"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -302,7 +358,9 @@
       "User Policies",
       "Access Control List"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -314,7 +372,9 @@
       "2020",
       "2000"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -326,7 +386,9 @@
       "Openness, central storage, security, and data monetization",
       "Openness, vendor-neutrality, security, and data analytics"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -338,7 +400,9 @@
       "Maximum Tolerable Downtime",
       "Recovery Point Objective"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -350,7 +414,9 @@
       "1 - d, 2 - a, 3 - c, 4 - b",
       "1 - d, 2 - c, 3 - a, 4 - b"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -362,7 +428,9 @@
       "Guidelines are examples of actions that illustrate compliance with policies.",
       "Practices are examples of actions that illustrate compliance with policies."
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -374,7 +442,9 @@
       "Social Engineering",
       "Session Hijacking"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -386,7 +456,9 @@
       "Identity Provider (IdP)",
       "Certificate Repository"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -398,7 +470,9 @@
       "Ring 3 is the most privileged ring used by the operating system.",
       "User programs execute in Ring 0 because they require maximum privileges."
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -410,7 +484,9 @@
       "Risk Response",
       "Risk Assessment"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -420,7 +496,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -432,7 +510,9 @@
       "Access Control Lists",
       "User Policies"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -444,7 +524,9 @@
       "A threat agent",
       "A security patch"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -454,7 +536,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -466,7 +550,9 @@
       "It allows mandating strict data policies without regard to consumer preference",
       "It enables using personal data for maximum commercial gain"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -478,7 +564,9 @@
       "Centralized architecture storing all data with a single authority",
       "Prioritizing public health benefit over privacy protection"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -490,7 +578,9 @@
       "Risk identification is the recognition, enumeration, and documentation of risks to an organization’s information assets.",
       "Risk identification also involves classifying, valuing, and prioritizing assets."
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -502,7 +592,9 @@
       "₹30,00,000",
       "₹6,00,000"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -514,7 +606,9 @@
       "Utilizing all PII data to extract full value without privacy concerns",
       "None of the above"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -526,7 +620,9 @@
       "Data Controller",
       "Data Processor"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -538,7 +634,11 @@
       "Identify, Inventory, & Categorize Assets",
       "Classify, Value, & Prioritize Assets"
     ],
-    "correctAnswer":3,
+    "correctAnswer": [
+      0,
+      2,
+      3
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -550,7 +650,9 @@
       "CIA Triad",
       "STRIDE Model"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -562,7 +664,9 @@
       "COBIT is a framework to organize business processes.",
       "COBIT defines the design factors the enterprise should consider when building a best-fit governance system."
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -574,7 +678,11 @@
       "Concern on Unauthorized Access",
       "Concern on Secondary Use"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      0,
+      2,
+      3
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -586,7 +694,9 @@
       "GDPR applies only to government organizations that process personal data.",
       "GDPR can apply to organizations that process personal data, regardless of their location, when the GDPR applies to their processing activities"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -598,7 +708,9 @@
       "1 - c, 2 - b, 3 - a, 4 - d",
       "1 - c, 2 - a, 3 - b, 4 - d"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -610,7 +722,9 @@
       "Privacy Paradox",
       "Unawareness of behavioral impact on privacy"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -622,7 +736,9 @@
       "To balance the right of individuals to protect their personal data with the need to process such data for lawful purposes.",
       "To restrict the processing of digital personal data primarily to government-authorized purposes."
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -634,7 +750,9 @@
       "It is determined solely by economic/market factors",
       "It is influenced by external factors but remains stable over time"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -646,7 +764,9 @@
       "ISO/IEC 27001 enables organizations to develop a risk-aware culture by proactively identifying, assessing, and addressing information security vulnerabilities and weaknesses.",
       "ISO/IEC 27001 promotes a comprehensive approach to information security by addressing people, processes, policies, and technology to safeguard organizational information assets."
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -658,7 +778,9 @@
       "The sender and receiver must each have one of the matched pair of keys.",
       "One algorithm is used for encryption and decryption with a pair of keys, one for encryption and one for decryption."
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -670,7 +792,9 @@
       "Cyber hygiene is hardware-focused, while cybersecurity is software-focused.",
       "Cyber hygiene is reactive in nature, while cybersecurity is always proactive."
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -682,7 +806,9 @@
       "Network Security",
       "Physical Security"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -694,7 +820,9 @@
       "5",
       "2.5"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -706,7 +834,11 @@
       "Date of birth",
       "ZIP code"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      0,
+      2,
+      3
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -716,7 +848,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -726,7 +860,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -738,7 +874,9 @@
       "SSL",
       "DNS"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -750,7 +888,9 @@
       "1.5",
       "0.5"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -762,7 +902,9 @@
       "TCP, SSL",
       "UDP, TCP"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -774,7 +916,9 @@
       "Strategic planning sets the long-term direction to be taken by the organization and each of its component parts.",
       "Operational plans are used to create tactical plans, which in turn are used to develop strategic plans."
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -786,7 +930,9 @@
       "A safeguard against external threats",
       "A business continuity asset"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -798,7 +944,9 @@
       "A breach of general data privacy with no specific regulatory consequence",
       "A network security incident requiring IT intervention"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -810,7 +958,9 @@
       "Always, regardless of cost",
       "Only in employer-employee relationships"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -822,7 +972,9 @@
       "1 – CER, 2 – FAR, 3 – FRR",
       "1 – FAR, 2 – FRR, 3 – CER"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -834,7 +986,9 @@
       "Technical specifications SysSP expresses management’s intent for the acquisition, implementation, configuration, and management of a particular technology, written from a business perspective.",
       "SysSPs can be separated into two general groups, managerial guidance SysSPs and technical specifications SysSPs..."
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -846,7 +1000,9 @@
       "1st Era of Privacy (1961-1979)",
       "3rd Era of Privacy (1990-2002)"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -858,7 +1014,9 @@
       "Residual risk",
       "Risk capacity"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -870,7 +1028,9 @@
       "University learning management systems",
       "Consumer mobile apps and entertainment platforms"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -882,7 +1042,9 @@
       "Identification determines what resources a user can access, while authentication records the user's activities.",
       "Identification and authentication are two terms used for the same process of verifying a user's identity."
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -894,7 +1056,9 @@
       "Risk identification and assessment",
       "Human resource management"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -906,7 +1070,11 @@
       "Providing all staff with administrator-level access to avoid bottlenecks",
       "Periodically reviewing and revoking unnecessary user access rights"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      0,
+      1,
+      3
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -918,7 +1086,9 @@
       "Coherentism",
       "Economic view"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -930,7 +1100,9 @@
       "The network infrastructure",
       "The server's hardware processor"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -942,7 +1114,9 @@
       "Statement of Purpose",
       "Information Security Responsibilities and Roles"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -954,7 +1128,9 @@
       "Only II and IV are true",
       "Only II, III and IV are true"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -966,7 +1142,9 @@
       "(1) and (2) are false",
       "Only (2) is true"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -978,7 +1156,9 @@
       "Accountability, Auditability",
       "Responsibility, Accountability"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -990,7 +1170,9 @@
       "Names and email addresses are personal data.",
       "Personal data is any information that relates to an individual who can be directly or indirectly identified."
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1002,7 +1184,9 @@
       "The business continuity plan (BC plan) occurs only when DR plan fails and requires more than simple restoration of information and information resources.",
       "The BC plan establishes critical business functions at an alternate site."
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1014,7 +1198,9 @@
       "At most k attributes can be disclosed per record",
       "Data must be encrypted using a k-bit key"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1026,7 +1212,9 @@
       "General phishing",
       "Smishing"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -1038,7 +1226,9 @@
       "Business Continuity Plan",
       "Incident Response Plan"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -1050,7 +1240,9 @@
       "Click the link since the sender mentions Microsoft",
       "Verify the sender's legitimacy independently and avoid clicking any links"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -1060,7 +1252,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1072,7 +1266,9 @@
       "Calculate Risk",
       "Assess Risk Acceptability"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1084,7 +1280,9 @@
       "Applying a digital signature using the employee's private key",
       "Storing the purchase order in an access-controlled database"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -1096,7 +1294,9 @@
       "Personal data, still within GDPR scope",
       "Anonymous data, fully outside GDPR scope"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1108,7 +1308,9 @@
       "The government agency responsible for processing the data",
       "The service provider that uses Aadhaar authentication"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1120,7 +1322,9 @@
       "Anonymity discloses information about oneself; secrecy conceals identity; transparency is intentional concealment",
       "Anonymity conceals identity; secrecy discloses information about oneself; transparency is intentional concealment"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1130,7 +1334,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1142,7 +1348,9 @@
       "i - c, ii - a, iii - b, iv - d",
       "i - a , ii - c, iii - b, iv - d"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -1154,7 +1362,9 @@
       "₹9,00,000",
       "₹5,00,000"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "hard",
     "timeLimitSeconds": 45
   },
@@ -1166,7 +1376,9 @@
       "The Framework profile",
       "The Framework control"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1178,7 +1390,9 @@
       "Collecting maximum data upfront to improve model accuracy, then restricting access post-training",
       "Treating privacy as a one-time compliance checkbox at deployment"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1190,7 +1404,9 @@
       "Privacy calculus and rational disclosure",
       "Differential privacy and plausible deniability"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -1202,7 +1418,9 @@
       "ISO 27001, ISO 31000",
       "ISO 17799, ISO 27001"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -1214,7 +1432,9 @@
       "APEC privacy framework",
       "OECD Guidelines"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1226,7 +1446,9 @@
       "Gains and losses are valued equally",
       "Individuals are more risk-seeking for potential gains"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1238,7 +1460,9 @@
       "Data Processor",
       "Data Fiduciary"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -1250,7 +1474,9 @@
       "Disaster Recovery Plan, Incident Response Plan",
       "Disaster Recovery Plan, Business Continuity Plan"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -1262,7 +1488,9 @@
       "Issue-specific security policy",
       "Enterprise information security policy"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -1274,7 +1502,9 @@
       "(1) a threat less the effect of threat-reducing safeguards, (2) a vulnerability less the effect of vulnerability-reducing safeguards, and (3) an asset less the effect of asset value-reducing safeguards.",
       "(1) a threat less the effect of threat-reducing safeguards, (2) a vulnerability plus the effect of vulnerability-reducing safeguards..."
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1286,7 +1516,9 @@
       "Top Secret",
       "Secret"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -1298,7 +1530,9 @@
       "DNS Spoofing",
       "DDOS"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": [
+      3
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -1310,7 +1544,9 @@
       "False Positive — a safe file was incorrectly flagged as malicious",
       "True Positive — the threat was correctly identified"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -1322,7 +1558,9 @@
       "Warren & Brandeis, 1890",
       "Aristotle, 4th century BCE"
     ],
-    "correctAnswer": 2,
+    "correctAnswer": [
+      2
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1334,7 +1572,9 @@
       "Sabotage or vandalism",
       "Software attacks"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -1346,7 +1586,9 @@
       "Spyware",
       "Rootkit"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -1358,7 +1600,9 @@
       "Cold Site",
       "Warm site"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "medium",
     "timeLimitSeconds": 30
   },
@@ -1368,7 +1612,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1378,7 +1624,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1390,7 +1638,9 @@
       "Data Subject",
       "Processor"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1400,7 +1650,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": [
+      1
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   },
@@ -1410,7 +1662,9 @@
       "True",
       "False"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": [
+      0
+    ],
     "difficulty": "easy",
     "timeLimitSeconds": 20
   }

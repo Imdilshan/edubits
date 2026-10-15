@@ -26,5 +26,4 @@ const programmingProgressSchema = new mongoose.Schema(
 );
 
 programmingProgressSchema.index({ user: 1, problem: 1 }, { unique: true });
-
 module.exports = mongoose.model("ProgrammingProgress", programmingProgressSchema);
