@@ -87,6 +87,7 @@ export default function Navbar() {
 
   const isActive     = (path) => location.pathname === path;
   const isQuizActive = ()     => location.pathname.startsWith("/quizzes");
+  const isResActive = () => location.pathname.startsWith("/resources");
   const isProgActive = () => location.pathname.startsWith("/programming");
 
   const avatarSrc = preview || user?.avatar || "/images/default-avatar.jpg";
@@ -102,7 +103,7 @@ export default function Navbar() {
         </div>
 
         <div className="nav-center desktop-nav">
-          <Link to="/pyqs"     className={`nav-link ${isActive("/pyqs")     ? "active" : ""}`}>Resources</Link>
+          <Link to="/resources" className={`nav-link ${isResActive() ? "active" : ""}`}>Resources</Link>
           <Link to="/quizzes"  className={`nav-link ${isQuizActive()        ? "active" : ""}`}>Quiz</Link>
           <Link to="/sgpa"     className={`nav-link ${isActive("/sgpa")     ? "active" : ""}`}>SGPA</Link>
           <Link to="/internal" className={`nav-link ${isActive("/internal") ? "active" : ""}`}>Internals</Link>
@@ -154,7 +155,7 @@ export default function Navbar() {
       </nav>
 
       <nav className="mobile-bottom-nav">
-        <Link to="/pyqs"     className={`mobile-nav-item ${isActive("/pyqs")     ? "active" : ""}`}>
+        <Link to="/resources" className={`mobile-nav-item ${isResActive() ? "active" : ""}`}>
           <BookOpen size={20} /><span>Resources</span>
         </Link>
 

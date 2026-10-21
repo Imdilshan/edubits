@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import { useToast } from "../context/ToastContext";
-import { Mail, Loader, GitBranch, Globe, ArrowRight } from "lucide-react";
+import { Loader, ArrowRight } from "lucide-react";
+import { GoogleIcon, GitHubIcon, MicrosoftIcon } from "../features/homepage/BrandIcons";
 import "./login.css";
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -55,17 +56,23 @@ export default function Login() {
   return (
     <div className="auth-page">
       <div className="auth-left">
-        <div className="auth-left-brand">
+
+        {/* <div className="auth-left-brand">
           <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="auth-logo">
             <rect width="40" height="40" rx="10" fill="currentColor"/>
             <path d="M12 14h16M12 20h12M12 26h8" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
           <span>Edubits</span>
+        </div> */}
+
+        <div className="auth-left-brand">
+          <img src="/images/favicon.png" alt="Edubits logo" width="40" height="40" className="auth-logo" />
+          <span>Edubits</span>
         </div>
 
         <div className="auth-left-copy">
           <h2>Engineering made <br /> easier.</h2>
-          <p>Resources, QuizEngine, calculators & task tracking — all in one place for CU engineering students.</p>
+          <p>Resources, QuizEngine, calculators & task tracking — all in one place for engineering students.</p>
         </div>
       </div>
 
@@ -76,7 +83,7 @@ export default function Login() {
             <p>Log in to continue your learning journey</p>
           </div>
 
-          <div className="auth-oauth-buttons">
+          {/* <div className="auth-oauth-buttons">
             <button
               type="button"
               className="btn btn-secondary auth-oauth-btn"
@@ -97,6 +104,30 @@ export default function Login() {
               onClick={() => handleOAuthLogin("microsoft")}
             >
               <Globe size={18} /> Microsoft
+            </button>
+          </div> */}
+
+          <div className="auth-oauth-buttons">
+            <button
+              type="button"
+              className="btn btn-secondary auth-oauth-btn auth-oauth-btn--google"
+              onClick={() => handleOAuthLogin("google")}
+            >
+              <GoogleIcon /> Google
+            </button>
+            <button
+              type="button"
+              className="btn btn-secondary auth-oauth-btn auth-oauth-btn--github"
+              onClick={() => handleOAuthLogin("github")}
+            >
+              <GitHubIcon /> GitHub
+            </button>
+            <button
+              type="button"
+              className="btn btn-secondary auth-oauth-btn auth-oauth-btn--microsoft"
+              onClick={() => handleOAuthLogin("microsoft")}
+            >
+              <MicrosoftIcon /> Microsoft
             </button>
           </div>
 

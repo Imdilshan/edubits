@@ -1,0 +1,129 @@
+.res-home {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+
+.res-home-header {
+  padding: 36px 0 20px;
+  margin-bottom: 20px;
+}
+
+.res-home-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.9rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.res-home-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
+}
+
+.res-home-title-text {
+  background: linear-gradient(135deg, var(--primary), var(--success));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.res-home-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.res-home-grid .resources-empty {
+  grid-column: 1 / -1;
+}
+
+.res-home-grid--subjects {
+  gap: 32px 28px;
+}
+
+.res-home-header--row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.res-thumb-sub {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.res-thumb-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-decoration: none;
+  animation: res-fadeUp 0.3s ease both;
+}
+
+.res-thumb-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  transition: border-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.res-thumb-card:hover .res-thumb-img-wrap {
+  border-color: var(--primary);
+}
+
+.res-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.res-thumb-card:hover .res-thumb-img {
+  transform: scale(1.04);
+}
+
+.res-thumb-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+
+
+@keyframes res-fadeUp {
+  from { opacity: 0; transform: translateY(11px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .res-home-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .res-home { padding: 0 14px 60px; }
+  .res-home-grid { gap: 12px; }
+  .res-home-grid--subjects { gap: 12px; }
+}

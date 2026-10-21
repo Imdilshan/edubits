@@ -11,7 +11,6 @@ const AuthCallback = lazy(() => import("../pages/AuthCallback"));
 const TaskPage = lazy(() => import("../features/tasks/pages/TaskPage"));
 const SGPAPage = lazy(() => import("../features/sgpa/pages/SGPAPage"));
 const InternalMarksPage = lazy(() => import("../features/internalMarks/InternalMarksPage"));
-const PYQsPage = lazy(() => import("../features/pyqs/PYQsPage"));
 const UGLifeTrackerPage = lazy(() => import("../features/ug-life-tracker/UGLifeTrackerPage"));
 const AdminUpload = lazy(() => import("../pages/AdminUpload"));
 const AdminRoute = lazy(() => import("../components/layout/AdminRoute"));
@@ -49,38 +48,23 @@ function PublicNavbar() {
       zIndex: 100,
     }}>
       <span style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "10px",
         fontFamily: "'DM Sans', sans-serif",
         fontWeight: 800,
         fontSize: "1.4rem",
-        background: "linear-gradient(135deg, var(--primary), var(--success))",
-        WebkitBackgroundClip: "text",
-        WebkitTextFillColor: "transparent",
-        backgroundClip: "text",
-      }}>Edubits</span>
-      <div style={{ display: "flex", gap: "8px" }}>
-        <a href="/login" style={{
-          padding: "8px 20px",
-          borderRadius: "8px",
-          border: "1px solid var(--border)",
-          background: "transparent",
-          color: "var(--text)",
-          fontSize: "13px",
-          fontWeight: 600,
-          textDecoration: "none",
-          transition: "0.15s",
-        }}>Login</a>
-        <a href="/register" style={{
-          padding: "8px 20px",
-          borderRadius: "999px",
-          border: "none",
-          background: "linear-gradient(135deg, #22d3ee, #3b82f6)",
-          color: "#fff",
-          fontSize: "13px",
-          fontWeight: 700,
-          textDecoration: "none",
-          boxShadow: "0 4px 14px rgba(59,130,246,0.25)",
-        }}>Get Started</a>
-      </div>
+        color: "var(--primary)",
+      }}>
+        <img
+          src="/images/favicon.png"
+          alt="Edubits logo"
+          width="28"
+          height="28"
+          style={{ objectFit: "contain" }}
+        />
+        Edubits
+      </span>
     </nav>
   );
 }
@@ -103,7 +87,7 @@ function AppInner() {
               <Route path="/tasks"    element={<TaskPage />} />
               <Route path="/sgpa"     element={<SGPAPage />} />
               <Route path="/internal" element={<InternalMarksPage />} />
-              <Route path="/pyqs"     element={<PYQsPage />} />
+              <Route path="/pyqs" element={<Navigate to="/resources" replace />} />
 
               {/* Phase 3: Resources */}
               <Route path="/resources" element={<ResourcesPage />} />

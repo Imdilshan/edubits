@@ -4,6 +4,7 @@ import { BookOpen, FolderOpen, FileText, Loader2, AlertCircle, ArrowLeft } from 
 import { fetchResources } from "../../../services/resourceService";
 import { useProgress } from "../hooks/useProgress";
 import "./Resources.css";
+import "./ResourcesHome.css";
 
 const SUBJECT_IMAGES = {
   "Mathematics-I": "/images/maths2.svg",
@@ -74,42 +75,28 @@ export default function YearPage() {
   if (loading) return <div className="resources-loading"><Loader2 className="spin" size={32} /> Loading subjects…</div>;
   if (error) return <div className="resources-error"><AlertCircle size={32} /> {error}</div>;
 
-  return (
-    <div className="resources-page">
-      <header className="resources-header">
+    return (
+    <div className="res-home">
+      <header className="res-home-header res-home-header--row">
+        <h1 className="res-home-title"><BookOpen size={27} /> {decodedYear}</h1>
         <Link to="/resources" className="back-link">
-          <ArrowLeft size={20} /> Back
+          <ArrowLeft size={16} /> Back
         </Link>
-        <div>
-          <h1><BookOpen size={28} /> {decodedYear}</h1>
-          <p className="resources-subtitle">Select a subject</p>
-        </div>
       </header>
 
-      <div className="resources-grid subjects-grid">
-        {subjects.map(({ subject, total, attempted, image }) => (
+      <div className="res-home-grid res-home-grid--subjects">
+        {subjects.map(({ subject, total, attempted, image }, i) => (
           <Link
             key={subject}
             to={`/resources/${encodeURIComponent(decodedYear)}/${encodeURIComponent(subject)}`}
-            className="resource-card subject-card"
+            className="res-thumb-card"
+            style={{ animationDelay: `${i * 0.06}s` }}
           >
-            <div className="resource-card-image">
-              <img src={image} alt={subject} />
+            <div className="res-thumb-img-wrap">
+              <img src={image} alt={subject} className="res-thumb-img" />
             </div>
-            <div className="resource-card-content">
-              <h3 className="resource-card-title">{subject}</h3>
-              <p className="resource-card-meta">
-                {attempted} / {total} attempted
-              </p>
-              <div className="progress-mini">
-                <div className="progress-mini-track">
-                  <div
-                    className="progress-mini-fill"
-                    style={{ width: total > 0 ? `${(attempted / total) * 100}%` : "0%" }}
-                  />
-                </div>
-              </div>
-            </div>
+            <div className="res-thumb-title">{subject}</div>
+            <div className="res-thumb-sub">{attempted}/{total} attempted</div>
           </Link>
         ))}
         {subjects.length === 0 && (

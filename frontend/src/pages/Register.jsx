@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useToast } from "../context/ToastContext";
-import { Loader, GitBranch, Globe, Mail, ArrowRight } from "lucide-react";
+import { Loader, ArrowRight } from "lucide-react";
+import { GoogleIcon, GitHubIcon, MicrosoftIcon } from "../features/homepage/BrandIcons";
 import "./login.css";
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -62,13 +63,12 @@ export default function Register() {
   return (
     <div className="auth-page">
       <div className="auth-left">
+
         <div className="auth-left-brand" onClick={() => navigate("/")}>
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="auth-logo">
-            <rect width="40" height="40" rx="10" fill="currentColor"/>
-            <path d="M12 14h16M12 20h12M12 26h8" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+          <img src="/images/favicon.png" alt="Edubits logo" width="40" height="40" className="auth-logo" />
           <span>Edubits</span>
         </div>
+
 
         <div className="auth-left-copy">
           <h2>Engineering made <br /> easier.</h2>
@@ -86,24 +86,24 @@ export default function Register() {
           <div className="auth-oauth-buttons">
             <button
               type="button"
-              className="btn btn-secondary auth-oauth-btn"
+              className="btn btn-secondary auth-oauth-btn auth-oauth-btn--google"
               onClick={() => handleOAuthLogin("google")}
             >
-              <Mail size={18} /> Google
+              <GoogleIcon /> Google
             </button>
             <button
               type="button"
-              className="btn btn-secondary auth-oauth-btn"
+              className="btn btn-secondary auth-oauth-btn auth-oauth-btn--github"
               onClick={() => handleOAuthLogin("github")}
             >
-              <GitBranch size={18} /> GitHub
+              <GitHubIcon /> GitHub
             </button>
             <button
               type="button"
-              className="btn btn-secondary auth-oauth-btn"
+              className="btn btn-secondary auth-oauth-btn auth-oauth-btn--microsoft"
               onClick={() => handleOAuthLogin("microsoft")}
             >
-              <Globe size={18} /> Microsoft
+              <MicrosoftIcon /> Microsoft
             </button>
           </div>
 

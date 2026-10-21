@@ -4,10 +4,10 @@ import { useAuth } from "../../context/AuthContext";
 import { trackEvent } from "../../utils/analytics";
 
 import {
-  BookOpen,
-  Zap,
-  Calculator,
-  ClipboardCheck,
+  Layers,
+  BrainCircuit,
+  GraduationCap,
+  ClipboardList,
   CheckSquare,
   GitBranch,
   Globe,
@@ -16,20 +16,21 @@ import {
 } from "lucide-react";
 
 import "./homepage.css";
+import { GoogleIcon, GitHubIcon, MicrosoftIcon } from "./BrandIcons";
 
 const examPrepTools = [
   {
     href: "/resources",
-    icon: <BookOpen />,
+    icon: <Layers />,
     name: "Resources",
-    desc: "PYQs, playlists & notes for exam prep",
+    desc: "Notes, Pyq's & Playlists",
     tag: "Exam prep",
   },
   {
     href: "/quizzes",
-    icon: <Zap />,
+    icon: <BrainCircuit  />,
     name: "QuizEngine",
-    desc: "Viva & NPTEL prep with timed MCQs",
+    desc: "NPTEL Prep & College Viva",
     tag: "Exam prep",
   },
 ];
@@ -37,25 +38,25 @@ const examPrepTools = [
 const otherTools = [
   {
     href: "/sgpa",
-    icon: <Calculator />,
-    name: "SGPA & CGPA Calculator",
-    desc: "Semester & cumulative grade calculator",
+    icon: <GraduationCap />,
+    name: "GPA Calculator",
+    desc: "Calculate Sgpa & Cgpa",
     tag: "Calculator",
   },
   {
     href: "/internal",
-    icon: <ClipboardCheck />,
+    icon: <ClipboardList />,
     name: "Internal Marks Calculator",
-    desc: "Theory, Hybrid, Practical & DCPD marks",
+    desc: "Calculate Internal marks for each subject",
     tag: "Calculator",
   },
-  {
-    href: "/tasks",
-    icon: <CheckSquare />,
-    name: "Task Tracker",
-    desc: "Deadline-first task & lab manager",
-    tag: "Tracker",
-  },
+  // {
+  //   href: "/tasks",
+  //   icon: <CheckSquare />,
+  //   name: "Task Tracker",
+  //   desc: "Track Deadlines",
+  //   tag: "Tracker",
+  // },
 ];
 
 // VITE_API_URL already ends in /api (e.g. https://api.example.com/api).
@@ -64,9 +65,9 @@ const otherTools = [
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001/api";
 
 const oauthProviders = [
-  { name: "Google", icon: <Mail />, href: `${API_URL}/auth/google`, color: "var(--danger)" },
-  { name: "GitHub", icon: <GitBranch />, href: `${API_URL}/auth/github`, color: "#24292e" },
-  { name: "Microsoft", icon: <Globe />, href: `${API_URL}/auth/microsoft`, color: "#0078d4" },
+  { name: "Google", icon: <GoogleIcon />, href: `${API_URL}/auth/google`, color: "var(--brand-google)" },
+  { name: "GitHub", icon: <GitHubIcon />, href: `${API_URL}/auth/github`, color: "var(--brand-github)" },
+  { name: "Microsoft", icon: <MicrosoftIcon />, href: `${API_URL}/auth/microsoft`, color: "var(--brand-microsoft)" },
 ];
 
 export default function HomePage() {
@@ -95,7 +96,7 @@ export default function HomePage() {
             <br />
             <span>Easier</span>
           </h1>
-          <p className="hp-tagline">Your all-in-one academic toolkit for CU engineering</p>
+          {/* <p className="hp-tagline">Your all-in-one academic toolkit for CU engineering</p> */}
 
           <div className="hp-auth-buttons">
             <a
@@ -173,7 +174,7 @@ export default function HomePage() {
                     <h3 className="hp-tool-name">{tool.name}</h3>
                     <p className="hp-tool-desc">{tool.desc}</p>
                   </div>
-                  <span className="hp-tool-tag">{tool.tag}</span>
+                  
                 </Link>
               ))}
             </div>

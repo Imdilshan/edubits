@@ -1,9 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { BookOpen, FolderOpen, FileText, Loader2, AlertCircle } from "lucide-react";
+import { Layers, FolderOpen, FileText, Loader2, AlertCircle } from "lucide-react";
 import { fetchResources } from "../../../services/resourceService";
 import { useProgress } from "../hooks/useProgress";
 import "./Resources.css";
+import "./ResourcesHome.css";
 
 const YEAR_ORDER = ["1st Year", "2nd Year", "3rd Year", "4th Year"];
 
@@ -69,27 +70,28 @@ export default function ResourcesPage() {
   if (loading) return <div className="resources-loading"><Loader2 className="spin" size={32} /> Loading years…</div>;
   if (error) return <div className="resources-error"><AlertCircle size={32} /> {error}</div>;
 
-  return (
-    <div className="resources-page">
-      <header className="resources-header">
-        <h1><BookOpen size={28} /> Resources</h1>
-        <p className="resources-subtitle">Exam prep: PYQs, Playlists & Notes</p>
+    return (
+    <div className="res-home">
+
+      <header className="res-home-header">
+        <h1 className="res-home-title">
+          <span className="res-home-badge"><Layers size={22} /></span>
+          <span className="res-home-title-text">Resources</span>
+        </h1>
       </header>
 
-      <div className="resources-grid years-grid">
-        {years.map(({ year, count, image }) => (
+      <div className="res-home-grid">
+        {years.map(({ year, image }, i) => (
           <Link
             key={year}
             to={`/resources/${encodeURIComponent(year)}`}
-            className="resource-card year-card"
+            className="res-thumb-card"
+            style={{ animationDelay: `${i * 0.06}s` }}
           >
-            <div className="resource-card-image">
-              <img src={image} alt={year} />
+            <div className="res-thumb-img-wrap">
+              <img src={image} alt={year} className="res-thumb-img" />
             </div>
-            <div className="resource-card-content">
-              <h3 className="resource-card-title">{year}</h3>
-              <p className="resource-card-meta">{count} papers</p>
-            </div>
+            <div className="res-thumb-title">{year}</div>
           </Link>
         ))}
         {years.length === 0 && (
