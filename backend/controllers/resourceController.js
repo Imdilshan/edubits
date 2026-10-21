@@ -16,6 +16,8 @@ const uploadResource = async (req, res) => {
       paperTag,
       description,
       sortOrder,
+      paperKey,
+      variant,
     } = req.body;
 
     const resourceType = req.body.resourceType || req.query.resourceType;
@@ -31,6 +33,11 @@ const uploadResource = async (req, res) => {
       });
     }
 
+    // Validate variant for pyqs
+    if (resourceType === "pyqs" && variant && !["questions", "solution"].includes(variant)) {
+      return res.status(400).json({ success: false, message: "variant must be 'questions' or 'solution'" });
+    }
+
     const resource = await Resource.create({
       title,
       description:    description || "",
@@ -39,6 +46,8 @@ const uploadResource = async (req, res) => {
       year:           year       || undefined,
       semester:       semester   ? Number(semester) : undefined,
       paperTag:       paperTag   || undefined,
+      paperKey:       paperKey   || undefined,
+      variant:        variant    || (resourceType === "pyqs" ? "questions" : undefined),
       sortOrder:      sortOrder  ? Number(sortOrder) : 0,
 
       url:                    file.path,
@@ -58,15 +67,93 @@ const uploadResource = async (req, res) => {
   }
 };
 
+const uploadPaperPair = async (req, res) => {
+  try {
+    const files = req.files;
+    if (!files || files.length !== 2) {
+      return res.status(400).json({ success: false, message: "Exactly two files required (questions + solution)." });
+    }
+
+    const {
+      title,
+      subject,
+      year,
+      semester,
+      paperTag,
+      description,
+      sortOrder,
+      paperKey,
+    } = req.body;
+
+    if (!title || !paperKey) {
+      // Clean up uploaded files
+      for (const file of files) {
+        await cloudinary.uploader.destroy(file.filename, { resource_type: file.resource_type || "raw" }).catch(() => {});
+      }
+      return res.status(400).json({ success: false, message: "title and paperKey are required." });
+    }
+
+    // Identify which file is questions vs solution (by filename or order)
+    // Assume first file is questions, second is solution
+    const [questionsFile, solutionFile] = files;
+
+    const baseData = {
+      title,
+      description:    description || "",
+      resourceType:   "pyqs",
+      subject:        subject    || undefined,
+      year:           year       || undefined,
+      semester:       semester   ? Number(semester) : undefined,
+      paperTag:       paperTag   || undefined,
+      paperKey,
+      sortOrder:      sortOrder  ? Number(sortOrder) : 0,
+      uploadedBy:     req.user?._id || null,
+    };
+
+    const questionsResource = await Resource.create({
+      ...baseData,
+      variant: "questions",
+      url: questionsFile.path,
+      cloudinaryPublicId: questionsFile.filename,
+      cloudinaryResourceType: questionsFile.resource_type || "raw",
+      format: questionsFile.format || undefined,
+      fileSize: questionsFile.size || undefined,
+    });
+
+    const solutionResource = await Resource.create({
+      ...baseData,
+      variant: "solution",
+      url: solutionFile.path,
+      cloudinaryPublicId: solutionFile.filename,
+      cloudinaryResourceType: solutionFile.resource_type || "raw",
+      format: solutionFile.format || undefined,
+      fileSize: solutionFile.size || undefined,
+    });
+
+    return res.status(201).json({
+      success: true,
+      paperKey,
+      questions: questionsResource,
+      solution: solutionResource,
+    });
+
+  } catch (err) {
+    console.error("[uploadPaperPair]", err);
+    return res.status(500).json({ success: false, message: err.message || "Upload failed." });
+  }
+};
+
 const listResources = async (req, res) => {
   try {
-    const { type, subject, year, semester } = req.query;
+    const { type, subject, year, semester, paperKey, variant } = req.query;
 
     const filter = { isActive: true };
     if (type)     filter.resourceType = type;
     if (subject)  filter.subject      = subject;
     if (year)     filter.year         = year;
     if (semester) filter.semester     = Number(semester);
+    if (paperKey) filter.paperKey     = paperKey;
+    if (variant)  filter.variant      = variant;
 
     const resources = await Resource.find(filter)
       .sort({ sortOrder: -1, createdAt: -1 })
@@ -92,7 +179,18 @@ const getResource = async (req, res) => {
       return res.status(404).json({ success: false, message: "Resource not found." });
     }
 
-    return res.json({ success: true, resource });
+    // If this is a pyqs paper, also fetch the linked variant
+    let linkedResource = null;
+    if (resource.resourceType === "pyqs" && resource.paperKey) {
+      const otherVariant = resource.variant === "questions" ? "solution" : "questions";
+      linkedResource = await Resource.findOne({
+        paperKey: resource.paperKey,
+        variant: otherVariant,
+        isActive: true,
+      }).lean();
+    }
+
+    return res.json({ success: true, resource, linkedResource });
 
   } catch (err) {
     console.error("[getResource]", err);
@@ -132,7 +230,7 @@ const deleteResource = async (req, res) => {
 
 const updateResource = async (req, res) => {
   try {
-    const { title, description, subject, year, semester, paperTag, sortOrder } = req.body;
+    const { title, description, subject, year, semester, paperTag, paperKey, variant, sortOrder } = req.body;
 
     const update = {};
     if (title       !== undefined) update.title       = title;
@@ -141,6 +239,8 @@ const updateResource = async (req, res) => {
     if (year        !== undefined) update.year        = year;
     if (semester    !== undefined) update.semester    = Number(semester);
     if (paperTag    !== undefined) update.paperTag    = paperTag;
+    if (paperKey    !== undefined) update.paperKey    = paperKey;
+    if (variant     !== undefined) update.variant     = variant;
     if (sortOrder   !== undefined) update.sortOrder   = Number(sortOrder);
 
     const resource = await Resource.findByIdAndUpdate(
@@ -163,6 +263,7 @@ const updateResource = async (req, res) => {
 
 module.exports = {
   uploadResource,
+  uploadPaperPair,
   listResources,
   getResource,
   deleteResource,

@@ -1,4 +1,5 @@
 const User   = require("../models/User");
+const cloudinary = require("../config/cloudinary");
 const bcrypt = require("bcryptjs");
 const jwt    = require("jsonwebtoken");
 
@@ -9,7 +10,7 @@ exports.getMe = async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
     res.json({
-      user: { id: user._id, name: user.name, email: user.email, avatar: user.avatar, role: user.role },
+      user: { id: user._id, name: user.name, email: user.email, avatar: user.avatar, role: user.role, onboardingCompleted: user.onboardingCompleted },
     });
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -35,7 +36,7 @@ exports.register = async (req, res) => {
     const token = generateToken(user._id);
     res.status(201).json({
       token,
-      user: { id: user._id, name: user.name, email: user.email, avatar: user.avatar, role: user.role },
+      user: { id: user._id, name: user.name, email: user.email, avatar: user.avatar, role: user.role, onboardingCompleted: user.onboardingCompleted },
     });
   } catch (err) {
     if (err.name === "ValidationError") {
@@ -60,7 +61,7 @@ exports.login = async (req, res) => {
     const token = generateToken(user._id);
     res.json({
       token,
-      user: { id: user._id, name: user.name, email: user.email, avatar: user.avatar, role: user.role },
+      user: { id: user._id, name: user.name, email: user.email, avatar: user.avatar, role: user.role, onboardingCompleted: user.onboardingCompleted },
     });
   } catch (err) {
     res.status(500).json({ error: "Server error. Please try again." });
@@ -75,9 +76,23 @@ exports.uploadAvatar = async (req, res) => {
     const user = await User.findById(req.user.id);
     if (!user)
       return res.status(404).json({ message: "User not found" });
-  
-    const avatarUrl = req.file.path;
-    user.avatar = avatarUrl;
+
+    // Stream the in-memory file to Cloudinary (local disk is wiped on deploy)
+    const uploaded = await new Promise((resolve, reject) => {
+      const stream = cloudinary.uploader.upload_stream(
+        {
+          folder: "edubits/avatars",
+          public_id: `avatar_${user._id}`,
+          overwrite: true,
+          resource_type: "image",
+          transformation: [{ width: 256, height: 256, crop: "fill", gravity: "face" }],
+        },
+        (err, result) => (err ? reject(err) : resolve(result))
+      );
+      stream.end(req.file.buffer);
+    });
+
+    user.avatar = uploaded.secure_url;
     await user.save();
 
     res.json({
@@ -86,6 +101,22 @@ exports.uploadAvatar = async (req, res) => {
   } catch (err) {
     console.error("UPLOAD AVATAR ERROR:", err);
     res.status(500).json({ message: err.message || "Upload failed" });
+  }
+};
+
+exports.completeOnboarding = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id);
+    if (!user) return res.status(404).json({ error: "User not found" });
+
+    user.onboardingCompleted = true;
+    await user.save();
+
+    res.json({
+      user: { id: user._id, name: user.name, email: user.email, avatar: user.avatar, role: user.role, onboardingCompleted: user.onboardingCompleted },
+    });
+  } catch (err) {
+    res.status(500).json({ error: "Server error. Please try again." });
   }
 };
 

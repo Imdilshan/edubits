@@ -19,6 +19,16 @@ const topicSchema = new mongoose.Schema(
       type: String,
       default: "#6366f1",
     },
+    // New fields for v2.0
+    mode: {
+      type: String,
+      enum: ["viva", "nptel"],
+      default: "viva",
+    },
+    image: {
+      type: String,
+      default: "",
+    },
     prerequisites: [
       {
         type: mongoose.Schema.Types.ObjectId,

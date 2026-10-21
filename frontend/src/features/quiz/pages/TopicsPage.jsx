@@ -1,21 +1,23 @@
 import React, { useEffect, useState, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../utils/api";
-import TopicGraph from "../components/Graph/TopicGraph";
-import TopicCard from "../components/Graph/TopicCard";
-import { CheckCircle2, GalleryVerticalEnd, GitBranch, Layers3, Unlock } from "lucide-react";
-import { Zap} from "lucide-react";
-import "../styles/global.css";
-import "../styles/quizEngine.css";
+import { Zap, Layers3, Unlock, CheckCircle2 } from "lucide-react";
+import "./TopicsPage.css";
 
 export default function TopicsPage() {
-  const [topics,  setTopics]  = useState([]);
+  const [topics, setTopics] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [view,    setView]    = useState("cards");
+  const [activeMode, setActiveMode] = useState("viva");
   const navigate = useNavigate();
+
   const orderedTopics = useMemo(
     () => [...topics].sort((a, b) => (a.order ?? 999) - (b.order ?? 999)),
     [topics]
+  );
+
+  const filteredTopics = useMemo(
+    () => orderedTopics.filter((t) => t.mode === activeMode),
+    [orderedTopics, activeMode]
   );
 
   const fetchTopics = useCallback(async () => {
@@ -29,70 +31,76 @@ export default function TopicsPage() {
     }
   }, []);
 
-  useEffect(() => { fetchTopics(); }, [fetchTopics]);
+  useEffect(() => {
+    fetchTopics();
+  }, [fetchTopics]);
 
   const handleStart = (topic) => {
     if (!topic.unlocked) return;
     navigate(`/quizzes/${topic._id}`, { state: { topic } });
   };
 
+  const modeStats = useMemo(() => {
+    const viva = orderedTopics.filter((t) => t.mode === "viva");
+    const nptel = orderedTopics.filter((t) => t.mode === "nptel");
+    return {
+      viva: {
+        total: viva.length,
+        unlocked: viva.filter((t) => t.unlocked).length,
+        completed: viva.filter((t) => t.completed).length,
+      },
+      nptel: {
+        total: nptel.length,
+        unlocked: nptel.filter((t) => t.unlocked).length,
+        completed: nptel.filter((t) => t.completed).length,
+      },
+    };
+  }, [orderedTopics]);
+
   if (loading) return <div className="spinner" />;
+
+  const stats = modeStats[activeMode];
 
   return (
     <div className="quiz-shell fade-in">
       <div className="quiz-page-header">
         <div>
-          <h1
-            className="quiz-page-title"
-            style={{
-              color: "#f7c44f",
-              display: "flex",
-              alignItems: "center",
-              gap: "10px",
-              lineHeight: 1,
-
-              fontFamily: "'DM Sans', sans-serif",
-              fontWeight: 800,
-              letterSpacing: "-0.02em",
-            }}
-          >
-            <Zap
-              size={34}
-              strokeWidth={2.4}
-              style={{
-                color: "#f7c44f",
-              }}
-            />
-            QuizEngine
+          <h1 className="quiz-page-title">
+            <Zap size={34} strokeWidth={2.4} /> QuizEngine
           </h1>
-          
-          <p
-            className="quiz-page-subtitle"
-            style={{
-              color: "#f7c44f",
-              opacity: 0.9,
-            }}
-          >
-            Be prepared for Viva RapidFire!!
+          <p className="quiz-page-subtitle">
+            {activeMode === "viva" ? "College Viva Preparation" : "NPTEL Exam Preparation"}
           </p>
         </div>
-        <div className="quiz-view-toggle" aria-label="Topic view">
-          <button className={`quiz-toggle-btn ${view === "cards" ? "is-active" : ""}`} onClick={() => setView("cards")}>
-            <GalleryVerticalEnd size={18} />
-            Cards
+        <div className="quiz-mode-toggle" role="tablist" aria-label="Quiz mode">
+          <button
+            role="tab"
+            aria-selected={activeMode === "viva"}
+            className={`quiz-mode-btn ${activeMode === "viva" ? "active" : ""}`}
+            onClick={() => setActiveMode("viva")}
+          >
+            <span className="mode-icon">🎓</span>
+            <span>College Viva</span>
+            <span className="mode-count">{modeStats.viva.total} topics</span>
           </button>
-          <button className={`quiz-toggle-btn ${view === "graph" ? "is-active" : ""}`} onClick={() => setView("graph")}>
-            <GitBranch size={18} />
-            Graph
+          <button
+            role="tab"
+            aria-selected={activeMode === "nptel"}
+            className={`quiz-mode-btn ${activeMode === "nptel" ? "active" : ""}`}
+            onClick={() => setActiveMode("nptel")}
+          >
+            <span className="mode-icon">📚</span>
+            <span>NPTEL Prep</span>
+            <span className="mode-count">{modeStats.nptel.total} topics</span>
           </button>
         </div>
       </div>
 
       <div className="quiz-stats-grid">
         {[
-          { label: "Total Topics", value: orderedTopics.length, icon: <Layers3 size={21} /> },
-          { label: "Unlocked", value: orderedTopics.filter((t) => t.unlocked).length, icon: <Unlock size={21} /> },
-          { label: "Completed", value: orderedTopics.filter((t) => t.completed).length, icon: <CheckCircle2 size={21} /> },
+          { label: "Total Topics", value: stats.total, icon: <Layers3 size={21} /> },
+          { label: "Unlocked", value: stats.unlocked, icon: <Unlock size={21} /> },
+          { label: "Completed", value: stats.completed, icon: <CheckCircle2 size={21} /> },
         ].map(({ label, value, icon }) => (
           <div key={label} className="quiz-stat-card">
             <span className="quiz-stat-icon">{icon}</span>
@@ -104,24 +112,72 @@ export default function TopicsPage() {
         ))}
       </div>
 
-      {view === "cards" && (
-        <div className="quiz-topic-grid">
-          {orderedTopics.map((topic, i) => (
-            <TopicCard
+      <div className="quiz-topic-grid">
+        {filteredTopics.length === 0 ? (
+          <div className="quiz-empty-state">
+            <p>No topics available for {activeMode === "viva" ? "College Viva" : "NPTEL Prep"} mode.</p>
+            <p className="hint">Topics will appear here after admin adds them via the dashboard.</p>
+          </div>
+        ) : (
+          filteredTopics.map((topic, i) => (
+            <TopicPhotoCard
               key={topic._id}
               topic={topic}
               onStart={handleStart}
               style={{ animationDelay: `${i * 0.06}s` }}
             />
-          ))}
-        </div>
-      )}
-
-      {view === "graph" && (
-        <div className="quiz-graph-panel">
-          <TopicGraph topics={orderedTopics} onTopicClick={handleStart} />
-        </div>
-      )}
+          ))
+        )}
+      </div>
     </div>
+  );
+}
+
+function TopicPhotoCard({ topic, onStart, style }) {
+  const isLocked = !topic.unlocked;
+  const isCompleted = topic.completed;
+
+  return (
+    <article
+      className={`quiz-photo-card ${isLocked ? "locked" : ""} ${isCompleted ? "completed" : ""}`}
+      style={style}
+      onClick={() => !isLocked && onStart(topic)}
+    >
+      <div className="photo-card-image">
+        {topic.image ? (
+          <img src={topic.image} alt={topic.name} loading="lazy" />
+        ) : (
+          <div className="photo-placeholder">
+            <span className="photo-icon">{topic.icon || "📚"}</span>
+          </div>
+        )}
+        {isLocked && <div className="photo-lock"><Unlock size={24} /></div>}
+        {isCompleted && <div className="photo-check"><CheckCircle2 size={24} /></div>}
+        <div className="photo-mode-badge">{topic.mode === "viva" ? "Viva" : "NPTEL"}</div>
+      </div>
+      <div className="photo-card-content">
+        <h3 className="photo-card-title">{topic.name}</h3>
+        <p className="photo-card-desc">{topic.description || "No description"}</p>
+        <div className="photo-card-meta">
+          <span className="meta-item">
+            <span className="meta-dot" style={{ background: topic.color || "#6366f1" }}></span>
+            {topic.passingScore}% to pass
+          </span>
+          {topic.bestScore && (
+            <span className="meta-item best-score">Best: {topic.bestScore}%</span>
+          )}
+        </div>
+        {!isLocked && (
+          <button className="photo-card-start" onClick={(e) => { e.stopPropagation(); onStart(topic); }}>
+            {isCompleted ? "Retake Quiz" : "Start Quiz"}
+          </button>
+        )}
+        {isLocked && (
+          <div className="photo-card-locked">
+            Complete prerequisites to unlock
+          </div>
+        )}
+      </div>
+    </article>
   );
 }

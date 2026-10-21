@@ -4,6 +4,7 @@ const protect  = require("../middleware/authMiddleware");
 const { uploadFor } = require("../middleware/upload");
 const {
   uploadResource,
+  uploadPaperPair,
   listResources,
   getResource,
   deleteResource,
@@ -28,6 +29,7 @@ const withMulterErrors = (multerMiddleware) => (req, res, next) => {
 router.get("/", protect, listResources);
 router.get("/:id", protect, getResource);
 
+// Single file upload (existing)
 router.post(
   "/upload",
   protect,
@@ -38,6 +40,18 @@ router.post(
     withMulterErrors(multerMiddleware)(req, res, next);
   },
   uploadResource
+);
+
+// Paper pair upload (questions + solution PDFs)
+router.post(
+  "/upload-pair",
+  protect,
+  adminOnly,
+  (req, res, next) => {
+    const multerMiddleware = uploadFor("pyqs").array("files", 2);
+    withMulterErrors(multerMiddleware)(req, res, next);
+  },
+  uploadPaperPair
 );
 
 router.patch("/:id", protect, adminOnly, updateResource);

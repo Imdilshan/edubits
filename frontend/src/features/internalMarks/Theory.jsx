@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
-import { getNum } from "../../utils/marksUtils";
+import { getNum, validateAll } from "../../utils/marksUtils";
+import "./InternalMarksPage.css";
 
 const S = {
   grid:    { display:"grid", gridTemplateColumns:"1fr 1fr", gap:14, alignItems:"start" },
@@ -8,7 +9,7 @@ const S = {
   group:   { display:"flex", flexDirection:"column", gap:4, marginBottom:10 },
   label:   { display:"block", fontSize:11, fontWeight:600, color:"rgba(255,255,255,0.5)", textTransform:"uppercase", letterSpacing:"0.5px", lineHeight:1.2 },
   input:   { display:"block", width:"100%", boxSizing:"border-box", padding:"10px 12px", borderRadius:8, border:"1px solid rgba(255,255,255,0.12)", background:"rgba(255,255,255,0.08)", color:"#eef2ff", fontSize:14, fontFamily:"'DM Sans',sans-serif", outline:"none", WebkitTextFillColor:"#eef2ff", transition:"border-color 0.15s" },
-  hint:    { fontSize:11, color:"rgba(255,255,255,0.3)", marginTop:2 },
+  hint:      { fontSize:11, color:"rgba(255,255,255,0.3)", marginTop:2 },
   errorHint: { fontSize:11, color:"#f87171", marginTop:2, fontWeight:600 },
   bottomBar: { display:"flex", justifyContent:"space-between", alignItems:"center", marginTop:20, gridColumn:"1 / -1" },
   btnReset:  { background:"#ef4444", color:"#fff", border:"none", borderRadius:8, padding:"10px 20px", fontWeight:700, fontFamily:"'DM Sans',sans-serif", cursor:"pointer" },
@@ -245,6 +246,142 @@ function TheorySenior() {
   );
 }
 
-export default function Theory({ year }) {
+// ── 3rd Year Theory (CSE) ──────────────────────────────────────────────────────
+// External Theory           60 → 60
+// Assignment/PBL            10 → 10
+// Attendance Marks          2  → 2
+// Mid-Semester Test-1        20 → 10
+// Quiz                       4  → 4
+// Surprise Test             12 → 4
+// Mid-Semester Test-2        20 → 10
+// Total: 100 weighted marks
+function TheoryThirdYearCSE() {
+  const [data, setData] = useState({});
+  const [result, setResult] = useState(null);
+
+  const limits = {
+    thy_exttheory:60, thy_assignment:10, thy_attendance:2, thy_mst1:20,
+    thy_quiz:4, thy_surprise:12, thy_mst2:20,
+  };
+
+  const handle = (k, v) => setData(p => ({ ...p, [k]: v }));
+  const reset  = () => { setData({}); setResult(null); };
+
+  const calculate = () => {
+    const { ok } = validateAll(data, limits);
+    if (!ok) return;
+
+    const g = (k, max) => getNum(data[k], max);
+
+    const internal = (
+      // External Theory: 60 max → 60 weighted
+      g("thy_exttheory", 60) / 60 * 60 +
+      // Assignment/PBL: 10 max → 10 weighted
+      g("thy_assignment", 10) / 10 * 10 +
+      // Attendance: 2 max → 2 weighted
+      g("thy_attendance", 2) / 2 * 2 +
+      // MST-1: 20 max → 10 weighted
+      g("thy_mst1", 20) / 20 * 10 +
+      // Quiz: 4 max → 4 weighted
+      g("thy_quiz", 4) / 4 * 4 +
+      // Surprise Test: 12 max → 4 weighted
+      g("thy_surprise", 12) / 12 * 4 +
+      // MST-2: 20 max → 10 weighted
+      g("thy_mst2", 20) / 20 * 10
+    );
+
+    const internalMax = 100;
+    const total = internal;
+    const totalMax = internalMax;
+
+    setResult({ total, max: totalMax, pct: (total / totalMax) * 100 });
+  };
+
+  const fields = [
+    ["thy_exttheory", "External Theory", 60],
+    ["thy_assignment", "Assignment / PBL", 10],
+    ["thy_attendance", "Attendance Marks", 2],
+    ["thy_mst1", "Mid-Semester Test-1", 20],
+    ["thy_quiz", "Quiz", 4],
+    ["thy_surprise", "Surprise Test", 12],
+    ["thy_mst2", "Mid-Semester Test-2", 20],
+  ];
+
+  return (
+    <div style={S.grid}>
+      <div style={S.section}>
+        <h3 style={S.h3}>Theory Subject (3rd Year CSE)</h3>
+        {fields.map(([key, label, max]) => (
+          <Field key={key} id={key} label={label} max={max}
+            value={data[key] ?? ""}
+            onChange={(v) => handle(key, v)}
+          />
+        ))}
+        <p style={{ ...S.hint, marginTop:4 }}>External Theory is required for 3rd Year CSE Theory.</p>
+      </div>
+
+      <div style={S.section}>
+        <h3 style={S.h3}>Output</h3>
+        {result ? (
+          <div>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"6px 0", color:"#dde8f0", fontSize:14 }}>
+              <span style={S.small}>External Theory (60)</span>
+              <span style={{ color:"#eef2ff" }}>{(result.total * 60 / 100).toFixed(2)} / 60</span>
+            </div>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"6px 0", borderTop:"1px solid rgba(255,255,255,0.06)" }}>
+              <span style={S.small}>Assignment / PBL (10)</span>
+              <span style={{ color:"#eef2ff" }}>{(result.total * 10 / 100).toFixed(2)} / 10</span>
+            </div>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"6px 0", borderTop:"1px solid rgba(255,255,255,0.06)" }}>
+              <span style={S.small}>Attendance (2)</span>
+              <span style={{ color:"#eef2ff" }}>{(result.total * 2 / 100).toFixed(2)} / 2</span>
+            </div>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"6px 0", borderTop:"1px solid rgba(255,255,255,0.06)" }}>
+              <span style={S.small}>MST-1 (10)</span>
+              <span style={{ color:"#eef2ff" }}>{(result.total * 10 / 100).toFixed(2)} / 10</span>
+            </div>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"6px 0", borderTop:"1px solid rgba(255,255,255,0.06)" }}>
+              <span style={S.small}>Quiz (4)</span>
+              <span style={{ color:"#eef2ff" }}>{(result.total * 4 / 100).toFixed(2)} / 4</span>
+            </div>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"6px 0", borderTop:"1px solid rgba(255,255,255,0.06)" }}>
+              <span style={S.small}>Surprise Test (4)</span>
+              <span style={{ color:"#eef2ff" }}>{(result.total * 4 / 100).toFixed(2)} / 4</span>
+            </div>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"6px 0", borderTop:"1px solid rgba(255,255,255,0.06)" }}>
+              <span style={S.small}>MST-2 (10)</span>
+              <span style={{ color:"#eef2ff" }}>{(result.total * 10 / 100).toFixed(2)} / 10</span>
+            </div>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"6px 0", borderTop:"1px solid rgba(255,255,255,0.06)" }}>
+              <span style={S.highlight}>Final</span>
+              <span style={S.highlight}>{result.total.toFixed(2)} / {result.max}</span>
+            </div>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"6px 0", borderTop:"1px solid rgba(255,255,255,0.06)" }}>
+              <span style={S.small}>Percentage</span>
+              <span style={S.highlight}>{result.pct.toFixed(2)}%</span>
+            </div>
+            <div style={S.progress}>
+              <div style={{ width:`${result.pct}%`, height:"100%", background:"linear-gradient(90deg,#3b82f6,#22c55e)", borderRadius:8, transition:"width 0.4s ease" }} />
+            </div>
+          </div>
+        ) : (
+          <p style={{ color:"#6b7280", fontSize:13, margin:0 }}>Fill in marks and click Calculate.</p>
+        )}
+      </div>
+
+      <div style={S.bottomBar}>
+        <button style={S.btnReset} onClick={reset}>Reset</button>
+        <button style={S.btnCalc} onClick={calculate}>Calculate Theory (3rd Year CSE)</button>
+      </div>
+    </div>
+  );
+}
+
+export default function Theory({ year, program }) {
+  // For 3rd year CSE, use the new TheoryThirdYearCSE
+  if (program === "cse" && year === "3") {
+    return <TheoryThirdYearCSE />;
+  }
+  // For other years/programs, use the original logic
   return year === "1" ? <TheoryFirstYear /> : <TheorySenior />;
 }

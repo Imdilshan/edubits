@@ -1,0 +1,109 @@
+.viewer-spike {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+  font-family: var(--font-sans);
+}
+
+.viewer-spike h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.test-url {
+  margin-bottom: 24px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.test-url code {
+  background: var(--surface-2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.viewer-container {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.viewer-container canvas {
+  display: block;
+  margin: 0 auto;
+}
+
+.loading {
+  padding: 60px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.viewer-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px;
+  border-top: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.viewer-controls button {
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.15s;
+}
+
+.viewer-controls button:hover:not(:disabled) {
+  background: var(--surface-3);
+  border-color: var(--border-strong);
+}
+
+.viewer-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.error-box {
+  padding: 16px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid var(--danger);
+  border-radius: 8px;
+  color: var(--danger);
+  margin-bottom: 16px;
+}
+
+.notes {
+  margin-top: 32px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.notes h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.notes ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.notes li {
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}

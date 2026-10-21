@@ -1,7 +1,18 @@
 import { useState, useEffect, useRef } from "react";
+import Select from "react-select";
 import "./cgpa.css";
+import { Trash2, Plus, Calculator, RotateCcw, X, BarChart2, Eraser } from "lucide-react";
 
 const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
+
+const creditOptions = [
+  { value: "1", label: "1" },
+  { value: "2", label: "2" },
+  { value: "3", label: "3" },
+  { value: "4", label: "4" },
+  { value: "5", label: "5" },
+  { value: "6", label: "6" },
+];
 
 function BarChart({ data }) {
   if (!data || data.length === 0) return null;
@@ -22,10 +33,10 @@ function BarChart({ data }) {
   const yTicks = [0, 2, 4, 6, 8, 10];
 
   const barColor = (v) =>
-    v >= 9 ? "#22d3ee" :
-    v >= 8 ? "#4ade80" :
-    v >= 7 ? "#60a5fa" :
-    v >= 6 ? "#fbbf24" : "#f87171";
+    v >= 9 ? "var(--success)" :
+    v >= 8 ? "var(--success)" :
+    v >= 7 ? "var(--primary)" :
+    v >= 6 ? "var(--warning)" : "var(--danger)";
 
   return (
     <svg
@@ -35,15 +46,15 @@ function BarChart({ data }) {
       preserveAspectRatio="xMidYMid meet"
     >
       {yTicks.map((t) => {
-        const y = PAD_T + chartH - (t / maxVal) * chartH;
+        const y = PAD_T + chartH - (t / 10) * (H - 24 - 40);
         return (
           <g key={t}>
             <line
-              x1={PAD_L} y1={y} x2={W - PAD_R} y2={y}
+              x1={48} y1={y} x2={W - 16} y2={y}
               stroke="rgba(255,255,255,0.06)" strokeWidth="1"
             />
             <text
-              x={PAD_L - 8} y={y + 4}
+              x={40} y={y + 4}
               textAnchor="end" fontSize="11"
               fill="rgba(255,255,255,0.3)"
             >{t}</text>
@@ -52,9 +63,14 @@ function BarChart({ data }) {
       })}
 
       {data.map((d, i) => {
-        const bh = (d.sgpa / maxVal) * chartH;
-        const x = PAD_L + gap * i + gap / 2 - barW / 2;
-        const y = PAD_T + chartH - bh;
+        const maxVal = 10;
+        const chartH = 220 - 24 - 40;
+        const chartW = 700 - 48 - 16;
+        const barW = Math.min(52, (chartW / data.length) * 0.55);
+        const gap = chartW / data.length;
+        const bh = (d.sgpa / 10) * chartH;
+        const x = 48 + gap * i + gap / 2 - barW / 2;
+        const y = 24 + chartH - bh;
         const color = barColor(d.sgpa);
 
         return (
@@ -64,21 +80,18 @@ function BarChart({ data }) {
               width={barW} height={bh}
               rx="5" fill={color} opacity="0.12"
             />
-
             <rect
               x={x} y={y}
               width={barW} height={bh}
               rx="5" fill={color} opacity="0.85"
             />
-
             <text
               x={x + barW / 2} y={y - 7}
               textAnchor="middle" fontSize="11"
               fontWeight="600" fill={color}
             >{d.sgpa.toFixed(2)}</text>
-        
             <text
-              x={x + barW / 2} y={PAD_T + chartH + 18}
+              x={x + barW / 2} y={24 + chartH + 18}
               textAnchor="middle" fontSize="11"
               fill="rgba(255,255,255,0.4)"
             >{d.label}</text>
@@ -87,14 +100,13 @@ function BarChart({ data }) {
       })}
 
       <line
-        x1={PAD_L} y1={PAD_T + chartH}
-        x2={W - PAD_R} y2={PAD_T + chartH}
+        x1={48} y1={24 + (220 - 24 - 40)}
+        x2={700 - 16} y2={24 + (220 - 24 - 40)}
         stroke="rgba(255,255,255,0.1)" strokeWidth="1"
       />
- 
       <line
-        x1={PAD_L} y1={PAD_T}
-        x2={PAD_L} y2={PAD_T + chartH}
+        x1={48} y1={24}
+        x2={48} y2={24 + (220 - 24 - 40)}
         stroke="rgba(255,255,255,0.1)" strokeWidth="1"
       />
     </svg>
@@ -114,7 +126,7 @@ function Insight({ history }) {
   let msg = "";
   if (trend) msg = "Consistent upward trend — keep going.";
   else if (prev !== undefined && last > prev) msg = `Up +${(last - prev).toFixed(2)} from last semester.`;
-  else if (prev !== undefined && last < prev) msg = `Down ${(prev - last).toFixed(2)} from last semester. Recoverable.`;
+  else if (prev !== undefined && last < prev) msg = `Down ${(prev - last).toFixed(2)} from last semester.`;
   else if (last === Math.max(...vals)) msg = "Best semester so far.";
 
   if (!msg) return null;
@@ -122,25 +134,24 @@ function Insight({ history }) {
 }
 
 function TargetSimulator() {
-
   const [form, setForm] = useState(() => {
-  try {
-    const saved = localStorage.getItem("simForm");
-    return saved ? JSON.parse(saved) : {
-      currentCGPA: "7.8",
-      completedCredits: "80",
-      targetCGPA: "8.2",
-      nextCredits: "22",
-    };
-  } catch {
-    return {
-      currentCGPA: "7.8",
-      completedCredits: "80",
-      targetCGPA: "8.2",
-      nextCredits: "22",
-    };
-  }
-});
+    try {
+      const saved = localStorage.getItem("simForm");
+      return saved ? JSON.parse(saved) : {
+        currentCGPA: "7.8",
+        completedCredits: "80",
+        targetCGPA: "8.2",
+        nextCredits: "22",
+      };
+    } catch {
+      return {
+        currentCGPA: "7.8",
+        completedCredits: "80",
+        targetCGPA: "8.2",
+        nextCredits: "22",
+      };
+    }
+  });
 
   const [result, setResult] = useState(null);
 
@@ -172,47 +183,49 @@ function TargetSimulator() {
   };
 
   return (
-    <div className="simulator-card">
-      <div className="simulator-header">
+    <div className="simulator-card card card-panel">
+      <div className="card-header">
         <div>
-          <h3 className="simulator-title">Target CGPA Simulator</h3>
-          <p className="simulator-hint">Find out what SGPA you need next semester.</p>
+          <h3 className="text-headline" style={{ color: "var(--danger)" }}>Target CGPA Simulator</h3>
+          <p className="text-body-sm" style={{ color: "var(--muted)" }}>Find out what SGPA you need next semester.</p>
         </div>
       </div>
 
       <div className="sim-grid">
         <div className="sim-field">
-          <label>Current CGPA</label>
-          <input className="sim-input" type="number" step="0.01" min="0" max="10"
+          <label className="form-label">Current CGPA</label>
+          <input className="form-input" type="number" step="0.01" min="0" max="10"
             placeholder="e.g. 7.8" value={form.currentCGPA || ""}
             onChange={(e) => set("currentCGPA", e.target.value)} />
         </div>
         <div className="sim-field">
-          <label>Completed Credits</label>
-          <input className="sim-input" type="number" step="1" min="0"
+          <label className="form-label">Completed Credits</label>
+          <input className="form-input" type="number" step="1" min="0"
             placeholder="e.g. 80" value={form.completedCredits || ""}
             onChange={(e) => set("completedCredits", e.target.value)} />
         </div>
         <div className="sim-field">
-          <label>Target CGPA</label>
-          <input className="sim-input" type="number" step="0.01" min="0" max="10"
+          <label className="form-label">Target CGPA</label>
+          <input className="form-input" type="number" step="0.01" min="0" max="10"
             placeholder="e.g. 8.2" value={form.targetCGPA || ""}
             onChange={(e) => set("targetCGPA", e.target.value)} />
         </div>
         <div className="sim-field">
-          <label>Next Semester Credits</label>
-          <input className="sim-input" type="number" step="1" min="0"
+          <label className="form-label">Next Semester Credits</label>
+          <input className="form-input" type="number" step="1" min="0"
             placeholder="e.g. 22" value={form.nextCredits || ""}
             onChange={(e) => set("nextCredits", e.target.value)} />
         </div>
       </div>
 
-      <button className="btn btn-sim" onClick={calculate}>Calculate Required SGPA</button>
+      <button className="btn btn-primary" style={{ width: "100%", marginTop: "var(--space-sm)" }} onClick={calculate}>
+        <Calculator size={16} /> Calculate Required SGPA
+      </button>
 
       {result && (
-        <div className="sim-result">
+        <div className="sim-result card card-mini">
           {result.error ? (
-            <p className="sim-error">{result.error}</p>
+            <p className="sim-error" style={{ color: "var(--danger)", margin: 0 }}>{result.error}</p>
           ) : (
             <>
               <div className="sim-result-row">
@@ -235,21 +248,20 @@ function TargetSimulator() {
 }
 
 export default function CGPA({ sgpaList, removeSGPA }) {
-
   const [manualSems, setManualSems] = useState(() => {
-  try {
-    const saved = localStorage.getItem("manualSems");
-    return saved ? JSON.parse(saved) : [
-      { sgpa: "7.2", credits: "21" },
-      { sgpa: "8.4", credits: "22" },
-    ];
-  } catch {
-    return [
-      { sgpa: "7.2", credits: "21" },
-      { sgpa: "8.4", credits: "22" },
-    ];
-  }
-});
+    try {
+      const saved = localStorage.getItem("manualSems");
+      return saved ? JSON.parse(saved) : [
+        { sgpa: "7.2", credits: "21" },
+        { sgpa: "8.4", credits: "22" },
+      ];
+    } catch {
+      return [
+        { sgpa: "7.2", credits: "21" },
+        { sgpa: "8.4", credits: "22" },
+      ];
+    }
+  });
   const [result, setResult] = useState(null);
   const [history, setHistory] = useState(() => {
     try { return JSON.parse(localStorage.getItem("semHistory") || "[]"); }
@@ -327,11 +339,13 @@ export default function CGPA({ sgpaList, removeSGPA }) {
 
   return (
     <div className="cgpa-outer">
-      <div className="card cgpa-card">
-        <h2 className="card-title" style={{ textAlign: "center" }}>CGPA Calculator</h2>
-        <p className="card-hint" style={{ textAlign: "center" }}>
-          Combine semesters saved above or enter manually.
-        </p>
+      <div className="cgpa-card card card-panel">
+        <div className="card-header">
+          <div>
+            <h2 className="text-headline">CGPA Calculator</h2>
+            <p className="text-body-sm" style={{ color: "var(--muted)" }}>Combine semesters saved above or enter manually.</p>
+          </div>
+        </div>
 
         <div className="cgpa-table-head">
           <span>Semester</span>
@@ -350,7 +364,7 @@ export default function CGPA({ sgpaList, removeSGPA }) {
               <span className="cgpa-sem-label">{sem.label}</span>
 
               <input
-                className="cgpa-input"
+                className="form-input"
                 type="number" min="0" max="10" step="0.01"
                 placeholder="SGPA"
                 value={sem.sgpa}
@@ -360,35 +374,54 @@ export default function CGPA({ sgpaList, removeSGPA }) {
                 }
               />
 
-              <input
-                className="cgpa-input"
-                type="number" min="0" step="1"
-                placeholder="Credits"
-                value={sem.credits}
-                readOnly={isAuto}
-                onChange={(e) =>
-                  !isAuto && handleManualChange(sem.originalIndex, "credits", e.target.value)
+              <Select
+                options={creditOptions}
+                value={sem.credits ? { value: sem.credits, label: sem.credits } : null}
+                onChange={(selected) =>
+                  !isAuto && handleManualChange(sem.originalIndex, "credits", selected ? selected.value : "")
                 }
+                placeholder="Credits"
+                isSearchable={false}
+                className="react-select-container"
+                classNamePrefix="react-select"
+                disabled={isAuto}
               />
 
               <button
                 className="btn-icon-delete"
                 onClick={() => isAuto ? removeSGPA(sem.id) : deleteManual(sem.originalIndex)}
                 title="Remove" aria-label="Remove semester"
-              >✕</button>
+              >
+                <Trash2 size={16} />
+              </button>
             </div>
           );
         })}
 
-        <div className="cgpa-actions">
-          <button className="btn btn-primary" onClick={addManual}>+ Add Next Semester</button>
-          <button className="btn btn-success" onClick={calculateCGPA}>Calculate CGPA</button>
+        <div className="cgpa-actions flex gap-sm flex-wrap">
+          <button className="btn btn-primary" onClick={addManual}>
+            <Plus size={16} /> Add Next Semester
+          </button>
+          <button className="btn btn-success" onClick={calculateCGPA}>
+            <Calculator size={16} /> Calculate CGPA
+          </button>
+          <button className="btn btn-danger" onClick={() => {
+            setManualSems([{ sgpa: "", credits: "" }]);
+            setResult(null);
+            setHistory([]);
+            localStorage.removeItem("manualSems");
+            localStorage.removeItem("semHistory");
+          }}>
+            <Eraser size={16} /> Clear All
+          </button>
         </div>
 
         {result && (
-          <div className={`cgpa-result-card ${animResult ? "result-pop" : ""}`}>
+          <div className={`cgpa-result-card card card-mini ${animResult ? "result-pop" : ""}`}>
             {result === "invalid" ? (
-              <p className="cgpa-error">Please enter valid SGPA and credits for at least one semester.</p>
+              <p className="cgpa-error" style={{ color: "var(--danger)", margin: 0 }}>
+                Please enter valid SGPA and credits for at least one semester.
+              </p>
             ) : (
               <>
                 <div className="result-row">
@@ -409,16 +442,19 @@ export default function CGPA({ sgpaList, removeSGPA }) {
         )}
 
         {history.length >= 1 && result && result !== "invalid" && (
-          <div className="bar-chart-wrap">
+          <div className="bar-chart-wrap card card-mini" style={{ marginTop: "var(--space-lg)" }}>
             <div className="bar-chart-header">
               <span className="bar-chart-title">SGPA per Semester</span>
-              <button className="btn-ghost-small" onClick={clearHistory}>Clear</button>
+              <button className="btn btn-tertiary btn-sm" onClick={clearHistory}>
+                <RotateCcw size={14} /> Clear
+              </button>
             </div>
             <BarChart data={history} />
           </div>
         )}
+
+        <TargetSimulator />
       </div>
-      <TargetSimulator />
     </div>
   );
 }

@@ -1,11 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import Select from "react-select";
 import "./sgpa.css";
-import { ArrowRight } from "lucide-react";
+import { Trash2, Plus, Save, RotateCcw, X } from "lucide-react";
 
 const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
 
 const gradeOptions = [
+  // Qualified grade for non-graded subjects (pass/fail, doesn't affect SGPA)
+  { value: "qualified", label: "Qualified (Pass/Fail)", points: null, isQualified: true },
   { value: 10, label: "A+", points: 10 },
   { value: 9,  label: "A",  points: 9  },
   { value: 8,  label: "B+", points: 8  },
@@ -14,6 +16,15 @@ const gradeOptions = [
   { value: 5,  label: "C",  points: 5  },
   { value: 4,  label: "D",  points: 4  },
   { value: 0,  label: "F", points: 0 },
+];
+
+const creditOptions = [
+  { value: "1", label: "1" },
+  { value: "2", label: "2" },
+  { value: "3", label: "3" },
+  { value: "4", label: "4" },
+  { value: "5", label: "5" },
+  { value: "6", label: "6" },
 ];
 
 const EXAMPLE_SUBJECTS = [
@@ -26,6 +37,8 @@ function computeSGPA(subjects) {
   let totalPoints = 0;
   let totalCredits = 0;
   subjects.forEach((sub) => {
+    // Skip Qualified grades (they don't affect SGPA)
+    if (sub.grade === "qualified") return;
     const credit = clamp(Number(sub.credit), 0, 10);
     const grade = Number(sub.grade);
     if (!isNaN(credit) && !isNaN(grade) && sub.grade !== "") {
@@ -94,17 +107,17 @@ function SGPADisplay({ value, animate }) {
 
 export default function SGPA({ setSgpaList, sgpaCount }) {
   const [isExample, setIsExample] = useState(() => {
-  try {
-    return !localStorage.getItem("subjects");
-  } catch { return true; }
-});
-const [subjects, setSubjects] = useState(() => {
-  try {
-    const saved = localStorage.getItem("subjects");
-    if (saved) return JSON.parse(saved);
-  } catch {}
-  return EXAMPLE_SUBJECTS;
-});
+    try {
+      return !localStorage.getItem("subjects");
+    } catch { return true; }
+  });
+  const [subjects, setSubjects] = useState(() => {
+    try {
+      const saved = localStorage.getItem("subjects");
+      if (saved) return JSON.parse(saved);
+    } catch {}
+    return EXAMPLE_SUBJECTS;
+  });
 
   const [saved, setSaved] = useState(false);
   const [animResult, setAnimResult] = useState(false);
@@ -131,6 +144,7 @@ const [subjects, setSubjects] = useState(() => {
   const clearExample = () => {
     setSubjects([{ name: "", credit: "", grade: "" }]);
     setIsExample(false);
+    setSaved(false);
   };
 
   const addSubject = () => {
@@ -183,28 +197,38 @@ const [subjects, setSubjects] = useState(() => {
     localStorage.removeItem("subjects");
   };
 
-  const formatGradeOption = (opt) => (
-    <div className="grade-option">
-      <span>{opt.label}</span>
-      <span className="grade-points">{opt.points} pts</span>
-    </div>
-  );
+  const formatGradeOption = (opt) => {
+    if (opt.isQualified) {
+      return (
+        <div className="grade-option qualified">
+          <span>{opt.label}</span>
+          <span className="grade-points">No SGPA impact</span>
+        </div>
+      );
+    }
+    return (
+      <div className="grade-option">
+        <span>{opt.label}</span>
+        <span className="grade-points">{opt.points} pts</span>
+      </div>
+    );
+  };
 
   const isEmpty = subjects.every(s => !s.name && !s.credit && s.grade === "");
 
   return (
-    <div className="card sgpa-card">
+    <div className="sgpa-card card card-panel">
       <div className="card-header">
         <div>
-          <h2 className="card-title">SGPA Calculator</h2>
-          <p className="card-hint">Enter your subjects, credits, and grades to calculate instantly.</p>
+          <h2 className="text-card-title">SGPA Calculator</h2>
+          <p className="text-body-sm" style={{ color: "var(--muted)" }}>Enter your subjects, credits, and grades to calculate instantly.</p>
         </div>
       </div>
 
       {isExample && (
         <div className="example-banner">
           <span>Showing example data</span>
-          <button className="btn-ghost-small" onClick={clearExample}>Clear example</button>
+          <button className="btn btn-tertiary btn-sm" onClick={clearExample}>Clear example</button>
         </div>
       )}
 
@@ -218,24 +242,25 @@ const [subjects, setSubjects] = useState(() => {
       {subjects.map((sub, index) => (
         <div className="sgpa-row" key={index}>
           <input
-            className="input"
+            className="form-input"
             placeholder="e.g. Data Structures"
             value={sub.name}
             onChange={(e) => handleChange(index, "name", e.target.value)}
           />
-          <input
-            className="input"
-            type="number"
-            min="0"
-            max="10"
-            step="1"
-            placeholder="3 or 4"
-            value={sub.credit ?? ""}
-            onChange={(e) => handleChange(index, "credit", e.target.value)}
+          <Select
+            options={creditOptions}
+            value={sub.credit ? { value: sub.credit, label: sub.credit } : null}
+            onChange={(selected) =>
+              handleChange(index, "credit", selected ? selected.value : "")
+            }
+            placeholder="Credits"
+            isSearchable={false}
+            className="react-select-container"
+            classNamePrefix="react-select"
           />
           <Select
             options={gradeOptions}
-            value={gradeOptions.find((opt) => opt.value === Number(sub.grade)) || null}
+            value={gradeOptions.find((opt) => opt.value === sub.grade) || null}
             onChange={(selected) =>
               handleChange(index, "grade", selected ? selected.value : "")
             }
@@ -251,17 +276,22 @@ const [subjects, setSubjects] = useState(() => {
             title="Remove subject"
             aria-label="Delete subject"
           >
-            ✕
+            <Trash2 size={16} />
           </button>
         </div>
       ))}
 
-      <div className="sgpa-actions">
-        <button className="btn btn-primary" onClick={addSubject}>+ Add Subject</button>
+      <div className="sgpa-actions flex gap-sm flex-wrap">
+        <button className="btn btn-primary" onClick={addSubject}>
+          <Plus size={16} /> Add Subject
+        </button>
         <button className="btn btn-save" onClick={saveSemester} disabled={!liveResult}>
+          <Save size={16} />
           {saved ? "✓ Saved to CGPA" : "Add to CGPA"}
         </button>
-        <button className="btn btn-outline-danger" onClick={clearAll}>Clear All</button>
+        <button className="btn btn-danger" onClick={clearAll}>
+          <RotateCcw size={16} /> Clear All
+        </button>
       </div>
 
       {liveResult !== null && (

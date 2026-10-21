@@ -4,8 +4,14 @@ const { topologicalSort, getTopicsWithStatus } = require("../algorithms/graph");
 
 const getTopics = async (req, res) => {
   try {
+    const { mode } = req.query;
 
-    const topics = await Topic.find()
+    const filter = {};
+    if (mode && ["viva", "nptel"].includes(mode)) {
+      filter.mode = mode;
+    }
+
+    const topics = await Topic.find(filter)
       .populate("prerequisites", "_id name")
       .lean();
 

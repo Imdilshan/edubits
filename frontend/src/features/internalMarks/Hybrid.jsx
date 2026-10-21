@@ -365,6 +365,191 @@ function HybridSenior() {
   );
 }
 
+
+// ── 3rd Year Hybrid (CSE) ─────────────────────────────────────────────────────────
+// Practical Evaluations          40 → 20
+// End Term Hybrid Theory         60 → 30
+// Attendance Marks               2  → 2
+// Surprise Test                  12 → 4
+// Practical MST                  10 → 4
+// 10 Practical Worksheet/Projects (each 30 → 2) = 20 total
+// Quiz                           4  → 4
+// Assignment/PBL                 10 → 6
+// MST-1 Hybrid                   20 → 5
+// MST-2 Hybrid                   20 → 5
+// Total: 100 weighted marks (70 internal + 30 optional End Term)
+function HybridThirdYearCSE() {
+  const [data, setData]     = useState({});
+  const [errors, setErrors] = useState({});
+  const [result, setResult] = useState(null);
+
+  const limits = {
+    hyb_praceval:40, hyb_endtheory:60, hyb_attendance:2, hyb_surprise:12,
+    hyb_pmst:10,
+    hyb_ws1:30, hyb_ws2:30, hyb_ws3:30, hyb_ws4:30,
+    hyb_ws5:30, hyb_ws6:30, hyb_ws7:30, hyb_ws8:30,
+    hyb_ws9:30, hyb_ws10:30,
+    hyb_quiz:4, hyb_assignment:10,
+    hyb_mst1:20, hyb_mst2:20,
+  };
+
+  const handle = (k, v) => setData(p => ({ ...p, [k]: v }));
+  const reset  = () => { setData({}); setErrors({}); setResult(null); };
+
+  const calculate = () => {
+    const { ok, errors } = validateAll(data, limits);
+    setErrors(errors);
+    if (!ok) return;
+
+    const g = (k, max) => getNum(data[k], max);
+    const _etProvided = data.hyb_endtheory !== "" && data.hyb_endtheory !== undefined;
+    const _et = Number(data.hyb_endtheory || 0);
+
+    // Internal components (always included, max 70)
+    const internal = (
+      g("hyb_praceval", 40) / 40 * 20 +
+      g("hyb_attendance", 2) / 2 * 2 +
+      g("hyb_mst1", 20) / 20 * 5 +
+      g("hyb_mst2", 20) / 20 * 5 +
+      g("hyb_assignment", 10) / 10 * 6 +
+      g("hyb_ws1", 30) / 30 * 2 +
+      g("hyb_ws2", 30) / 30 * 2 +
+      g("hyb_ws3", 30) / 30 * 2 +
+      g("hyb_ws4", 30) / 30 * 2 +
+      g("hyb_ws5", 30) / 30 * 2 +
+      g("hyb_ws6", 30) / 30 * 2 +
+      g("hyb_ws7", 30) / 30 * 2 +
+      g("hyb_ws8", 30) / 30 * 2 +
+      g("hyb_ws9", 30) / 30 * 2 +
+      g("hyb_ws10", 30) / 30 * 2 +
+      g("hyb_surprise", 12) / 12 * 4 +
+      g("hyb_pmst", 10) / 10 * 4 +
+      g("hyb_quiz", 4) / 4 * 4 +
+      g("hyb_assignment", 10) / 10 * 6 +
+      g("hyb_mst1", 20) / 20 * 5 +
+      g("hyb_mst2", 20) / 20 * 5
+    );
+
+    const endtheory = _etProvided ? _et / 60 * 30 : 0;
+    const endtheoryMax = _etProvided ? 30 : 0;
+
+    const internalMax = 70;
+    const total = internal + (_etProvided ? _et / 60 * 30 : 0);
+    const totalMax = internalMax + (_etProvided ? 30 : 0);
+
+    setResult({
+      internal, internalMax, internalPct: (internal / internalMax) * 100,
+      endtheory, endtheoryMax,
+      total, totalMax, pct: (total / totalMax) * 100,
+    });
+  };
+
+  const _hasErrors = Object.values(errors).some(Boolean);
+
+  const leftFields = [
+    ["hyb_praceval",   "Practical Evaluations",           40],
+    ["hyb_attendance", "Attendance Marks",                 2],
+    ["hyb_mst1",       "MST-1 Hybrid",                   20],
+    ["hyb_mst2",       "MST-2 Hybrid",                   20],
+    ["hyb_assignment", "Assignment / PBL",               10],
+  ];
+
+  const worksheetFields = [
+    ["hyb_ws1",  "Worksheet/Project 1",  30],
+    ["hyb_ws2",  "Worksheet/Project 2",  30],
+    ["hyb_ws3",  "Worksheet/Project 3",  30],
+    ["hyb_ws4",  "Worksheet/Project 4",  30],
+    ["hyb_ws5",  "Worksheet/Project 5",  30],
+    ["hyb_ws6",  "Worksheet/Project 6",  30],
+    ["hyb_ws7",  "Worksheet/Project 7",  30],
+    ["hyb_ws8",  "Worksheet/Project 8",  30],
+    ["hyb_ws9",  "Worksheet/Project 9",  30],
+    ["hyb_ws10", "Worksheet/Project 10", 30],
+  ];
+
+  const rightFields = [
+    ["hyb_surprise",   "Surprise Test",          12],
+    ["hyb_pmst",       "Practical MST",          10],
+    ["hyb_quiz",       "Quiz",                    4],
+    ["hyb_assignment", "Assignment / PBL",       10],
+    ["hyb_mst1",       "MST-1 Hybrid",           20],
+    ["hyb_mst2",       "MST-2 Hybrid",           20],
+    ["hyb_endtheory",  "End Term Hybrid Theory", 60],
+  ];
+
+  return (
+    <div style={S.grid}>
+      <div style={S.section}>
+        <h3 style={S.h3}>Practical Evaluations & Theory</h3>
+        {leftFields.map(([key, label, max]) => (
+          <Field key={key} id={key} label={label} max={max}
+            value={data[key] ?? ""}
+            onChange={(v) => handle(key, v)}
+          />
+        ))}
+      </div>
+
+      <div style={S.section}>
+        <h3 style={S.h3}>Practical Worksheets / Projects (10 × 30 max → 2 weighted each)</h3>
+        {worksheetFields.map(([key, label, max]) => (
+          <Field key={key} id={key} label={label} max={max}
+            value={data[key] ?? ""}
+            onChange={(v) => handle(key, v)}
+          />
+        ))}
+      </div>
+
+      <div style={S.section}>
+        <h3 style={S.h3}>Surprise Test, MSTs, Quiz, Assignment, End Term</h3>
+        {rightFields.map(([key, label, max]) => (
+          <Field key={key} id={key} label={label} max={max}
+            value={data[key] ?? ""}
+            onChange={(v) => handle(key, v)}
+          />
+        ))}
+        <p style={{ ...S.hint, marginTop:4 }}>End Term Hybrid Theory is optional — leave blank for internal-only result.</p>
+      </div>
+
+      {result && (
+        <div style={S.resultBox}>
+          <div style={{ ...S.resultRow, borderTop:"none" }}>
+            <span style={S.small}>Internal (70)</span>
+            <span style={{ color:"#eef2ff" }}>{result.internal.toFixed(2)} / {result.internalMax} ({result.internalPct.toFixed(1)}%)</span>
+          </div>
+          {result.endtheoryMax > 0 && (
+            <div style={S.resultRow}>
+              <span style={S.small}>End Term Hybrid Theory (30)</span>
+              <span style={{ color:"#eef2ff" }}>{result.endtheory.toFixed(2)} / {result.endtheoryMax}</span>
+            </div>
+          )}
+          <div style={S.resultRow}>
+            <span style={S.highlight}>Final</span>
+            <span style={S.highlight}>{result.total.toFixed(2)} / {result.totalMax}</span>
+          </div>
+          <div style={S.resultRow}>
+            <span style={S.highlight}>Final %</span>
+            <span style={S.highlight}>{result.pct.toFixed(2)}%</span>
+          </div>
+          <div style={S.progress}>
+            <div style={{ width:`${result.pct}%`, height:"100%", background:"linear-gradient(90deg,#3b82f6,#22c55e)", borderRadius:8, transition:"width 0.45s ease" }} />
+          </div>
+        </div>
+      )}
+
+      <div style={S.bottomBar}>
+        <button style={S.btnReset} onClick={reset}>Reset</button>
+        <button
+          style={{ ...S.btnCalc, ...(_hasErrors ? S.btnCalcDisabled : {}) }}
+          onClick={calculate}
+          disabled={_hasErrors}
+        >
+          Calculate Hybrid (3rd Year CSE)
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export default function Hybrid({ year }) {
   return year === "1" ? <HybridFirstYear /> : <HybridSenior />;
 }

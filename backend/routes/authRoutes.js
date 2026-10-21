@@ -12,36 +12,21 @@ const {
   getMe,
   uploadAvatar,
   updateProfile,
+  completeOnboarding,
 } = require("../controllers/authController");
 
 const authMiddleware = require("../middleware/authMiddleware");
 
-console.log("register:", typeof register);
-console.log("login:", typeof login);
-console.log("getMe:", typeof getMe);
-console.log("uploadAvatar:", typeof uploadAvatar);
-console.log("updateProfile:", typeof updateProfile);
-console.log("authMiddleware:", typeof authMiddleware);
-console.log("passport.authenticate:", typeof passport.authenticate);
 
-const avatarStorage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    const dir = path.join(__dirname, "../uploads/avatars");
-    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-    cb(null, dir);
-  },
-  filename: (req, file, cb) => {
-    const ext = path.extname(file.originalname).toLowerCase() || ".jpg";
-    cb(null, `avatar_${req.user.id}${ext}`);
-  },
-});
-
+// Keep the file in memory; the controller streams it to Cloudinary.
 const avatarUpload = multer({
-  storage: avatarStorage,
+  storage: multer.memoryStorage(),
   limits: { fileSize: 2 * 1024 * 1024 }, // 2 MB
   fileFilter: (req, file, cb) => {
     if (!["image/jpeg", "image/png", "image/jpg"].includes(file.mimetype)) {
-      return cb(new Error("Only JPG/PNG images are allowed"), false);
+      const err = new Error("Only JPG/PNG images are allowed");
+      err.status = 400;
+      return cb(err, false);
     }
     cb(null, true);
   },
@@ -52,12 +37,21 @@ router.post("/login",    login);
 
 router.get ("/me",           authMiddleware, getMe);
 router.put ("/profile",      authMiddleware, updateProfile);
+router.post("/onboarding/complete", authMiddleware, completeOnboarding);
 router.post(
   "/upload-avatar",
   authMiddleware,
   avatarUpload.single("avatar"),
   uploadAvatar
 );
+
+// If a provider has no credentials configured, send the user back to the login
+// page with a readable error instead of a 500 "Unknown authentication strategy".
+router.use(["/google", "/github", "/microsoft"], (req, res, next) => {
+  const provider = req.baseUrl.split("/").pop() || req.path.split("/")[1];
+  if (passport.enabledProviders?.has(provider)) return next();
+  res.redirect(`${process.env.FRONTEND_URL}/login?error=${provider}_unavailable`);
+});
 
 router.get(
   "/google",
@@ -72,14 +66,70 @@ router.get(
   }),
   (req, res) => {
     const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
- 
+  
     const user = {
       id:     req.user._id,
       name:   req.user.name,
       email:  req.user.email,
       avatar: req.user.avatar,
+      role: req.user.role,
+      onboardingCompleted: req.user.onboardingCompleted,
     };
- 
+  
+    const params = new URLSearchParams({ token, user: JSON.stringify(user) });
+    res.redirect(`${process.env.FRONTEND_URL}/auth/callback?${params}`);
+  }
+);
+
+// GitHub OAuth
+router.get(
+  "/github",
+  passport.authenticate("github", { scope: ["user:email"], session: false })
+);
+
+router.get(
+  "/github/callback",
+  passport.authenticate("github", {
+    failureRedirect: `${process.env.FRONTEND_URL}/login?error=github_failed`,
+    session: false,
+  }),
+  (req, res) => {
+    const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
+    const user = {
+      id: req.user._id,
+      name: req.user.name,
+      email: req.user.email,
+      avatar: req.user.avatar,
+      role: req.user.role,
+      onboardingCompleted: req.user.onboardingCompleted,
+    };
+    const params = new URLSearchParams({ token, user: JSON.stringify(user) });
+    res.redirect(`${process.env.FRONTEND_URL}/auth/callback?${params}`);
+  }
+);
+
+// Microsoft OAuth
+router.get(
+  "/microsoft",
+  passport.authenticate("microsoft", { scope: ["user.read"], session: false })
+);
+
+router.get(
+  "/microsoft/callback",
+  passport.authenticate("microsoft", {
+    failureRedirect: `${process.env.FRONTEND_URL}/login?error=microsoft_failed`,
+    session: false,
+  }),
+  (req, res) => {
+    const token = jwt.sign({ id: req.user._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
+    const user = {
+      id: req.user._id,
+      name: req.user.name,
+      email: req.user.email,
+      avatar: req.user.avatar,
+      role: req.user.role,
+      onboardingCompleted: req.user.onboardingCompleted,
+    };
     const params = new URLSearchParams({ token, user: JSON.stringify(user) });
     res.redirect(`${process.env.FRONTEND_URL}/auth/callback?${params}`);
   }

@@ -17,8 +17,7 @@ import {
 } from "lucide-react";
 
 import { useAuth } from "../../../context/AuthContext";
-import "../styles/global.css";
-import "../styles/quizEngine.css";
+import "./QuizPage.css";
 
 const QUESTION_COUNT = 10;
 
@@ -209,12 +208,11 @@ export default function QuizPage() {
 
   if (phase === "error") {
     return (
-      <div className="quiz-ready-card">
+      <div className="quiz-ready-card card card-mini">
         <h2>Error</h2>
         <p>{error}</p>
-        <button className="quiz-action-btn" onClick={startQuiz}>
-          <RotateCcw size={17} />
-          Retry
+        <button className="btn btn-primary" onClick={startQuiz}>
+          <RotateCcw size={17} /> Retry
         </button>
       </div>
     );
@@ -222,14 +220,13 @@ export default function QuizPage() {
 
   if (phase === "ready") {
     return (
-      <div className="quiz-ready-card">
+      <div className="quiz-ready-card card card-mini">
         <span className="quiz-result-icon">
           <Trophy size={34} />
         </span>
         <h1>{topic?.name}</h1>
         <button
-          className="quiz-action-btn primary"
-
+          className="btn btn-primary"
           onClick={() => {
             trackEvent("quiz_start", {
               topic_name: topic?.name,
@@ -253,7 +250,7 @@ export default function QuizPage() {
 
   return (
     <div className="quiz-shell">
-      <div className="quiz-play-card">
+      <div className="quiz-play-card card card-panel">
         <div className="quiz-play-header">
           <div className="quiz-progress-text">
             <CheckCircle2 size={18} />
@@ -268,7 +265,7 @@ export default function QuizPage() {
 
         <h2 className="quiz-question-title">{q.text}</h2>
         {multi && (
-          <div className="quiz-multi-hint" style={{ fontSize: "0.85rem", color: "var(--text-2)", marginBottom: "12px" }}>
+          <div className="quiz-multi-hint">
             Multiple correct answers possible. Select all that apply.
           </div>
         )}
@@ -283,19 +280,19 @@ export default function QuizPage() {
             const isSelected = selected.includes(i);
             const isMulti = isMultiSelect(q);
 
-           const correctSet = new Set([].concat(q.correctAnswer ?? []));
-           const isCorrect = revealed && correctSet.has(i);
-           const isWrong = revealed && isSelected && !correctSet.has(i);
+            const correctSet = new Set([].concat(q.correctAnswer ?? []));
+            const isCorrect = revealed && correctSet.has(i);
+            const isWrong = revealed && isSelected && !correctSet.has(i);
 
             return (
               <button
                 key={i}
                 onClick={() => handleToggleOption(i)}
                 disabled={revealed}
-                className={`quiz-option ${isMulti ? "is-multi" : ""} ${!revealed && isSelected ? "is-selected" : ""} ${isCorrect ? "is-correct" : ""} ${isWrong ? "is-wrong" : ""}`}
+                className={`quiz-option ${multi ? "is-multi" : ""} ${!revealed && isSelected ? "is-selected" : ""} ${isCorrect ? "is-correct" : ""} ${isWrong ? "is-wrong" : ""}`}
               >
-                <span className={`quiz-option-indicator ${isMulti ? "checkbox" : "radio"}`}>
-                  {isSelected ? <Check size={16} /> : isMulti ? <Square size={16} /> : null}
+                <span className={`quiz-option-indicator ${multi ? "checkbox" : "radio"}`}>
+                  {isSelected ? <Check size={16} /> : multi ? <Square size={16} /> : null}
                 </span>
                 <span className="quiz-option-letter">{["A", "B", "C", "D"][i]}</span>
                 <span style={{ flex: 1 }}>{opt}</span>
@@ -316,8 +313,8 @@ export default function QuizPage() {
 
         {revealed && (
           <button
-            className="quiz-action-btn primary"
-            style={{ marginTop: "20px" }}
+            className="btn btn-primary"
+            style={{ marginTop: "var(--space-lg)", width: "100%" }}
             onClick={handleNext}
           >
             {current + 1 >= questions.length ? "Submit" : "Next"}
@@ -327,8 +324,8 @@ export default function QuizPage() {
 
         {!revealed && (
           <button
-            className="quiz-action-btn primary"
-            style={{ marginTop: "20px" }}
+            className="btn btn-primary"
+            style={{ marginTop: "var(--space-lg)", width: "100%" }}
             onClick={handleConfirmAnswer}
             disabled={!multi && selected.length === 0}
           >
@@ -339,4 +336,8 @@ export default function QuizPage() {
       </div>
     </div>
   );
+}
+
+function isMultiSelect(question) {
+  return question?.correctAnswer && Array.isArray(question.correctAnswer) && question.correctAnswer.length > 1;
 }

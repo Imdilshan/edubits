@@ -1,145 +1,228 @@
-import { lazy, Suspense } from "react";
-import { Link } from "react-router-dom";
-import "./homepage.css";
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 import { trackEvent } from "../../utils/analytics";
 
 import {
+  BookOpen,
+  Zap,
   Calculator,
   ClipboardCheck,
   CheckSquare,
-  BookOpen,
-  FolderKanban,
-  BookMarked,
-  Zap,
-  Rocket,
+  GitBranch,
+  Globe,
+  Mail,
+  ChevronRight,
 } from "lucide-react";
 
-const HomeFooter = lazy(() => import("./HomeFooter"));
+import "./homepage.css";
 
-const tools = [
+const examPrepTools = [
   {
-    href: "/pyqs",
+    href: "/resources",
     icon: <BookOpen />,
     name: "Resources",
-    desc: "Important questions, PYQs and playlists for last night preparation.",
-    tag: "Practice",
-    cardClass: "card-purple",
-    iconClass: "icon-purple",
-    tagClass: "tag-purple",
+    desc: "PYQs, playlists & notes for exam prep",
+    tag: "Exam prep",
   },
   {
     href: "/quizzes",
     icon: <Zap />,
     name: "QuizEngine",
-    desc: "Prepare for viva with MCQ based quiz practice.",
-    tag: "Practice",
-    cardClass: "card-yellow",
-    iconClass: "icon-yellow",
-    tagClass: "tag-yellow",
+    desc: "Viva & NPTEL prep with timed MCQs",
+    tag: "Exam prep",
   },
+];
+
+const otherTools = [
   {
     href: "/sgpa",
     icon: <Calculator />,
     name: "SGPA & CGPA Calculator",
-    desc: "Calculate your SGPA and CGPA instantly.",
+    desc: "Semester & cumulative grade calculator",
     tag: "Calculator",
-    cardClass: "card-blue",
-    iconClass: "icon-blue",
-    tagClass: "tag-blue",
   },
   {
     href: "/internal",
     icon: <ClipboardCheck />,
     name: "Internal Marks Calculator",
-    desc: "Calculate Theory, Hybrid, Practical and DCPD subject internal marks.",
+    desc: "Theory, Hybrid, Practical & DCPD marks",
     tag: "Calculator",
-    cardClass: "card-red",
-    iconClass: "icon-red",
-    tagClass: "tag-red",
   },
   {
     href: "/tasks",
     icon: <CheckSquare />,
     name: "Task Tracker",
-    desc: "Track lab assessments, deadlines and submissions, so you never forget them.",
+    desc: "Deadline-first task & lab manager",
     tag: "Tracker",
-    cardClass: "card-cyan",
-    iconClass: "icon-cyan",
-    tagClass: "tag-cyan",
-  },
-  {
-    href: "/tracker",
-    icon: <BookMarked />,
-    name: "Engineering Tracker",
-    desc: "Track your engineering life, your wins, losses and learnings.",
-    tag: "Tracker",
-    cardClass: "card-green",
-    iconClass: "icon-green",
-    tagClass: "tag-green",
   },
 ];
 
+// VITE_API_URL already ends in /api (e.g. https://api.example.com/api).
+// Using it keeps OAuth links working on Vercel, where "/api/..." would
+// otherwise be rewritten to index.html.
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001/api";
+
+const oauthProviders = [
+  { name: "Google", icon: <Mail />, href: `${API_URL}/auth/google`, color: "var(--danger)" },
+  { name: "GitHub", icon: <GitBranch />, href: `${API_URL}/auth/github`, color: "#24292e" },
+  { name: "Microsoft", icon: <Globe />, href: `${API_URL}/auth/microsoft`, color: "#0078d4" },
+];
+
 export default function HomePage() {
+  const { token } = useAuth();
+  const navigate = useNavigate();
+
+  // Logged-in users never see the landing page
+  useEffect(() => {
+    if (token) navigate("/resources", { replace: true });
+  }, [token, navigate]);
+
+  if (token) return null;
+
+  const handleOAuthClick = (e, providerName) => {
+    e.preventDefault();
+    trackEvent("oauth_login_click", { provider: providerName });
+    window.location.assign(e.currentTarget.href);
+  };
+
   return (
     <div className="hp-everything">
-      <div className="hp-hero">
-        <h1>
-          Engineering made
-          <br />
-          <span>Easier</span>
-        </h1>
-        <div className="hp-hero-cta">
-          <a href="#tools" className="hp-btn-primary">
-            {" "}
-            <Rocket className="hp-btn-icon" /> Get Started
-          </a>
-        </div>
-      </div>
+      <main className="hp-main">
+        <header className="hp-hero">
+          <h1 className="hp-headline">
+            Engineering made
+            <br />
+            <span>Easier</span>
+          </h1>
+          <p className="hp-tagline">Your all-in-one academic toolkit for CU engineering</p>
 
-      <div className="hp-section" id="tools">
-        <div className="hp-section-label">All Tools</div>
-        <div className="hp-tools-grid">
-          {tools.map((t, i) =>
-            t.comingSoon ? (
-              <div
-                className={`hp-tool-card ${t.cardClass} hp-tool-card--soon`}
-                key={i}
-              >
-                <div className="hp-coming-soon-badge">Coming Soon</div>
-                <div className={`hp-tool-icon ${t.iconClass}`}>{t.icon}</div>
-                <div className="hp-tool-name">{t.name}</div>
-                <div className="hp-tool-desc">{t.desc}</div>
-                <div className="hp-tool-footer">
-                  <span className={`hp-tool-tag ${t.tagClass}`}>{t.tag}</span>
-                </div>
-              </div>
-            ) : (
-              <Link
-                to={t.href}
-                className={`hp-tool-card ${t.cardClass}`}
-                key={i}
-                onClick={() =>
-                  trackEvent("tool_open", {
-                  tool_name: t.name,
-                  tool_tag: t.tag,
-                }) }
-              >
-                <div className={`hp-tool-icon ${t.iconClass}`}>{t.icon}</div>
-                <div className="hp-tool-name">{t.name}</div>
-                <div className="hp-tool-desc">{t.desc}</div>
-                <div className="hp-tool-footer">
-                  <span className={`hp-tool-tag ${t.tagClass}`}>{t.tag}</span>
-                  <span className="hp-arrow">↗</span>
-                </div>
-              </Link>
-            ),
-          )}
-        </div>
-      </div>
+          <div className="hp-auth-buttons">
+            <a
+              href="/login"
+              className="hp-btn hp-btn-secondary"
+              onClick={() => { trackEvent("auth_click", { type: "login", method: "email" }); }}
+            >
+              <Mail size={18} /> Log in
+            </a>
+            <a
+              href="/register"
+              className="hp-btn hp-btn-primary"
+              onClick={() => { trackEvent("auth_click", { type: "register", method: "email" }); }}
+            >
+              <Mail size={18} /> Sign up
+            </a>
+          </div>
 
-      <Suspense fallback={null}>
-        <HomeFooter />
-      </Suspense>
+          <div className="hp-divider">
+            <span>or continue with</span>
+          </div>
+
+          <div className="hp-oauth-buttons">
+            {oauthProviders.map((p) => (
+              <a
+                key={p.name}
+                href={p.href}
+                className="hp-btn hp-btn-oauth"
+                style={{ borderColor: p.color }}
+                onClick={(e) => handleOAuthClick(e, p.name)}
+              >
+                <span className="hp-oauth-icon" style={{ color: p.color }}>{p.icon}</span>
+                <span>{p.name}</span>
+              </a>
+            ))}
+          </div>
+        </header>
+
+        <section className="hp-tools-section">
+          <div className="hp-tool-group">
+            <h2 className="hp-group-title">Popular <span className="hp-group-sub">Most used</span></h2>
+            <div className="hp-tool-grid hp-tool-grid--featured">
+              {examPrepTools.map((tool, i) => (
+                <Link
+                  key={tool.href}
+                  to={tool.href}
+                  className="hp-tool-card hp-tool-card--featured"
+                  onClick={() => trackEvent("tool_open", { tool_name: tool.name, tool_group: "exam_prep" })}
+                  style={{ animationDelay: `${i * 0.08}s` }}
+                >
+                  <div className="hp-tool-icon hp-tool-icon--large">{tool.icon}</div>
+                  <div className="hp-tool-content">
+                    <h3 className="hp-tool-name">{tool.name}</h3>
+                    <p className="hp-tool-desc">{tool.desc}</p>
+                  </div>
+                  <span className="hp-tool-arrow"><ChevronRight size={20} /></span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="hp-tool-group">
+            <h2 className="hp-group-title">Other tools</h2>
+            <div className="hp-tool-grid">
+              {otherTools.map((tool, i) => (
+                <Link
+                  key={tool.href}
+                  to={tool.href}
+                  className="hp-tool-card"
+                  onClick={() => trackEvent("tool_open", { tool_name: tool.name, tool_group: "other" })}
+                  style={{ animationDelay: `${i * 0.06}s` }}
+                >
+                  <div className="hp-tool-icon">{tool.icon}</div>
+                  <div className="hp-tool-content">
+                    <h3 className="hp-tool-name">{tool.name}</h3>
+                    <p className="hp-tool-desc">{tool.desc}</p>
+                  </div>
+                  <span className="hp-tool-tag">{tool.tag}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="hp-footer">
+        <div className="hp-footer-grid">
+          <div className="hp-footer-brand">
+            <span className="hp-footer-logo">Edubits</span>
+            <p className="hp-footer-desc">Built by students, for students at Chandigarh University.</p>
+          </div>
+          <nav className="hp-footer-nav">
+            <h4>Product</h4>
+            <ul>
+              <li><Link to="/resources">Resources</Link></li>
+              <li><Link to="/quizzes">QuizEngine</Link></li>
+              <li><Link to="/sgpa">SGPA & CGPA</Link></li>
+              <li><Link to="/internal">Internal Marks</Link></li>
+              <li><Link to="/tasks">Task Tracker</Link></li>
+            </ul>
+          </nav>
+          <nav className="hp-footer-nav">
+            <h4>Company</h4>
+            <ul>
+              <li><Link to="/about">About</Link></li>
+              <li><a href="#" target="_blank" rel="noopener noreferrer">Blog</a></li>
+              <li><a href="#" target="_blank" rel="noopener noreferrer">Careers</a></li>
+            </ul>
+          </nav>
+          <nav className="hp-footer-nav">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#" target="_blank" rel="noopener noreferrer">Privacy</a></li>
+              <li><a href="#" target="_blank" rel="noopener noreferrer">Terms</a></li>
+              <li><a href="#" target="_blank" rel="noopener noreferrer">Cookies</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div className="hp-footer-bottom">
+          <p>&copy; {new Date().getFullYear()} Edubits. All rights reserved.</p>
+          <div className="hp-footer-social">
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><GitBranch size={18} /></a>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><Globe size={18} /></a>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Discord"><Mail size={18} /></a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

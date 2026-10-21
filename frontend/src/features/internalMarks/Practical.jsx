@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
-import { getNum } from "../../utils/marksUtils";
+import { getNum, validateAll } from "../../utils/marksUtils";
+import "./InternalMarksPage.css";
 
 const S = {
   grid:    { display:"grid", gridTemplateColumns:"1fr 1fr", gap:14, alignItems:"start" },
@@ -241,6 +242,140 @@ function PracticalSenior() {
   );
 }
 
-export default function Practical({ year }) {
+// ── 3rd Year Practical (CSE) ────────────────────────────────────────────────────
+// External Viva/Voce          40 → 40
+// Experiment-1                30 → 4.5
+// Experiment-2                30 → 4.5
+// Experiment-3                30 → 4.5
+// Experiment-3                30 → 4.5
+// Experiment-4                30 → 4.5
+// Experiment-5                30 → 4.5
+// Experiment-6                30 → 4.5
+// Experiment-7                30 → 4.5
+// Experiment-8                30 → 4.5
+// Experiment-9                30 → 4.5
+// Experiment-10               30 → 4.5
+// Mid-Term Test               15 → 15
+// Total: 100 weighted marks
+function PracticalThirdYearCSE() {
+  const [data, setData] = useState({});
+  const [result, setResult] = useState(null);
+
+  const limits = {
+    prc_viva:40,
+    prc_exp1:30, prc_exp2:30, prc_exp3:30, prc_exp4:30,
+    prc_exp5:30, prc_exp6:30, prc_exp7:30, prc_exp8:30,
+    prc_exp9:30, prc_exp10:30,
+    prc_midterm:15,
+  };
+
+  const handle = (k, v) => setData(p => ({ ...p, [k]: v }));
+  const reset  = () => { setData({}); setResult(null); };
+
+  const calculate = () => {
+    const { ok } = validateAll(data, limits);
+    if (!ok) return;
+
+    const g = (k, max) => getNum(data[k], max);
+
+    // External Viva/Voce: 40 max → 40 weighted
+    const viva = g("prc_viva", 40) / 40 * 40;
+
+    // 10 Experiments: each 30 max → 4.5 weighted
+    const exp1  = g("prc_exp1", 30) / 30 * 4.5;
+    const exp2  = g("prc_exp2", 30) / 30 * 4.5;
+    const exp3  = g("prc_exp3", 30) / 30 * 4.5;
+    const exp4  = g("prc_exp4", 30) / 30 * 4.5;
+    const exp5  = g("prc_exp5", 30) / 30 * 4.5;
+    const exp6  = g("prc_exp6", 30) / 30 * 4.5;
+    const exp7  = g("prc_exp7", 30) / 30 * 4.5;
+    const exp8  = g("prc_exp8", 30) / 30 * 4.5;
+    const exp9  = g("prc_exp9", 30) / 30 * 4.5;
+    const exp10 = g("prc_exp10", 30) / 30 * 4.5;
+
+    // Mid-Term Test: 15 max → 15 weighted
+    const midterm = g("prc_midterm", 15) / 15 * 15;
+
+    const total = viva + exp1 + exp2 + exp3 + exp4 + exp5 + exp6 + exp7 + exp8 + exp9 + exp10 + midterm;
+    const totalMax = 100;
+
+    setResult({ total, max: totalMax, pct: (total / totalMax) * 100 });
+  };
+
+  const fields = [
+    ["prc_viva", "External Viva / Voce", 40],
+    ["prc_exp1", "Experiment-1", 30],
+    ["prc_exp2", "Experiment-2", 30],
+    ["prc_exp3", "Experiment-3", 30],
+    ["prc_exp4", "Experiment-4", 30],
+    ["prc_exp5", "Experiment-5", 30],
+    ["prc_exp6", "Experiment-6", 30],
+    ["prc_exp7", "Experiment-7", 30],
+    ["prc_exp8", "Experiment-8", 30],
+    ["prc_exp9", "Experiment-9", 30],
+    ["prc_exp10", "Experiment-10", 30],
+    ["prc_midterm", "Mid-Term Test", 15],
+  ];
+
+  return (
+    <div style={S.grid}>
+      <div style={S.section}>
+        <h3 style={S.h3}>Practical Subject (3rd Year CSE)</h3>
+        {fields.map(([key, label, max]) => (
+          <Field key={key} id={key} label={label} max={max}
+            value={data[key] ?? ""}
+            onChange={(v) => handle(key, v)}
+          />
+        ))}
+        <p style={{ ...S.hint, marginTop:4 }}>All fields are required for 3rd Year CSE Practical.</p>
+      </div>
+
+      <div style={S.section}>
+        <h3 style={S.h3}>Output</h3>
+        {result ? (
+          <div>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"6px 0", color:"#dde8f0", fontSize:14 }}>
+              <span style={S.small}>External Viva/Voce (40)</span>
+              <span style={{ color:"#eef2ff" }}>{(result.total * 40 / 100).toFixed(2)} / 40</span>
+            </div>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"6px 0", borderTop:"1px solid rgba(255,255,255,0.06)" }}>
+              <span style={S.small}>Experiments 1-10 (4.5 each = 45)</span>
+              <span style={{ color:"#eef2ff" }}>{(result.total * 45 / 100).toFixed(2)} / 45</span>
+            </div>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"6px 0", borderTop:"1px solid rgba(255,255,255,0.06)" }}>
+              <span style={S.small}>Mid-Term Test (15)</span>
+              <span style={{ color:"#eef2ff" }}>{(result.total * 15 / 100).toFixed(2)} / 15</span>
+            </div>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"6px 0", borderTop:"1px solid rgba(255,255,255,0.06)" }}>
+              <span style={S.highlight}>Final</span>
+              <span style={S.highlight}>{result.total.toFixed(2)} / {result.max}</span>
+            </div>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"6px 0", borderTop:"1px solid rgba(255,255,255,0.06)" }}>
+              <span style={S.small}>Percentage</span>
+              <span style={S.highlight}>{result.pct.toFixed(2)}%</span>
+            </div>
+            <div style={S.progress}>
+              <div style={{ width:`${result.pct}%`, height:"100%", background:"linear-gradient(90deg,#3b82f6,#22c55e)", borderRadius:8, transition:"width 0.4s ease" }} />
+            </div>
+          </div>
+        ) : (
+          <p style={{ color:"#6b7280", fontSize:13, margin:0 }}>Fill in marks and click Calculate.</p>
+        )}
+      </div>
+
+      <div style={S.bottomBar}>
+        <button style={S.btnReset} onClick={reset}>Reset</button>
+        <button style={S.btnCalc} onClick={calculate}>Calculate Practical (3rd Year CSE)</button>
+      </div>
+    </div>
+  );
+}
+
+export default function Practical({ year, program }) {
+  // For 3rd year CSE, use the new PracticalThirdYearCSE
+  if (program === "cse" && year === "3") {
+    return <PracticalThirdYearCSE />;
+  }
+  // For other years/programs, use the original logic
   return year === "1" ? <PracticalFirstYear /> : <PracticalSenior />;
 }

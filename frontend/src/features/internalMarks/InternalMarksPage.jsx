@@ -4,115 +4,226 @@ import Theory    from "./Theory";
 import Practical from "./Practical";
 import Aptitude  from "./Aptitude";
 import SoftSkill from "./SoftSkill";
-import "../../styles/internalMarks.css";
+import "./InternalMarksPage.css";
 
-import { ClipboardCheck } from "lucide-react";
+import { ClipboardCheck, BookOpen, FlaskConical, Wrench, Brain, Users, GraduationCap, Cpu } from "lucide-react";
 
-const YEAR_BTN = {
-  base: {
-    padding: "7px 20px",
-    borderRadius: 8,
-    border: "1px solid rgba(255,255,255,0.15)",
-    fontFamily: "'DM Sans', sans-serif",
-    fontWeight: 700,
-    fontSize: 13,
-    cursor: "pointer",
-    transition: "all 0.15s",
+const PROGRAM_OPTIONS = [
+  { key: "cse", label: "BE CSE", description: "General Computer Science Engineering", icon: GraduationCap },
+  { key: "ait", label: "BE CSE (AIT)", description: "Data Science & AIML Specializations", icon: Cpu },
+];
+
+const YEAR_OPTIONS = {
+  cse: [
+    { key: "1", label: "1st Year" },
+    { key: "2", label: "2nd Year" },
+    { key: "3", label: "3rd Year" },
+    { key: "senior", label: "4th Year" },
+  ],
+  ait: [
+    { key: "3", label: "3rd Year (Data Science)" },
+    { key: "4", label: "4th Year (AIML)" },
+  ],
+};
+
+const TAB_CONFIG = {
+  cse: {
+    "1": [
+      { key: "hybrid",    label: "Hybrid",    icon: FlaskConical,    color: "var(--danger)",   desc: "Theory + Practical combined (e.g., Physics, Chemistry)" },
+      { key: "theory",    label: "Theory",    icon: BookOpen,        color: "var(--primary)",  desc: "Pure theory subjects (e.g., Mathematics, English)" },
+      { key: "practical", label: "Practical", icon: Wrench,          color: "var(--success)",  desc: "Pure lab subjects (e.g., Workshop, Programming Lab)" },
+      { key: "aptitude",  label: "Aptitude",  icon: Brain,           color: "var(--warning)",  desc: "Aptitude/Soft skills (e.g., Communication, Reasoning)" },
+    ],
+    "2": [
+      { key: "hybrid",    label: "Hybrid",    icon: FlaskConical,    color: "var(--danger)",   desc: "Theory + Practical (e.g., Data Structures, DBMS, COA)" },
+      { key: "theory",    label: "Theory",    icon: BookOpen,        color: "var(--primary)",  desc: "Pure theory (e.g., Discrete Math, OS Theory)" },
+      { key: "practical", label: "Practical", icon: Wrench,          color: "var(--success)",  desc: "Pure lab (e.g., DS Lab, DBMS Lab, OS Lab)" },
+      { key: "aptitude",  label: "Aptitude",  icon: Brain,           color: "var(--warning)",  desc: "Aptitude tests (Quant, Logic, Verbal)" },
+    ],
+    "3": [
+      { key: "hybrid",    label: "Hybrid",    icon: FlaskConical,    color: "var(--danger)",   desc: "Theory + Practical (e.g., CN, SE, ML, Compiler Design)" },
+      { key: "theory",    label: "Theory",    icon: BookOpen,        color: "var(--primary)",  desc: "Pure theory (e.g., AI Theory, Cloud Computing)" },
+      { key: "practical", label: "Practical", icon: Wrench,          color: "var(--success)",  desc: "Pure lab (e.g., CN Lab, ML Lab, Project Work)" },
+      { key: "aptitude",  label: "Aptitude",  icon: Brain,           color: "var(--warning)",  desc: "Placement prep (Coding, Aptitude, GD/PI)" },
+    ],
+    "senior": [
+      { key: "hybrid",    label: "Hybrid",    icon: FlaskConical,    color: "var(--danger)",   desc: "Theory + Practical (e.g., Electives, Capstone Project)" },
+      { key: "theory",    label: "Theory",    icon: BookOpen,        color: "var(--primary)",  desc: "Pure theory electives (e.g., Blockchain, Cybersecurity)" },
+      { key: "practical", label: "Practical", icon: Wrench,          color: "var(--success)",  desc: "Capstone project, Internship, Major project" },
+      { key: "aptitude",  label: "Aptitude",  icon: Brain,           color: "var(--warning)",  desc: "Final placement preparation" },
+      { key: "softskill", label: "Soft Skill",icon: Users,           color: "var(--primary)",  desc: "Communication, Leadership, Professional ethics" },
+    ],
   },
-  active: {
-    background: "#ef4444",
-    color: "#fff",
-    border: "1px solid #ef4444",
-  },
-  inactive: {
-    background: "transparent",
-    color: "rgba(255,255,255,0.55)",
+  ait: {
+    "3": [
+      { key: "hybrid",    label: "Hybrid (DS)", icon: FlaskConical,    color: "var(--danger)",   desc: "Data Science hybrid subjects (e.g., ML + Lab, Big Data + Lab)" },
+      { key: "theory",    label: "Theory (DS)", icon: BookOpen,        color: "var(--primary)",  desc: "Data Science theory (Statistics, ML Theory, Deep Learning)" },
+      { key: "practical", label: "Practical", icon: Wrench,          color: "var(--success)",  desc: "DS labs (Python/R, TensorFlow, Data Viz)" },
+      { key: "aptitude",  label: "Aptitude",  icon: Brain,           color: "var(--warning)",  desc: "DS interviews (Statistics, ML case studies)" },
+    ],
+    "4": [
+      { key: "hybrid",    label: "Hybrid (AIML)", icon: FlaskConical,    color: "var(--danger)",   desc: "AIML hybrid (Neural Networks + Lab, CV/NLP + Lab)" },
+      { key: "theory",    label: "Theory (AIML)", icon: BookOpen,        color: "var(--primary)",  desc: "AIML theory (Transformers, RL, Generative AI)" },
+      { key: "practical", label: "Practical", icon: Wrench,          color: "var(--success)",  desc: "AIML labs (PyTorch, Model deployment, MLOps)" },
+      { key: "aptitude",  label: "Aptitude",  icon: Brain,           color: "var(--warning)",  desc: "AI/ML interviews (System design, Model optimization)" },
+    ],
   },
 };
 
-export default function InternalMarksPage() {
-  const [year, setYear] = useState("senior"); // "1" | "senior"
-  const [tab,  setTab]  = useState("hybrid");
+const SUBJECT_EXAMPLES = {
+  hybrid: [
+    "Data Structures & Algorithms + Lab",
+    "Database Management Systems + Lab",
+    "Computer Networks + Lab",
+    "Machine Learning + Lab",
+    "Operating Systems + Lab",
+    "Computer Architecture + Lab",
+  ],
+  theory: [
+    "Discrete Mathematics",
+    "Operating Systems (Theory)",
+    "Compiler Design",
+    "Artificial Intelligence (Theory)",
+    "Cryptography & Network Security",
+    "Distributed Systems",
+  ],
+  practical: [
+    "Data Structures Lab",
+    "DBMS Lab",
+    "Computer Networks Lab",
+    "Machine Learning Lab",
+    "OS Lab / Shell Programming",
+    "Project Work / Capstone",
+  ],
+  aptitude: [
+    "Quantitative Aptitude",
+    "Logical Reasoning",
+    "Verbal Ability",
+    "Data Interpretation",
+    "Coding Problems (DSA)",
+    "Group Discussion / PI Prep",
+  ],
+  softskill: [
+    "Technical Communication",
+    "Professional Ethics",
+    "Leadership & Teamwork",
+    "Resume Building",
+    "Mock Interviews",
+    "Presentation Skills",
+  ],
+};
 
-  const switchYear = (y) => {
-    setYear(y);
-    setTab("hybrid"); // reset tab on year switch
+export default function InternalMarksPage() {
+  const [program, setProgram] = useState("cse");
+  const [year, setYear] = useState("senior");
+  const [tab, setTab] = useState("hybrid");
+
+  const switchProgram = (p) => {
+    setProgram(p);
+    // YEAR_OPTIONS[p] is an array of { key, label }, so take the first key
+    setYear((YEAR_OPTIONS[p] || [])[0]?.key);
+    setTab("hybrid");
   };
 
-  // Tabs vary by year
-  const tabs = year === "1"
-    ? [
-        { key: "hybrid",    label: "Hybrid Subject"    },
-        { key: "theory",    label: "Theory Subject"    },
-        { key: "practical", label: "Practical Subject" },
-        { key: "aptitude",  label: "Aptitude"          },
-      ]
-    : [
-        { key: "hybrid",    label: "Hybrid Subject"    },
-        { key: "theory",    label: "Theory Subject"    },
-        { key: "practical", label: "Practical Subject" },
-        { key: "aptitude",  label: "Aptitude"          },
-        { key: "softskill", label: "Soft Skill"        },
-      ];
+  const tabs = (TAB_CONFIG[program] && TAB_CONFIG[program][year]) || [];
+
+  // Find current tab config for description
+  const currentTab = tabs.find(t => t.key === tab);
+  const desc = currentTab?.desc;
 
   return (
     <div className="internal-container">
-
-      <h1
-        className="internal-title"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "10px",
-          lineHeight: 1,
-          color: "#ef4444",
-          fontFamily: "'DM Sans', sans-serif",
-          fontWeight: 800,
-          letterSpacing: "-0.02em",
-        }}
-      >
-        <ClipboardCheck size={30} strokeWidth={2.3} style={{ color: "#ef4444" }} />
-        Internal Marks Calculator
-      </h1>
-
-      {/* ── Year Toggle ── */}
-      <div style={{ display:"flex", justifyContent:"center", gap:8, margin:"12px 0 20px" }}>
-        <button
-          style={{ ...YEAR_BTN.base, ...(year === "1" ? YEAR_BTN.active : YEAR_BTN.inactive) }}
-          onClick={() => switchYear("1")}
-        >
-          1st Year
-        </button>
-        <button
-          style={{ ...YEAR_BTN.base, ...(year === "senior" ? YEAR_BTN.active : YEAR_BTN.inactive) }}
-          onClick={() => switchYear("senior")}
-        >
-          2nd Year
-        </button>
+      <div className="internal-header">
+        <h1 className="internal-title">
+          <ClipboardCheck size={28} strokeWidth={2.2} /> Internal Marks Calculator
+        </h1>
+        <p className="internal-subtitle">Calculate Theory, Hybrid, Practical & Aptitude marks for CU engineering</p>
       </div>
 
-      {/* ── Subject Tabs ── */}
-      <div className="internal-tabs">
-        {tabs.map(({ key, label }) => (
+      {/* Program Selector */}
+      <div className="internal-program-selector">
+        <p className="selector-label">Program</p>
+        <div className="pill-tabs" role="tablist" aria-label="Program">
+          {PROGRAM_OPTIONS.map(({ key, label, icon: Icon }) => (
+            <button
+              key={key}
+              role="tab"
+              aria-selected={program === key}
+              className={`pill-tab ${program === key ? "active" : ""}`}
+              onClick={() => switchProgram(key)}
+              style={{ borderColor: program === key ? "var(--primary)" : "var(--border)" }}
+            >
+              <Icon size={16} style={{ color: program === key ? "inherit" : "var(--muted)" }} />
+              <span>{label}</span>
+            </button>
+          ))}
+        </div>
+        <p className="selector-description">{PROGRAM_OPTIONS.find(p => p.key === program)?.description}</p>
+      </div>
+
+      {/* Year Toggle */}
+      <div className="internal-year-selector">
+        <p className="selector-label">Year</p>
+        <div className="pill-tabs" role="tablist" aria-label="Year">
+          {(YEAR_OPTIONS[program] || []).map(({ key, label }) => (
+            <button
+              key={key}
+              role="tab"
+              aria-selected={year === key}
+              className={`pill-tab ${year === key ? "active" : ""}`}
+              onClick={() => { setYear(key); setTab("hybrid"); }}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Subject Tabs */}
+      <div className="pill-tabs internal-tabs" role="tablist" aria-label="Subject type">
+        {tabs.map(({ key, label, icon: Icon, color, desc }) => (
           <button
             key={key}
-            className={`tab-btn ${key} ${tab === key ? "active" : ""}`}
+            role="tab"
+            aria-selected={tab === key}
+            className={`pill-tab ${tab === key ? "active" : ""}`}
             onClick={() => setTab(key)}
+            style={{ borderColor: tab === key ? color : "var(--border)", color: tab === key ? color : "var(--text)" }}
+            title={desc}
           >
-            {label}
+            <Icon size={16} style={{ color: tab === key ? "inherit" : color }} />
+            <span>{label}</span>
           </button>
         ))}
       </div>
 
-      <div className="internal-card">
-        {tab === "hybrid"    && <Hybrid    year={year} />}
-        {tab === "theory"    && <Theory    year={year} />}
-        {tab === "practical" && <Practical year={year} />}
-        {tab === "aptitude"  && <Aptitude  year={year} />}
+      {/* Subject Type Explanation */}
+      {desc && (
+        <div className="subject-explanation">
+          <span className="explanation-icon">ℹ</span>
+          <span>{desc}</span>
+        </div>
+      )}
+
+      {/* Subject Examples */}
+      {SUBJECT_EXAMPLES[tab] && (
+        <div className="subject-examples">
+          <p className="examples-title">Example {tab} subjects:</p>
+          <ul>
+            {SUBJECT_EXAMPLES[tab].map((subj, i) => (
+              <li key={i}>{subj}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <div className="internal-card card card-panel">
+        {tab === "hybrid"    && <Hybrid    year={year} program={program} />}
+        {tab === "theory"    && <Theory    year={year} program={program} />}
+        {tab === "practical" && <Practical year={year} program={program} />}
+        {tab === "aptitude"  && <Aptitude  year={year} program={program} />}
         {tab === "softskill" && <SoftSkill />}
       </div>
-
     </div>
   );
 }

@@ -1,0 +1,174 @@
+/* ============================================================================
+   Edubits v2.0 — Onboarding Modal (Design.md compliant)
+   Uses design system tokens from variables.css
+   ============================================================================ */
+
+.onboarding-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  padding: var(--space-lg);
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.onboarding-modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xxl);
+  width: 100%;
+  max-width: 520px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.3s ease;
+  position: relative;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.onboarding-skip {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  padding: var(--space-xxs) var(--space-sm);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--muted);
+  font-size: var(--text-caption);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.onboarding-skip:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+.onboarding-progress {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.onboarding-step-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-pill);
+  background: var(--border);
+  transition: all 0.3s ease;
+}
+
+.onboarding-step-dot.completed {
+  background: var(--primary);
+}
+
+.onboarding-step-dot.active {
+  background: var(--primary);
+  transform: scale(1.2);
+  box-shadow: 0 0 0 4px rgba(94, 106, 210, 0.2);
+}
+
+.onboarding-content {
+  text-align: center;
+}
+
+.onboarding-illustration {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto var(--space-xl);
+  border-radius: var(--radius-xxl);
+  background: rgba(94, 106, 210, 0.1);
+  border: 1px solid rgba(94, 106, 210, 0.2);
+  color: var(--primary);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.onboarding-illustration.animating {
+  animation: illustrationPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes illustrationPop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.onboarding-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.onboarding-text h2 {
+  font-size: var(--text-headline);
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 var(--space-md);
+  line-height: 1.2;
+}
+
+.onboarding-text p {
+  font-size: var(--text-body);
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.6;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.onboarding-actions {
+  margin-top: var(--space-xl);
+}
+
+.onboarding-actions .btn {
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .onboarding-modal {
+    margin: var(--space-md);
+    max-width: calc(100vw - 48px);
+    padding: var(--space-xl);
+  }
+
+  .onboarding-illustration {
+    width: 100px;
+    height: 100px;
+  }
+
+  .onboarding-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .onboarding-text h2 {
+    font-size: var(--text-display-md);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .onboarding-modal,
+  .onboarding-overlay,
+  .onboarding-illustration {
+    animation: none;
+  }
+}

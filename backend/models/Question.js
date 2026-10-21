@@ -49,6 +49,12 @@ const questionSchema = new mongoose.Schema(
       type: Number,
       default: 30,
     },
+    // New field for v2.0: source of question
+    source: {
+      type: String,
+      enum: ["manual", "pyq", "llm"],
+      default: "manual",
+    },
   },
   { timestamps: true }
 );
@@ -63,4 +69,5 @@ questionSchema.set("toJSON", { virtuals: true });
 questionSchema.set("toObject", { virtuals: true });
 
 questionSchema.index({ topicId: 1, difficulty: 1 });
+questionSchema.index({ source: 1 });
 module.exports = mongoose.model("Question", questionSchema);

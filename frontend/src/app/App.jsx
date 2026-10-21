@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import HomePage from "../features/homepage/HomePage";
+import OnboardingModal from "../features/onboarding/OnboardingModal";
 
 const Navbar = lazy(() => import("../components/layout/Navbar"));
 const Login = lazy(() => import("../pages/Login"));
@@ -13,12 +14,21 @@ const InternalMarksPage = lazy(() => import("../features/internalMarks/InternalM
 const PYQsPage = lazy(() => import("../features/pyqs/PYQsPage"));
 const UGLifeTrackerPage = lazy(() => import("../features/ug-life-tracker/UGLifeTrackerPage"));
 const AdminUpload = lazy(() => import("../pages/AdminUpload"));
+const AdminRoute = lazy(() => import("../components/layout/AdminRoute"));
+
+// Phase 3: Resources pages
+const ResourcesPage = lazy(() => import("../features/resources/pages/ResourcesPage"));
+const YearPage = lazy(() => import("../features/resources/pages/YearPage"));
+const SubjectPage = lazy(() => import("../features/resources/pages/SubjectPage"));
 
 const TopicsPage = lazy(() => import("../features/quiz/pages/TopicsPage"));
 const QuizPage = lazy(() => import("../features/quiz/pages/QuizPage"));
 const ResultsPage = lazy(() => import("../features/quiz/pages/ResultsPage"));
 const LeaderboardPage = lazy(() => import("../features/quiz/pages/LeaderboardPage"));
 const HistoryPage = lazy(() => import("../features/quiz/pages/HistoryPage"));
+
+// Phase 0: Viewer spike
+const ViewerSpike = lazy(() => import("../features/resources/pages/ViewerSpike"));
 
 const ProgrammingPage = lazy(() => import("../features/programming/pages/ProgrammingPage"));
 const TopicProblemsPage = lazy(() => import("../features/programming/pages/TopicProblemsPage"));
@@ -76,7 +86,7 @@ function PublicNavbar() {
 }
 
 function AppInner() {
-  const { token } = useAuth();
+  const { token, showOnboarding, setShowOnboarding } = useAuth();
   const location  = useLocation();
   const isHome    = location.pathname === "/";
 
@@ -94,7 +104,13 @@ function AppInner() {
               <Route path="/sgpa"     element={<SGPAPage />} />
               <Route path="/internal" element={<InternalMarksPage />} />
               <Route path="/pyqs"     element={<PYQsPage />} />
-              <Route path="/admin-upload" element={<AdminUpload />} />
+
+              {/* Phase 3: Resources */}
+              <Route path="/resources" element={<ResourcesPage />} />
+              <Route path="/resources/:year" element={<YearPage />} />
+              <Route path="/resources/:year/:subject" element={<SubjectPage />} />
+
+              <Route path="/admin-upload" element={<AdminRoute><AdminUpload /></AdminRoute>} />
 
               <Route path="/tracker" element={<UGLifeTrackerPage />} />
             
@@ -109,12 +125,16 @@ function AppInner() {
               <Route path="/programming/admin" element={<ProgrammingAdmin />} />
               <Route path="/programming/:topicId" element={<TopicProblemsPage />} />
 
+              {/* Phase 0: Viewer spike test route */}
+              <Route path="/viewer-spike" element={<ViewerSpike />} />
+
               <Route path="/login"    element={<Navigate to="/" />} />
               <Route path="/register" element={<Navigate to="/" />} />
               <Route path="*"         element={<Navigate to="/" />} />
             </Routes>
           </Suspense>
         </div>
+        {showOnboarding && <OnboardingModal isOpen={showOnboarding} onClose={setShowOnboarding} />}
       </div>
     );
   }

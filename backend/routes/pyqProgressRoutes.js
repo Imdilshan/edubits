@@ -7,24 +7,24 @@ const Progress = require("../models/UserPYQProgress");
 router.get("/", auth, async (req, res) => {
   try {
     const docs = await Progress.find({ userId: req.user._id }).lean();
-    res.json(docs);
+    res.json({ success: true, progress: docs });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ success: false, message: err.message });
   }
 });
 
-// PUT /api/pyq-progress/:paperId  — upsert attempted + notes for one paper
-router.put("/:paperId", auth, async (req, res) => {
+// PUT /api/pyq-progress/:paperKey  — upsert attempted + notes for one paper
+router.put("/:paperKey", auth, async (req, res) => {
   try {
     const { attempted, notes } = req.body;
     const doc = await Progress.findOneAndUpdate(
-      { userId: req.user._id, paperId: req.params.paperId },
+      { userId: req.user._id, paperKey: req.params.paperKey },
       { $set: { ...(attempted !== undefined && { attempted }), ...(notes !== undefined && { notes }) } },
       { upsert: true, new: true }
     );
-    res.json(doc);
+    res.json({ success: true, progress: doc });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ success: false, message: err.message });
   }
 });
 

@@ -22,11 +22,13 @@ const handleMulterError = (multerMw) => (req, res, next) => {
 
 router.get("/", protect, async (req, res) => {
   try {
-    const { subject, year, semester } = req.query;
+    const { subject, year, semester, paperKey, variant } = req.query;
     const filter = { isActive: true, resourceType: "pyqs" };
     if (subject)  filter.subject  = subject;
     if (year)     filter.year     = year;
     if (semester) filter.semester = Number(semester);
+    if (paperKey) filter.paperKey = paperKey;
+    if (variant)  filter.variant  = variant;
 
     const pyqss = await Resource.find(filter)
       .sort({ sortOrder: -1, createdAt: -1 })
@@ -42,10 +44,10 @@ router.post(
   "/upload",
   protect,
   adminOnly,
-  handleMulterError(uploadFor("pyqss").single("file")),
+  handleMulterError(uploadFor("pyqs").single("file")),
   async (req, res) => {
     try {
-      const { title, subject, semester, year, paperTag } = req.body;
+      const { title, subject, semester, year, paperTag, paperKey, variant } = req.body;
       const file = req.file;
 
       if (!file) {
@@ -56,6 +58,11 @@ router.post(
         return res.status(400).json({ success: false, message: "title is required." });
       }
 
+      // Validate variant
+      if (variant && !["questions", "solution"].includes(variant)) {
+        return res.status(400).json({ success: false, message: "variant must be 'questions' or 'solution'" });
+      }
+
       const pyqs = await Resource.create({
         title,
         resourceType:           "pyqs",
@@ -63,6 +70,8 @@ router.post(
         semester:               semester ? Number(semester) : undefined,
         year:                   year     || undefined,
         paperTag:               paperTag || undefined,
+        paperKey:               paperKey || undefined,
+        variant:                variant  || "questions",
         url:                    file.path,
         cloudinaryPublicId:     file.filename,
         cloudinaryResourceType: "raw",

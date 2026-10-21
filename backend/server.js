@@ -9,24 +9,43 @@ const passport   = require("./config/passport");
 
 require("./config/cloudinary");
 
+// Fail fast if required secrets are missing
+["MONGO_URI", "JWT_SECRET", "FRONTEND_URL"].forEach((key) => {
+  if (!process.env[key]) {
+    console.error(`Missing required environment variable: ${key}`);
+    process.exit(1);
+  }
+});
+
 const app = express();
+
+// Behind Render/Vercel/etc. there is one proxy hop. Without this, every user
+// shares the proxy's IP and the rate limiter below counts them all together.
+app.set("trust proxy", 1);
 
 connectDB();
 
-const allowedOrigins = [
-  "http://localhost:5173",
-  "http://192.168.0.113:5173",
-  "https://edubits-ten.vercel.app",
-  "https://edubits0.vercel.app",
-];
+// Allowed browser origins. Add extra ones via CORS_ORIGINS (comma-separated).
+const allowedOrigins = new Set(
+  [
+    process.env.FRONTEND_URL,
+    ...(process.env.CORS_ORIGINS || "").split(","),
+    "https://edubits-ten.vercel.app",
+    "https://edubits0.vercel.app",
+    // Local development only
+    ...(process.env.NODE_ENV !== "production"
+      ? ["http://localhost:5173", "http://192.168.0.113:5173"]
+      : []),
+  ]
+    .map((o) => (o || "").trim().replace(/\/$/, ""))
+    .filter(Boolean)
+);
 
 app.use(cors({
   origin: (origin, callback) => {
-    console.log("Origin:", origin);
+    // Requests with no Origin header (curl, health checks, server-to-server)
     if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) return callback(null, true);
-    // Allow all Vercel preview deployments for your project
-    if (/\.vercel\.app$/.test(origin)) return callback(null, true);
+    if (allowedOrigins.has(origin)) return callback(null, true);
     callback(new Error("CORS blocked: " + origin));
   },
   credentials: true,
@@ -45,12 +64,12 @@ app.use(express.json());
 app.use(passport.initialize());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-app.use("/api/pyq-progress", require("./routes/pyqProgressRoutes"));
-
 app.use((req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
   next();
 });
+
+app.use("/api/pyq-progress", require("./routes/pyqProgressRoutes"));
 
 // Health check — keeps Render free tier alive via UptimeRobot
 app.get("/health", (req, res) => res.status(200).json({ status: "ok", ts: Date.now() }));
@@ -85,7 +104,16 @@ app.use((err, req, res, next) => {
   if (err?.message?.startsWith("CORS")) {
     return res.status(403).json({ error: err.message });
   }
-  res.status(500).json({ error: err?.message || "Internal server error" });
+  // body-parser / multer errors carry their own 4xx status (e.g. malformed JSON)
+  const status =
+    err?.name === "MulterError" ? 400
+    : err?.status >= 400 && err?.status < 500 ? err.status
+    : 500;
+  const message =
+    status < 500 || process.env.NODE_ENV !== "production"
+      ? err?.message || "Request failed"
+      : "Internal server error";
+  res.status(status).json({ error: message });
 });
 
 const PORT = process.env.PORT || 5001;
