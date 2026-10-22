@@ -1,8 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
-
-.ugl-font-serif { font-family: 'Playfair Display', serif; }
-.ugl-font-mono  { font-family: 'IBM Plex Mono', monospace; }
-
 .ugl-page ::-webkit-scrollbar { width: 6px; }
 .ugl-page ::-webkit-scrollbar-track { background: var(--bg); }
 .ugl-page ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }

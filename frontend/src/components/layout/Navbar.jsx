@@ -7,11 +7,11 @@ import EditProfileModal from "./EditProfileModal";
 
 import {
   LogOut, Pencil, Image,
-  Calculator, ClipboardList, CheckSquare, BookOpen, Brain, BookMarked, Code2,
+  Calculator, ClipboardList, BookOpen, Brain,
 } from "lucide-react";
 
 export default function Navbar() {
-  const { user, setUser, logout, token } = useAuth();
+  const { user, setUser, logout } = useAuth();
 
   const [preview,         setPreview]         = useState(null);
   const [uploading,       setUploading]       = useState(false);
@@ -47,8 +47,8 @@ export default function Navbar() {
       setUploading(true);
       const res  = await fetch(`${API_URL}/auth/upload-avatar`, {
         method: "POST",
+        credentials: "include",
         body:   formData,
-        headers: { Authorization: `Bearer ${token}` },
       });
 
       if (!res.ok) {
@@ -61,7 +61,6 @@ export default function Navbar() {
       const data = await res.json();
 
       setUser(data.user);
-      localStorage.setItem("user", JSON.stringify(data.user));
       setPreview(null);
 
     } catch (err) {
@@ -87,7 +86,7 @@ export default function Navbar() {
 
   const isActive     = (path) => location.pathname === path;
   const isQuizActive = ()     => location.pathname.startsWith("/quizzes");
-  const isProgActive = () => location.pathname.startsWith("/programming");
+  const isResActive = () => location.pathname.startsWith("/resources");
 
   const avatarSrc = preview || user?.avatar || "/images/default-avatar.jpg";
 
@@ -102,11 +101,10 @@ export default function Navbar() {
         </div>
 
         <div className="nav-center desktop-nav">
-          <Link to="/pyqs"     className={`nav-link ${isActive("/pyqs")     ? "active" : ""}`}>Resources</Link>
-          <Link to="/quizzes"  className={`nav-link ${isQuizActive()        ? "active" : ""}`}>Quiz</Link>
-          <Link to="/sgpa"     className={`nav-link ${isActive("/sgpa")     ? "active" : ""}`}>SGPA</Link>
-          <Link to="/internal" className={`nav-link ${isActive("/internal") ? "active" : ""}`}>Internals</Link>
-          <Link to="/tasks"    className={`nav-link ${isActive("/tasks")    ? "active" : ""}`}>Tasks</Link>
+          <Link to="/resources" className={`nav-link ${isResActive() ? "active" : ""}`}>Resources</Link>
+          <Link to="/quizzes"  className={`nav-link ${isQuizActive()        ? "active" : ""}`}>QuizEngine</Link>
+          <Link to="/sgpa"     className={`nav-link ${isActive("/sgpa")     ? "active" : ""}`}>GPA Calculator</Link>
+          <Link to="/internal" className={`nav-link ${isActive("/internal") ? "active" : ""}`}>Internal marks calculator</Link>
         </div>
 
         <div className="nav-right" ref={dropdownRef}>
@@ -154,20 +152,20 @@ export default function Navbar() {
       </nav>
 
       <nav className="mobile-bottom-nav">
-        <Link to="/pyqs"     className={`mobile-nav-item ${isActive("/pyqs")     ? "active" : ""}`}>
+        <Link to="/resources" className={`mobile-nav-item ${isResActive() ? "active" : ""}`}>
           <BookOpen size={20} /><span>Resources</span>
         </Link>
 
-        <Link to="/quizzes"  className={`mobile-nav-item ${isQuizActive()        ? "active" : ""}`}>
-          <Brain size={20} /><span>Quiz</span>
+        <Link to="/quizzes"  className={`mobile-nav-item ${isQuizActive() ? "active" : ""}`}>
+          <Brain size={20} /><span>QuizEngine</span>
         </Link>
 
-        <Link to="/sgpa"     className={`mobile-nav-item ${isActive("/sgpa")     ? "active" : ""}`}>
-          <Calculator size={20} /><span>SGPA</span>
+        <Link to="/sgpa"     className={`mobile-nav-item ${isActive("/sgpa") ? "active" : ""}`}>
+          <Calculator size={20} /><span>GPA Calculator</span>
         </Link>
 
         <Link to="/internal" className={`mobile-nav-item ${isActive("/internal") ? "active" : ""}`}>
-          <ClipboardList size={20} /><span>Internals</span>
+          <ClipboardList size={20} /><span>Internal marks calculator</span>
         </Link>
       
       </nav>

@@ -24,7 +24,7 @@ export default function SemesterBanner({ calendarData }) {
     }}>
       <div style={{ minWidth: 0 }}>
         <h2 style={{
-          fontFamily: "'Playfair Display', serif",
+          fontFamily: "var(--font-sans)",
           fontSize: "clamp(1.2rem, 5vw, 1.8rem)",
           fontWeight: 700,
           color: "var(--text)",

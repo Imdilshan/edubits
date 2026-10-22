@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap');
+/* Font families are loaded once from index.html per the v2 design system. */
 
 :root {
   --bg:          #0a0a0f;
@@ -22,8 +22,8 @@
   --radius-sm:   8px;
   --shadow:      0 4px 24px rgba(0,0,0,0.4);
   --shadow-lg:   0 8px 48px rgba(0,0,0,0.6);
-  --font-display: 'Syne', sans-serif;
-  --font-body:    'DM Sans', sans-serif;
+  --font-display: var(--font-sans);
+  --font-body:    var(--font-sans);
   --transition:  all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 

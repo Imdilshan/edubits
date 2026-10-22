@@ -3,19 +3,19 @@ import { getNum } from "../../utils/marksUtils";
 
 const S = {
   grid:    { display:"grid", gridTemplateColumns:"1fr 1fr", gap:14, alignItems:"start" },
-  section: { padding:16, borderRadius:12, background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.08)", display:"flex", flexDirection:"column", gap:0 },
-  h3:      { margin:"0 0 12px 0", fontSize:15, fontWeight:700, color:"#f0f4ff" },
+  section: { padding:16, borderRadius:12, background:"var(--surface-2)", border:"1px solid var(--border)", display:"flex", flexDirection:"column", gap:0 },
+  h3:      { margin:"0 0 12px 0", fontSize:15, fontWeight:600, color:"var(--text)" },
   group:   { display:"flex", flexDirection:"column", gap:4, marginBottom:10 },
-  label:   { display:"block", fontSize:11, fontWeight:600, color:"rgba(255,255,255,0.5)", textTransform:"uppercase", letterSpacing:"0.5px", lineHeight:1.2 },
-  input:   { display:"block", width:"100%", boxSizing:"border-box", padding:"10px 12px", borderRadius:8, border:"1px solid rgba(255,255,255,0.12)", background:"rgba(255,255,255,0.08)", color:"#eef2ff", fontSize:14, fontFamily:"'DM Sans',sans-serif", outline:"none", WebkitTextFillColor:"#eef2ff", transition:"border-color 0.15s" },
-  hint:      { fontSize:11, color:"rgba(255,255,255,0.3)", marginTop:2 },
-  errorHint: { fontSize:11, color:"#f87171", marginTop:2, fontWeight:600 },
+  label:   { display:"block", fontSize:11, fontWeight:600, color:"var(--muted)", textTransform:"uppercase", letterSpacing:"0.5px", lineHeight:1.2 },
+  input:   { display:"block", width:"100%", boxSizing:"border-box", padding:"10px 12px", borderRadius:8, border:"1px solid var(--border)", background:"var(--bg)", color:"var(--text)", fontSize:14, fontFamily:"var(--font-sans)", outline:"none", WebkitTextFillColor:"var(--text)", transition:"border-color 0.15s" },
+  hint:      { fontSize:11, color:"var(--text-tertiary)", marginTop:2 },
+  errorHint: { fontSize:11, color:"var(--danger)", marginTop:2, fontWeight:600 },
   bottomBar: { display:"flex", justifyContent:"space-between", alignItems:"center", marginTop:20, gridColumn:"1 / -1" },
-  btnReset:  { background:"#ef4444", color:"#fff", border:"none", borderRadius:8, padding:"10px 20px", fontWeight:700, fontFamily:"'DM Sans',sans-serif", cursor:"pointer" },
-  btnCalc:   { background:"#22c55e", color:"#03100a", border:"none", borderRadius:8, padding:"10px 20px", fontWeight:800, fontFamily:"'DM Sans',sans-serif", cursor:"pointer" },
-  small:     { fontSize:13, color:"#9ca3af" },
-  highlight: { fontWeight:800, fontSize:17, color:"#c8fff0" },
-  progress:  { height:8, background:"rgba(255,255,255,0.08)", borderRadius:8, marginTop:12, overflow:"hidden" },
+  btnReset:  { background:"var(--surface-3)", color:"var(--text)", border:"1px solid var(--border)", borderRadius:8, padding:"10px 20px", fontWeight:600, fontFamily:"var(--font-sans)", cursor:"pointer" },
+  btnCalc:   { background:"var(--primary)", color:"var(--on-primary)", border:"none", borderRadius:8, padding:"10px 20px", fontWeight:600, fontFamily:"var(--font-sans)", cursor:"pointer" },
+  small:     { fontSize:13, color:"var(--muted)" },
+  highlight: { fontWeight:600, fontSize:17, color:"var(--text)" },
+  progress:  { height:8, background:"var(--bg)", borderRadius:8, marginTop:12, overflow:"hidden" },
 };
 
 if (typeof document !== "undefined" && !document.getElementById("shake-style")) {
@@ -79,18 +79,18 @@ function Field({ id, label, max, value, onChange }) {
         step="0.5"
         placeholder={`0 – ${max}`}
         value={value}
-        style={{ ...S.input, borderColor: error ? "#f87171" : "rgba(255,255,255,0.12)" }}
+        style={{ ...S.input, borderColor: error ? "var(--danger)" : "var(--border)" }}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
-        onFocus={(e) => { e.target.style.borderColor = error ? "#f87171" : "#3b82f6"; e.target.style.background = "rgba(255,255,255,0.11)"; }}
-        onBlur={(e)  => { e.target.style.borderColor = error ? "#f87171" : "rgba(255,255,255,0.12)"; e.target.style.background = "rgba(255,255,255,0.08)"; }}
+        onFocus={(e) => { e.target.style.borderColor = error ? "var(--danger)" : "var(--primary-focus)"; e.target.style.background = "var(--surface-2)"; }}
+        onBlur={(e)  => { e.target.style.borderColor = error ? "var(--danger)" : "var(--border)"; e.target.style.background = "var(--bg)"; }}
       />
       {error && <span style={S.errorHint}>⚠ {error}</span>}
     </div>
   );
 }
 
-// Soft Skill — seniors only (2nd/3rd/4th year)
+// Soft Skill calculator used by 2nd- and 3rd-year programs.
 // ExternalViva 40→40, WriteX 10→10, LIVEAssignment 30→30,
 // Presentation 10→10, Attendance+LMS 4→4, Quiz 6→6. Total = 100.
 export default function SoftSkill() {
@@ -122,8 +122,8 @@ export default function SoftSkill() {
   ];
 
   return (
-    <div style={S.grid}>
-      <div style={S.section}>
+    <div className="internal-calc-grid">
+      <div className="internal-calc-section">
         <h3 style={S.h3}>Soft Skill Subject</h3>
         {fields.map(([key, label, max]) => (
           <Field key={key} id={key} label={label} max={max}
@@ -133,24 +133,24 @@ export default function SoftSkill() {
         ))}
       </div>
 
-      <div style={S.section}>
+      <div className="internal-calc-section">
         <h3 style={S.h3}>Output</h3>
         {result ? (
           <div>
-            <div style={{ display:"flex", justifyContent:"space-between", padding:"6px 0", color:"#dde8f0", fontSize:14 }}>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"6px 0", color:"var(--text-secondary)", fontSize:14 }}>
               <span style={S.small}>Obtained</span>
-              <span style={{ color:"#eef2ff" }}>{result.total.toFixed(2)} / {result.max}</span>
+              <span style={{ color:"var(--text)" }}>{result.total.toFixed(2)} / {result.max}</span>
             </div>
-            <div style={{ display:"flex", justifyContent:"space-between", padding:"6px 0", borderTop:"1px solid rgba(255,255,255,0.06)" }}>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"6px 0", borderTop:"1px solid var(--border)" }}>
               <span style={S.small}>Percentage</span>
               <span style={S.highlight}>{result.pct.toFixed(2)}%</span>
             </div>
             <div style={S.progress}>
-              <div style={{ width:`${result.pct}%`, height:"100%", background:"linear-gradient(90deg,#3b82f6,#22c55e)", borderRadius:8, transition:"width 0.4s ease" }} />
+              <div style={{ width:`${result.pct}%`, height:"100%", background:"var(--primary)", borderRadius:8, transition:"width 0.4s ease" }} />
             </div>
           </div>
         ) : (
-          <p style={{ color:"#6b7280", fontSize:13, margin:0 }}>Fill in marks and click Calculate.</p>
+          <p style={{ color:"var(--muted)", fontSize:13, margin:0 }}>Fill in marks and click Calculate.</p>
         )}
       </div>
 

@@ -28,7 +28,7 @@ export default function StatsOverview({ stats }) {
           }}
         >
           <div style={{
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: "var(--font-sans)",
             fontSize: "clamp(1.2rem, 4vw, 2rem)",
             fontWeight: 700,
             lineHeight: 1,

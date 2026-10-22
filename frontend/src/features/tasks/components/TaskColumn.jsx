@@ -1,4 +1,5 @@
 import TaskCard from "./TaskCard";
+import "./TaskComponents.css";
 
 export default function TaskColumn({
   title,

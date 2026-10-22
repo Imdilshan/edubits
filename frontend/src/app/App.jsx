@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import HomePage from "../features/homepage/HomePage";
+import OnboardingModal from "../features/onboarding/OnboardingModal";
 
 const Navbar = lazy(() => import("../components/layout/Navbar"));
 const Login = lazy(() => import("../pages/Login"));
@@ -10,9 +11,15 @@ const AuthCallback = lazy(() => import("../pages/AuthCallback"));
 const TaskPage = lazy(() => import("../features/tasks/pages/TaskPage"));
 const SGPAPage = lazy(() => import("../features/sgpa/pages/SGPAPage"));
 const InternalMarksPage = lazy(() => import("../features/internalMarks/InternalMarksPage"));
-const PYQsPage = lazy(() => import("../features/pyqs/PYQsPage"));
 const UGLifeTrackerPage = lazy(() => import("../features/ug-life-tracker/UGLifeTrackerPage"));
 const AdminUpload = lazy(() => import("../pages/AdminUpload"));
+const AdminRoute = lazy(() => import("../components/layout/AdminRoute"));
+
+// Phase 3: Resources pages
+const ResourcesPage = lazy(() => import("../features/resources/pages/ResourcesPage"));
+const YearPage = lazy(() => import("../features/resources/pages/YearPage"));
+const SubjectPage = lazy(() => import("../features/resources/pages/SubjectPage"));
+const ResourcesLayout = lazy(() => import("../features/resources/ResourcesLayout"));
 
 const TopicsPage = lazy(() => import("../features/quiz/pages/TopicsPage"));
 const QuizPage = lazy(() => import("../features/quiz/pages/QuizPage"));
@@ -20,9 +27,13 @@ const ResultsPage = lazy(() => import("../features/quiz/pages/ResultsPage"));
 const LeaderboardPage = lazy(() => import("../features/quiz/pages/LeaderboardPage"));
 const HistoryPage = lazy(() => import("../features/quiz/pages/HistoryPage"));
 
+// Phase 0: Viewer spike
+
 const ProgrammingPage = lazy(() => import("../features/programming/pages/ProgrammingPage"));
 const TopicProblemsPage = lazy(() => import("../features/programming/pages/TopicProblemsPage"));
 const ProgrammingAdmin = lazy(() => import("../features/programming/pages/ProgrammingAdmin"));
+const PeoplePage = lazy(() => import("../features/homepage/PeoplePage"));
+const AboutPage = lazy(() => import("../features/about/AboutPage"));
 
 function PublicNavbar() {
   return (
@@ -39,48 +50,35 @@ function PublicNavbar() {
       zIndex: 100,
     }}>
       <span style={{
-        fontFamily: "'DM Sans', sans-serif",
+        display: "flex",
+        alignItems: "center",
+        gap: "10px",
+        fontFamily: "var(--font-sans)",
         fontWeight: 800,
         fontSize: "1.4rem",
-        background: "linear-gradient(135deg, var(--primary), var(--success))",
-        WebkitBackgroundClip: "text",
-        WebkitTextFillColor: "transparent",
-        backgroundClip: "text",
-      }}>Edubits</span>
-      <div style={{ display: "flex", gap: "8px" }}>
-        <a href="/login" style={{
-          padding: "8px 20px",
-          borderRadius: "8px",
-          border: "1px solid var(--border)",
-          background: "transparent",
-          color: "var(--text)",
-          fontSize: "13px",
-          fontWeight: 600,
-          textDecoration: "none",
-          transition: "0.15s",
-        }}>Login</a>
-        <a href="/register" style={{
-          padding: "8px 20px",
-          borderRadius: "999px",
-          border: "none",
-          background: "linear-gradient(135deg, #22d3ee, #3b82f6)",
-          color: "#fff",
-          fontSize: "13px",
-          fontWeight: 700,
-          textDecoration: "none",
-          boxShadow: "0 4px 14px rgba(59,130,246,0.25)",
-        }}>Get Started</a>
-      </div>
+        color: "var(--primary)",
+      }}>
+        <img
+          src="/images/favicon.png"
+          alt="Edubits logo"
+          width="28"
+          height="28"
+          style={{ objectFit: "contain" }}
+        />
+        Edubits
+      </span>
     </nav>
   );
 }
 
 function AppInner() {
-  const { token } = useAuth();
+  const { user, authReady, showOnboarding, setShowOnboarding } = useAuth();
   const location  = useLocation();
   const isHome    = location.pathname === "/";
 
-  if (token) {
+  if (!authReady) return <div className="route-loader" aria-label="Loading session" />;
+
+  if (user) {
     return (
       <div>
         <Suspense fallback={<div className="navbar-placeholder" />}>
@@ -93,8 +91,16 @@ function AppInner() {
               <Route path="/tasks"    element={<TaskPage />} />
               <Route path="/sgpa"     element={<SGPAPage />} />
               <Route path="/internal" element={<InternalMarksPage />} />
-              <Route path="/pyqs"     element={<PYQsPage />} />
-              <Route path="/admin-upload" element={<AdminUpload />} />
+              <Route path="/pyqs" element={<Navigate to="/resources" replace />} />
+
+              {/* Phase 3: Resources */}
+              <Route path="/resources" element={<ResourcesLayout />}>
+                <Route index element={<ResourcesPage />} />
+                <Route path=":year" element={<YearPage />} />
+                <Route path=":year/:subject" element={<SubjectPage />} />
+              </Route>
+
+              <Route path="/admin-upload" element={<AdminRoute><AdminUpload /></AdminRoute>} />
 
               <Route path="/tracker" element={<UGLifeTrackerPage />} />
             
@@ -109,12 +115,16 @@ function AppInner() {
               <Route path="/programming/admin" element={<ProgrammingAdmin />} />
               <Route path="/programming/:topicId" element={<TopicProblemsPage />} />
 
+              <Route path="/people" element={<PeoplePage />} />
+              <Route path="/about" element={<AboutPage />} />
+
               <Route path="/login"    element={<Navigate to="/" />} />
               <Route path="/register" element={<Navigate to="/" />} />
               <Route path="*"         element={<Navigate to="/" />} />
             </Routes>
           </Suspense>
         </div>
+        {showOnboarding && <OnboardingModal isOpen={showOnboarding} onClose={setShowOnboarding} />}
       </div>
     );
   }

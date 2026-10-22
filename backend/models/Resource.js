@@ -1,5 +1,37 @@
 const mongoose = require("mongoose");
 
+// Controlled values for year and subject to ensure reliable navigation
+const YEAR_VALUES = ["1st Year", "2nd Year", "3rd Year", "4th Year"];
+
+const SUBJECT_VALUES = [
+  // 1st Year
+  "Mathematics-I",
+  "Digital Electronics",
+  "Engineering Physics",
+  "LTPS",
+  "Biology",
+  // 2nd Year
+  "COA",
+  "DBMS",
+  "ADSA",
+  "Java",
+  "Software Engineering",
+  "Operating System",
+  "Machine Learning",
+  "Probability & Statistics",
+  // 3rd Year
+  "PBL_Java",
+  "Computer Networks",
+  "Probability & Statistics",
+  "Web Development Fundamentals",
+  "Business Analytics",
+  // 4th Year
+  "Ethical Hacking",
+  // Playlist subjects (can overlap)
+  "Mathematics-II",
+  "OOPS Using Java",
+];
+
 const resourceSchema = new mongoose.Schema(
   {
     title: {
@@ -18,19 +50,21 @@ const resourceSchema = new mongoose.Schema(
     resourceType: {
       type:     String,
       required: true,
-      enum:     ["pyqs", "notes", "image", "thumbnail", "pdf", "other"],
+      enum:     ["pyqs", "notes", "image", "thumbnail", "pdf", "other", "playlist"],
     },
 
     subject: {
       type:  String,
       trim:  true,
-      index: true,  
+      index: true,
+      enum: SUBJECT_VALUES,
     },
 
     year: {
       type:  String,
       trim:  true,
       index: true,
+      enum: YEAR_VALUES,
     },
 
     semester: {
@@ -44,6 +78,20 @@ const resourceSchema = new mongoose.Schema(
       trim:  true,
     },
 
+    // Shared key linking the two PDFs of a paper (questions-only; questions+solution)
+    paperKey: {
+      type: String,
+      trim: true,
+      index: true,
+    },
+
+    // Variant marker: "questions" or "solution"
+    variant: {
+      type: String,
+      enum: ["questions", "solution"],
+      default: "questions",
+    },
+
     url: {
       type:     String,
       required: [true, "Resource URL is required"],
@@ -51,7 +99,7 @@ const resourceSchema = new mongoose.Schema(
 
     cloudinaryPublicId: {
       type:     String,
-      required: true,
+      required: false,
     },
 
     cloudinaryResourceType: {
@@ -92,5 +140,6 @@ const resourceSchema = new mongoose.Schema(
 
 resourceSchema.index({ resourceType: 1, year: 1, subject: 1, isActive: 1 });
 resourceSchema.index({ resourceType: 1, semester: 1, isActive: 1 });
+resourceSchema.index({ paperKey: 1, variant: 1 });
 
 module.exports = mongoose.model("Resource", resourceSchema);

@@ -25,6 +25,8 @@ Roles: `user` and `admin`. Admins upload and manage resources; everyone else con
 - Active users
 - Page views
 
+**Baseline (2026-10-22, Vercel Analytics, last 30 days):** 725+ registered users; 1,365 visitors and 5,529 page views (up 85% and 75% on the previous period); bounce rate 37%. Top pages by visitors: `/pyqs` 998, `/` 772, `/login` 471, `/quizzes` 235. Resources is the most used area.
+
 ## 4. Scope
 
 ### 4.1 Must-have for v2.0
@@ -52,8 +54,9 @@ Both are removed from the homepage and navigation. Their code is left untouched.
 ## 5. Requirements by area
 
 ### 5.1 Homepage
-- Logged-out homepage is a preview only, with login/register.
-- Remove the "Get Started" button; Login and Register buttons sit below the headline.
+- Logged-out homepage is a long-scroll landing page (hero, product preview, proof numbers, feature blocks, origin story, final call to action). Every tool is behind login, so its job is conversion (`decisions/5.md`).
+- The hero has one primary action: **Get started** (`/register`), plus **Continue with Google** and a "Log in" text link. This replaces the earlier wording "remove Get Started; Login and Register buttons below the headline" (`TODO.md` also asks for Get Started).
+- Logged-in homepage is a short quick-access view: Popular tools (Resources, QuizEngine) and Other tools, with no duplicate hero buttons.
 - Sign in with Google on login and register, plus GitHub and Microsoft.
 - Tools split into two groups:
   - Popular / most used — Exam prep: Resources and QuizEngine
@@ -71,6 +74,14 @@ Both are removed from the homepage and navigation. Their code is left untouched.
 - In-site viewer is a must-have: Cloudinary for file storage, react-pdf for the viewer.
 - Admins upload content through a dashboard UI.
 - Improve usability of the notes section.
+
+**Planned improvements (2026-10-22 review; details in `Feature.md` §8.1, bugs in `ERRORS.md`)**
+- Reliability: the viewer must recover after a failed PDF and open every paper on page 1 (R1, R2); notes save with a debounce and show failures (R4); the year page shows correct attempted counts (R3).
+- Privacy: students never receive another user's name or email from the resources API (R7).
+- Findability: subject search, a "Continue where you left off" card, tabs addressable by URL, and compact paper rows.
+- Mobile-friendly viewer: continuous scroll, remembered page, working Download.
+- Year and subject pages must not download whole document lists just to show counts (P1).
+- Empty states invite students to send in missing papers.
 
 ### 5.3 QuizEngine
 - Remove the graph view.
@@ -106,7 +117,7 @@ Both are removed from the homepage and navigation. Their code is left untouched.
 - **Auth:** email/password and Google OAuth, plus GitHub and Microsoft.
 - **Persistence:** anything that must persist (PYQ progress, notes, tasks) goes to MongoDB. SGPA/CGPA and Internal Marks stay client-side.
 - **Performance:** every route lazy-loaded; chunk and image size limits.
-- **Analytics:** capture active users and page views.
+- **Analytics:** capture active users and page views. Resource-level events are not tracked yet: subject open, paper open, variant switch, tab change, attempted toggle (`Feature.md` §8.1).
 
 ## 7. Constraints
 
@@ -115,6 +126,9 @@ Both are removed from the homepage and navigation. Their code is left untouched.
 - Every new dependency needs the owner's approval.
 - Work stays on a branch until ready to ship.
 
-## 8. Open decisions
+## 8. Settled decisions
 
-None open as of this draft.
+- **Programming on the homepage:** Keep it hidden from the homepage and its tool navigation.
+- **Resources paper order:** Show papers in exam sequence: MST 1, MST 2, then EST. The frontend must not override that order with alphabetical `paperTag` sorting (`ERRORS.md` R5).
+- **Remembering the student's year:** Do not store or remember it. Resources should not personalize the starting year.
+- **Legal pages:** Deferred for now; do not build Privacy, Terms, or Cookies pages in this iteration.

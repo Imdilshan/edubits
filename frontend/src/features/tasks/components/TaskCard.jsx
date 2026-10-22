@@ -1,4 +1,5 @@
 import { formatDate } from "./../utils/date";
+import "./TaskComponents.css";
 
 export default function TaskCard({ task, onUpdate, onDelete, onEdit }) {
 

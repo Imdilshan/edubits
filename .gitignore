@@ -23,3 +23,5 @@ dist
 build
 coverage
 
+# User uploads (stored in Cloudinary in production)
+backend/uploads/

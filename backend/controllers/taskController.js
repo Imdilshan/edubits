@@ -45,7 +45,10 @@ exports.getTasks = async (req, res) => {
     if (status) filter.status = status;
     if (priority) filter.priority = priority;
     if (type) filter.type = type;
-    if (search) filter.title = { $regex: search, $options: "i" };
+    if (search) {
+      const escapedSearch = search.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      filter.title = { $regex: escapedSearch, $options: "i" };
+    }
 
     const sort = sortBy ? { [sortBy]: order === "asc" ? 1 : -1 } : { createdAt: -1 };
 
@@ -74,9 +77,15 @@ exports.getTaskById = async (req, res) => {
 
 exports.updateTask = async (req, res) => {
   try {
+    const allowedFields = ["title", "subject", "type", "deadline", "priority", "status"];
+    const updates = Object.fromEntries(
+      allowedFields
+        .filter((field) => Object.prototype.hasOwnProperty.call(req.body, field))
+        .map((field) => [field, req.body[field]])
+    );
     const task = await Task.findOneAndUpdate(
       { _id: req.params.id, userId: req.user.id },
-      req.body,
+      updates,
       { new: true, runValidators: true }
     );
     if (!task) return res.status(404).json({ error: "Task not found" });

@@ -24,6 +24,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: null,
   },
+  githubId: {
+    type: String,
+    default: null,
+  },
   avatar: {
     type: String,
     default: "",
@@ -45,6 +49,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     enum: ["user", "admin"],
     default: "user",
+  },
+  tokenVersion: {
+    type: Number,
+    default: 0,
+  },
+  onboardingCompleted: {
+    type: Boolean,
+    default: false,
   },
 }, 
 { timestamps: true }

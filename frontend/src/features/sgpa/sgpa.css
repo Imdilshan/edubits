@@ -1,25 +1,22 @@
-.card.sgpa-card {
+/* ============================================================================
+   Edubits v2.0 — SGPA Calculator (Design.md compliant)
+   Uses design system tokens from variables.css
+   ============================================================================ */
+
+.sgpa-card {
   max-width: 780px;
   width: 100%;
   box-sizing: border-box;
-  margin: 0 auto 32px;
-  padding: 24px;
+  margin: 0 auto var(--space-xl);
   position: relative;
-  border-radius: var(--radius);
-  background: var(--surface);
-  border: none;
-  border-left: 3px solid #3b82f6;
-  box-shadow:
-    0 10px 30px rgba(0,0,0,0.3),
-    -4px 0 20px rgba(59,130,246,0.4);
 }
 
 .sgpa-card .card-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 16px;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
 }
 
 .sgpa-card .card-header > div {
@@ -28,18 +25,18 @@
 }
 
 .sgpa-card .card-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: #60a5fa;
-  letter-spacing: 0.3px;
+  font-size: var(--text-headline);
+  font-weight: 600;
+  color: var(--primary);
+  letter-spacing: -0.006em;
   text-align: center;
-  margin-bottom: 0;
+  margin: 0 0 var(--space-xxs);
 }
 
 .sgpa-card .card-hint {
-  font-size: 13px;
-  color: rgba(255,255,255,0.4);
-  margin: 4px 0 0;
+  font-size: var(--text-body-sm);
+  color: var(--muted);
+  margin: 0;
   text-align: center;
 }
 
@@ -47,87 +44,83 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(59,130,246,0.08);
-  border: 1px solid rgba(59,130,246,0.2);
-  border-radius: 10px;
-  padding: 8px 14px;
-  margin-bottom: 16px;
-  font-size: 13px;
-  color: rgba(255,255,255,0.5);
+  background: rgba(94, 106, 210, 0.1);
+  border: 1px solid rgba(94, 106, 210, 0.2);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-lg);
+  font-size: var(--text-body-sm);
+  color: var(--text-secondary);
 }
 
 .subjects-table-head {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 36px;
-  gap: 14px;
-  padding: 0 4px 6px;
-  font-size: 11px;
-  letter-spacing: 0.06em;
+  grid-template-columns: 2fr 1fr 1fr 40px;
+  gap: var(--space-md);
+  padding: 0 var(--space-xs) var(--space-sm);
+  font-size: var(--text-caption);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
+  color: var(--muted);
 }
 
 .sgpa-row {
   display: grid !important;
-  grid-template-columns: 2fr 1fr 1fr 36px !important;
-  gap: 14px !important;
+  grid-template-columns: 2fr 1fr 1fr 44px !important;
+  gap: var(--space-md) !important;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: var(--space-sm);
 }
 
-.sgpa-card .input,
-.sgpa-card input.input,
-.sgpa-row .input,
-.sgpa-row input {
+/* Inputs using design system .form-input */
+.sgpa-row .form-input,
+.sgpa-card .form-input {
   width: 100%;
   min-width: 0;
-  height: 42px;
-  padding: 0 14px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.04) !important;
-  background-color: rgba(255,255,255,0.04) !important;
-  color: var(--text) !important;
-  -webkit-text-fill-color: var(--text) !important;
+  height: 44px;
+  padding: 0 var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
   box-sizing: border-box;
-  font-size: 14px;
+  font-size: var(--text-body);
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 
-.sgpa-card .input:focus,
-.sgpa-row input:focus {
-  border-color: #3b82f6;
+.sgpa-row .form-input:focus,
+.sgpa-card .form-input:focus {
+  border-color: var(--primary-focus);
   outline: none;
-  box-shadow: 0 0 0 2px rgba(59,130,246,0.18);
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
+  box-shadow: 0 0 0 2px rgba(94, 106, 210, 0.25);
 }
 
-.sgpa-card .input::placeholder,
-.sgpa-row input::placeholder {
-  color: rgba(255,255,255,0.2) !important;
-  -webkit-text-fill-color: rgba(255,255,255,0.2) !important;
-  opacity: 1 !important;
+.sgpa-row .form-input::placeholder,
+.sgpa-card .form-input::placeholder {
+  color: var(--text-tertiary);
+  opacity: 1;
 }
 
-.sgpa-card input[type="number"] {
+.sgpa-row input[type="number"] {
   appearance: textfield;
   -moz-appearance: textfield;
 }
-.sgpa-card input[type="number"]::-webkit-inner-spin-button,
-.sgpa-card input[type="number"]::-webkit-outer-spin-button {
+
+.sgpa-row input[type="number"]::-webkit-inner-spin-button,
+.sgpa-row input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
+/* Delete button */
 .sgpa-row .btn-icon-delete {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.06);
-  background: transparent;
-  color: rgba(255,255,255,0.2);
-  font-size: 11px;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  font-size: var(--text-caption);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -135,248 +128,346 @@
   transition: background 0.15s, color 0.15s, border-color 0.15s;
   margin: 0 auto;
 }
+
 .sgpa-row .btn-icon-delete:hover {
-  background: rgba(239,68,68,0.12);
-  border-color: rgba(239,68,68,0.3);
-  color: #ef4444;
+  background: rgba(229, 72, 77, 0.1);
+  border-color: var(--danger);
+  color: var(--danger);
 }
 
-.sgpa-card .btn-ghost-small {
+.sgpa-card .btn-tertiary {
   background: transparent;
   border: none;
-  color: rgba(59,130,246,0.7);
-  font-size: 12px;
+  color: var(--primary);
+  font-size: var(--text-caption);
   cursor: pointer;
-  padding: 4px 0;
+  padding: var(--space-xxs) 0;
   white-space: nowrap;
   transition: color 0.15s;
 }
-.sgpa-card .btn-ghost-small:hover { color: #60a5fa; }
 
+.sgpa-card .btn-tertiary:hover {
+  color: var(--primary-hover);
+}
+
+/* Actions row */
 .sgpa-actions {
   display: flex !important;
   flex-direction: row !important;
-  gap: 10px;
-  margin-top: 12px;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
   flex-wrap: wrap;
 }
 
 .sgpa-actions .btn {
-  padding: 0 16px;
-  height: 38px;
-  border-radius: 10px;
-  font-size: 13px;
-  font-weight: 600;
+  padding: 0 var(--space-md);
+  height: 40px;
+  border-radius: var(--radius-md);
+  font-size: var(--text-body-sm);
+  font-weight: 500;
   border: none;
   cursor: pointer;
   transition: opacity 0.15s, transform 0.15s, box-shadow 0.15s;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  border-radius: 10px !important;
+  gap: var(--space-xxs);
   box-shadow: none !important;
   transform: none !important;
 }
 
 .sgpa-actions .btn-primary {
-  background: linear-gradient(135deg, #22d3ee, #3b82f6);
-  color: white;
+  background: var(--primary);
+  color: var(--on-primary);
 }
+
 .sgpa-actions .btn-primary:hover {
-  opacity: 0.88;
+  background: var(--primary-hover);
+  opacity: 0.92;
 }
 
 .sgpa-actions .btn-save {
-  background: rgba(34,197,94,0.12);
-  border: 1px solid rgba(34,197,94,0.3) !important;
-  color: #4ade80;
+  background: rgba(39, 166, 68, 0.12);
+  border: 1px solid rgba(39, 166, 68, 0.3) !important;
+  color: var(--success);
 }
+
 .sgpa-actions .btn-save:hover:not(:disabled) {
-  background: rgba(34,197,94,0.2);
+  background: rgba(39, 166, 68, 0.2);
 }
+
 .sgpa-actions .btn-save:disabled {
   opacity: 0.4;
   cursor: not-allowed;
 }
 
-.sgpa-actions .btn-outline-danger {
-  background: transparent;
-  border: 1px solid rgba(239,68,68,0.25) !important;
-  color: rgba(239,68,68,0.6);
+.sgpa-actions .btn-danger {
+  background: rgba(229, 72, 77, 0.12);
+  border: 1px solid rgba(229, 72, 77, 0.3) !important;
+  color: var(--danger);
 }
-.sgpa-actions .btn-outline-danger:hover {
-  background: rgba(239,68,68,0.08);
-  border-color: rgba(239,68,68,0.5) !important;
-  color: #ef4444;
+
+.sgpa-actions .btn-danger:hover {
+  background: rgba(229, 72, 77, 0.2);
+  border-color: var(--danger) !important;
+  color: var(--danger);
 }
 
 .grade-option {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
-}
-.grade-points {
-  font-size: 11px;
-  color: rgba(255,255,255,0.35);
+  gap: var(--space-sm);
 }
 
+.grade-points {
+  font-size: var(--text-caption);
+  color: var(--text-tertiary);
+}
+
+/* React Select overrides using design system tokens */
 .sgpa-card .react-select__control {
-  background: rgba(255,255,255,0.04) !important;
-  border: 1px solid rgba(255,255,255,0.08) !important;
-  border-radius: 12px !important;
-  height: 42px !important;
-  min-height: 42px !important;
-  padding: 0 6px;
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  padding: 0 var(--space-sm);
   box-shadow: none !important;
 }
-.sgpa-card .react-select__control:hover {
-  border-color: rgba(255,255,255,0.12) !important;
-}
-.sgpa-card .react-select__control--is-focused {
-  border-color: #3b82f6 !important;
-  box-shadow: 0 0 0 2px rgba(59,130,246,0.18) !important;
-}
-.sgpa-card .react-select__single-value { color: var(--text) !important; }
-.sgpa-card .react-select__placeholder  { color: rgba(255,255,255,0.2) !important; font-size: 14px; }
-.sgpa-card .react-select__indicator    { color: rgba(255,255,255,0.25) !important; }
-.sgpa-card .react-select__indicator-separator { display: none; }
-.sgpa-card .react-select__menu {
-  background: #1a1d24 !important;
-  border-radius: 12px !important;
-  overflow: hidden;
-  margin-top: 6px;
-  border: 1px solid rgba(255,255,255,0.08) !important;
-}
-.sgpa-card .react-select__option {
-  background: #1a1d24 !important;
-  color: #fff !important;
-  padding: 9px 14px;
-  font-size: 14px;
-}
-.sgpa-card .react-select__option--is-focused  { background: #22262e !important; }
-.sgpa-card .react-select__option--is-selected { background: rgba(59,130,246,0.2) !important; color: #60a5fa !important; }
 
+.sgpa-card .react-select__control:hover {
+  border-color: var(--border-strong) !important;
+}
+
+.sgpa-card .react-select__control--is-focused {
+  border-color: var(--primary-focus) !important;
+  box-shadow: 0 0 0 2px rgba(94, 106, 210, 0.25) !important;
+}
+
+.sgpa-card .react-select__single-value { color: var(--text) !important; }
+.sgpa-card .react-select__placeholder  { color: var(--text-tertiary) !important; font-size: var(--text-body); }
+.sgpa-card .react-select__indicator    { color: var(--muted) !important; }
+.sgpa-card .react-select__indicator-separator { display: none; }
+
+.sgpa-card .react-select__menu {
+  background: var(--surface) !important;
+  border-radius: var(--radius-md) !important;
+  overflow: hidden;
+  margin-top: var(--space-xs);
+  border: 1px solid var(--border) !important;
+}
+
+.sgpa-card .react-select__option {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--text-body);
+}
+
+.sgpa-card .react-select__option--is-focused  { background: var(--surface-2) !important; }
+.sgpa-card .react-select__option--is-selected { background: rgba(94, 106, 210, 0.2) !important; color: var(--primary) !important; }
+
+/* Result Card */
 .sgpa-result-card {
-  margin-top: 20px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 14px;
-  padding: 18px 20px 14px;
+  margin-top: var(--space-lg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
   transition: box-shadow 0.3s;
 }
+
 .sgpa-result-card.result-pop {
-  box-shadow: 0 0 0 2px rgba(59,130,246,0.35), 0 0 24px rgba(59,130,246,0.12);
+  box-shadow: 0 0 0 2px rgba(94, 106, 210, 0.35), 0 0 24px rgba(94, 106, 210, 0.12);
 }
 
 .sgpa-result-card .result-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 14px;
+  margin-bottom: var(--space-md);
 }
+
 .sgpa-result-card .result-main {
   display: flex;
   align-items: baseline;
-  gap: 10px;
+  gap: var(--space-md);
 }
+
 .sgpa-result-card .result-label {
-  font-size: 12px;
-  letter-spacing: 0.08em;
+  font-size: var(--text-caption);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
+  color: var(--muted);
 }
+
 .sgpa-result-card .result-value {
-  font-size: 36px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-size: var(--text-display-lg);
+  font-weight: 600;
+  letter-spacing: -0.018em;
   transition: color 0.4s;
 }
+
 .sgpa-result-card .result-badge {
-  font-size: 12px;
+  font-size: var(--text-caption);
   font-weight: 500;
-  padding: 4px 12px;
-  border-radius: 20px;
+  padding: var(--space-xxs) var(--space-sm);
+  border-radius: var(--radius-pill);
 }
 
 .sgpa-result-card .result-bar-wrap {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-sm);
 }
+
 .sgpa-result-card .result-bar-track {
   flex: 1;
-  height: 5px;
-  background: rgba(255,255,255,0.06);
-  border-radius: 10px;
+  height: 6px;
+  background: var(--border);
+  border-radius: var(--radius-pill);
   overflow: hidden;
 }
+
 .sgpa-result-card .result-bar-fill {
   height: 100%;
-  border-radius: 10px;
+  border-radius: var(--radius-pill);
   transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
+
 .sgpa-result-card .result-bar-max {
-  font-size: 11px;
-  color: rgba(255,255,255,0.25);
+  font-size: var(--text-caption);
+  color: var(--text-tertiary);
 }
 
-.sgpa-result-card .grade-outstanding { color: #22d3ee; }
+/* Grade colors using design system semantic colors */
+.sgpa-result-card .grade-outstanding { color: var(--success); }
 .sgpa-result-card .grade-outstanding.result-badge {
-  background: rgba(34,211,238,0.12); color: #22d3ee; border: 1px solid rgba(34,211,238,0.2);
+  background: rgba(39, 166, 68, 0.12); color: var(--success); border: 1px solid rgba(39, 166, 68, 0.2);
 }
-.sgpa-result-card .grade-outstanding.result-bar-fill { background: #22d3ee; }
+.sgpa-result-card .grade-outstanding.result-bar-fill { background: var(--success); }
 
-.sgpa-result-card .grade-excellent { color: #4ade80; }
+.sgpa-result-card .grade-excellent { color: var(--success); }
 .sgpa-result-card .grade-excellent.result-badge {
-  background: rgba(74,222,128,0.12); color: #4ade80; border: 1px solid rgba(74,222,128,0.2);
+  background: rgba(39, 166, 68, 0.12); color: var(--success); border: 1px solid rgba(39, 166, 68, 0.2);
 }
-.sgpa-result-card .grade-excellent.result-bar-fill { background: #4ade80; }
+.sgpa-result-card .grade-excellent.result-bar-fill { background: var(--success); }
 
-.sgpa-result-card .grade-good { color: #60a5fa; }
+.sgpa-result-card .grade-good { color: var(--primary); }
 .sgpa-result-card .grade-good.result-badge {
-  background: rgba(96,165,250,0.12); color: #60a5fa; border: 1px solid rgba(96,165,250,0.2);
+  background: rgba(94, 106, 210, 0.12); color: var(--primary); border: 1px solid rgba(94, 106, 210, 0.2);
 }
-.sgpa-result-card .grade-good.result-bar-fill { background: #60a5fa; }
+.sgpa-result-card .grade-good.result-bar-fill { background: var(--primary); }
 
-.sgpa-result-card .grade-average { color: #fbbf24; }
+.sgpa-result-card .grade-average { color: var(--warning); }
 .sgpa-result-card .grade-average.result-badge {
-  background: rgba(251,191,36,0.12); color: #fbbf24; border: 1px solid rgba(251,191,36,0.2);
+  background: rgba(229, 165, 10, 0.12); color: var(--warning); border: 1px solid rgba(229, 165, 10, 0.2);
 }
-.sgpa-result-card .grade-average.result-bar-fill { background: #fbbf24; }
+.sgpa-result-card .grade-average.result-bar-fill { background: var(--warning); }
 
-.sgpa-result-card .grade-poor { color: #f87171; }
+.sgpa-result-card .grade-poor { color: var(--danger); }
 .sgpa-result-card .grade-poor.result-badge {
-  background: rgba(248,113,113,0.12); color: #f87171; border: 1px solid rgba(248,113,113,0.2);
+  background: rgba(229, 72, 77, 0.12); color: var(--danger); border: 1px solid rgba(229, 72, 77, 0.2);
 }
-.sgpa-result-card .grade-poor.result-bar-fill { background: #f87171; }
+.sgpa-result-card .grade-poor.result-bar-fill { background: var(--danger); }
 
-.sgpa-card .btn-ghost-small {
-  background: transparent;
-  border: none;
-  color: rgba(59,130,246,0.7);
-  font-size: 12px;
-  cursor: pointer;
-  padding: 4px 0;
-  white-space: nowrap;
-  transition: color 0.15s;
-
+/* Result Card internals */
+.sgpa-result-card .result-row {
   display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
 }
 
-.sgpa-card .btn-ghost-small svg {
-  flex-shrink: 0;
-  position: relative;
-  top: 1px;
+.sgpa-result-card .result-main {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-md);
 }
 
+.sgpa-result-card .result-label {
+  font-size: var(--text-caption);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.sgpa-result-card .result-value {
+  font-size: var(--text-display-lg);
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  transition: color 0.4s;
+}
+
+.sgpa-result-card .result-badge {
+  font-size: var(--text-caption);
+  font-weight: 500;
+  padding: var(--space-xxs) var(--space-sm);
+  border-radius: var(--radius-pill);
+}
+
+.sgpa-result-card .result-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.sgpa-result-card .result-bar-track {
+  flex: 1;
+  height: 6px;
+  background: var(--border);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.sgpa-result-card .result-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sgpa-result-card .result-bar-max {
+  font-size: var(--text-caption);
+  color: var(--text-tertiary);
+}
+
+/* Grade color variants */
+.sgpa-result-card .grade-outstanding { color: var(--success); }
+.sgpa-result-card .grade-outstanding.result-badge {
+  background: rgba(39, 166, 68, 0.12); color: var(--success); border: 1px solid rgba(39, 166, 68, 0.2);
+}
+.sgpa-result-card .grade-outstanding.result-bar-fill { background: var(--success); }
+
+.sgpa-result-card .grade-excellent { color: var(--success); }
+.sgpa-result-card .grade-excellent.result-badge {
+  background: rgba(39, 166, 68, 0.12); color: var(--success); border: 1px solid rgba(39, 166, 68, 0.2);
+}
+.sgpa-result-card .grade-excellent.result-bar-fill { background: var(--success); }
+
+.sgpa-result-card .grade-good { color: var(--primary); }
+.sgpa-result-card .grade-good.result-badge {
+  background: rgba(94, 106, 210, 0.12); color: var(--primary); border: 1px solid rgba(94, 106, 210, 0.2);
+}
+.sgpa-result-card .grade-good.result-bar-fill { background: var(--primary); }
+
+.sgpa-result-card .grade-average { color: var(--warning); }
+.sgpa-result-card .grade-average.result-badge {
+  background: rgba(229, 165, 10, 0.12); color: var(--warning); border: 1px solid rgba(229, 165, 10, 0.2);
+}
+.sgpa-result-card .grade-average.result-bar-fill { background: var(--warning); }
+
+.sgpa-result-card .grade-poor { color: var(--danger); }
+.sgpa-result-card .grade-poor.result-badge {
+  background: rgba(229, 72, 77, 0.12); color: var(--danger); border: 1px solid rgba(229, 72, 77, 0.2);
+}
+.sgpa-result-card .grade-poor.result-bar-fill { background: var(--danger); }
+
+/* Responsive */
 @media (max-width: 600px) {
   .sgpa-card {
-    padding: 16px;
-    border-radius: 12px;
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
   }
   .subjects-table-head { display: none; }
   .sgpa-row {
@@ -385,22 +476,48 @@
       "name   name"
       "credit grade"
       "delete delete" !important;
-    gap: 8px !important;
+    gap: var(--space-sm) !important;
   }
   .sgpa-row > *:nth-child(1) { grid-area: name; }
   .sgpa-row > *:nth-child(2) { grid-area: credit; }
   .sgpa-row > *:nth-child(3) { grid-area: grade; }
-  .sgpa-row > *:nth-child(4) { grid-area: delete; width: 100%; height: 36px; border-radius: 8px; }
+  .sgpa-row > *:nth-child(4) { grid-area: delete; width: 100%; height: 40px; border-radius: var(--radius-md); }
 
   .sgpa-actions {
     flex-direction: row !important;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: var(--space-xs);
   }
   .sgpa-actions .btn,
   .sgpa-actions .btn-save,
-  .sgpa-actions .btn-outline-danger { flex: 1; min-width: 100px; }
+  .sgpa-actions .btn-danger { flex: 1; min-width: 100px; }
 
-  .sgpa-card .card-header { flex-direction: column; gap: 6px; }
-  .sgpa-result-card .result-value { font-size: 28px; }
+  .sgpa-card .card-header { flex-direction: column; gap: var(--space-xs); }
+  .sgpa-result-card .result-value { font-size: var(--text-display-md); }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .sgpa-result-card {
+    animation: none;
+  }
+  .sgpa-result-card.result-pop {
+    box-shadow: none;
+  }
+}
+
+/* Shared v2 calculator treatment */
+.sgpa-card .card-header > div { text-align: left; }
+.sgpa-card .text-card-title { color: var(--text); }
+.sgpa-card .text-body-sm { margin: var(--space-xxs) 0 0; }
+.sgpa-card .example-banner {
+  background: var(--surface-2);
+  border-color: var(--border);
+}
+.sgpa-card .react-select__menu { z-index: 20; }
+.sgpa-result-card.result-pop { box-shadow: none; border-color: var(--border-strong); }
+
+@media (max-width: 600px) {
+  .sgpa-card .card-header { flex-direction: row; }
+  .sgpa-card .card-header > div { text-align: left; }
 }

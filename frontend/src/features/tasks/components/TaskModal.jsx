@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../../../styles/taskTracker.css";
+import "./TaskComponents.css";
 
 export default function TaskModal({
   isOpen,

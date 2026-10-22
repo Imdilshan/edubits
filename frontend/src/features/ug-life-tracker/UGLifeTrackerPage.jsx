@@ -43,7 +43,7 @@ export default function UGLifeTrackerPage() {
         minHeight: "100vh",
         background: "var(--bg)",
         color: "var(--text)",
-        fontFamily: "'IBM Plex Mono', monospace",
+        fontFamily: "var(--font-sans)",
       }}
     >
       <TrackerHeader />

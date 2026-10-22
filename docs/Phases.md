@@ -16,6 +16,7 @@ Window: 15 days from 2026-10-20 (ends 2026-11-04). Hard requirement: the Resourc
 | 5 | Sign-in providers and homepage | 12–13 | 3, 4 |
 | 6 | SGPA/CGPA and Internal Marks | 13–14 | — |
 | 7 | Task Tracker | 14–15 | — |
+| 8 | Resources hardening and navigation (proposed) | after launch | 3 |
 
 Phases 4–7 are best effort inside the window. The Task Tracker is the first to slip; it is not mandatory.
 
@@ -84,12 +85,15 @@ Phases 4–7 are best effort inside the window. The Task Tracker is the first to
 **Done when**
 - [ ] Logged-out visitors see the preview with login and register.
 - [ ] A new user is guided through onboarding on first login.
+- [x] Logged-out homepage rebuilt as a long-scroll landing page, one shared footer, quick-access view for logged-in users (2026-10-22, `decisions/5.md`).
+- [ ] Landing screenshots added in `frontend/public/images/landing/` (`ERRORS.md` H3).
+- [ ] Footer links work for logged-out visitors (H2). Legal pages (H1) are deferred by owner for now.
 
 ## Phase 6 — SGPA/CGPA and Internal Marks
 
 - SGPA/CGPA: mini cards, credits dropdown (1–6), "Qualified" grade, clear-all, PDF export and the recovery message removed, jargon explained.
 - Internal Marks: BE CSE (default) and BE CSE (AIT) top level, 3rd-year general CSE, AIT specialization, explainers with example subjects.
-- **Input needed from you:** the marking schemes for 3rd-year general CSE and for AIT.
+- **Marking scheme confirmed:** `3rdyer_gen_cse.md` is authoritative for 3rd-year general CSE and AIT 3rd-year Data Science/AIML. AIT 4th year is out of scope. Optional external components are documented in that scheme; Aptitude follows 2nd year.
 
 **Done when**
 - [ ] "Qualified" subjects never affect SGPA or CGPA.
@@ -105,6 +109,24 @@ Phases 4–7 are best effort inside the window. The Task Tracker is the first to
 - [ ] A task due soon or overdue is visibly flagged without opening anything.
 - [ ] Kanban view still works from the same data.
 
+## Phase 8 — Resources hardening and navigation (proposed, after launch)
+
+Source: the 2026-10-22 review of the Resources feature. Bug and item IDs are in `ERRORS.md` → Known Bugs; the proposals are in `Feature.md` §8.1. Order matters: stabilise first, then speed, then navigation.
+
+- **8a. Bug batch:** viewer error and state reset (R1, R2), notes debounce and visible save failures (R4), year-page progress (R3), remove the `uploadedBy` populate (R7). Decide R5 (ordering) and fix R6 (download) alongside.
+- **8b. Backend and data:** `GET /resources/summary`, one shared progress source, fewer calls on the subject page (P1–P3); skeletons and retry (P4).
+- **8c. Navigation:** subject search, "Continue where you left off", tabs in the URL, compact paper rows, counts and progress on year and subject cards, subject-metadata map (D5), empty-state call to action.
+- **8d. Mobile viewer:** continuous scroll, pinch zoom, remembered page, side-by-side Questions and Solution on desktop, mark attempted from the viewer, accessibility (A1).
+- **8e. Cleanup:** delete `PYQsPage.jsx` and the `/viewer-spike` route, remove unused service functions and imports (D1–D4).
+- **Analytics throughout:** add the Resources events from `Feature.md` §8.1 with 8a so usage data exists before the navigation redesign.
+
+**Done when**
+- [ ] A failed PDF does not affect the next paper, and every paper opens on page 1.
+- [ ] Typing a note sends at most one request per pause, and a failed save is visible.
+- [ ] No resources response contains another user's name or email.
+- [ ] The Resources home and year pages load from one counts request.
+- [ ] A student can reach a subject's PYQs from `/resources` in two steps or fewer using search or the continue card.
+
 ## Risks
 
 | Risk | Mitigation |
@@ -112,3 +134,5 @@ Phases 4–7 are best effort inside the window. The Task Tracker is the first to
 | Cloudinary PDFs fail to load in the viewer (the area of earlier failures) | Phase 0 spike and Day 2 decision gate |
 | Resources slips into exam preparation time | Phases 4–7 are cut first; Resources is never traded away |
 | Marking schemes for new Internal Marks variants arrive late | Request them during Phase 3 |
+| Viewer or notes bugs hit students during exam weeks (R1, R2, R4) | Phase 8a is first; the fixes are small and local to `PdfViewer.jsx` and `SubjectPage.jsx` |
+| Resources counts load slowly as content grows (P1) | Phase 8b summary endpoint before adding more papers |

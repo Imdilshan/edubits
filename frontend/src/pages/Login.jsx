@@ -2,13 +2,14 @@ import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import { useToast } from "../context/ToastContext";
-import { ArrowRight, Loader } from "lucide-react";
+import { Loader, ArrowRight } from "lucide-react";
+import { GoogleIcon, GitHubIcon } from "../features/homepage/BrandIcons";
 import "./login.css";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-const handleGoogleLogin = () => {
-  window.location.href = `${API_URL}/auth/google`;
+const handleOAuthLogin = (provider) => {
+  window.location.href = `${API_URL}/auth/${provider}`;
 };
 
 export default function Login() {
@@ -32,6 +33,7 @@ export default function Login() {
     try {
       const res = await fetch(`${API_URL}/auth/login`, {
         method: "POST",
+        credentials: "include",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
@@ -44,7 +46,7 @@ export default function Login() {
       }
 
       login(data);
-      navigate("/tasks");
+      navigate("/resources");
     } catch {
       showToast("Could not reach the server. Is it running?", "error");
     } finally {
@@ -55,21 +57,24 @@ export default function Login() {
   return (
     <div className="auth-page">
       <div className="auth-left">
+
+        {/* <div className="auth-left-brand">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="auth-logo">
+            <rect width="40" height="40" rx="10" fill="currentColor"/>
+            <path d="M12 14h16M12 20h12M12 26h8" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          <span>Edubits</span>
+        </div> */}
+
         <div className="auth-left-brand">
-          <img src="/images/logo.webp" alt="Edubits" width="32" height="32" />
+          <img src="/images/favicon.png" alt="Edubits logo" width="40" height="40" className="auth-logo" />
           <span>Edubits</span>
         </div>
 
         <div className="auth-left-copy">
           <h2>Engineering made <br /> easier.</h2>
-          <p>SGPA calculators, PYQs, Playlists, quizzes, and productivity tools — all in one place.</p>
+          <p>Resources, QuizEngine, calculators & task tracking — all in one place for engineering students.</p>
         </div>
-
-        <img
-          src="/images/graduation.svg"
-          alt="Students celebrating graduation"
-          className="auth-illustration"
-        />
       </div>
 
       <div className="auth-right">
@@ -79,19 +84,26 @@ export default function Login() {
             <p>Log in to continue your learning journey</p>
           </div>
 
-          <button type="button" className="google-btn" onClick={handleGoogleLogin}>
-            <img
-              src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
-              alt="Google"
-              width="20"
-              height="20"
-            />
-            Continue with Google
-          </button>
+          <div className="auth-oauth-buttons">
+            <button
+              type="button"
+              className="btn btn-secondary auth-oauth-btn auth-oauth-btn--google"
+              onClick={() => handleOAuthLogin("google")}
+            >
+              <GoogleIcon /> Google
+            </button>
+            <button
+              type="button"
+              className="btn btn-secondary auth-oauth-btn auth-oauth-btn--github"
+              onClick={() => handleOAuthLogin("github")}
+            >
+              <GitHubIcon /> GitHub
+            </button>
+          </div>
 
           <div className="auth-divider">or</div>
 
-          <form onSubmit={handleLogin}>
+          <form onSubmit={handleLogin} className="auth-form">
             <div className="input-group">
               <input
                 type="email"
@@ -114,7 +126,7 @@ export default function Login() {
               <label>Password</label>
             </div>
 
-            <button type="submit" className="auth-submit-btn" disabled={loading}>
+            <button type="submit" className="btn btn-primary auth-submit-btn" disabled={loading}>
               {loading ? (
                 <span className="btn-loading">
                   <Loader size={16} className="spin-icon" />

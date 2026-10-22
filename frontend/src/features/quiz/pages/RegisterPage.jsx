@@ -49,14 +49,6 @@ export default function RegisterPage() {
         password,
       });
 
-      const data = res.data;
-
-      if (!data.token) {
-        alert("No token received!");
-        return;
-      }
-
-      localStorage.setItem("token", data.token);
       navigate("/quizzes");
 
     } catch (err) {
@@ -85,7 +77,7 @@ export default function RegisterPage() {
           align-items: center;
           justify-content: center;
           background: var(--bg);
-          font-family: 'Inter', system-ui, sans-serif;
+          font-family: var(--font-sans);
           padding: 20px;
         }
 

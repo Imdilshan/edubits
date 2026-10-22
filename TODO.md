@@ -4,6 +4,13 @@
 
 
 ## Will do
+### Hardening
+- [ ] Run `npm run build` locally and redeploy; retest Google/GitHub/Microsoft login on production
+- [ ] `git rm -r --cached backend/uploads` (22 images still tracked)
+- [ ] Set `BACKEND_URL`, `FRONTEND_URL`, `NODE_ENV=production`, `CORS_ORIGINS` on Render; `VITE_API_URL` (ending in `/api`) on Vercel
+- [ ] Fix remaining `set-state-in-effect` lint errors (OnboardingModal, PYQsPage, RegisterPage, SGPA, DateOverridePanel)
+- [ ] Add `/about` route; wrap `/programming/admin` in `AdminRoute`
+- [ ] Replace JWT-in-URL OAuth redirect with a one-time code
 
 ### General
 - [ ] Post-tool feedback prompt (CGPA calculated, quiz results, PYQ completed) — "Was this helpful?" Yes/No + optional text box for what was missing

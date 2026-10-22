@@ -176,7 +176,7 @@ export default function ProgrammingAdmin() {
 
       <section style={{ marginBottom: 40 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 14 }}>
-          <h2 style={{ color: "var(--text)", fontFamily: "'DM Sans', sans-serif", fontWeight: 700, margin: 0 }}>
+          <h2 style={{ color: "var(--text)", fontFamily: "var(--font-sans)", fontWeight: 700, margin: 0 }}>
             Problems ({visibleProblems.length})
           </h2>
 
@@ -245,7 +245,7 @@ export default function ProgrammingAdmin() {
       {/* ═══════════════════════════════════════════════════════════════════ */}
 
       <section ref={formRef}>
-        <h2 style={{ color: "var(--text)", fontFamily: "'DM Sans', sans-serif", fontWeight: 700, marginBottom: 20 }}>
+        <h2 style={{ color: "var(--text)", fontFamily: "var(--font-sans)", fontWeight: 700, marginBottom: 20 }}>
           {editingId ? "Edit Problem" : "New Problem"}
         </h2>
 
@@ -452,7 +452,7 @@ const inputStyle = {
   background: "var(--surface-2)",
   color: "var(--text)",
   fontSize: "0.9rem",
-  fontFamily: "'DM Sans', sans-serif",
+  fontFamily: "var(--font-sans)",
   outline: "none",
   width: "100%",
   boxSizing: "border-box",

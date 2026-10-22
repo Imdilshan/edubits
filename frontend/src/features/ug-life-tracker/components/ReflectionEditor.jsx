@@ -122,7 +122,7 @@ export default function ReflectionEditor({ entry, onChange }) {
                 cursor: "pointer",
                 transition: "all 0.12s",
                 outline: "none",
-                fontFamily: "'IBM Plex Mono', monospace",
+                fontFamily: "var(--font-sans)",
               }}
               onMouseEnter={(e) => { e.currentTarget.style.color = "var(--text)"; e.currentTarget.style.borderColor = "var(--muted)"; }}
               onMouseLeave={(e) => { e.currentTarget.style.color = "var(--muted)"; e.currentTarget.style.borderColor = "var(--border)"; }}
@@ -146,7 +146,7 @@ export default function ReflectionEditor({ entry, onChange }) {
           padding: "12px 14px",
           color: "var(--text)",
           fontSize: 13,
-          fontFamily: "'IBM Plex Mono', monospace",
+          fontFamily: "var(--font-sans)",
           lineHeight: 1.7,
           resize: "vertical",
           outline: "none",
@@ -163,7 +163,7 @@ export default function ReflectionEditor({ entry, onChange }) {
           color: "var(--muted)",
           marginTop: 6,
           textAlign: "right",
-          fontFamily: "'IBM Plex Mono', monospace",
+          fontFamily: "var(--font-sans)",
           letterSpacing: "0.06em",
           opacity: 0.6,
         }}>

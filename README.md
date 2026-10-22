@@ -176,7 +176,8 @@ edubits/
 ### Backend (`backend/.env`)
 ```env
 MONGO_URI=mongodb+srv://<user>:<pass>@<cluster>.mongodb.net/Edubits
-JWT_SECRET=your_super_secret_key_here_use_openssl_rand_base64_32
+# Generate with: openssl rand -base64 32
+JWT_SECRET=REPLACE_WITH_GENERATED_RANDOM_SECRET
 FRONTEND_URL=http://localhost:5173
 PORT=5001
 CLOUDINARY_CLOUD_NAME=your_cloud_name
@@ -185,6 +186,9 @@ CLOUDINARY_API_SECRET=your_api_secret
 GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
 BACKEND_URL=https://your-backend-url.com
+# Optional, only to create the initial admin with `npm run seed:quiz`
+SEED_ADMIN_EMAIL=admin@example.com
+SEED_ADMIN_PASSWORD=use-a-unique-random-password-at-least-12-characters
 ```
 
 ### Frontend (`frontend/.env`)
@@ -193,6 +197,8 @@ VITE_API_URL=http://localhost:5001/api
 ```
 
 > Copy `.env.example` → `.env` in both folders. Both are gitignored — **never commit secrets**.
+
+> **Credential rotation:** the quiz seed previously included a default admin credential in source control. Treat it as compromised: rotate or disable any account created with that older seed, and rotate any real secrets that were ever committed. Git history can retain removed values.
 
 ---
 
@@ -203,7 +209,7 @@ VITE_API_URL=http://localhost:5001/api
 cd backend
 npm run dev      # Nodemon dev server (port 5001)
 npm start        # Production server
-npm run seed:quiz # Seed topics, questions, admin user (admin@quizengine.dev / admin123)
+npm run seed:quiz # Seed topics/questions; optionally bootstrap an admin using SEED_ADMIN_EMAIL and SEED_ADMIN_PASSWORD
 ```
 
 ### Frontend

@@ -161,13 +161,19 @@ No drop shadows. In dark mode, lifted panels may carry a faint white highlight o
 | Status badge | `--surface-2` fill, `--text-secondary`, caption, radius pill, 2px × 8px |
 | Status badge variants **(derived)** | Near: `--warning` text. Missed: `--danger` text. Done: `--success` text. Fill stays `--surface-2` |
 | Top nav | `--bg`, 56px tall, sticky, body-sm; wordmark left, links centered, account actions right |
-| Footer | `--bg`, `--muted` text, caption, 64px × 32px padding, dense link grid; lives on its own page |
+| Footer | `--bg`, `--muted` text, caption, 64px × 32px padding, dense link grid. Since 2026-10-22 it is one shared component (`HomeFooter.jsx`) rendered under both homepage views; the contributors page is `/people` |
 | CTA banner | `--surface`, headline type, radius lg, 48px padding |
+| Eyebrow label **(derived)** | caption-size label above a section title, uppercase, 0.4px tracking, `--muted`; used on the landing page |
+| Preview frame **(derived)** | `--surface` + 1px `--border`, radius xl, 4px padding, image inside at radius lg and full width; holds product screenshots on the landing page |
+| Proof strip **(derived)** | Row of big numbers (display-md, 600) with a `--muted` body-sm label, between 1px `--border` rules; no card, no fill |
+| Feature row **(derived)** | Two columns (copy 1fr, preview frame 1.4fr) that alternate sides per row; one column under 768px with the copy first |
 
 ## 8. Screen patterns for v2.0 **(derived)**
 
-- **Homepage:** display-xl headline, then Login (secondary) and Register (primary) under it. Two groups of cards: Exam prep (Resources, QuizEngine), then Other tools.
+- **Homepage, logged out (landing page, `decisions/5.md`):** display-xl headline and one value-proposition line; primary **Get started** and secondary **Continue with Google** (the secondary button stays neutral, brand color only inside the Google icon), then a "Log in" text link in `--primary`. Below: preview frame, proof strip, feature rows (Resources, QuizEngine) with the other tools as static cards, origin story, CTA banner that repeats the hero actions, footer. Tool cards are not links on this page because every tool is gated.
+- **Homepage, logged in:** the headline greets the user by name, then two groups of cards: Exam prep (Resources, QuizEngine, featured size), then Other tools. No duplicate hero buttons.
 - **Resources:** year cards → subject cards → pill tabs (PYQs, Playlists, Notes). Each paper shows two cards (questions; questions + solution) that open a large panel holding the viewer.
+  - **(proposed, `Feature.md` §8.1)** A subject search field and a "Continue where you left off" card on `/resources`; "N papers" on year cards and a progress bar on subject cards; the active tab in the URL; paper rows instead of two large tiles (title, tag, Questions and Solution buttons, attempted checkbox, notes behind a toggle); a viewer with continuous scroll, remembered page and side-by-side Questions and Solution on desktop; skeleton cards while loading; an empty state that invites students to send a missing paper.
 - **QuizEngine:** pill toggle for College viva and NPTEL, then a grid of photo cards.
 - **Calculators:** mini cards with inputs; credits as a dropdown (1–6).
 - **Task Tracker:** deadline-first list with status badges; Kanban as a secondary view using cards.
@@ -205,3 +211,16 @@ Images keep their aspect ratio and are never cropped awkwardly.
 - Review the light-mode, warning and danger tokens marked **(derived)**.
 - Photo sourcing and art direction for the QuizEngine cards.
 - Motion and loading skeletons are not covered by the reference.
+- Skeleton and loading-state spec for Resources (`ERRORS.md` P4).
+- Subject art: one metadata map, and replacing mismatched SVGs (`ERRORS.md` D5).
+
+## 12. Known deviations from this document (2026-10-22 review)
+
+These are open and none is fixed yet. File and line numbers are from the review; re-check before editing.
+
+| Rule | Where it is broken | Fix |
+|------|--------------------|-----|
+| No drop shadows (§6) | `features/resources/pages/Resources.css:99` (`0 8px 24px`), `features/resources/components/PdfViewer.css:138` (`0 4px 20px`), `features/homepage/people.css:171` (`0 2px 8px`) | Remove, and use the elevation ladder (surface level and border) |
+| Tokens only | `features/homepage/people.css:133` uses `var(--shadow-lg)`, which `variables.css` does not define, so the declaration is invalid and renders nothing | Remove |
+| Status badge fill stays `--surface-2`; only the text takes the status color (§7) | `Resources.css:256` and `:387` (green `rgba(34, 197, 94, ...)` fills), `PdfViewer.css:124` (red `rgba(239, 68, 68, ...)` fill) | `--surface-2` fill with `--success` or `--danger` text |
+| Colors come from tokens | Raw `rgba(...)` values: `Resources.css:303` and `:422` (primary tint and focus ring), `PdfViewer.css:4` (overlay) and `:208` | Use tokens or `color-mix(in srgb, var(--token) N%, transparent)`; use the focus token for focus rings |

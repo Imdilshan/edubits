@@ -21,7 +21,7 @@ export default function SetupPanel({ startDate, onBuild }) {
         textTransform: "uppercase",
         color: "var(--muted)",
         marginBottom: 14,
-        fontFamily: "'IBM Plex Mono', monospace",
+        fontFamily: "var(--font-sans)",
       }}>
         First Day of Your UG
       </div>
@@ -30,7 +30,7 @@ export default function SetupPanel({ startDate, onBuild }) {
         color: "var(--muted)",
         lineHeight: 1.7,
         margin: "0 0 16px 0",
-        fontFamily: "'IBM Plex Mono', monospace",
+        fontFamily: "var(--font-sans)",
       }}>
         All 4 years and 8 semesters are calculated from this one date.<br />
         You can override individual semester dates below if needed.
@@ -47,7 +47,7 @@ export default function SetupPanel({ startDate, onBuild }) {
           value={dateVal}
           onChange={(e) => setDateVal(e.target.value)}
           style={{
-            fontFamily: "'IBM Plex Mono', monospace",
+            fontFamily: "var(--font-sans)",
             fontSize: 13,
             background: "var(--bg)",
             border: "1px solid var(--border)",
@@ -63,7 +63,7 @@ export default function SetupPanel({ startDate, onBuild }) {
         <button
           onClick={() => { if (!dateVal) return; onBuild(new Date(dateVal)); }}
           style={{
-            fontFamily: "'IBM Plex Mono', monospace",
+            fontFamily: "var(--font-sans)",
             fontSize: 12,
             fontWeight: 500,
             letterSpacing: "0.06em",

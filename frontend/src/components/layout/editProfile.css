@@ -111,7 +111,7 @@
   border-radius: 10px;
   color: #e5e7eb;
   font-size: 14px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-sans);
   box-sizing: border-box;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
@@ -185,7 +185,7 @@
   color: #9ca3af;
   font-size: 13px;
   font-weight: 600;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-sans);
   cursor: pointer;
   transition: all 0.15s;
 }
@@ -204,7 +204,7 @@
   color: #fff;
   font-size: 13px;
   font-weight: 700;
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-sans);
   cursor: pointer;
   transition: background 0.15s, opacity 0.15s;
 }

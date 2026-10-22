@@ -1,52 +1,69 @@
-.top-actions {
+.gpa-page {
+  width: min(100% - 40px, 1120px);
+  margin: 0 auto;
+  padding: var(--space-xl) 0 var(--space-xxl);
+}
+
+.gpa-page-header {
   display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-  margin-bottom: 16px;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  margin: 0 0 var(--space-xl);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--border);
 }
 
-.top-actions .btn-export {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.55);
-  border-radius: 10px;
-  padding: 0 16px;
-  height: 36px;
-  font-size: 13px;
-  cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
-}
-.top-actions .btn-export:hover {
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.25);
-  color: rgba(255,255,255,0.8);
+.gpa-page-heading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  min-width: 0;
 }
 
-.app-container {
-  padding: 0 20px 40px;
+.gpa-page-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  color: var(--primary);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
 }
 
-.app-container .main-title {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #60a5fa;
-  margin-bottom: 30px;
+.gpa-page-heading h1 {
+  margin: 0;
+  color: var(--text);
+  font-size: var(--text-headline);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
-@media (max-width: 768px) {
-  .top-actions {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 12px;
-    padding: 0 14px;
+.gpa-page-heading p {
+  margin: var(--space-xxs) 0 0;
+  color: var(--muted);
+  font-size: var(--text-body-sm);
+}
+
+.gpa-calculators {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+@media (max-width: 600px) {
+  .gpa-page {
+    width: min(100% - 28px, 1120px);
+    padding-top: var(--space-lg);
   }
-  .app-container {
-    padding: 12px 14px;
+
+  .gpa-page-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
   }
-  .app-container .main-title {
-    font-size: 1.4rem;
-    margin-bottom: 16px;
-  }
+
+  .gpa-page-heading h1 { font-size: var(--text-card-title); }
 }

@@ -3,10 +3,9 @@ import useTasks from "../../../hooks/useTasks";
 import TaskColumn from "../components/TaskColumn";
 import TaskModal from "../components/TaskModal";
 import Stats from "../components/Stats";
+import "./TaskPage.css";
 
-import { CheckSquare } from "lucide-react";
-
-import "../../../styles/taskTracker.css";
+import { CheckSquare, Plus, Filter, X } from "lucide-react";
 
 export default function TaskPage() {
   const { tasks, loading, filters, setFilters, addTask, updateTask, deleteTask } = useTasks();
@@ -28,86 +27,73 @@ export default function TaskPage() {
   };
 
   return (
-    <>
     <div className="tasks-page">
       <div className="page-header">
         <div>
-          <div classname="Task-Title">
-    
-            <h1
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                lineHeight: 1,
-                color: "#22d3ee",
-
-                fontFamily: "'DM Sans', sans-serif",
-                fontWeight: 800,
-                letterSpacing: "-0.02em",
-              }}
-            >
-              <CheckSquare
-                size={30}
-                strokeWidth={2.3}
-                style={{
-                  color: "#22d3ee",
-                }}
-              />
-
-              Task Tracker
-            </h1>
-          </div>
-          <p className="hero-tagline">
+          <h1 className="page-title">
+            <CheckSquare size={28} strokeWidth={2.2} /> Task Tracker
+          </h1>
+          <p className="page-subtitle">
             <span className="highlight-red">Plan smarter.</span>{" "}
             <span className="highlight-yellow">Track faster.</span>{" "}
             <span className="highlight-green">Never miss a deadline.</span>
           </p>
         </div>
         <button className="btn btn-primary" onClick={() => { setEditingTask(null); setIsOpen(true); }}>
-          + Add Task
+          <Plus size={18} /> Add Task
         </button>
       </div>
 
       <Stats tasks={tasks} />
-      <div className="filters">
-        <input
-          className="filter-input"
-          placeholder="Search tasks..."
-          value={filters.search}
-          onChange={(e) => setFilters((f) => ({ ...f, search: e.target.value }))}
-        />
-        <select
-          className="filter-select"
-          value={filters.type}
-          onChange={(e) => setFilters((f) => ({ ...f, type: e.target.value }))}
-        >
-          <option value="">All Types</option>
-          <option value="assignment">Assignment</option>
-          <option value="project">Project</option>
-          <option value="case-study">Case Study</option>
-          <option value="ppt">PPT Presentation</option>
-          <option value="worksheet">Worksheet Submission</option>
-          <option value="quiz">Quiz</option>
-          <option value="surprise-test">Surprise Test</option>
-          <option value="other">Other</option>
-        </select>
-        <select
-          className="filter-select"
-          value={filters.priority}
-          onChange={(e) => setFilters((f) => ({ ...f, priority: e.target.value }))}
-        >
-          <option value="">All Priorities</option>
-          <option value="high">High</option>
-          <option value="medium">Medium</option>
-          <option value="low">Low</option>
-        </select>
+
+      <div className="filters-row">
+        <div className="filter-group flex-1">
+          <input
+            className="form-input"
+            placeholder="Search tasks..."
+            value={filters.search}
+            onChange={(e) => setFilters((f) => ({ ...f, search: e.target.value }))}
+          />
+        </div>
+        <div className="filter-group">
+          <select
+            className="form-select"
+            value={filters.type}
+            onChange={(e) => setFilters((f) => ({ ...f, type: e.target.value }))}
+          >
+            <option value="">All Types</option>
+            <option value="assignment">Assignment</option>
+            <option value="project">Project</option>
+            <option value="case-study">Case Study</option>
+            <option value="ppt">PPT Presentation</option>
+            <option value="worksheet">Worksheet Submission</option>
+            <option value="quiz">Quiz</option>
+            <option value="surprise-test">Surprise Test</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div className="filter-group">
+          <select
+            className="form-select"
+            value={filters.priority}
+            onChange={(e) => setFilters((f) => ({ ...f, priority: e.target.value }))}
+          >
+            <option value="">All Priorities</option>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+        <button className="btn btn-tertiary" onClick={() => setFilters({ search: "", type: "", priority: "", status: "" })}>
+          <X size={16} /> Clear
+        </button>
       </div>
 
       {loading && (
-        <p style={{ textAlign: "center", color: "var(--muted)", padding: "20px" }}>
-          Loading tasks...
-        </p>
+        <div className="loading-state">
+          <div className="spinner" />
+          <p>Loading tasks...</p>
+        </div>
       )}
 
       <div className="kanban">
@@ -123,6 +109,5 @@ export default function TaskPage() {
         editingTask={editingTask}
       />
     </div>
-  </>
   );
 }

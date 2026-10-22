@@ -1,0 +1,198 @@
+/* ============================================================================
+   Edubits v2.0 — Task Tracker Page (Design.md compliant)
+   Uses design system tokens from variables.css
+   ============================================================================ */
+
+.tasks-page {
+  min-height: 100vh;
+  background: var(--bg);
+  padding: var(--space-xl) var(--space-lg);
+}
+
+.page-header {
+  max-width: 1280px;
+  margin: 0 auto var(--space-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  padding: var(--space-xl) var(--space-lg) var(--space-md);
+}
+
+.page-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  font-size: var(--text-display-md);
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 var(--space-sm);
+  letter-spacing: -0.01em;
+}
+
+.page-title svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.page-subtitle {
+  font-size: var(--text-body);
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.highlight-red { color: var(--danger); font-weight: 600; }
+.highlight-yellow { color: var(--warning); font-weight: 500; }
+.highlight-green { color: var(--success); font-weight: 500; }
+
+/* Stats */
+.stats-row {
+  max-width: 1280px;
+  margin: 0 auto var(--space-lg);
+  padding: 0 var(--space-lg);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.stat-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+.stat-num {
+  font-size: var(--text-display-lg);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.stat-label {
+  font-size: var(--text-caption);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-total { border-left: 3px solid var(--primary); }
+.stat-overdue { border-left: 3px solid var(--danger); }
+.stat-due { border-left: 3px solid var(--warning); }
+.stat-done { border-left: 3px solid var(--success); }
+
+.stat-total .stat-num { color: var(--primary); }
+.stat-overdue .stat-num { color: var(--danger); }
+.stat-due .stat-num { color: var(--warning); }
+.stat-done .stat-num { color: var(--success); }
+
+/* Filters */
+.filters-row {
+  max-width: 1280px;
+  margin: 0 auto var(--space-lg);
+  padding: 0 var(--space-lg);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  align-items: flex-end;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+}
+
+.filter-group.flex-1 {
+  flex: 1;
+  min-width: 250px;
+}
+
+.filter-group label {
+  font-size: var(--text-caption);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: var(--space-xxs);
+}
+
+/* Kanban */
+.kanban {
+  max-width: 1280px;
+  margin: var(--space-lg) auto;
+  padding: 0 var(--space-lg);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+@media (max-width: 1024px) {
+  .kanban {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .kanban {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .page-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filters-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filter-group.flex-1 {
+    min-width: 0;
+  }
+}
+
+/* Loading state */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  gap: var(--space-md);
+  color: var(--muted);
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+  }
+}

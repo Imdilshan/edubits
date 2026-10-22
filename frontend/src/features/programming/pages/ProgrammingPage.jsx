@@ -72,7 +72,7 @@ function AdminButton({ navigate }) {
         fontSize: "0.85rem",
         fontWeight: 600,
         cursor: "pointer",
-        fontFamily: "'DM Sans', sans-serif",
+        fontFamily: "var(--font-sans)",
         transition: "background 0.15s",
       }}
       onMouseEnter={(e) => e.currentTarget.style.background = "rgba(74,144,226,0.2)"}
