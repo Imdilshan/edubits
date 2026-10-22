@@ -22,7 +22,7 @@ const YearSection = memo(function YearSection({ yearData, scores, notes, onOpenW
         textTransform: "uppercase",
         color: "var(--muted)",
         marginBottom: 18,
-        fontFamily: "'IBM Plex Mono', monospace",
+        fontFamily: "var(--font-sans)",
       }}>
         — Year {yearData.year} · {startYear}–{startYear + 1} —
       </div>

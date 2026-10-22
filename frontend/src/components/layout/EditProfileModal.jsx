@@ -4,7 +4,7 @@ import { X, User, Mail, Lock, Eye, EyeOff, CheckCircle, AlertCircle } from "luci
 import "./editProfile.css";
 
 export default function EditProfileModal({ onClose }) {
-  const { user, token, setUser } = useAuth();
+  const { user, setUser, logout } = useAuth();
   const API_URL = import.meta.env.VITE_API_URL;
 
   const [form, setForm] = useState({
@@ -21,6 +21,9 @@ export default function EditProfileModal({ onClose }) {
 
   const [loading,  setLoading]  = useState(false);
   const [toast,    setToast]    = useState(null);
+  const [confirmEmail, setConfirmEmail] = useState("");
+  const [deletePassword, setDeletePassword] = useState("");
+  const [deleting, setDeleting] = useState(false);
 
   const showToast = (type, msg) => {
     setToast({ type, msg });
@@ -61,9 +64,9 @@ export default function EditProfileModal({ onClose }) {
 
       const res  = await fetch(`${API_URL}/auth/profile`, {
         method:  "PUT",
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
-          Authorization:  `Bearer ${token}`,
         },
         body: JSON.stringify(body),
       });
@@ -76,7 +79,6 @@ export default function EditProfileModal({ onClose }) {
       }
 
       setUser(data.user);
-      localStorage.setItem("user", JSON.stringify(data.user));
 
       showToast("success", "Profile updated successfully!");
 
@@ -91,6 +93,37 @@ export default function EditProfileModal({ onClose }) {
       showToast("error", "Network error. Please try again.");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleDeleteAccount = async () => {
+    if (confirmEmail.trim() !== user?.email) {
+      return showToast("error", "Enter your account email to confirm deletion");
+    }
+
+    try {
+      setDeleting(true);
+      const res = await fetch(`${API_URL}/auth/account`, {
+        method: "DELETE",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ confirmEmail: confirmEmail.trim(), currentPassword: deletePassword }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        showToast("error", data.error || "Could not delete account");
+        return;
+      }
+
+      ["edubits_ugTracker_v1", "edubits_pyq_progress", "edubits_local_pyqs"].forEach((key) => localStorage.removeItem(key));
+      logout();
+      onClose();
+    } catch {
+      showToast("error", "Network error. Please try again.");
+    } finally {
+      setDeleting(false);
     }
   };
 
@@ -184,6 +217,38 @@ export default function EditProfileModal({ onClose }) {
             </button>
           </div>
         </div>
+
+        <div className="ep-divider"><span>Delete Account</span></div>
+        <p style={{ color: "#b91c1c", fontSize: 13 }}>
+          This permanently deletes your account, quiz history, tasks, and saved progress.
+        </p>
+        <div className="ep-group">
+          <label className="ep-label">TYPE YOUR EMAIL TO CONFIRM</label>
+          <input
+            className="ep-input"
+            type="email"
+            value={confirmEmail}
+            onChange={(e) => setConfirmEmail(e.target.value)}
+            autoComplete="off"
+          />
+        </div>
+        <div className="ep-group">
+          <label className="ep-label">CURRENT PASSWORD (IF SET)</label>
+          <input
+            className="ep-input"
+            type="password"
+            value={deletePassword}
+            onChange={(e) => setDeletePassword(e.target.value)}
+            autoComplete="current-password"
+          />
+        </div>
+        <button
+          onClick={handleDeleteAccount}
+          disabled={deleting || loading}
+          style={{ background: "#b91c1c", color: "white", border: 0, borderRadius: 8, padding: "10px 14px", cursor: "pointer" }}
+        >
+          {deleting ? "Deleting Account..." : "Delete Account Permanently"}
+        </button>
 
         <div className="ep-actions">
           <button className="ep-btn-cancel" onClick={onClose}>Cancel</button>

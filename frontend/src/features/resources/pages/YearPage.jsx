@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { Link, useParams } from "react-router-dom";
-import { BookOpen, FolderOpen, FileText, Loader2, AlertCircle, ArrowLeft } from "lucide-react";
-import { fetchResources } from "../../../services/resourceService";
-import { useProgress } from "../hooks/useProgress";
+import { Layers, Loader2, AlertCircle, ArrowLeft } from "lucide-react";
+import { fetchResourcesSummary } from "../../../services/resourceService";
+import { useResourcesProgress } from "../ResourcesLayout";
 import "./Resources.css";
 import "./ResourcesHome.css";
 
@@ -29,58 +29,65 @@ const SUBJECT_IMAGES = {
   "OOPS Using Java": "/images/java.svg",
 };
 
+const SUBJECTS_BY_YEAR = {
+  "1st Year": ["Mathematics-I", "Digital Electronics", "Engineering Physics", "LTPS", "Biology"],
+  "2nd Year": ["COA", "DBMS", "ADSA", "Java", "Software Engineering", "Operating System", "Machine Learning", "Probability & Statistics"],
+  "3rd Year": ["PBL_Java", "Computer Networks", "Probability & Statistics", "Web Development Fundamentals", "Business Analytics"],
+  "4th Year": ["Ethical Hacking"],
+};
+
 export default function YearPage() {
   const { year } = useParams();
   const decodedYear = decodeURIComponent(year);
-  const [subjects, setSubjects] = useState([]);
+  const [summary, setSummary] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { progressMap } = useProgress();
+  const { progressMap, loading: progressLoading } = useResourcesProgress();
 
-  useEffect(() => {
-    loadSubjects();
-  }, [decodedYear]);
-
-  const loadSubjects = async () => {
+  const loadSummary = useCallback(async () => {
+    setLoading(true);
+    setError(null);
     try {
-      const resources = await fetchResources({ type: "pyqs", year: decodedYear });
-      const subjectCounts = {};
-      resources.forEach((r) => {
-        if (r.subject && r.variant === "questions") {
-          if (!subjectCounts[r.subject]) {
-            subjectCounts[r.subject] = { total: 0, attempted: 0 };
-          }
-          subjectCounts[r.subject].total++;
-          if (progressMap[r.paperKey]?.attempted) {
-            subjectCounts[r.subject].attempted++;
-          }
-        }
-      });
-      const subjectList = Object.entries(subjectCounts)
-        .map(([subject, counts]) => ({
-          subject,
-          total: counts.total,
-          attempted: counts.attempted,
-          image: SUBJECT_IMAGES[subject] || "/images/daa.svg",
-        }))
-        .sort((a, b) => a.subject.localeCompare(b.subject));
-      setSubjects(subjectList);
+      const data = await fetchResourcesSummary();
+      setSummary(data.subjects?.[decodedYear] || []);
     } catch (err) {
-      setError(err.message);
+      setError(err.response?.data?.message || err.response?.data?.error || err.message || "Could not load subjects.");
     } finally {
       setLoading(false);
     }
-  };
+  }, [decodedYear]);
 
-  if (loading) return <div className="resources-loading"><Loader2 className="spin" size={32} /> Loading subjects…</div>;
-  if (error) return <div className="resources-error"><AlertCircle size={32} /> {error}</div>;
+  useEffect(() => {
+    loadSummary();
+  }, [loadSummary]);
+
+  const subjects = useMemo(() => {
+    const uploaded = new Map(summary.map(({ subject, count, paperKeys = [] }) => [subject, { count, paperKeys }]));
+    return (SUBJECTS_BY_YEAR[decodedYear] || []).map((subject) => {
+      const { count = 0, paperKeys = [] } = uploaded.get(subject) || {};
+      return {
+        subject,
+        total: count,
+        attempted: paperKeys.filter((paperKey) => progressMap[paperKey]?.attempted).length,
+        image: SUBJECT_IMAGES[subject] || "/images/daa.svg",
+      };
+    });
+  }, [decodedYear, summary, progressMap]);
+
+  if (loading || progressLoading) return <div className="resources-loading"><Loader2 className="spin" size={32} /> Loading subjects…</div>;
+  if (error) return <div className="resources-error"><AlertCircle size={32} /> {error} <button onClick={loadSummary}>Retry</button></div>;
 
     return (
     <div className="res-home">
-      <header className="res-home-header res-home-header--row">
-        <h1 className="res-home-title"><BookOpen size={27} /> {decodedYear}</h1>
+      <header className="res-home-header res-home-header--column">
+        <h1 className="res-home-title">
+          <Layers size={27} />
+          {decodedYear}
+        </h1>
+
         <Link to="/resources" className="back-link">
-          <ArrowLeft size={16} /> Back
+          <ArrowLeft size={16} />
+          Back
         </Link>
       </header>
 

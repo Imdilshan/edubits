@@ -233,7 +233,6 @@ async function seed() {
         const existingQuestions = await Resource.findOne({
           paperKey,
           variant: "questions",
-          isActive: true,
         });
 
         if (existingQuestions) {
@@ -258,7 +257,9 @@ async function seed() {
           cloudinaryResourceType: "raw",
           format: "pdf",
           fileSize: 0,
-          isActive: true,
+          // These are navigation placeholders, not real downloadable papers.
+          // Keep them inactive so they never appear as content to students.
+          isActive: false,
         });
 
         // Create solution variant
@@ -277,7 +278,7 @@ async function seed() {
           cloudinaryResourceType: "raw",
           format: "pdf",
           fileSize: 0,
-          isActive: true,
+          isActive: false,
         });
 
         created += 2;
@@ -287,7 +288,7 @@ async function seed() {
   }
 
   console.log(`\nSeeding complete. Created: ${created} resources, Skipped: ${skipped}.`);
-  console.log("\nNOTE: These are placeholder records. Admins must upload actual PDFs via /admin-upload or POST /api/resources/upload-pair");
+  console.log("\nNOTE: Placeholder records are inactive. Upload real PDFs via /admin-upload or POST /api/resources/upload-pair.");
   await mongoose.disconnect();
 }
 

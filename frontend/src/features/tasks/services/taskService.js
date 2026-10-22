@@ -2,7 +2,6 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 export const getHeaders = () => ({
   "Content-Type": "application/json",
-  Authorization: `Bearer ${localStorage.getItem("token")}`,
 });
 
 const handleResponse = async (res) => {
@@ -17,13 +16,14 @@ export const fetchTasksAPI = async (filters = {}) => {
     if (val) params.append(key, val);
   });
   const query = params.toString() ? `?${params.toString()}` : "";
-  const res = await fetch(`${API_URL}/tasks${query}`, { headers: getHeaders() });
+  const res = await fetch(`${API_URL}/tasks${query}`, { headers: getHeaders(), credentials: "include" });
   return handleResponse(res);
 };
 
 export const createTaskAPI = async (task) => {
   const res = await fetch(`${API_URL}/tasks`, {
     method: "POST",
+    credentials: "include",
     headers: getHeaders(),
     body: JSON.stringify(task),
   });
@@ -33,6 +33,7 @@ export const createTaskAPI = async (task) => {
 export const updateTaskAPI = async (id, task) => {
   const res = await fetch(`${API_URL}/tasks/${id}`, {
     method: "PATCH",
+    credentials: "include",
     headers: getHeaders(),
     body: JSON.stringify(task),
   });
@@ -42,6 +43,7 @@ export const updateTaskAPI = async (id, task) => {
 export const deleteTaskAPI = async (id) => {
   const res = await fetch(`${API_URL}/tasks/${id}`, {
     method: "DELETE",
+    credentials: "include",
     headers: getHeaders(),
   });
   return handleResponse(res);

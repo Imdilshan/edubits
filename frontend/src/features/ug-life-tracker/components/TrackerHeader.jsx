@@ -2,7 +2,7 @@ export default function TrackerHeader() {
   return (
     <div style={{ textAlign: "center", padding: "48px 20px 32px" }}>
       <h1 style={{
-        fontFamily: "'Playfair Display', serif",
+        fontFamily: "var(--font-sans)",
         fontSize: "clamp(2.2rem, 5vw, 3.6rem)",
         fontWeight: 700,
         letterSpacing: "-0.01em",
@@ -20,7 +20,7 @@ export default function TrackerHeader() {
         color: "var(--muted)",
         lineHeight: 2,
         margin: 0,
-        fontFamily: "'IBM Plex Mono', monospace",
+        fontFamily: "var(--font-sans)",
       }}>
         Enter the first day of your UnderGraduation.<br />
         TRACK YOUR ENGINEERING JOURNEY WEEK BY WEEK. <br/>

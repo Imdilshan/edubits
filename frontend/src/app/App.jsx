@@ -19,6 +19,7 @@ const AdminRoute = lazy(() => import("../components/layout/AdminRoute"));
 const ResourcesPage = lazy(() => import("../features/resources/pages/ResourcesPage"));
 const YearPage = lazy(() => import("../features/resources/pages/YearPage"));
 const SubjectPage = lazy(() => import("../features/resources/pages/SubjectPage"));
+const ResourcesLayout = lazy(() => import("../features/resources/ResourcesLayout"));
 
 const TopicsPage = lazy(() => import("../features/quiz/pages/TopicsPage"));
 const QuizPage = lazy(() => import("../features/quiz/pages/QuizPage"));
@@ -27,11 +28,12 @@ const LeaderboardPage = lazy(() => import("../features/quiz/pages/LeaderboardPag
 const HistoryPage = lazy(() => import("../features/quiz/pages/HistoryPage"));
 
 // Phase 0: Viewer spike
-const ViewerSpike = lazy(() => import("../features/resources/pages/ViewerSpike"));
 
 const ProgrammingPage = lazy(() => import("../features/programming/pages/ProgrammingPage"));
 const TopicProblemsPage = lazy(() => import("../features/programming/pages/TopicProblemsPage"));
 const ProgrammingAdmin = lazy(() => import("../features/programming/pages/ProgrammingAdmin"));
+const PeoplePage = lazy(() => import("../features/homepage/PeoplePage"));
+const AboutPage = lazy(() => import("../features/about/AboutPage"));
 
 function PublicNavbar() {
   return (
@@ -51,7 +53,7 @@ function PublicNavbar() {
         display: "flex",
         alignItems: "center",
         gap: "10px",
-        fontFamily: "'DM Sans', sans-serif",
+        fontFamily: "var(--font-sans)",
         fontWeight: 800,
         fontSize: "1.4rem",
         color: "var(--primary)",
@@ -70,11 +72,13 @@ function PublicNavbar() {
 }
 
 function AppInner() {
-  const { token, showOnboarding, setShowOnboarding } = useAuth();
+  const { user, authReady, showOnboarding, setShowOnboarding } = useAuth();
   const location  = useLocation();
   const isHome    = location.pathname === "/";
 
-  if (token) {
+  if (!authReady) return <div className="route-loader" aria-label="Loading session" />;
+
+  if (user) {
     return (
       <div>
         <Suspense fallback={<div className="navbar-placeholder" />}>
@@ -90,9 +94,11 @@ function AppInner() {
               <Route path="/pyqs" element={<Navigate to="/resources" replace />} />
 
               {/* Phase 3: Resources */}
-              <Route path="/resources" element={<ResourcesPage />} />
-              <Route path="/resources/:year" element={<YearPage />} />
-              <Route path="/resources/:year/:subject" element={<SubjectPage />} />
+              <Route path="/resources" element={<ResourcesLayout />}>
+                <Route index element={<ResourcesPage />} />
+                <Route path=":year" element={<YearPage />} />
+                <Route path=":year/:subject" element={<SubjectPage />} />
+              </Route>
 
               <Route path="/admin-upload" element={<AdminRoute><AdminUpload /></AdminRoute>} />
 
@@ -109,8 +115,8 @@ function AppInner() {
               <Route path="/programming/admin" element={<ProgrammingAdmin />} />
               <Route path="/programming/:topicId" element={<TopicProblemsPage />} />
 
-              {/* Phase 0: Viewer spike test route */}
-              <Route path="/viewer-spike" element={<ViewerSpike />} />
+              <Route path="/people" element={<PeoplePage />} />
+              <Route path="/about" element={<AboutPage />} />
 
               <Route path="/login"    element={<Navigate to="/" />} />
               <Route path="/register" element={<Navigate to="/" />} />

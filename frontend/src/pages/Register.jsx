@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useToast } from "../context/ToastContext";
 import { Loader, ArrowRight } from "lucide-react";
-import { GoogleIcon, GitHubIcon, MicrosoftIcon } from "../features/homepage/BrandIcons";
+import { GoogleIcon, GitHubIcon } from "../features/homepage/BrandIcons";
 import "./login.css";
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -39,6 +39,7 @@ export default function Register() {
     try {
       const res = await fetch(`${API_URL}/auth/register`, {
         method: "POST",
+        credentials: "include",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password }),
       });
@@ -97,13 +98,6 @@ export default function Register() {
               onClick={() => handleOAuthLogin("github")}
             >
               <GitHubIcon /> GitHub
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary auth-oauth-btn auth-oauth-btn--microsoft"
-              onClick={() => handleOAuthLogin("microsoft")}
-            >
-              <MicrosoftIcon /> Microsoft
             </button>
           </div>
 

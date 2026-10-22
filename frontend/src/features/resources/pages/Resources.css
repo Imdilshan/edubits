@@ -66,6 +66,50 @@
   color: var(--text-secondary);
 }
 
+/* Subject page header */
+
+.subject-page-header {
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  justify-content: flex-start;
+
+  gap: 16px;
+
+}
+
+/* Subject title and Resources icon */
+
+.subject-page .resources-header h1 {
+
+  color: #5E6AD2;
+
+}
+
+.subject-page .resources-header h1 svg {
+
+  color: #5E6AD2;
+
+  flex-shrink: 0;
+
+}
+
+/* Red Back button */
+
+.subject-page .back-link {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.06);
+  border-color: rgba(239, 68, 68, 0.35);
+}
+
+.subject-page .back-link:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.12);
+  border-color: #ef4444;
+}
+
 /* Grids */
 .resources-grid {
   display: grid;
@@ -211,8 +255,24 @@
 /* Paper Pair Cards */
 .paper-pairs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
+}
+
+.paper-pair-card-empty {
+  border-style: dashed;
+}
+
+.paper-slot-empty {
+  display: grid;
+  min-height: 120px;
+  place-items: center;
+  padding: 16px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  color: var(--muted);
+  text-align: center;
+  font-size: 13px;
 }
 
 .paper-pair-card {
@@ -416,6 +476,18 @@
   box-sizing: border-box;
 }
 
+.notes-save-status {
+  display: block;
+  min-height: 1em;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.notes-save-status.saved {
+  color: var(--success);
+}
+
 .notes-textarea:focus {
   outline: none;
   border-color: var(--primary);
@@ -533,11 +605,17 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  width: fit-content;
+  padding: 0;
+  border: 0;
+  background: transparent;
   font-size: 13px;
   font-weight: 500;
+  font-family: inherit;
   color: var(--primary);
   text-decoration: none;
   margin-top: 4px;
+  cursor: pointer;
 }
 
 .note-link:hover {
@@ -593,6 +671,10 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .paper-pairs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .resources-page {
     padding: 0 16px 32px;
   }
@@ -601,10 +683,6 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
-  }
-
-  .paper-pairs-grid {
-    grid-template-columns: 1fr;
   }
 
   .paper-pair-pdfs {
@@ -633,5 +711,11 @@
   .tab-btn {
     white-space: nowrap;
     padding: 10px 14px;
+  }
+}
+
+@media (max-width: 560px) {
+  .paper-pairs-grid {
+    grid-template-columns: 1fr;
   }
 }

@@ -21,8 +21,8 @@ const YEAR_OPTIONS = {
     { key: "senior", label: "4th Year" },
   ],
   ait: [
-    { key: "3", label: "3rd Year (Data Science)" },
-    { key: "4", label: "4th Year (AIML)" },
+    { key: "3-ds", label: "3rd Year (Data Science)" },
+    { key: "3-aiml", label: "3rd Year (AIML)" },
   ],
 };
 
@@ -39,33 +39,36 @@ const TAB_CONFIG = {
       { key: "theory",    label: "Theory",    icon: BookOpen,        color: "var(--primary)",  desc: "Pure theory (e.g., Discrete Math, OS Theory)" },
       { key: "practical", label: "Practical", icon: Wrench,          color: "var(--success)",  desc: "Pure lab (e.g., DS Lab, DBMS Lab, OS Lab)" },
       { key: "aptitude",  label: "Aptitude",  icon: Brain,           color: "var(--warning)",  desc: "Aptitude tests (Quant, Logic, Verbal)" },
+      { key: "softskill", label: "Soft Skill", icon: Users,           color: "var(--primary)",  desc: "Communication, Leadership, Professional ethics" },
     ],
     "3": [
       { key: "hybrid",    label: "Hybrid",    icon: FlaskConical,    color: "var(--danger)",   desc: "Theory + Practical (e.g., CN, SE, ML, Compiler Design)" },
       { key: "theory",    label: "Theory",    icon: BookOpen,        color: "var(--primary)",  desc: "Pure theory (e.g., AI Theory, Cloud Computing)" },
       { key: "practical", label: "Practical", icon: Wrench,          color: "var(--success)",  desc: "Pure lab (e.g., CN Lab, ML Lab, Project Work)" },
       { key: "aptitude",  label: "Aptitude",  icon: Brain,           color: "var(--warning)",  desc: "Placement prep (Coding, Aptitude, GD/PI)" },
+      { key: "softskill", label: "Soft Skill", icon: Users,           color: "var(--primary)",  desc: "Communication, Leadership, Professional ethics" },
     ],
     "senior": [
       { key: "hybrid",    label: "Hybrid",    icon: FlaskConical,    color: "var(--danger)",   desc: "Theory + Practical (e.g., Electives, Capstone Project)" },
       { key: "theory",    label: "Theory",    icon: BookOpen,        color: "var(--primary)",  desc: "Pure theory electives (e.g., Blockchain, Cybersecurity)" },
       { key: "practical", label: "Practical", icon: Wrench,          color: "var(--success)",  desc: "Capstone project, Internship, Major project" },
       { key: "aptitude",  label: "Aptitude",  icon: Brain,           color: "var(--warning)",  desc: "Final placement preparation" },
-      { key: "softskill", label: "Soft Skill",icon: Users,           color: "var(--primary)",  desc: "Communication, Leadership, Professional ethics" },
     ],
   },
   ait: {
-    "3": [
-      { key: "hybrid",    label: "Hybrid (DS)", icon: FlaskConical,    color: "var(--danger)",   desc: "Data Science hybrid subjects (e.g., ML + Lab, Big Data + Lab)" },
-      { key: "theory",    label: "Theory (DS)", icon: BookOpen,        color: "var(--primary)",  desc: "Data Science theory (Statistics, ML Theory, Deep Learning)" },
-      { key: "practical", label: "Practical", icon: Wrench,          color: "var(--success)",  desc: "DS labs (Python/R, TensorFlow, Data Viz)" },
-      { key: "aptitude",  label: "Aptitude",  icon: Brain,           color: "var(--warning)",  desc: "DS interviews (Statistics, ML case studies)" },
+    "3-ds": [
+      { key: "hybrid",    label: "Hybrid",    icon: FlaskConical,    color: "var(--danger)",   desc: "Theory + Practical combined (e.g., ML + Lab, Big Data + Lab, Neural Networks + Lab)" },
+      { key: "theory",    label: "Theory",    icon: BookOpen,        color: "var(--primary)",  desc: "Pure theory subjects (e.g., Statistics, Deep Learning, Transformers)" },
+      { key: "practical", label: "Practical", icon: Wrench,          color: "var(--success)",  desc: "Pure lab subjects (e.g., Python/R, TensorFlow, PyTorch, Data Visualization)" },
+      { key: "aptitude",  label: "Aptitude",  icon: Brain,           color: "var(--warning)",  desc: "Aptitude uses the 2nd-year marking scheme." },
+      { key: "softskill", label: "Soft Skill", icon: Users,           color: "var(--primary)",  desc: "Communication, Leadership, Professional ethics" },
     ],
-    "4": [
-      { key: "hybrid",    label: "Hybrid (AIML)", icon: FlaskConical,    color: "var(--danger)",   desc: "AIML hybrid (Neural Networks + Lab, CV/NLP + Lab)" },
-      { key: "theory",    label: "Theory (AIML)", icon: BookOpen,        color: "var(--primary)",  desc: "AIML theory (Transformers, RL, Generative AI)" },
-      { key: "practical", label: "Practical", icon: Wrench,          color: "var(--success)",  desc: "AIML labs (PyTorch, Model deployment, MLOps)" },
-      { key: "aptitude",  label: "Aptitude",  icon: Brain,           color: "var(--warning)",  desc: "AI/ML interviews (System design, Model optimization)" },
+    "3-aiml": [
+      { key: "hybrid",    label: "Hybrid",    icon: FlaskConical,    color: "var(--danger)",   desc: "Theory + Practical combined (e.g., ML + Lab, Big Data + Lab, Neural Networks + Lab)" },
+      { key: "theory",    label: "Theory",    icon: BookOpen,        color: "var(--primary)",  desc: "Pure theory subjects (e.g., Statistics, Deep Learning, Transformers)" },
+      { key: "practical", label: "Practical", icon: Wrench,          color: "var(--success)",  desc: "Pure lab subjects (e.g., Python/R, TensorFlow, PyTorch, Data Visualization)" },
+      { key: "aptitude",  label: "Aptitude",  icon: Brain,           color: "var(--warning)",  desc: "Aptitude uses the 2nd-year marking scheme." },
+      { key: "softskill", label: "Soft Skill", icon: Users,           color: "var(--primary)",  desc: "Communication, Leadership, Professional ethics" },
     ],
   },
 };
@@ -151,9 +154,8 @@ export default function InternalMarksPage() {
               aria-selected={program === key}
               className={`pill-tab ${program === key ? "active" : ""}`}
               onClick={() => switchProgram(key)}
-              style={{ borderColor: program === key ? "var(--primary)" : "var(--border)" }}
             >
-              <Icon size={16} style={{ color: program === key ? "inherit" : "var(--muted)" }} />
+              <Icon size={16} />
               <span>{label}</span>
             </button>
           ))}
@@ -181,17 +183,16 @@ export default function InternalMarksPage() {
 
       {/* Subject Tabs */}
       <div className="pill-tabs internal-tabs" role="tablist" aria-label="Subject type">
-        {tabs.map(({ key, label, icon: Icon, color, desc }) => (
+        {tabs.map(({ key, label, icon: Icon, desc }) => (
           <button
             key={key}
             role="tab"
             aria-selected={tab === key}
             className={`pill-tab ${tab === key ? "active" : ""}`}
             onClick={() => setTab(key)}
-            style={{ borderColor: tab === key ? color : "var(--border)", color: tab === key ? color : "var(--text)" }}
             title={desc}
           >
-            <Icon size={16} style={{ color: tab === key ? "inherit" : color }} />
+            <Icon size={16} />
             <span>{label}</span>
           </button>
         ))}
@@ -217,7 +218,7 @@ export default function InternalMarksPage() {
         </div>
       )}
 
-      <div className="internal-card card card-panel">
+      <div className="internal-card">
         {tab === "hybrid"    && <Hybrid    year={year} program={program} />}
         {tab === "theory"    && <Theory    year={year} program={program} />}
         {tab === "practical" && <Practical year={year} program={program} />}

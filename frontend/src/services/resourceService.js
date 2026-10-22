@@ -4,13 +4,10 @@ const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5001/api";
 
 const api = axios.create({
   baseURL: API_BASE,
+  withCredentials: true,
 });
 
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
-  if (token) config.headers.Authorization = `Bearer ${token}`;
-  return config;
-});
+
 
 export const RESOURCE_TYPES = {
   PYQ:       "pyqs",
@@ -71,6 +68,12 @@ export const uploadPaperPair = async (files, metadata, onProgress) => {
   return data;
 };
 
+export const createPlaylistLink = async (metadata) => {
+  const { data } = await api.post("/resources/playlist", metadata);
+  if (!data.success) throw new Error(data.message || "Could not add playlist.");
+  return data.resource;
+};
+
 export const uploadPyq = async (file, { title, subject, semester, year, paperTag, paperKey, variant }, onProgress) => {
   const formData = new FormData();
   formData.append("file", file);
@@ -103,7 +106,36 @@ export const fetchResources = async ({ type, subject, year, semester, paperKey, 
   if (variant)  params.variant  = variant;
 
   const { data } = await api.get("/resources", { params });
-  return data.resources || [];
+  return (data.resources || []).filter((resource) =>
+    !resource.cloudinaryPublicId?.toLowerCase().startsWith("placeholder-") &&
+    !/\/placeholder-/i.test(resource.url || "")
+  );
+};
+
+export const fetchResourcesSummary = async () => {
+  try {
+    const { data } = await api.get("/resources/summary");
+    return data;
+  } catch (summaryError) {
+    // Keep the page usable while a separately deployed API is still on the
+    // previous version, where /:id catches /summary and returns a CastError.
+    if (![404, 500].includes(summaryError.response?.status)) throw summaryError;
+    const resources = await fetchResources({ type: "pyqs" });
+    const years = {};
+    const subjects = {};
+    resources.forEach((resource) => {
+      if (resource.variant !== "questions" || !resource.year || !resource.subject) return;
+      years[resource.year] = (years[resource.year] || 0) + 1;
+      let subjectSummary = (subjects[resource.year] || []).find((item) => item.subject === resource.subject);
+      if (!subjectSummary) {
+        subjectSummary = { subject: resource.subject, count: 0, paperKeys: [] };
+        (subjects[resource.year] ||= []).push(subjectSummary);
+      }
+      subjectSummary.count += 1;
+      if (resource.paperKey) subjectSummary.paperKeys.push(resource.paperKey);
+    });
+    return { success: true, years, subjects };
+  }
 };
 
 export const fetchPyqs = async ({ subject, year, semester, paperKey, variant } = {}) => {

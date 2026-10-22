@@ -23,7 +23,7 @@ export default function ScoreSelector({ currentScore, onScore }) {
             alignItems: "center",
             justifyContent: "center",
             gap: 2,
-            fontFamily: "'IBM Plex Mono', monospace",
+            fontFamily: "var(--font-sans)",
             fontSize: 20,
             fontWeight: 500,
             transform: currentScore === s ? "scale(1.08)" : "scale(1)",

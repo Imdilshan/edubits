@@ -4,15 +4,15 @@ import api from "../utils/api";
 import { formatTime } from "../utils/algorithms";
 import { trackEvent } from "../../../utils/analytics";
 import {
+  ArrowLeft,
   ArrowRight,
+  BookOpen,
   Check,
   CheckCircle2,
   Clock3,
   Info,
   RotateCcw,
   Send,
-  Trophy,
-  X,
   Square,
 } from "lucide-react";
 
@@ -36,13 +36,14 @@ export default function QuizPage() {
   const [timeLeft, setTimeLeft] = useState(30);
   const [, setAnswers] = useState([]);
   const [error, setError] = useState("");
+  const [sessionToken, setSessionToken] = useState("");
 
   const timerRef = useRef(null);
   const startTimeRef = useRef(Date.now());
   const answersRef = useRef([]);
 
   const isMultiSelect = (question) => {
-    return question?.correctAnswer && Array.isArray(question.correctAnswer) && question.correctAnswer.length > 1;
+    return question?.isMultiSelect === true;
   };
 
   const recordAnswer = useCallback((answer) => {
@@ -57,6 +58,7 @@ export default function QuizPage() {
     setPhase("loading");
     setError("");
     setAnswers([]);
+    setSessionToken("");
     answersRef.current = [];
     setCurrent(0);
 
@@ -67,6 +69,7 @@ export default function QuizPage() {
       });
 
       setQuestions(data.questions);
+      setSessionToken(data.sessionToken);
       setTopic({ ...data.topic, _id: data.topic._id || data.topic.id });
       setPhase("ready");
     } catch (err) {
@@ -178,6 +181,7 @@ export default function QuizPage() {
         topicId,
         answers: submittedAnswers,
         timeTakenSeconds: totalTime,
+        sessionToken,
       });
 
       trackEvent("quiz_complete", {
@@ -220,27 +224,48 @@ export default function QuizPage() {
 
   if (phase === "ready") {
     return (
-      <div className="quiz-ready-card card card-mini">
-        <span className="quiz-result-icon">
-          <Trophy size={34} />
-        </span>
-        <h1>{topic?.name}</h1>
-        <button
-          className="btn btn-primary"
-          onClick={() => {
-            trackEvent("quiz_start", {
-              topic_name: topic?.name,
-              topic_id: topic?._id,
-              question_count: questions.length,
-            });
-
-            startTimeRef.current = Date.now();
-            setPhase("question");
-          }}
-        >
-          Start Quiz
-          <ArrowRight size={18} />
+      <div className="quiz-shell quiz-stage-shell fade-in">
+        <button className="quiz-back-link" onClick={() => navigate("/quizzes")}>
+          <ArrowLeft size={17} />
+          All topics
         </button>
+
+        <section className="quiz-launch-card card">
+          <div className="quiz-launch-icon"><BookOpen size={27} /></div>
+          <span className="quiz-launch-eyebrow">QUIZ PREVIEW</span>
+          <h1>{topic?.name}</h1>
+          <p className="quiz-launch-description">
+            You’re about to start a focused practice round. Take your time and read each question carefully.
+          </p>
+
+          <div className="quiz-launch-facts">
+            <div><CheckCircle2 size={18} /><span><strong>{questions.length}</strong> questions</span></div>
+            <div><Clock3 size={18} /><span><strong>Timed</strong> questions</span></div>
+          </div>
+
+          <div className="quiz-launch-tip">
+            <Info size={17} />
+            Correct answers and explanations appear after you submit the quiz.
+          </div>
+
+          <button
+            className="btn btn-primary quiz-launch-button"
+            onClick={() => {
+              trackEvent("quiz_start", {
+                topic_name: topic?.name,
+                topic_id: topic?._id,
+                question_count: questions.length,
+              });
+
+              startTimeRef.current = Date.now();
+              setPhase("question");
+            }}
+          >
+            Start Quiz
+            <ArrowRight size={18} />
+          </button>
+          <span className="quiz-launch-footnote">The timer starts when you begin.</span>
+        </section>
       </div>
     );
   }
@@ -249,18 +274,32 @@ export default function QuizPage() {
   const multi = isMultiSelect(q);
 
   return (
-    <div className="quiz-shell">
+    <div className="quiz-shell quiz-stage-shell fade-in">
       <div className="quiz-play-card card card-panel">
         <div className="quiz-play-header">
-          <div className="quiz-progress-text">
-            <CheckCircle2 size={18} />
-            Question {current + 1} / {questions.length}
+          <div className="quiz-question-progress">
+            <div className="quiz-progress-text">
+              <CheckCircle2 size={18} />
+              <span>{topic?.name}</span>
+            </div>
+            <span className="quiz-question-count">Question {current + 1} <span>/ {questions.length}</span></span>
           </div>
 
-          <div className="quiz-timer">
+          <div className={`quiz-timer ${timeLeft <= 10 ? "is-urgent" : ""}`}>
             <Clock3 size={18} />
             {formatTime(timeLeft)}
           </div>
+        </div>
+
+        <div
+          className="quiz-progress-track"
+          role="progressbar"
+          aria-label="Quiz progress"
+          aria-valuemin={0}
+          aria-valuemax={questions.length}
+          aria-valuenow={current + 1}
+        >
+          <span style={{ width: `${((current + 1) / questions.length) * 100}%` }} />
         </div>
 
         <h2 className="quiz-question-title">{q.text}</h2>
@@ -278,36 +317,27 @@ export default function QuizPage() {
         <div className="quiz-options-grid">
           {q.options.map((opt, i) => {
             const isSelected = selected.includes(i);
-            const isMulti = isMultiSelect(q);
-
-            const correctSet = new Set([].concat(q.correctAnswer ?? []));
-            const isCorrect = revealed && correctSet.has(i);
-            const isWrong = revealed && isSelected && !correctSet.has(i);
-
             return (
               <button
                 key={i}
                 onClick={() => handleToggleOption(i)}
                 disabled={revealed}
-                className={`quiz-option ${multi ? "is-multi" : ""} ${!revealed && isSelected ? "is-selected" : ""} ${isCorrect ? "is-correct" : ""} ${isWrong ? "is-wrong" : ""}`}
+                className={`quiz-option ${multi ? "is-multi" : ""} ${!revealed && isSelected ? "is-selected" : ""}`}
               >
                 <span className={`quiz-option-indicator ${multi ? "checkbox" : "radio"}`}>
                   {isSelected ? <Check size={16} /> : multi ? <Square size={16} /> : null}
                 </span>
                 <span className="quiz-option-letter">{["A", "B", "C", "D"][i]}</span>
                 <span style={{ flex: 1 }}>{opt}</span>
-
-                {isCorrect && <Check size={18} style={{ color: "var(--success)" }} />}
-                {isWrong && <X size={18} style={{ color: "var(--danger)" }} />}
               </button>
             );
           })}
         </div>
 
-        {revealed && q.explanation && (
+        {revealed && (
           <div className="quiz-explanation">
             <Info size={18} />
-            {q.explanation}
+            Answer recorded. Correct answers and explanations will appear in your results.
           </div>
         )}
 
@@ -339,5 +369,5 @@ export default function QuizPage() {
 }
 
 function isMultiSelect(question) {
-  return question?.correctAnswer && Array.isArray(question.correctAnswer) && question.correctAnswer.length > 1;
+  return question?.isMultiSelect === true;
 }

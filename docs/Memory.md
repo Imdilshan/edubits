@@ -8,6 +8,7 @@ Running record of what is done and what is in progress. At the end of each sessi
 - **Phase 7:** Task Tracker (skipped for now, will revisit in next iteration)
 - **Next:** Resume Phase 7 or start new feature work
 - **2026-10-21 audit + fix session:** ran lint (48 errors → 35), booted the backend and smoke-tested it, restored missing Internal Marks components, fixed hook-order crashes (`PdfViewer`, `TopicsPage`), OAuth verify callback, password-hash leak, avatar storage, CORS/trust-proxy. Open items are in `docs/ERRORS.md` → TODO. Frontend build still needs a local `npm run build`.
+- **2026-10-22 session:** homepage rebuilt as a landing page (`decisions/5.md`) and the Resources feature reviewed; bugs, improvements and the Phase 8 plan are documented, nothing in Resources fixed yet. See the Log below.
 
 ## Checklist
 
@@ -37,7 +38,7 @@ Running record of what is done and what is in progress. At the end of each sessi
   - [x] Seed script created (seedResources.js) for all PYQ papers
   - [x] Seed script run: 128 resources created (64 papers × 2 variants)
   - [ ] Upload actual PDFs to Cloudinary (manual via admin dashboard)
-  - [ ] Replace hardcoded PAPER_SOURCES in PYQsPage.jsx
+  - [ ] Replace hardcoded PAPER_SOURCES in PYQsPage.jsx (moot: `PYQsPage.jsx` is dead code, `ERRORS.md` D1)
 - [x] Phase 2 — Admin dashboard
   - [x] AdminDashboard component with 3 tabs: Paper Pair, Single File, Question JSON
   - [x] Paper Pair upload for PYQs (questions + solution PDFs linked by paperKey)
@@ -56,6 +57,7 @@ Running record of what is done and what is in progress. At the end of each sessi
   - [x] useProgress hook for frontend state management
   - [x] Homepage "Resources" card links to /resources (replaces /pyqs)
   - [x] Build passes with new chunks: ResourcesPage, YearPage, SubjectPage, PdfViewer, useProgress
+  - [ ] Open bugs from the 2026-10-22 review: R1 and R2 (viewer error and state), R3 (year progress), R4 (notes per keystroke), R5 (ordering), R6 (download), R7 (`uploadedBy` leak) — see `ERRORS.md`
 - [x] Phase 4 — QuizEngine
   - [x] Topic model: add `mode` (viva/nptel) and `image` fields
   - [x] Question model: add `source` field (manual/pyq/llm)
@@ -79,6 +81,9 @@ Running record of what is done and what is in progress. At the end of each sessi
     - [x] Engineering Tracker removed
     - [x] Professional footer with brand, navigation, legal links
     - [x] Onboarding redirect for logged-in users
+    - [x] Landing page rebuilt: hero, product preview, proof strip, feature blocks, origin story, final CTA; shared footer; quick-access view for logged-in users (2026-10-22)
+    - [ ] Landing screenshots added (`pyqs.png`, `resources.png`, `quizengine.png`)
+    - [ ] Logged-out footer links (H2); legal pages deferred by owner (H1)
   - [x] Apply design system to all existing pages:
     - [x] Login page (new SVG logo, design system buttons, inputs, OAuth buttons)
     - [x] Register page (same as Login)
@@ -105,11 +110,17 @@ Running record of what is done and what is in progress. At the end of each sessi
   - [x] CGPA: Added "Clear All" button
   - [x] CGPA: Removed "Recoverable" recovery message from Insight
   - [x] Internal Marks: Added program selector (BE CSE / BE CSE AIT)
-  - [x] Internal Marks: Added year options (1st, 2nd, 3rd, 4th Year for CSE; 3rd/4th for AIT)
+  - [x] Internal Marks: Added year options (1st–4th Year for CSE; 3rd Year DS and 3rd Year AIML for AIT)
   - [x] Internal Marks: Subject type explanations with example subjects
-  - [x] Internal Marks: Placeholder marking schemes for 3rd-year CSE and AIT (user to provide exact schemes)
+  - [x] Internal Marks: Applied authoritative 3rd-year CSE scheme to general CSE and AIT DS/AIML; optional external components excluded from the available maximum when blank
   - [x] Hybrid/Theory/Practical/Aptitude components: update for program/year prop
-- [ ] Internal Marks: Update marking schemes with exact values from user
+- [x] Internal Marks: Update 3rd-year CSE and AIT marking schemes; Aptitude follows the 2nd-year scheme
+- [ ] Phase 8 — Resources hardening and navigation (proposed, `Phases.md`)
+  - [ ] 8a bug batch: R1, R2, R3, R4, R7 (then R5, R6)
+  - [ ] 8b summary endpoint, shared progress source, fewer calls, skeletons and retry (P1–P4)
+  - [ ] 8c navigation: search, continue card, tabs in URL, compact paper rows, subject metadata map
+  - [ ] 8d mobile viewer and accessibility
+  - [ ] 8e dead-code cleanup (D1–D4)
 
 ## Log
 
@@ -258,12 +269,23 @@ Running record of what is done and what is in progress. At the end of each sessi
   - Uses current-semester credits terminology
 - **Internal Marks Calculator**:
   - Added program selector: BE CSE (default) and BE CSE (AIT)
-  - Year options per program: CSE (1st, 2nd, 3rd, 4th), AIT (3rd DS, 4th AIML)
+  - Year options per program: CSE (1st, 2nd, 3rd, 4th), AIT (3rd DS and 3rd AIML)
   - Subject tabs with descriptions and example subjects for each type
   - Professional UI with pill tabs, explanations, and example subjects
-  - Placeholder marking schemes for 3rd-year CSE and AIT (to be updated with exact values)
+  - 3rd-year general CSE marking scheme is authoritative for both AIT 3rd-year DS and AIML
+  - External Theory, Hybrid Practical Evaluations, End Term Hybrid Theory, and Practical External Viva/Voce are optional; blank optional components are excluded from the displayed maximum
+  - Aptitude follows the 2nd-year scheme; AIT 4th year is out of scope
   - Hybrid/Theory/Practical/Aptitude components updated for program/year props
 - **Build passes** with all new components
+
+### 2026-10-22 — Homepage rebuild and Resources review
+- **Homepage rebuilt** (`features/homepage`): logged-out view is now a long-scroll landing page (hero with Get started + Continue with Google + Log in link, PYQs preview, proof strip, Resources and QuizEngine feature blocks, other tools as static cards, origin story, final CTA). Logged-in view is a short quick-access page. One shared `HomeFooter`; data in `homeData.js` and `peopleData.js`; `PeoplePage.jsx` imports its lists from `peopleData.js`. Decision recorded in `decisions/5.md`.
+- Also changed: `<Link>` instead of `<a href>` for login and register, neutral OAuth borders, WhatsApp hardcoded color replaced by a text link, accent border removed from tool cards, copy typos fixed, Programming was added to the tool grid and footer; owner later decided to keep it hidden (`decisions/7.md`).
+- GitHub and Microsoft sign-in buttons are no longer on the homepage; they remain on `/login` and `/register`.
+- Landing screenshots must be added by the owner at `frontend/public/images/landing/` (`pyqs.png`, `resources.png`, `quizengine.png`).
+- **Resources feature reviewed** (frontend pages, viewer, `useProgress`, service, backend list endpoint). Findings are in `ERRORS.md` → Known Bugs (R1–R7, P1–P4, D1–D5, A1); proposals in `Feature.md` §8; work plan in `Phases.md` Phase 8; ADR `decisions/6.md` (proposed).
+- Analytics baseline recorded in `PRD.md` §3: 725+ users, 1,365 visitors and 5,529 page views in 30 days; `/pyqs` is the top page (998 visitors).
+- No Resources bug has been fixed yet; the owner chose "bug fix batch" as the next step.
 
 ## Known bugs and quirks
 
@@ -274,8 +296,11 @@ See `ERRORS.md` for complete error tracking including linting issues, build erro
 - `adminOnly` is defined separately in `resourceRoutes.js` and `pyqRoutes.js`.
 - `/admin-upload` has no frontend role guard; the backend enforces admin.
 - Response shapes are inconsistent: `pyqProgressRoutes` returns `{ error }`, `pyqRoutes` returns `{ success, message }`.
-- `PYQsPage.jsx` (1,139 lines) holds a hardcoded `PAPER_SOURCES` list of Google Drive preview links, all with empty `solutionUrl`.
-- PYQ progress and notes use localStorage in the frontend although `UserPYQProgress` and `/api/pyq-progress` already exist in the backend.
+- `PYQsPage.jsx` (1,139 lines, with the hardcoded `PAPER_SOURCES` list of Google Drive links) is dead code: it is not imported and `/pyqs` redirects to `/resources`. The Resources pages use `/api/pyq-progress`; only this dead file keeps its own progress hook (`ERRORS.md` D1).
+- Resources bugs found 2026-10-22, all open: the PDF viewer stays broken after one failed load (R1) and keeps page and zoom between papers (R2); the year page shows 0 attempted on first load (R3); notes save on every keystroke (R4); `SubjectPage` re-sorts papers by tag and ignores `sortOrder` (R5); Download only opens a tab (R6); every student receives the uploader's name and email (R7). Details and fixes: `ERRORS.md` → Known Bugs.
+- Resources year and subject pages download every PYQ document just to count them, and progress is fetched up to three times per visit (P1, P2).
+- `/viewer-spike` is still routed for every logged-in user (D2).
+- Homepage: Privacy, Terms and Cookies link to `#` (H1); footer links bounce logged-out visitors to `/login` (H2); landing proof numbers are static (H4).
 - Three upload middleware files (`upload.js`, `avatarUpload.js`, `uploadMiddleware.js`); avatars go to local disk, resources to Cloudinary.
 - `features/quiz` carries its own duplicate Login, Register and Navbar.
 - `src/app/routes.jsx` is an empty stub; routing lives in `App.jsx`.
@@ -287,10 +312,10 @@ See `ERRORS.md` for complete error tracking including linting issues, build erro
 - 15+ unused variable warnings across components
 - 2 `react-hooks/set-state-in-effect` violations (OnboardingModal, PYQsPage)
 - 2 `react-refresh/only-export-components` violations (AuthContext, ToastContext)
-- 1 `react-hooks/immutability` violation (HomePage.jsx)
+- 1 `react-hooks/immutability` violation (HomePage.jsx; the file was rewritten on 2026-10-22, re-run `npm run lint` to confirm it is gone)
 - 1 component created during render (TopicCard.jsx)
 
 ## Open items
 
-- Marking schemes for 3rd-year general CSE and BE CSE (AIT).
-- Design docs for `design.md`.
+- Settled product decisions (`PRD.md` §8): hide Programming from the homepage; order papers MST 1 → MST 2 → EST; do not remember student year; defer legal pages.
+- Landing screenshots (owner to supply).

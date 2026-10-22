@@ -6,6 +6,8 @@ const { pickRandom } = require("../algorithms/shuffle");
 const { sortQuestionsByDifficulty } = require("../algorithms/sorting");
 const { computeScore } = require("../algorithms/scoring");
 const { isTopicUnlocked } = require("../algorithms/graph");
+const jwt = require("jsonwebtoken");
+const { randomUUID } = require("crypto");
 
 const startQuiz = async (req, res) => {
   try {
@@ -27,17 +29,39 @@ const startQuiz = async (req, res) => {
       return res.status(404).json({ error: "No questions found for this topic" });
     }
 
-    let selected = pickRandom(allQuestions, count);
+    const requestedCount = Number(count);
+    const questionCount = Number.isFinite(requestedCount) && requestedCount > 0
+      ? Math.min(Math.floor(requestedCount), 50)
+      : 10;
+    let selected = pickRandom(allQuestions, questionCount);
 
     if (sortByDifficulty) {
       selected = sortQuestionsByDifficulty(selected);
     }
 
+    const sessionId = randomUUID();
+    const sessionToken = jwt.sign({
+      type: "quiz",
+      id: String(req.user._id),
+      topicId: String(topic._id),
+      sessionId,
+      questionIds: selected.map((question) => String(question._id)),
+    }, process.env.JWT_SECRET, { expiresIn: "1h" });
+
     res.json({
       topic: { id: topic._id, name: topic.name, icon: topic.icon },
-      questions: selected,
+      // Keep answer keys and explanations server-side until submission. Only
+      // return fields needed to render and navigate the quiz.
+      questions: selected.map((question) => ({
+        _id: question._id,
+        text: question.text,
+        options: question.options,
+        difficulty: question.difficulty,
+        timeLimitSeconds: question.timeLimitSeconds,
+        isMultiSelect: question.correctAnswer.length > 1,
+      })),
       totalQuestions: selected.length,
-      sessionId: `${req.user._id}_${topicId}_${Date.now()}`,
+      sessionToken,
     });
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -46,14 +70,45 @@ const startQuiz = async (req, res) => {
 
 const submitQuiz = async (req, res) => {
   try {
-    const { topicId, answers, timeTakenSeconds = 0 } = req.body;
+    const { topicId, answers, timeTakenSeconds = 0, sessionToken } = req.body;
 
-    if (!answers || answers.length === 0) {
+    if (!Array.isArray(answers) || answers.length === 0 || !sessionToken) {
       return res.status(400).json({ error: "No answers submitted" });
     }
 
-    const questionIds = answers.map((a) => a.questionId);
-    const questions = await Question.find({ _id: { $in: questionIds } }).lean();
+    let session;
+    try {
+      session = jwt.verify(sessionToken, process.env.JWT_SECRET, { algorithms: ["HS256"] });
+    } catch {
+      return res.status(401).json({ error: "Quiz session expired or invalid" });
+    }
+
+    if (
+      session.type !== "quiz" ||
+      session.id !== String(req.user._id) ||
+      session.topicId !== String(topicId) ||
+      !Array.isArray(session.questionIds)
+    ) {
+      return res.status(403).json({ error: "Quiz session does not match this submission" });
+    }
+
+    const questionIds = answers.map((answer) => String(answer?.questionId || ""));
+    const allowedQuestionIds = new Set(session.questionIds);
+    if (
+      questionIds.length !== session.questionIds.length ||
+      new Set(questionIds).size !== questionIds.length ||
+      questionIds.some((id) => !allowedQuestionIds.has(id))
+    ) {
+      return res.status(400).json({ error: "Submitted answers do not match the quiz session" });
+    }
+
+    const alreadySubmitted = await QuizAttempt.exists({ sessionId: session.sessionId });
+    if (alreadySubmitted) return res.status(409).json({ error: "This quiz was already submitted" });
+
+    const questions = await Question.find({ _id: { $in: questionIds }, topicId: session.topicId }).lean();
+    if (questions.length !== questionIds.length) {
+      return res.status(400).json({ error: "Quiz questions are no longer available" });
+    }
     const questionMap = new Map(questions.map((q) => [q._id.toString(), q]));
 
     const gradedAnswers = answers.map((ans) => {
@@ -96,6 +151,7 @@ const submitQuiz = async (req, res) => {
     const passed = scoring.percentage >= (topic?.passingScore ?? 60);
 
     const attempt = await QuizAttempt.create({
+      sessionId: session.sessionId,
       userId: req.user._id,
       topicId,
       score: scoring.totalScore,
@@ -142,6 +198,9 @@ const submitQuiz = async (req, res) => {
       newTotalScore: user.totalScore,
     });
   } catch (err) {
+    if (err.code === 11000) {
+      return res.status(409).json({ error: "This quiz was already submitted" });
+    }
     res.status(500).json({ error: err.message });
   }
 };

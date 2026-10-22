@@ -3,7 +3,7 @@ import { useAuth } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import { useToast } from "../context/ToastContext";
 import { Loader, ArrowRight } from "lucide-react";
-import { GoogleIcon, GitHubIcon, MicrosoftIcon } from "../features/homepage/BrandIcons";
+import { GoogleIcon, GitHubIcon } from "../features/homepage/BrandIcons";
 import "./login.css";
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -33,6 +33,7 @@ export default function Login() {
     try {
       const res = await fetch(`${API_URL}/auth/login`, {
         method: "POST",
+        credentials: "include",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
@@ -83,30 +84,6 @@ export default function Login() {
             <p>Log in to continue your learning journey</p>
           </div>
 
-          {/* <div className="auth-oauth-buttons">
-            <button
-              type="button"
-              className="btn btn-secondary auth-oauth-btn"
-              onClick={() => handleOAuthLogin("google")}
-            >
-              <Mail size={18} /> Google
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary auth-oauth-btn"
-              onClick={() => handleOAuthLogin("github")}
-            >
-              <GitBranch size={18} /> GitHub
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary auth-oauth-btn"
-              onClick={() => handleOAuthLogin("microsoft")}
-            >
-              <Globe size={18} /> Microsoft
-            </button>
-          </div> */}
-
           <div className="auth-oauth-buttons">
             <button
               type="button"
@@ -121,13 +98,6 @@ export default function Login() {
               onClick={() => handleOAuthLogin("github")}
             >
               <GitHubIcon /> GitHub
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary auth-oauth-btn auth-oauth-btn--microsoft"
-              onClick={() => handleOAuthLogin("microsoft")}
-            >
-              <MicrosoftIcon /> Microsoft
             </button>
           </div>
 

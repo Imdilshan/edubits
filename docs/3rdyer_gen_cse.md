@@ -3,6 +3,10 @@
 This document defines the assessment structure and marks distribution
 for Theory, Hybrid, and Practical courses.
 
+The owner confirmed this scheme is authoritative for 3rd-year general CSE
+and also applies to both 3rd-year AIT specializations: Data Science and AIML.
+There is no 4th-year AIT calculator in scope.
+
 IMPORTANT:
 - Max Marks represents the original assessment marks.
 - Weighted Marks represents the contribution to the final assessment.
@@ -158,11 +162,17 @@ Round only for display, according to the application's conventions.
 
 The assessment structures above are transcribed from the supplied tables.
 
-Before implementing the model, verify:
-- Whether all components are mandatory.
-- Whether the university permits missing assessments.
-- Whether final grades use any additional rules beyond these tables.
-- Whether the displayed total must be calculated from raw weighted
-  scores or from rounded component scores.
+Owner-confirmed optional components:
+- Theory: External Theory / EST Theory.
+- Hybrid: Practical Evaluations and End Term Hybrid Theory.
+- Practical: External Viva / Voce, referred to by the owner as EST Practical.
+
+When an optional component is blank, exclude its weighted maximum from the
+available total. Continue to include its weighted maximum when a mark is
+entered, including zero. Keep full precision during calculation and round
+only displayed values.
+
+Aptitude uses the existing 2nd-year Aptitude marking scheme. The 4th-year
+AIT option is out of scope.
 
 Do not invent additional grading rules.

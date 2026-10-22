@@ -26,13 +26,13 @@
 .quiz-page-title {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 28px;
-  font-weight: 700;
-  margin: 0 0 4px;
-  color: #f7c44f;
-  font-family: 'DM Sans', sans-serif;
-  letter-spacing: -0.02em;
+  gap: 10px;
+  color: #5E6AD2;
+}
+
+.quiz-page-title svg {
+  color: #5E6AD2;
+  flex-shrink: 0;
 }
 
 .quiz-page-subtitle {

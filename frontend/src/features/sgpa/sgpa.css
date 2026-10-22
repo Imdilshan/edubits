@@ -505,3 +505,19 @@
     box-shadow: none;
   }
 }
+
+/* Shared v2 calculator treatment */
+.sgpa-card .card-header > div { text-align: left; }
+.sgpa-card .text-card-title { color: var(--text); }
+.sgpa-card .text-body-sm { margin: var(--space-xxs) 0 0; }
+.sgpa-card .example-banner {
+  background: var(--surface-2);
+  border-color: var(--border);
+}
+.sgpa-card .react-select__menu { z-index: 20; }
+.sgpa-result-card.result-pop { box-shadow: none; border-color: var(--border-strong); }
+
+@media (max-width: 600px) {
+  .sgpa-card .card-header { flex-direction: row; }
+  .sgpa-card .card-header > div { text-align: left; }
+}

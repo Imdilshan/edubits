@@ -4,18 +4,27 @@ Sections marked **(proposed)** are v2.0 changes awaiting approval. Everything el
 
 ## 1. App flow
 
-**Logged out:** `/` preview → `/login` or `/register` (email, Google, GitHub, Microsoft) → `/auth/callback` → authenticated app.
+**Logged out:** `/` landing page → `/login` or `/register` (email, Google, GitHub, Microsoft) → `/auth/callback` → authenticated app. Every tool is behind login, so the landing page exists to convert visitors (see `decisions/5.md`). Its sections, top to bottom:
 
-**Logged in:**
+| Section | Content |
+|---------|---------|
+| Hero | Headline, one-line value proposition, **Get started** (`/register`), **Continue with Google**, and a "Log in" text link. GitHub and Microsoft stay on `/login` and `/register` only |
+| Product preview | Screenshot of the PYQs page (`/images/landing/pyqs.png`) in a bordered frame |
+| Proof strip | Static numbers from `homeData.js` (`proofStats`): 725+ students, 5.5K+ page views in the last 30 days (as of 2026-10-22) |
+| Features | Alternating blocks for Resources and QuizEngine with screenshots, then the other tools as static (non-link) cards |
+| Why it exists | Origin story: the college site crashed during SGPA calculation season |
+| Final CTA | Repeats the hero actions |
+
+**Logged in:** `/` is a short quick-access view (Popular tools: Resources, QuizEngine; Other tools: GPA Calculator, Internal Marks Calculator, Programming) with the same footer as the landing page.
 
 | Area | Flow |
 |------|------|
-| Resources | `/pyqs` today. Final routes: `/resources` → `/resources/:year` → `/resources/:year/:subject` with PYQs, Playlists, Notes tabs. Each paper shows two PDF cards (questions only; questions + solution), both opening in the in-site viewer |
+| Resources | `/pyqs` today. Final routes: `/resources` → `/resources/:year` → `/resources/:year/:subject` with PYQs, Playlists, Notes tabs. Each paper shows two PDF cards (questions only; questions + solution), both opening in the in-site viewer. Known bugs and gaps: `ERRORS.md` → Known Bugs (R1–R7, P1–P4); proposed improvements: section 8.1 |
 | QuizEngine | `/quizzes` → mode (College viva / NPTEL) → topic card → `/quizzes/:topicId` → `/quizzes/results`; also `/quizzes/leaderboard`, `/quizzes/history`. Graph view removed |
 | Calculators | `/sgpa` (SGPA + CGPA), `/internal` |
 | Tasks | `/tasks` — deadline-first view with Kanban as a secondary view, scheduled last |
 | Admin | `/admin-upload` today (backend enforces admin). **(proposed)** an admin dashboard UI for uploading content easily: PYQ and solution PDFs, notes, playlists, and per-subject question JSON |
-| Hidden | `/tracker`, `/programming` — removed from homepage and nav, routes untouched |
+| Hidden | `/tracker` — removed from homepage and nav, route untouched. `/programming` — still absent from the nav, but a card was added to the homepage tool grid and footer on 2026-10-22 while `PRD.md` §4.3 still lists it as hidden; owner to confirm (`PRD.md` §8) |
 
 Auth gate: `useAuth().token`. Logged-in users hitting `/login` or `/register` are redirected to `/`; unknown routes redirect to `/` (logged in) or `/login` (logged out). All routes are lazy-loaded.
 
@@ -67,7 +76,7 @@ All routes are under `/api`.
 | `/auth` | register, login, me, profile, upload-avatar, google, google/callback |
 | `/topics`, `/questions`, `/quiz`, `/leaderboard`, `/users` | QuizEngine |
 | `/tasks` | CRUD, JWT |
-| `/resources` | list, get, upload (admin), patch (admin), delete (admin) |
+| `/resources` | list, get, upload (admin), patch (admin), delete (admin). List and get currently populate `uploadedBy` (name, email) for every caller (`ERRORS.md` R7). **(proposed)** `GET /resources/summary`: grouped counts per year and subject for the Resources year and subject pages |
 | `/pyqs` | list, upload (admin), delete (admin) — reads `Resource` where type is `pyqs` |
 | `/pyq-progress` | `GET /` all progress for the user; `PUT /:paperId` upsert attempted + notes |
 | `/programming` | hidden feature |
@@ -88,12 +97,13 @@ frontend/src/
   styles/      variables · global · calculator-base · taskTracker · internalMarks
   components/  layout/ · ui/ · calculator/ · upload/ · ToolPreview.jsx
   features/
-    homepage/ · about/ · sgpa/ · cgpa/ · internalMarks/ · tasks/
-    pyqs/                (proposed: replaced by resources/)
+    about/ · sgpa/ · cgpa/ · internalMarks/ · tasks/
+    homepage/            HomePage (landing + member views) · HomeFooter (shared) · homeData.js (tools, features, proof stats) · peopleData.js · PeoplePage · BrandIcons
+    pyqs/                dead code: PYQsPage.jsx is not imported and /pyqs redirects to /resources (ERRORS.md D1)
     quiz/                pages · components · utils · styles
     ug-life-tracker/     hidden
     programming/         hidden
-    resources/           (proposed) pages · components/PdfViewer · services · hooks/useProgress
+    resources/           pages (ResourcesPage · YearPage · SubjectPage · ViewerSpike) · components (PdfViewer · AdminDashboard) · hooks/useProgress (API calls live in src/services/resourceService.js)
 
 backend/
   server.js
@@ -124,3 +134,48 @@ backend/
 
 - Admin dashboard route.
 - Field names for the shared paper key and the cross-link between a paper's two PDFs.
+- Resources bugs and improvements from the 2026-10-22 review: `ERRORS.md` → Known Bugs; section 8 below.
+- Whether Programming stays on the homepage (`PRD.md` §8).
+
+## 8. Proposed improvements (2026-10-22 review)
+
+All **(proposed)**. Bug IDs refer to `ERRORS.md` → Known Bugs.
+
+### 8.1 Resources
+
+Suggested order: (1) bug batch R1–R4 and R7; (2) summary endpoint and one shared progress source (P1–P3); (3) navigation; (4) mobile viewer; (5) dead-code cleanup (D1–D5).
+
+**Navigation**
+- Subject search on `/resources`, since `/pyqs` is the most visited page (998 visitors in the last 30 days, ahead of `/` at 772 and `/quizzes` at 235) and today a student needs years → subject → tab → paper → viewer.
+- A "Continue where you left off" card (last subject or paper). The `User` model has no year field, so remember the last year client-side, or add year to onboarding.
+- Put the active tab in the URL (`?tab=playlists` or `?tab=notes`) so a subject link shared in WhatsApp opens the right tab and survives a refresh.
+
+**Paper list**
+- Compact paper rows: title, paper tag, Questions and Solution buttons, attempted checkbox. Notes move behind a toggle or into the viewer; today each paper shows two large tiles, an attempt button and a 3-row textarea, which makes subject pages very long.
+- Show "N papers" on year cards (the count is computed but never rendered), a progress bar per subject, and an overall "x of y attempted" per year.
+
+**Viewer**
+- Fix R1 and R2 first. Then: continuous scroll and pinch zoom for phones, remember the last page, jump to page, side-by-side Questions and Solution on desktop, "mark attempted" from inside the viewer, and a lucide icon instead of the 🔄 emoji. On phones, consider opening the native PDF viewer.
+- Download via Cloudinary's attachment flag (R6).
+
+**Data and API**
+- `GET /resources/summary` for year and subject counts; one call (or lazy tabs) for the subject page; one shared progress source; drop the `uploadedBy` populate (P1–P3, R7).
+- One subject-metadata map for labels and art (D5).
+
+**Content growth**
+- Empty states and the subject page footer: "Missing a paper? Send it to the community" with the WhatsApp link (matches `TODO.md`: "Missing a PYQ? Request one.").
+
+**Analytics** (the helper is `utils/analytics`; nothing in `features/resources` calls it today)
+- Suggested events: `resource_year_open`, `resource_subject_open`, `resource_paper_open` (with variant), `resource_variant_switch`, `resource_tab_change`, `resource_attempted_toggle`. This shows which subjects and papers matter.
+
+**Resilience**
+- Skeleton cards instead of a bare spinner, a friendly error with retry (the backend cold-starts on Render's free tier), and viewer accessibility (A1).
+
+### 8.2 Homepage
+
+- Return-after-login: a visitor who clicks a tool should sign up and then land on that tool (needs changes to `Login.jsx` and `Register.jsx`, outside the homepage folder).
+- Live proof numbers from the backend instead of the static `proofStats`.
+- Landing screenshots: `frontend/public/images/landing/pyqs.png`, `resources.png`, `quizengine.png`; compress them, since the preview sits near the top of the page.
+- Legal pages (H1) are deferred by owner for now; fix logged-out footer navigation separately (H2).
+- Re-add the "Most used" label on Resources (H5).
+- A personalised logged-in view ("continue where you left off", recent resources) needs data from outside the homepage folder.

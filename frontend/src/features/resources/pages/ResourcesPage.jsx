@@ -1,8 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { Layers, FolderOpen, FileText, Loader2, AlertCircle } from "lucide-react";
-import { fetchResources } from "../../../services/resourceService";
-import { useProgress } from "../hooks/useProgress";
+import { Layers, Loader2, AlertCircle } from "lucide-react";
+import { fetchResourcesSummary } from "../../../services/resourceService";
 import "./Resources.css";
 import "./ResourcesHome.css";
 
@@ -42,33 +41,28 @@ export default function ResourcesPage() {
   const [years, setYears] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { progressMap, loading: progressLoading } = useProgress();
-
-  useEffect(() => {
-    loadYears();
-  }, []);
-
-  const loadYears = async () => {
+  const loadYears = useCallback(async () => {
+    setLoading(true);
+    setError(null);
     try {
-      const resources = await fetchResources({ type: "pyqs" });
-      const yearCounts = {};
-      resources.forEach((r) => {
-        if (r.year && r.variant === "questions") {
-          yearCounts[r.year] = (yearCounts[r.year] || 0) + 1;
-        }
-      });
-      const yearList = YEAR_ORDER.filter((y) => yearCounts[y])
-        .map((y) => ({ year: y, count: yearCounts[y], image: YEAR_IMAGES[y] }));
+      const { years: yearCounts = {} } = await fetchResourcesSummary();
+      const yearList = YEAR_ORDER.map((year) => ({
+        year,
+        count: yearCounts[year] || 0,
+        image: YEAR_IMAGES[year],
+      }));
       setYears(yearList);
     } catch (err) {
-      setError(err.message);
+      setError(err.response?.data?.message || err.response?.data?.error || err.message);
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => { loadYears(); }, [loadYears]);
 
   if (loading) return <div className="resources-loading"><Loader2 className="spin" size={32} /> Loading years…</div>;
-  if (error) return <div className="resources-error"><AlertCircle size={32} /> {error}</div>;
+  if (error) return <div className="resources-error"><AlertCircle size={32} /> {error} <button onClick={loadYears}>Retry</button></div>;
 
     return (
     <div className="res-home">

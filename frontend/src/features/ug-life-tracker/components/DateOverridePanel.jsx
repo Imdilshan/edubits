@@ -20,7 +20,7 @@ export default function DateOverridePanel({ calendarData, overrides, onSave, onC
   if (!calendarData) return null;
 
   const inputStyle = {
-    fontFamily: "'IBM Plex Mono', monospace",
+    fontFamily: "var(--font-sans)",
     fontSize: 10,
     background: "var(--bg)",
     border: "1px solid var(--border)",
@@ -129,7 +129,7 @@ export default function DateOverridePanel({ calendarData, overrides, onSave, onC
             onSave(newOverrides);
           }}
           style={{
-            fontFamily: "'IBM Plex Mono', monospace",
+            fontFamily: "var(--font-sans)",
             fontSize: 11,
             fontWeight: 500,
             letterSpacing: "0.06em",
@@ -147,7 +147,7 @@ export default function DateOverridePanel({ calendarData, overrides, onSave, onC
         <button
           onClick={onClear}
           style={{
-            fontFamily: "'IBM Plex Mono', monospace",
+            fontFamily: "var(--font-sans)",
             fontSize: 11,
             background: "transparent",
             color: "var(--muted)",

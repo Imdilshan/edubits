@@ -1,0 +1,335 @@
+/* ============================================================================
+   Edubits — People Page
+   ============================================================================ */
+
+.people-page {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+}
+
+.people-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+/* ---------- HERO ---------- */
+
+.people-hero {
+  padding: var(--space-xxl) var(--space-lg);
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    var(--surface) 0%,
+    var(--bg) 100%
+  );
+  border-bottom: 1px solid var(--border);
+}
+
+.people-eyebrow {
+  font-size: var(--text-caption);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  margin: 0 0 var(--space-sm);
+}
+
+.people-hero h1 {
+  font-size: var(--text-display-lg);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--space-md);
+  color: var(--text);
+}
+
+.people-subtitle {
+  font-size: var(--text-body-lg);
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ---------- SECTIONS ---------- */
+
+.people-section {
+  padding: var(--space-xxl) 0;
+}
+
+.people-section-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border);
+}
+
+.people-section-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--surface-2);
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.people-section-header h2 {
+  font-size: var(--text-headline);
+  font-weight: 600;
+  margin: 0 0 var(--space-xs);
+  color: var(--text);
+}
+
+.people-section-desc {
+  font-size: var(--text-body);
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ---------- GRIDS ---------- */
+
+.people-grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.founders-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.contributors-grid {
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+/* ---------- CARDS ---------- */
+
+.people-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.people-card:hover {
+  background: var(--surface-2);
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.founder-card {
+  padding: var(--space-xl);
+}
+
+.people-card-avatar-wrap {
+  position: relative;
+  margin-bottom: var(--space-md);
+}
+
+.people-card-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border);
+  background: var(--surface-2);
+}
+
+.contributor-card .people-card-avatar {
+  width: 72px;
+  height: 72px;
+}
+
+.people-card-badge {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--on-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.people-card-info {
+  width: 100%;
+}
+
+.people-card-name {
+  font-size: var(--text-card-title);
+  font-weight: 600;
+  margin: 0 0 var(--space-xs);
+  color: var(--text);
+}
+
+.people-card-role {
+  font-size: var(--text-body-sm);
+  color: var(--muted);
+  margin: 0 0 var(--space-md);
+}
+
+.people-card-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.people-card-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  transition: all 0.15s ease;
+}
+
+.people-card-link:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--on-primary);
+  transform: translateY(-1px);
+}
+
+/* ---------- CTA ---------- */
+
+.people-cta {
+  padding: var(--space-xxl) 0;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+.people-cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.people-cta-content h2 {
+  font-size: var(--text-headline);
+  font-weight: 600;
+  margin: 0 0 var(--space-md);
+  color: var(--text);
+}
+
+.people-cta-content p {
+  font-size: var(--text-body);
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0 0 var(--space-xl);
+}
+
+.people-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 12px 24px;
+  font-size: var(--text-button);
+  font-weight: 500;
+  color: var(--on-primary);
+  background: var(--primary);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.people-cta-link:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 768px) {
+  .people-hero {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .people-hero h1 {
+    font-size: var(--text-display-md);
+  }
+
+  .people-subtitle {
+    font-size: var(--text-body);
+  }
+
+  .people-section {
+    padding: var(--space-xl) 0;
+  }
+
+  .people-section-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-sm);
+  }
+
+  .founders-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contributors-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  .people-container {
+    padding: 0 var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .people-hero h1 {
+    font-size: var(--text-display-sm);
+  }
+
+  .contributors-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .founder-card {
+    padding: var(--space-lg);
+  }
+}
+
+/* ---------- REDUCED MOTION ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .people-card {
+    transition: none;
+  }
+
+  .people-card:hover {
+    transform: none;
+  }
+
+  .people-cta-link:hover {
+    transform: none;
+  }
+
+  .people-card-link:hover {
+    transform: none;
+  }
+}

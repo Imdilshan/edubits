@@ -1,8 +1,7 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import {
-  BookOpen,
-  FolderOpen,
+  Layers,
   FileText,
   ListVideo,
   FileQuestion,
@@ -12,12 +11,11 @@ import {
   CheckSquare,
   Square,
   ExternalLink,
+  Download,
   Eye,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
-import { fetchResources, fetchProgress, updateProgress } from "../../../services/resourceService";
-import { useAuth } from "../../../context/AuthContext";
+import { fetchResources } from "../../../services/resourceService";
+import { useResourcesProgress } from "../ResourcesLayout";
 import PdfViewer from "../components/PdfViewer";
 import "./Resources.css";
 
@@ -27,51 +25,38 @@ const TABS = [
   { id: "notes", label: "Notes", icon: FileText },
 ];
 
+const getAttachmentUrl = (url) => url?.replace("/upload/", "/upload/fl_attachment/") || url;
+
 export default function SubjectPage() {
   const { year, subject } = useParams();
   const decodedYear = decodeURIComponent(year);
   const decodedSubject = decodeURIComponent(subject);
-  const { token } = useAuth();
+  const { progressMap, saveProgress } = useResourcesProgress();
 
   const [activeTab, setActiveTab] = useState("pyqs");
   const [pyqs, setPyqs] = useState([]);
   const [playlists, setPlaylists] = useState([]);
   const [notes, setNotes] = useState([]);
-  const [progressMap, setProgressMap] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   // Viewer state
-  const [viewer, setViewer] = useState({ open: false, url: "", title: "", paperKey: "", variant: "", linkedUrl: "" });
+  const [viewer, setViewer] = useState({ open: false, url: "", title: "", variant: "", linkedUrl: "" });
 
   const loadData = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
-      const [pyqsRes, playlistsRes, notesRes, progressRes] = await Promise.all([
-        fetchResources({ type: "pyqs", year: decodedYear, subject: decodedSubject }),
-        fetchResources({ type: "playlist", year: decodedYear, subject: decodedSubject }),
-        fetchResources({ type: "notes", year: decodedYear, subject: decodedSubject }),
-        token ? fetchProgress() : Promise.resolve({ data: { success: true, progress: [] } }),
-      ]);
-
-      setPyqs(pyqsRes || []);
-      setPlaylists(playlistsRes || []);
-      setNotes(notesRes || []);
-
-      if (progressRes.data?.success) {
-        const map = {};
-        progressRes.data.progress.forEach((p) => {
-          map[p.paperKey] = { attempted: p.attempted, notes: p.notes };
-        });
-        setProgressMap(map);
-      }
+      const resources = await fetchResources({ year: decodedYear, subject: decodedSubject });
+      setPyqs(resources.filter((resource) => resource.resourceType === "pyqs"));
+      setPlaylists(resources.filter((resource) => resource.resourceType === "playlist"));
+      setNotes(resources.filter((resource) => resource.resourceType === "notes"));
     } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
     }
-  }, [decodedYear, decodedSubject, token]);
+  }, [decodedYear, decodedSubject]);
 
   useEffect(() => {
     loadData();
@@ -79,20 +64,10 @@ export default function SubjectPage() {
 
   const handleAttemptedToggle = async (paperKey, current) => {
     const next = !current;
-    setProgressMap((prev) => ({ ...prev, [paperKey]: { ...prev[paperKey], attempted: next } }));
     try {
-      await updateProgress(paperKey, { attempted: next });
+      await saveProgress(paperKey, { attempted: next });
     } catch (err) {
-      console.error("Failed to update progress:", err);
-    }
-  };
-
-  const handleNotesChange = async (paperKey, notesText) => {
-    setProgressMap((prev) => ({ ...prev, [paperKey]: { ...prev[paperKey], notes: notesText } }));
-    try {
-      await updateProgress(paperKey, { notes: notesText });
-    } catch (err) {
-      console.error("Failed to update notes:", err);
+      console.error("[Resources] Attempt status could not be saved:", err);
     }
   };
 
@@ -101,13 +76,12 @@ export default function SubjectPage() {
       open: true,
       url: resource.url,
       title: resource.title,
-      paperKey: resource.paperKey,
       variant: resource.variant,
       linkedUrl: linkedResource?.url || "",
     });
   };
 
-  const closeViewer = () => setViewer({ open: false, url: "", title: "", paperKey: "", variant: "", linkedUrl: "" });
+  const closeViewer = () => setViewer({ open: false, url: "", title: "", variant: "", linkedUrl: "" });
 
   const toggleVariant = () => {
     if (viewer.linkedUrl) {
@@ -128,40 +102,47 @@ export default function SubjectPage() {
       if (!pairs[p.paperKey]) pairs[p.paperKey] = {};
       pairs[p.paperKey][p.variant] = p;
     });
-    return Object.entries(pairs)
-      .map(([paperKey, variants]) => ({
+    const slots = ["MST 1", "IMP MST 1", "MST 2", "IMP MST 2", "EST", "IMP EST"];
+    const normalizeTag = (value) => String(value || "")
+      .toUpperCase()
+      .replace(/[^A-Z0-9]/g, "")
+      .replace(/^IMPORTANT/, "IMP");
+    const bySlot = new Map();
+    Object.entries(pairs).forEach(([paperKey, variants]) => {
+      if (!variants.questions) return;
+      const normalizedTag = normalizeTag(variants.questions.paperTag || variants.questions.title);
+      const slot = slots.find((candidate) => normalizeTag(candidate) === normalizedTag);
+      const existing = bySlot.get(slot);
+      const uploadedAt = new Date(variants.questions.createdAt || 0).getTime();
+      const existingAt = new Date(existing?.questions?.createdAt || 0).getTime();
+      if (slot && (!existing || uploadedAt >= existingAt)) bySlot.set(slot, {
         paperKey,
         questions: variants.questions,
         solution: variants.solution,
-      }))
-      .filter((p) => p.questions)
-      .sort((a, b) => (a.questions?.paperTag || "").localeCompare(b.questions?.paperTag || ""));
+      });
+    });
+    return slots.map((slot) => ({ slot, ...(bySlot.get(slot) || {}) }));
   }, [pyqs]);
 
   if (loading) return <div className="resources-loading"><Loader2 className="spin" size={32} /> Loading resources…</div>;
-  if (error) return <div className="resources-error"><AlertCircle size={32} /> {error}</div>;
+  if (error) return <div className="resources-error"><AlertCircle size={32} /> {error} <button onClick={loadData}>Retry</button></div>;
 
   const renderPyqsTab = () => (
     <div className="resources-tab-content">
-      {paperPairs.length === 0 ? (
-        <div className="resources-empty">
-          <FileQuestion size={48} />
-          <p>No PYQs found for this subject</p>
-        </div>
-      ) : (
-        <div className="paper-pairs-grid">
-          {paperPairs.map(({ paperKey, questions, solution }) => {
-            const progress = progressMap[paperKey] || { attempted: false, notes: "" };
+      <div className="paper-pairs-grid">
+        {paperPairs.map(({ slot, paperKey, questions, solution }) => {
+            const progress = progressMap[paperKey] || { attempted: false };
             return (
-              <div key={paperKey} className="paper-pair-card">
+              <div key={slot} className={`paper-pair-card ${questions ? "" : "paper-pair-card-empty"}`}>
                 <div className="paper-pair-header">
-                  <h4 className="paper-pair-title">{questions?.title || "Untitled"}</h4>
+                  <h4 className="paper-pair-title">{slot}</h4>
                   <span className={`paper-tag ${progress.attempted ? "attempted" : ""}`}>
-                    {questions?.paperTag || "Paper"}
+                    {questions ? (questions.paperTag || slot) : "Not uploaded"}
                     {progress.attempted && <CheckSquare size={14} />}
                   </span>
                 </div>
 
+                {questions ? <>
                 <div className="paper-pair-pdfs">
                   <div className="pdf-card questions-card">
                     <div className="pdf-card-badge questions">Questions</div>
@@ -174,14 +155,8 @@ export default function SubjectPage() {
                       <span>Open Questions</span>
                     </button>
                     {questions?.url && (
-                      <a
-                        href={questions.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="pdf-card-external"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <ExternalLink size={14} />
+                      <a href={getAttachmentUrl(questions.url)} download className="pdf-card-external" aria-label="Download questions PDF" title="Download questions PDF">
+                        <Download size={14} />
                       </a>
                     )}
                   </div>
@@ -197,14 +172,8 @@ export default function SubjectPage() {
                         <FileQuestion size={32} />
                         <span>Open Solution</span>
                       </button>
-                      <a
-                        href={solution.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="pdf-card-external"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <ExternalLink size={14} />
+                      <a href={getAttachmentUrl(solution.url)} download className="pdf-card-external" aria-label="Download solution PDF" title="Download solution PDF">
+                        <Download size={14} />
                       </a>
                     </div>
                   )}
@@ -220,21 +189,11 @@ export default function SubjectPage() {
                   </button>
                 </div>
 
-                <div className="paper-pair-notes">
-                  <label className="notes-label">My Notes</label>
-                  <textarea
-                    className="notes-textarea"
-                    placeholder="Add your notes for this paper…"
-                    value={progress.notes || ""}
-                    onChange={(e) => handleNotesChange(paperKey, e.target.value)}
-                    rows={3}
-                  />
-                </div>
+                </> : <div className="paper-slot-empty">Upload this paper from the admin dashboard.</div>}
               </div>
             );
-          })}
-        </div>
-      )}
+        })}
+      </div>
     </div>
   );
 
@@ -250,11 +209,11 @@ export default function SubjectPage() {
           {playlists.map((pl) => (
             <div key={pl._id} className="playlist-card">
               <div className="playlist-thumb">
-                {pl.url?.includes("youtube") && (
+                {extractVideoId(pl.url) ? (
                   <a href={pl.url} target="_blank" rel="noopener noreferrer">
                     <img src={`https://img.youtube.com/vi/${extractVideoId(pl.url)}/hqdefault.jpg`} alt={pl.title} />
                   </a>
-                )}
+                ) : <ListVideo size={36} aria-hidden="true" />}
               </div>
               <div className="playlist-info">
                 <h4>{pl.title}</h4>
@@ -283,8 +242,11 @@ export default function SubjectPage() {
             <div key={note._id} className="note-card">
               <h4>{note.title}</h4>
               <p>{note.description || ""}</p>
-              <a href={note.url} target="_blank" rel="noopener noreferrer" className="note-link">
-                <ExternalLink size={14} /> Open Note
+              <button type="button" className="note-link" onClick={() => openViewer(note, null)}>
+                <Eye size={14} /> View PDF
+              </button>
+              <a href={getAttachmentUrl(note.url)} download className="note-link">
+                <Download size={14} /> Download PDF
               </a>
             </div>
           ))}
@@ -294,21 +256,33 @@ export default function SubjectPage() {
   );
 
   function extractVideoId(url) {
-    const match = url.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=|youtube\.com\/playlist\?list=)([^&]+)/);
-    return match ? match[1] : "";
+    try {
+      const parsed = new URL(url);
+      if (parsed.hostname.endsWith("youtu.be")) return parsed.pathname.slice(1);
+      return parsed.searchParams.get("v") || "";
+    } catch { return ""; }
   }
 
   return (
     <div className="resources-page subject-page">
-      <header className="resources-header">
-        <Link to={`/resources/${encodeURIComponent(decodedYear)}`} className="back-link">
-          <ArrowLeft size={20} /> Back
-        </Link>
+      <header className="resources-header subject-page-header">
         <div className="header-content">
-          <h1><BookOpen size={28} /> {decodedSubject}</h1>
+          <h1>
+            <Layers size={28} />
+            {decodedSubject}
+          </h1>
           <span className="year-badge">{decodedYear}</span>
         </div>
+
+        <Link
+          to={`/resources/${encodeURIComponent(decodedYear)}`}
+          className="back-link"
+        >
+          <ArrowLeft size={16} />
+          Back
+        </Link>
       </header>
+
 
       <div className="resources-tabs" role="tablist">
         {TABS.map((tab) => (
@@ -332,11 +306,11 @@ export default function SubjectPage() {
       </div>
 
       <PdfViewer
+        key={`${viewer.open}-${viewer.url}`}
         isOpen={viewer.open}
         onClose={closeViewer}
         url={viewer.url}
         title={viewer.title}
-        paperKey={viewer.paperKey}
         variant={viewer.variant}
         onToggleVariant={toggleVariant}
         linkedUrl={viewer.linkedUrl}

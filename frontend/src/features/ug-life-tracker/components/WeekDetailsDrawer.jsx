@@ -50,7 +50,7 @@ export default function WeekDetailsDrawer({ ctx, scores, notes, onScore, onNoteC
           overflowY: "auto",
           /* Tighter padding on mobile */
           padding: "clamp(16px, 5vw, 32px) clamp(16px, 5vw, 28px)",
-          fontFamily: "'IBM Plex Mono', monospace",
+          fontFamily: "var(--font-sans)",
           boxSizing: "border-box",
         }}
       >
@@ -66,7 +66,7 @@ export default function WeekDetailsDrawer({ ctx, scores, notes, onScore, onNoteC
               Year {yearNum} · {fmtWeekRange(week)}
             </div>
             <h3 style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: "var(--font-sans)",
               fontSize: "clamp(1.1rem, 5vw, 1.4rem)",
               fontWeight: 700,
               color: "var(--text)",
@@ -150,7 +150,7 @@ export default function WeekDetailsDrawer({ ctx, scores, notes, onScore, onNoteC
                   padding: "4px 12px",
                   cursor: "pointer",
                   outline: "none",
-                  fontFamily: "'IBM Plex Mono', monospace",
+                  fontFamily: "var(--font-sans)",
                 }}
               >
                 Clear score

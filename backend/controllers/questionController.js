@@ -1,6 +1,16 @@
 const Question = require("../models/Question");
 const { sortQuestionsByDifficulty, dynamicSort } = require("../algorithms/sorting");
 
+const toPublicQuestion = (question) => ({
+  _id: question._id,
+  topicId: question.topicId,
+  text: question.text,
+  options: question.options,
+  difficulty: question.difficulty,
+  timeLimitSeconds: question.timeLimitSeconds,
+  isMultiSelect: question.correctAnswer.length > 1,
+});
+
 const getQuestions = async (req, res) => {
   try {
     const { topicId, difficulty, sort = "difficulty" } = req.query;
@@ -16,7 +26,7 @@ const getQuestions = async (req, res) => {
       questions = dynamicSort(questions, [{ field: "createdAt", order: "desc" }]);
     }
 
-    res.json({ questions, count: questions.length });
+    res.json({ questions: questions.map(toPublicQuestion), count: questions.length });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -26,7 +36,7 @@ const getQuestion = async (req, res) => {
   try {
     const question = await Question.findById(req.params.id);
     if (!question) return res.status(404).json({ error: "Question not found" });
-    res.json({ question });
+    res.json({ question: toPublicQuestion(question) });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

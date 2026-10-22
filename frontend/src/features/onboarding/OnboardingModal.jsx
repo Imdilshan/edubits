@@ -49,7 +49,7 @@ const STEPS = [
 ];
 
 export default function OnboardingModal({ isOpen, onClose }) {
-  const { user, token } = useAuth();
+  const { user } = useAuth();
   const [currentStep, setCurrentStep] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -77,9 +77,9 @@ export default function OnboardingModal({ isOpen, onClose }) {
       try {
         await fetch(`${import.meta.env.VITE_API_URL}/auth/onboarding/complete`, {
           method: "POST",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
           },
         });
       } catch (err) {

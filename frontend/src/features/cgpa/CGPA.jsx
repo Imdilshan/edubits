@@ -1,18 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import Select from "react-select";
 import "./cgpa.css";
 import { Trash2, Plus, Calculator, RotateCcw, X, BarChart2, Eraser } from "lucide-react";
 
 const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
-
-const creditOptions = [
-  { value: "1", label: "1" },
-  { value: "2", label: "2" },
-  { value: "3", label: "3" },
-  { value: "4", label: "4" },
-  { value: "5", label: "5" },
-  { value: "6", label: "6" },
-];
 
 function BarChart({ data }) {
   if (!data || data.length === 0) return null;
@@ -186,7 +176,7 @@ function TargetSimulator() {
     <div className="simulator-card card card-panel">
       <div className="card-header">
         <div>
-          <h3 className="text-headline" style={{ color: "var(--danger)" }}>Target CGPA Simulator</h3>
+          <h3 className="text-headline">Target CGPA Simulator</h3>
           <p className="text-body-sm" style={{ color: "var(--muted)" }}>Find out what SGPA you need next semester.</p>
         </div>
       </div>
@@ -374,17 +364,17 @@ export default function CGPA({ sgpaList, removeSGPA }) {
                 }
               />
 
-              <Select
-                options={creditOptions}
-                value={sem.credits ? { value: sem.credits, label: sem.credits } : null}
-                onChange={(selected) =>
-                  !isAuto && handleManualChange(sem.originalIndex, "credits", selected ? selected.value : "")
-                }
+              <input
+                className="form-input"
+                type="number"
+                min="0"
+                step="1"
                 placeholder="Credits"
-                isSearchable={false}
-                className="react-select-container"
-                classNamePrefix="react-select"
-                disabled={isAuto}
+                value={sem.credits}
+                readOnly={isAuto}
+                onChange={(e) =>
+                  !isAuto && handleManualChange(sem.originalIndex, "credits", e.target.value)
+                }
               />
 
               <button

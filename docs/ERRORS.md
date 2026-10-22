@@ -58,7 +58,101 @@ Warnings (`react-hooks/exhaustive-deps`): `QuizPage.jsx:100`, `useProgress.js:10
 
 ---
 
+## 🟠 Known Bugs (Runtime, Open)
+
+Found in the 2026-10-22 review of the Resources feature and the homepage. Lint and build catch none of these. Fixes are proposed, not applied. The IDs (R1, P1, D1, H1) are referenced from `Memory.md`, `Phases.md`, `Rules.md` and `Feature.md` section 8.
+
+### Resources bugs
+
+#### R1. A failed PDF load breaks the viewer until the page is refreshed
+**Files:** `frontend/src/features/resources/components/PdfViewer.jsx`  
+**Severity:** High  
+**Problem:** `<Document>` renders only while `error` is empty (`{!error && ...}`), and only that same `<Document>`'s `onLoadSuccess` clears `error`. After one failed load it never mounts again, so every later paper shows "Failed to load PDF" until the page is refreshed.  
+**Proposed fix:** reset `error`, `numPages`, `pageNumber` and `scale` whenever `url` changes or the viewer opens (for example `key={url}` on the inner content, or an effect on `url`).  
+**Status:** TODO
+
+#### R2. The viewer keeps its state between papers
+**Files:** `frontend/src/features/resources/components/PdfViewer.jsx`  
+**Severity:** High  
+**Problem:** the component stays mounted and returns `null` when closed, so `pageNumber`, `scale` and `numPages` persist. Opening a second paper after reading page 5 of the first can start on page 5, or past the last page (blank page). Switching Questions to Solution keeps the page number too.  
+**Proposed fix:** same reset as R1, and set the page back to 1 when `url` changes.  
+**Status:** TODO
+
+#### R3. Year page always shows "0/N attempted" on first load
+**Files:** `frontend/src/features/resources/pages/YearPage.jsx`  
+**Severity:** Medium  
+**Problem:** `loadSubjects` reads `progressMap` while `useProgress` is still loading, and the effect re-runs only when the year changes. The `react-hooks/exhaustive-deps` warning at `YearPage.jsx:41` points at this.  
+**Proposed fix:** compute attempted counts in render (`useMemo` over the fetched resources and `progressMap`) instead of inside the fetch.  
+**Status:** TODO
+
+#### R4. Notes save on every keystroke, and failures are silent
+**Files:** `frontend/src/features/resources/pages/SubjectPage.jsx`  
+**Severity:** Medium  
+**Problem:** `handleNotesChange` sends one `PUT /pyq-progress/:paperKey` per character with no debounce, so requests can finish out of order. Failures (and failed attempted toggles, which are optimistic and never rolled back) are only logged with `console.error`, so the student assumes it saved.  
+**Proposed fix:** debounce notes (about 500 ms per paper), flush on blur and unmount, show a saved / failed state, and roll back or notify when a write fails.  
+**Status:** TODO
+
+#### R5. The frontend overrides the admin's ordering
+**Files:** `frontend/src/features/resources/pages/SubjectPage.jsx`, `backend/controllers/resourceController.js`  
+**Severity:** Low  
+**Problem:** the backend sorts by `sortOrder` (descending), then `createdAt`. `SubjectPage` re-sorts papers by `paperTag` with `localeCompare`, so `sortOrder` has no effect, and alphabetical tags (for example EST before MST) rarely match exam order.  
+**Decision:** papers must display in exam sequence: MST 1, MST 2, then EST (see `PRD.md` section 8 and `decisions/7.md`).  
+**Proposed fix:** provide a stable exam-order value in the returned data and sort by it; remove the alphabetical `paperTag` re-sort.  
+**Status:** TODO (ordering rule settled; implementation pending)
+
+#### R6. The Download button does not download
+**Files:** `frontend/src/features/resources/components/PdfViewer.jsx`  
+**Severity:** Low  
+**Problem:** the `download` attribute is ignored for cross-origin URLs (Cloudinary), so the button only opens a new tab.  
+**Proposed fix:** build the download URL with Cloudinary's attachment delivery flag (`fl_attachment`).  
+**Status:** TODO
+
+#### R7. Every student receives the uploader's name and email
+**Files:** `backend/controllers/resourceController.js` (lines 160 and 176)  
+**Severity:** High (personal data)  
+**Problem:** `listResources` and `getResource` call `.populate("uploadedBy", "name email")`, so every logged-in user gets the uploader's name and email on every response. No frontend code reads `uploadedBy`, and each call pays for an extra lookup.  
+**Proposed fix:** remove the populate, or keep it for admin callers only.  
+**Status:** TODO
+
+### Resources performance
+
+| ID | Problem | Proposed fix |
+|----|---------|--------------|
+| P1 | `ResourcesPage` and `YearPage` download every PYQ document (both variants, each with the populated `uploadedBy`) only to count papers per year and subject | `GET /resources/summary` returning grouped counts; the existing index on `resourceType, year, subject, isActive` fits |
+| P2 | Progress is fetched up to three times per visit: `ResourcesPage` calls `useProgress()` and never uses it, `YearPage` fetches it again, and `SubjectPage` fetches and manages its own copy instead of using the hook | One shared progress source for all Resources pages; delete the unused call |
+| P3 | `SubjectPage` makes three list calls (PYQs, playlist, notes) plus progress on every visit, even if the other tabs are never opened | One call for the subject, or load each tab lazily |
+| P4 | Loading shows only a spinner and errors show a raw `err.message`; the backend is on Render's free tier and cold-starts | Skeleton cards and a friendly error with a retry button |
+
+### Resources dead code and hygiene
+
+| ID | Problem | Proposed fix |
+|----|---------|--------------|
+| D1 | `features/pyqs/PYQsPage.jsx` (1,139 lines) is not imported anywhere; `/pyqs` redirects to `/resources`. It also carries the `PAPER_SOURCES` list, its own `useProgress` copy and a `set-state-in-effect` lint error | Delete the file |
+| D2 | `/viewer-spike` (`ViewerSpike.jsx`, Phase 0) is still routed for every logged-in user | Remove the route and the files |
+| D3 | `fetchPyqs` and `uploadPyq` in `services/resourceService.js` appear to have no callers | Confirm with a search, then remove |
+| D4 | Unused imports and constants: `FolderOpen` (all three pages), `Eye`, `ChevronLeft`, `ChevronRight` (`SubjectPage`), and `SUBJECT_IMAGES` in `ResourcesPage`. Lint's capitalised-name ignore pattern (`varsIgnorePattern: '^[A-Z_]'`) hides them | Remove |
+| D5 | `SUBJECT_IMAGES` is duplicated in `ResourcesPage` and `YearPage`; several subjects reuse unrelated art (Computer Networks uses `coa.svg`, Ethical Hacking `java.svg`, Web Development Fundamentals `daa.svg`), unknown subjects fall back to `daa.svg`, and `PBL_Java` is shown with its underscore | One subject-metadata map (label plus image), or a backend field |
+| A1 | The viewer modal has no `role="dialog"`, `aria-modal` or focus handling; the tabs have `role="tab"` but no `tabpanel` or `aria-controls` | Add the roles and focus management |
+
+### Homepage open items
+
+| ID | Problem | Proposed fix |
+|----|---------|--------------|
+| H1 | Privacy, Terms and Cookies in the footer link to `#`; no pages exist (Google's OAuth consent screen expects privacy and terms URLs) | Deferred by owner for now; revisit before relying on those links or OAuth consent requirements |
+| H2 | For logged-out visitors every footer link except the homepage lands on `/login`, because all other routes are gated | Hide or repoint those links when logged out |
+| H3 | The landing page needs three screenshots in `frontend/public/images/landing/`: `pyqs.png`, `resources.png`, `quizengine.png`. Until they exist the preview frames show broken images | Add the files |
+| H4 | `proofStats` in `homeData.js` is static (725+ students, 5.5K+ page views as of 2026-10-22) and will go stale | Update by hand, or serve live counts from the backend |
+| H5 | `TODO.md` asks for a "Most used" label on Resources; it was not carried over when the unused `tag` data was removed | Re-add if wanted |
+
+---
+
 ## 🟢 Fixed Errors (Documented for Reference)
+
+### Fixed: Homepage review findings
+**Files:** `frontend/src/features/homepage/HomePage.jsx`, `homepage.css`, `HomeFooter.jsx`, `PeoplePage.jsx`, new `homeData.js` and `peopleData.js`  
+**Error:** found in review, not reported by lint: Log in and Sign up were `<a href>` (full page reload); the WhatsApp button used a hardcoded `#25d366` and the OAuth buttons used brand-colored borders (off the single-accent palette); every tool card had a `--primary` border; `tag` data and `.hp-tool-tag` styles were never rendered; the tools section and footer were copied in both the logged-in and logged-out returns; `HomeFooter.jsx` was unused and unstyled; `CONTRIBUTORS` was duplicated in `HomeFooter.jsx` and `PeoplePage.jsx`; copy typos ("Pyq's", "Sgpa & Cgpa")  
+**Fix:** internal links use `<Link>`; neutral borders (accent only on hover and the primary CTA); one shared `HomeFooter`; tool and feature data in `homeData.js`; founders and contributors in `peopleData.js`; the logged-out page rebuilt as a long-scroll landing page (see `decisions/5.md`)  
+**Date:** 2026-10-22
 
 ### Fixed: HomePage footer crashed the landing page
 **Files:** `frontend/src/features/homepage/HomePage.jsx`  
@@ -190,11 +284,25 @@ Warnings (`react-hooks/exhaustive-deps`): `QuizPage.jsx:100`, `useProgress.js:10
 8. Move `useAuth` / `useToast` out of the provider files (react-refresh).
 
 ### Low Priority
-9. Clean up stray files - `src/UploadTest.jsx`, `src/app/routes.jsx`, unused `HomeFooter.jsx`, empty `backend/middleware/avatarUpload.js`.
+9. Clean up stray files - `src/UploadTest.jsx`, `src/app/routes.jsx`, empty `backend/middleware/avatarUpload.js` (`HomeFooter.jsx` is now the shared homepage footer, no longer stray).
 10. Consolidate `adminOnly` middleware - defined in both `resourceRoutes.js` and `pyqRoutes.js`.
 11. Standardise response shapes - `pyqProgressRoutes` returns `{ error }`, others return `{ success, message }`.
 12. Update `claude.md` - stale (lists 6 quiz topics, seed has 10).
 13. Replace the JWT-in-URL OAuth redirect with a one-time code exchange.
+
+### From the 2026-10-22 review (see Known Bugs above)
+
+**High**
+14. Fix the Resources viewer and notes bugs R1, R2, R4, and the personal-data leak R7.
+
+**Medium**
+15. Fix R3 (year progress) and implement the settled R5 order (MST 1, MST 2, EST); fix R6 (download).
+16. Resources performance P1 to P4: summary endpoint, one shared progress source, fewer calls, skeletons and retry.
+17. Homepage: add the three landing screenshots (H3), fix footer links for logged-out visitors (H2). Legal pages are deferred (H1).
+
+**Low**
+18. Delete dead code D1 to D4; consolidate subject metadata (D5); viewer accessibility (A1).
+19. Re-add the "Most used" label (H5) and decide how proof stats are kept current (H4).
 
 ---
 

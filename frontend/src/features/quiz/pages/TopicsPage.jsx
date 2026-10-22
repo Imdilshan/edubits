@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../utils/api";
-import { Zap, Layers3, Unlock, CheckCircle2 } from "lucide-react";
+import {BrainCircuit, Layers3, Unlock, CheckCircle2 } from "lucide-react";
+import { GraduationCap, BookOpen } from "lucide-react";
 import "./TopicsPage.css";
 
 export default function TopicsPage() {
@@ -66,13 +67,11 @@ export default function TopicsPage() {
       <div className="quiz-page-header">
         <div>
           <h1 className="quiz-page-title">
-            <Zap size={34} strokeWidth={2.4} /> QuizEngine
+            <BrainCircuit size={34} strokeWidth={2} />
+            QuizEngine
           </h1>
-          <p className="quiz-page-subtitle">
-            {activeMode === "viva" ? "College Viva Preparation" : "NPTEL Exam Preparation"}
-          </p>
         </div>
-        <div className="quiz-mode-toggle" role="tablist" aria-label="Quiz mode">
+        {/* <div className="quiz-mode-toggle" role="tablist" aria-label="Quiz mode">
           <button
             role="tab"
             aria-selected={activeMode === "viva"}
@@ -93,7 +92,34 @@ export default function TopicsPage() {
             <span>NPTEL Prep</span>
             <span className="mode-count">{modeStats.nptel.total} topics</span>
           </button>
+        </div> */}
+
+        <div className="quiz-mode-toggle" role="tablist" aria-label="Quiz category">
+          <button
+            type="button"
+            role="tab"
+            aria-selected={activeMode === "viva"}
+            className={`quiz-mode-btn ${activeMode === "viva" ? "active" : ""}`}
+            onClick={() => setActiveMode("viva")}
+          >
+            <GraduationCap size={17} strokeWidth={1.8} />
+            <span className="mode-label">College Viva</span>
+            <span className="mode-count">{modeStats.viva.total}</span>
+          </button>
+
+          <button
+            type="button"
+            role="tab"
+            aria-selected={activeMode === "nptel"}
+            className={`quiz-mode-btn ${activeMode === "nptel" ? "active" : ""}`}
+            onClick={() => setActiveMode("nptel")}
+          >
+            <BookOpen size={17} strokeWidth={1.8} />
+            <span className="mode-label">NPTEL Prep</span>
+            <span className="mode-count">{modeStats.nptel.total}</span>
+          </button>
         </div>
+
       </div>
 
       <div className="quiz-stats-grid">
@@ -153,20 +179,10 @@ function TopicPhotoCard({ topic, onStart, style }) {
         )}
         {isLocked && <div className="photo-lock"><Unlock size={24} /></div>}
         {isCompleted && <div className="photo-check"><CheckCircle2 size={24} /></div>}
-        <div className="photo-mode-badge">{topic.mode === "viva" ? "Viva" : "NPTEL"}</div>
       </div>
       <div className="photo-card-content">
         <h3 className="photo-card-title">{topic.name}</h3>
         <p className="photo-card-desc">{topic.description || "No description"}</p>
-        <div className="photo-card-meta">
-          <span className="meta-item">
-            <span className="meta-dot" style={{ background: topic.color || "#6366f1" }}></span>
-            {topic.passingScore}% to pass
-          </span>
-          {topic.bestScore && (
-            <span className="meta-item best-score">Best: {topic.bestScore}%</span>
-          )}
-        </div>
         {!isLocked && (
           <button className="photo-card-start" onClick={(e) => { e.stopPropagation(); onStart(topic); }}>
             {isCompleted ? "Retake Quiz" : "Start Quiz"}

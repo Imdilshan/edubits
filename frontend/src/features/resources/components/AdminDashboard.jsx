@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import {
   uploadResource,
   uploadPaperPair,
-  RESOURCE_TYPES,
+  createPlaylistLink,
 } from "../../../services/resourceService";
 
 const RESOURCE_TYPE_LABELS = {
@@ -64,6 +64,8 @@ export default function AdminDashboard() {
   const [sfYear, setSfYear] = useState("");
   const [sfSemester, setSfSemester] = useState("");
   const [sfPaperTag, setSfPaperTag] = useState("");
+  const [sfPlaylistUrl, setSfPlaylistUrl] = useState("");
+  const [sfDescription, setSfDescription] = useState("");
 
   // Question JSON form state
   const [qjFile, setQjFile] = useState(null);
@@ -96,6 +98,8 @@ export default function AdminDashboard() {
     setSfYear("");
     setSfSemester("");
     setSfPaperTag("");
+    setSfPlaylistUrl("");
+    setSfDescription("");
     if (fileInputRefs.sfFile.current) fileInputRefs.sfFile.current.value = "";
   };
 
@@ -142,8 +146,11 @@ export default function AdminDashboard() {
 
   const handleSingleFileSubmit = async (e) => {
     e.preventDefault();
-    if (!sfFile) return setErrorMsg("Please select a file.");
     if (!sfTitle) return setErrorMsg("Title is required.");
+    if (sfResourceType === "playlist" && (!sfPlaylistUrl || !sfSubject || !sfYear)) {
+      return setErrorMsg("Playlist URL, subject, and year are required.");
+    }
+    if (sfResourceType !== "playlist" && !sfFile) return setErrorMsg("Please select a file.");
 
     setErrorMsg("");
     setSuccessMsg("");
@@ -151,20 +158,24 @@ export default function AdminDashboard() {
     setProgress(0);
 
     try {
-      const resource = await uploadResource(
+      const metadata = {
+        title: sfTitle,
+        resourceType: sfResourceType,
+        subject: sfSubject || undefined,
+        year: sfYear || undefined,
+        semester: sfSemester ? Number(sfSemester) : undefined,
+        paperTag: sfPaperTag || undefined,
+        description: sfDescription || undefined,
+      };
+      const resource = sfResourceType === "playlist"
+        ? await createPlaylistLink({ ...metadata, url: sfPlaylistUrl })
+        : await uploadResource(
         sfFile,
-        {
-          title: sfTitle,
-          resourceType: sfResourceType,
-          subject: sfSubject || undefined,
-          year: sfYear || undefined,
-          semester: sfSemester ? Number(sfSemester) : undefined,
-          paperTag: sfPaperTag || undefined,
-        },
+        metadata,
         setProgress
       );
       setStatus("success");
-      setSuccessMsg(`File uploaded! ID: ${resource._id}`);
+      setSuccessMsg(`${sfResourceType === "playlist" ? "Playlist added" : "File uploaded"}! ID: ${resource._id}`);
       resetSingleFile();
     } catch (err) {
       setErrorMsg(err.response?.data?.message || err.message || "Upload failed.");
@@ -232,7 +243,7 @@ export default function AdminDashboard() {
     <form onSubmit={handlePaperPairSubmit} style={styles.form}>
       <h3 style={styles.sectionTitle}>Upload PYQ Paper Pair (Questions + Solution)</h3>
       <p style={styles.helpText}>
-        Upload both PDFs at once. They will be linked by a shared paper key.
+        Select the questions PDF first and its solution PDF second. Choose one of the six paper slots; both files will appear together in Resources. If PDFs upload but do not open, enable PDF delivery in Cloudinary Settings → Security.
       </p>
 
       <label style={styles.label}>Title *</label>
@@ -286,15 +297,18 @@ export default function AdminDashboard() {
         </div>
       </div>
 
-      <label style={styles.label}>Paper Tag *</label>
-      <input
+      <label style={styles.label}>Paper Slot *</label>
+      <select
         style={styles.input}
-        type="text"
-        placeholder="e.g. MST 1, EST 1, Practice 0"
         value={ppPaperTag}
         onChange={(e) => setPpPaperTag(e.target.value)}
         required
-      />
+      >
+        <option value="">Select paper slot</option>
+        {["MST 1", "IMP MST 1", "MST 2", "IMP MST 2", "EST", "IMP EST"].map((tag) => (
+          <option key={tag} value={tag}>{tag}</option>
+        ))}
+      </select>
 
       <div style={styles.fileGroup}>
         <div style={styles.fileInputWrapper}>
@@ -381,13 +395,23 @@ export default function AdminDashboard() {
         required
       />
 
-      <label style={styles.label}>Subject</label>
+      {sfResourceType === "playlist" && <>
+        <label style={styles.label}>YouTube Playlist URL *</label>
+        <input style={styles.input} type="url" placeholder="https://www.youtube.com/playlist?list=…" value={sfPlaylistUrl} onChange={(e) => setSfPlaylistUrl(e.target.value)} required />
+        <label style={styles.label}>Description / channel (optional)</label>
+        <input style={styles.input} type="text" placeholder="e.g. Gate Smashers · Complete unit-wise playlist" value={sfDescription} onChange={(e) => setSfDescription(e.target.value)} />
+      </>}
+
+      {sfResourceType === "notes" && <p style={styles.helpText}>Upload a PDF. It will appear in the selected year and subject under Notes. Cloudinary may require PDF delivery to be enabled in Settings → Security.</p>}
+
+      <label style={styles.label}>Subject{["notes", "playlist"].includes(sfResourceType) ? " *" : ""}</label>
       <select
         style={styles.input}
         value={sfSubject}
         onChange={(e) => setSfSubject(e.target.value)}
+        required={["notes", "playlist"].includes(sfResourceType)}
       >
-        <option value="">Select subject (optional)</option>
+        <option value="">Select subject{["notes", "playlist"].includes(sfResourceType) ? "" : " (optional)"}</option>
         {SUBJECT_OPTIONS.map((s) => (
           <option key={s} value={s}>{s}</option>
         ))}
@@ -395,13 +419,14 @@ export default function AdminDashboard() {
 
       <div style={styles.row}>
         <div style={{ flex: 1 }}>
-          <label style={styles.label}>Year</label>
+          <label style={styles.label}>Year{["notes", "playlist"].includes(sfResourceType) ? " *" : ""}</label>
           <select
             style={styles.input}
             value={sfYear}
             onChange={(e) => setSfYear(e.target.value)}
+            required={["notes", "playlist"].includes(sfResourceType)}
           >
-            <option value="">Select year (optional)</option>
+            <option value="">Select year{["notes", "playlist"].includes(sfResourceType) ? "" : " (optional)"}</option>
             {YEAR_OPTIONS.map((y) => (
               <option key={y} value={y}>{y}</option>
             ))}
@@ -429,6 +454,7 @@ export default function AdminDashboard() {
         onChange={(e) => setSfPaperTag(e.target.value)}
       />
 
+      {sfResourceType !== "playlist" && <>
       <label style={styles.label}>File *</label>
       <input
         ref={fileInputRefs.sfFile}
@@ -447,6 +473,7 @@ export default function AdminDashboard() {
           {sfFile.name} — {(sfFile.size / 1024 / 1024).toFixed(2)} MB
         </p>
       )}
+      </>}
 
       {status === "uploading" && (
         <div style={styles.progressTrack}>

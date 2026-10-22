@@ -16,7 +16,7 @@ const handleMulterError = (multerMw) => (req, res, next) => {
   multerMw(req, res, (err) => {
     if (!err) return next();
     const status = err.code === "LIMIT_FILE_SIZE" ? 413 : 400;
-    return res.status(status).json({ success: false, message: err.message });
+    return res.status(status).json({ success: false, message: status === 413 ? "File is too large" : "Upload rejected" });
   });
 };
 
@@ -54,7 +54,7 @@ router.post(
         return res.status(400).json({ success: false, message: "No file received." });
       }
       if (!title) {
-        await cloudinary.uploader.destroy(file.filename, { resource_type: "raw" }).catch(() => {});
+        await cloudinary.uploader.destroy(file.filename, { resource_type: file.resource_type || "image" }).catch(() => {});
         return res.status(400).json({ success: false, message: "title is required." });
       }
 

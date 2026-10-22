@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 const attemptSchema = new mongoose.Schema(
   {
+    sessionId: {
+      type: String,
+    },
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
@@ -46,5 +49,6 @@ const attemptSchema = new mongoose.Schema(
 
 attemptSchema.index({ topicId: 1, score: -1 });
 attemptSchema.index({ userId: 1, createdAt: -1 });
+attemptSchema.index({ sessionId: 1 }, { unique: true, sparse: true });
 
 module.exports = mongoose.model("QuizAttempt", attemptSchema);

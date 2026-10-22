@@ -1,7 +1,6 @@
 const passport    = require("passport");
 const { Strategy: GoogleStrategy } = require("passport-google-oauth20");
 const { Strategy: GitHubStrategy } = require("passport-github2");
-const { Strategy: MicrosoftStrategy } = require("passport-microsoft");
 const User = require("../models/User");
 
 // Passport calls the verify function as (accessToken, refreshToken, profile, done).
@@ -19,7 +18,15 @@ function findOrCreateUser(provider) {
       const providerIdField = `${provider}Id`;
       const query = { [providerIdField]: profile.id };
       let user = await User.findOne(query);
-      if (user) return done(null, user);
+      if (user) {
+        // Remove the legacy shared placeholder value from OAuth accounts when
+        // they next sign in. New OAuth accounts have no password credential.
+        if (user.password === `${provider.toUpperCase()}_AUTH_NO_PASSWORD`) {
+          user.password = undefined;
+          await user.save();
+        }
+        return done(null, user);
+      }
 
       user = await User.findOne({ email });
       if (user) {
@@ -34,7 +41,6 @@ function findOrCreateUser(provider) {
         email,
         [providerIdField]: profile.id,
         avatar: avatarUrl,
-        password: `${provider.toUpperCase()}_AUTH_NO_PASSWORD`,
       });
 
       return done(null, user);
@@ -85,22 +91,6 @@ register(
         scope: ["user:email"],
       },
       findOrCreateUser("github")
-    )
-);
-
-register(
-  "Microsoft",
-  backendUrl && process.env.MICROSOFT_CLIENT_ID && process.env.MICROSOFT_CLIENT_SECRET,
-  () =>
-    new MicrosoftStrategy(
-      {
-        clientID:     process.env.MICROSOFT_CLIENT_ID,
-        clientSecret: process.env.MICROSOFT_CLIENT_SECRET,
-        callbackURL:  `${backendUrl}/api/auth/microsoft/callback`,
-        scope: ["user.read"],
-        tenant: "common",
-      },
-      findOrCreateUser("microsoft")
     )
 );
 

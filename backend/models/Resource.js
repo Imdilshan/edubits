@@ -99,7 +99,7 @@ const resourceSchema = new mongoose.Schema(
 
     cloudinaryPublicId: {
       type:     String,
-      required: true,
+      required: false,
     },
 
     cloudinaryResourceType: {
