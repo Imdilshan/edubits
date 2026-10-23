@@ -42,6 +42,7 @@
     }
   ],
   "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/proxy?proxyPath=$1" },
     { "source": "/(.*)", "destination": "/" }
   ]
 }
