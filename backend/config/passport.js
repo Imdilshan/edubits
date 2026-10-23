@@ -57,7 +57,7 @@ const backendUrl = process.env.BACKEND_URL;
 // the auth cookie is first-party. Local development keeps the callback on the
 // backend unless explicitly overridden.
 const oauthCallbackBaseUrl = process.env.OAUTH_CALLBACK_BASE_URL || (
-  process.env.NODE_ENV === "production" ? process.env.FRONTEND_URL : backendUrl
+  process.env.NODE_ENV === "development" ? backendUrl : process.env.FRONTEND_URL || backendUrl
 );
 passport.enabledProviders = new Set();
 
