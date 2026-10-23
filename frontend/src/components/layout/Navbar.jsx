@@ -1,5 +1,6 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { API_URL } from "../../config/api";
 import { useState, useRef, useEffect } from "react";
 import "./navbar.css";
 
@@ -21,8 +22,6 @@ export default function Navbar() {
   const navigate    = useNavigate();
   const location    = useLocation();
   const dropdownRef = useRef();
-
-  const API_URL = import.meta.env.VITE_API_URL;
 
   const handleLogout = () => { logout(); navigate("/"); };
 

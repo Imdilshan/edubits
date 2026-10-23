@@ -4,9 +4,8 @@ import { useNavigate, Link } from "react-router-dom";
 import { useToast } from "../context/ToastContext";
 import { Loader, ArrowRight } from "lucide-react";
 import { GoogleIcon, GitHubIcon } from "../features/homepage/BrandIcons";
+import { API_URL } from "../config/api";
 import "./login.css";
-
-const API_URL = import.meta.env.VITE_API_URL;
 
 const handleOAuthLogin = (provider) => {
   window.location.href = `${API_URL}/auth/${provider}`;

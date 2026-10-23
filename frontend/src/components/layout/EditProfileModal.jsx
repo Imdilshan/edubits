@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
+import { API_URL } from "../../config/api";
 import { X, User, Mail, Lock, Eye, EyeOff, CheckCircle, AlertCircle } from "lucide-react";
 import "./editProfile.css";
 
 export default function EditProfileModal({ onClose }) {
   const { user, setUser, logout } = useAuth();
-  const API_URL = import.meta.env.VITE_API_URL;
-
   const [form, setForm] = useState({
     name:            user?.name  || "",
     email:           user?.email || "",
