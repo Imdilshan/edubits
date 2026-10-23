@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
+import { API_URL } from "../../config/api";
 import { ChevronRight, Sparkles, BookOpen, Zap, Calculator, CheckSquare, Target } from "lucide-react";
 import "./OnboardingModal.css";
 
@@ -75,7 +76,7 @@ export default function OnboardingModal({ isOpen, onClose }) {
     if (isLastStep) {
       // Mark onboarding as complete
       try {
-        await fetch(`${import.meta.env.VITE_API_URL}/auth/onboarding/complete`, {
+        await fetch(`${API_URL}/auth/onboarding/complete`, {
           method: "POST",
           credentials: "include",
           headers: {

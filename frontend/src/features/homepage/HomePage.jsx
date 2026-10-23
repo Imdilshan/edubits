@@ -2,16 +2,14 @@ import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
 import { trackEvent } from "../../utils/analytics";
+import { API_URL } from "../../config/api";
 import { GoogleIcon } from "./BrandIcons";
 import HomeFooter from "./HomeFooter";
 import { featuredTools, otherTools, proofStats, features } from "./homeData";
 import "./homepage.css";
 
-// VITE_API_URL already ends in /api (e.g. https://api.example.com/api).
-// Using it keeps OAuth links working on Vercel, where "/api/..." would
-// otherwise be rewritten to index.html.
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001/api";
-
+// Use the same-origin /api proxy in production so OAuth cookies remain
+// first-party on mobile browsers. Local development uses the backend URL.
 function AuthActions({ placement }) {
   const handleGoogleClick = (e) => {
     e.preventDefault();
@@ -120,7 +118,7 @@ function LandingView() {
 
       <section className="hp-section hp-section--tight" aria-label="Product preview">
         <figure className="hp-preview">
-          <img src="/images/landing/pyqs.png" alt="Edubits PYQs page" decoding="async" />
+          <img src="/images/homepage/Pyq.png" alt="Edubits PYQs page" decoding="async" />
         </figure>
       </section>
 

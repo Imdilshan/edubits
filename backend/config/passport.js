@@ -53,6 +53,12 @@ function findOrCreateUser(provider) {
 // Each strategy is registered only when its credentials exist, so a missing
 // provider no longer crashes the whole server at startup.
 const backendUrl = process.env.BACKEND_URL;
+// In production, return OAuth through the frontend's same-origin /api proxy so
+// the auth cookie is first-party. Local development keeps the callback on the
+// backend unless explicitly overridden.
+const oauthCallbackBaseUrl = process.env.OAUTH_CALLBACK_BASE_URL || (
+  process.env.NODE_ENV === "production" ? process.env.FRONTEND_URL : backendUrl
+);
 passport.enabledProviders = new Set();
 
 function register(name, enabled, createStrategy) {
@@ -72,7 +78,7 @@ register(
       {
         clientID:     process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL:  `${backendUrl}/api/auth/google/callback`,
+        callbackURL:  `${oauthCallbackBaseUrl}/api/auth/google/callback`,
         scope: ["profile", "email"],
       },
       findOrCreateUser("google")
@@ -87,7 +93,7 @@ register(
       {
         clientID:     process.env.GITHUB_CLIENT_ID,
         clientSecret: process.env.GITHUB_CLIENT_SECRET,
-        callbackURL:  `${backendUrl}/api/auth/github/callback`,
+        callbackURL:  `${oauthCallbackBaseUrl}/api/auth/github/callback`,
         scope: ["user:email"],
       },
       findOrCreateUser("github")

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { API_URL } from "../config/api";
 
 export default function AuthCallback() {
   const { login } = useAuth();
@@ -8,7 +9,7 @@ export default function AuthCallback() {
 
   useEffect(() => {
     let active = true;
-    fetch(`${import.meta.env.VITE_API_URL}/auth/me`, { credentials: "include" })
+    fetch(`${API_URL}/auth/me`, { credentials: "include" })
       .then((res) => res.ok ? res.json() : Promise.reject(new Error("Authentication failed")))
       .then((data) => {
         if (!active || !data.user) return;

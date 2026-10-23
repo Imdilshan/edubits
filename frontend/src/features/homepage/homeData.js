@@ -41,7 +41,7 @@ export const features = [
     eyebrow: "Resources",
     title: "Every paper, note and playlist in one place",
     desc: "Previous year papers with and without solutions, plus notes and playlists, sorted by year and subject.",
-    image: "/images/landing/resources.png",
+    image: "/images/homepage/Resources.png",
     alt: "Edubits Resources page",
   },
   {
@@ -49,7 +49,7 @@ export const features = [
     eyebrow: "QuizEngine",
     title: "Practice for NPTEL and college viva",
     desc: "Take quizzes by topic, review your results and history, and see where you rank on the leaderboard.",
-    image: "/images/landing/quizengine.png",
+    image: "/images/homepage/Quiz.png",
     alt: "Edubits QuizEngine page",
   },
 ];

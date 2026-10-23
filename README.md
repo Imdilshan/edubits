@@ -196,6 +196,22 @@ SEED_ADMIN_PASSWORD=use-a-unique-random-password-at-least-12-characters
 VITE_API_URL=http://localhost:5001/api
 ```
 
+For the Vercel deployment, set `BACKEND_URL` as a project environment
+variable. Production frontend code automatically uses the same-origin `/api`
+proxy, and Vercel forwards those requests to this backend:
+
+```env
+BACKEND_URL=https://your-backend-host
+```
+
+Set the backend's `FRONTEND_URL` to the deployed frontend origin. In production,
+OAuth callbacks default to this origin; `OAUTH_CALLBACK_BASE_URL` can override
+it if needed. Register these callback URLs with Google and GitHub, replacing
+the origin with your deployed frontend URL:
+`https://your-frontend-domain/api/auth/google/callback` and
+`https://your-frontend-domain/api/auth/github/callback`. The backend's
+`FRONTEND_URL` should use that same frontend origin.
+
 > Copy `.env.example` → `.env` in both folders. Both are gitignored — **never commit secrets**.
 
 > **Credential rotation:** the quiz seed previously included a default admin credential in source control. Treat it as compromised: rotate or disable any account created with that older seed, and rotate any real secrets that were ever committed. Git history can retain removed values.
