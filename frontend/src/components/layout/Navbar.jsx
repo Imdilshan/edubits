@@ -93,7 +93,7 @@ export default function Navbar() {
     <>
       <nav className="navbar">
         <div className="nav-left">
-          <Link to="/" className="logo">
+          <Link to="/" className="logo" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
             <img src="/images/logo.webp" alt="logo" className="logo-icon" width="28" height="28" />
             <span>Edubits</span>
           </Link>
@@ -101,9 +101,9 @@ export default function Navbar() {
 
         <div className="nav-center desktop-nav">
           <Link to="/resources" className={`nav-link ${isResActive() ? "active" : ""}`}>Resources</Link>
-          <Link to="/quizzes"  className={`nav-link ${isQuizActive()        ? "active" : ""}`}>QuizEngine</Link>
-          <Link to="/sgpa"     className={`nav-link ${isActive("/sgpa")     ? "active" : ""}`}>GPA Calculator</Link>
-          <Link to="/internal" className={`nav-link ${isActive("/internal") ? "active" : ""}`}>Internal marks calculator</Link>
+          <Link to="/quizzes"  className={`nav-link ${isQuizActive()        ? "active" : ""}`}>Quiz</Link>
+          <Link to="/sgpa"     className={`nav-link ${isActive("/sgpa")     ? "active" : ""}`}>Sgpa</Link>
+          <Link to="/internal" className={`nav-link ${isActive("/internal") ? "active" : ""}`}>Internals</Link>
         </div>
 
         <div className="nav-right" ref={dropdownRef}>

@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, Link, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import HomePage from "../features/homepage/HomePage";
 import OnboardingModal from "../features/onboarding/OnboardingModal";
@@ -49,14 +49,15 @@ function PublicNavbar() {
       top: 0,
       zIndex: 100,
     }}>
-      <span style={{
+      <Link to="/" aria-label="Edubits home" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} style={{
         display: "flex",
         alignItems: "center",
         gap: "10px",
         fontFamily: "var(--font-sans)",
         fontWeight: 800,
         fontSize: "1.4rem",
-        color: "var(--primary)",
+        color: "#78c99a",
+        textDecoration: "none",
       }}>
         <img
           src="/images/favicon.png"
@@ -66,7 +67,7 @@ function PublicNavbar() {
           style={{ objectFit: "contain" }}
         />
         Edubits
-      </span>
+      </Link>
     </nav>
   );
 }

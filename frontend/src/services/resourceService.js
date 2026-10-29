@@ -6,6 +6,13 @@ const api = axios.create({
   withCredentials: true,
 });
 
+let resourcesSummaryCache;
+let resourcesSummaryRequest;
+
+export const invalidateResourcesSummary = () => {
+  resourcesSummaryCache = undefined;
+  resourcesSummaryRequest = undefined;
+};
 
 
 export const RESOURCE_TYPES = {
@@ -43,6 +50,7 @@ export const uploadResource = async (file, metadata, onProgress) => {
   );
 
   if (!data.success) throw new Error(data.message || "Upload failed");
+  invalidateResourcesSummary();
   return data.resource;
 };
 
@@ -64,12 +72,14 @@ export const uploadPaperPair = async (files, metadata, onProgress) => {
   });
 
   if (!data.success) throw new Error(data.message || "Upload failed");
+  invalidateResourcesSummary();
   return data;
 };
 
 export const createPlaylistLink = async (metadata) => {
   const { data } = await api.post("/resources/playlist", metadata);
   if (!data.success) throw new Error(data.message || "Could not add playlist.");
+  invalidateResourcesSummary();
   return data.resource;
 };
 
@@ -112,28 +122,41 @@ export const fetchResources = async ({ type, subject, year, semester, paperKey, 
 };
 
 export const fetchResourcesSummary = async () => {
+  if (resourcesSummaryCache) return resourcesSummaryCache;
+  if (resourcesSummaryRequest) return resourcesSummaryRequest;
+
+  resourcesSummaryRequest = (async () => {
+    try {
+      const { data } = await api.get("/resources/summary");
+      return data;
+    } catch (summaryError) {
+      // Keep the page usable while a separately deployed API is still on the
+      // previous version, where /:id catches /summary and returns a CastError.
+      if (![404, 500].includes(summaryError.response?.status)) throw summaryError;
+      const resources = await fetchResources({ type: "pyqs" });
+      const years = {};
+      const subjects = {};
+      resources.forEach((resource) => {
+        if (resource.variant !== "questions" || !resource.year || !resource.subject) return;
+        years[resource.year] = (years[resource.year] || 0) + 1;
+        let subjectSummary = (subjects[resource.year] || []).find((item) => item.subject === resource.subject);
+        if (!subjectSummary) {
+          subjectSummary = { subject: resource.subject, count: 0, paperKeys: [] };
+          (subjects[resource.year] ||= []).push(subjectSummary);
+        }
+        subjectSummary.count += 1;
+        if (resource.paperKey) subjectSummary.paperKeys.push(resource.paperKey);
+      });
+      return { success: true, years, subjects };
+    }
+  })();
+
   try {
-    const { data } = await api.get("/resources/summary");
-    return data;
-  } catch (summaryError) {
-    // Keep the page usable while a separately deployed API is still on the
-    // previous version, where /:id catches /summary and returns a CastError.
-    if (![404, 500].includes(summaryError.response?.status)) throw summaryError;
-    const resources = await fetchResources({ type: "pyqs" });
-    const years = {};
-    const subjects = {};
-    resources.forEach((resource) => {
-      if (resource.variant !== "questions" || !resource.year || !resource.subject) return;
-      years[resource.year] = (years[resource.year] || 0) + 1;
-      let subjectSummary = (subjects[resource.year] || []).find((item) => item.subject === resource.subject);
-      if (!subjectSummary) {
-        subjectSummary = { subject: resource.subject, count: 0, paperKeys: [] };
-        (subjects[resource.year] ||= []).push(subjectSummary);
-      }
-      subjectSummary.count += 1;
-      if (resource.paperKey) subjectSummary.paperKeys.push(resource.paperKey);
-    });
-    return { success: true, years, subjects };
+    resourcesSummaryCache = await resourcesSummaryRequest;
+    return resourcesSummaryCache;
+  } catch (error) {
+    resourcesSummaryRequest = undefined;
+    throw error;
   }
 };
 
@@ -151,11 +174,13 @@ export const fetchPyqs = async ({ subject, year, semester, paperKey, variant } =
 
 export const deleteResource = async (id) => {
   const { data } = await api.delete(`/resources/${id}`);
+  invalidateResourcesSummary();
   return data;
 };
 
 export const updateResource = async (id, updates) => {
   const { data } = await api.patch(`/resources/${id}`, updates);
+  invalidateResourcesSummary();
   return data.resource;
 };
 

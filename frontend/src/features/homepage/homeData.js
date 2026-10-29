@@ -11,7 +11,7 @@ export const featuredTools = [
     href: "/quizzes",
     icon: BrainCircuit,
     name: "QuizEngine",
-    desc: "NPTEL Prep & College Viva",
+    desc: "Topic-wise practice and review",
   },
 ];
 
@@ -30,19 +30,14 @@ export const otherTools = [
   },
 ];
 
-export const proofStats = [
-  { value: "725+", label: "students using Edubits" },
-  { value: "5.5K+", label: "page views in the last 30 days" },
-];
-
 export const features = [
   {
     id: "resources",
     eyebrow: "Resources",
-    title: "Every paper, note and playlist in one place",
+    title: "PYQs, Notes & Playlists",
     desc: "Previous year papers with and without solutions, plus notes and playlists, sorted by year and subject.",
-    image: "/images/homepage/Resources.png",
-    alt: "Edubits Resources page",
+    image: "/images/homepage/Pyq.png",
+    alt: "Edubits PYQs page",
   },
   {
     id: "quizzes",

@@ -18,11 +18,11 @@
   font-weight: 800;
   font-size: 1.9rem;
   letter-spacing: -0.02em;
-  color: #5E6AD2;
+  color: #78c99a;
 }
 
 .res-home-title svg {
-  color: #5E6AD2;
+  color: #78c99a;
   flex-shrink: 0;
 }
 
@@ -33,15 +33,15 @@
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  color: #5E6AD2;
-  background: rgba(94, 106, 210, 0.10);
-  border: 1px solid rgba(94, 106, 210, 0.35);
+  color: #78c99a;
+  background: rgba(120, 201, 154, 0.10);
+  border: 1px solid rgba(120, 201, 154, 0.35);
 }
 
 .res-home-title-text {
-  color: #5E6AD2;
+  color: #78c99a;
   background: none;
-  -webkit-text-fill-color: #5E6AD2;
+  -webkit-text-fill-color: #78c99a;
 }
 
 .res-home-grid {
