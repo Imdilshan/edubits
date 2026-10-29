@@ -101,9 +101,9 @@ export default function Navbar() {
 
         <div className="nav-center desktop-nav">
           <Link to="/resources" className={`nav-link ${isResActive() ? "active" : ""}`}>Resources</Link>
-          <Link to="/quizzes"  className={`nav-link ${isQuizActive()        ? "active" : ""}`}>QuizEngine</Link>
-          <Link to="/sgpa"     className={`nav-link ${isActive("/sgpa")     ? "active" : ""}`}>GPA Calculator</Link>
-          <Link to="/internal" className={`nav-link ${isActive("/internal") ? "active" : ""}`}>Internal marks calculator</Link>
+          <Link to="/quizzes"  className={`nav-link ${isQuizActive()        ? "active" : ""}`}>Quiz</Link>
+          <Link to="/sgpa"     className={`nav-link ${isActive("/sgpa")     ? "active" : ""}`}>Sgpa</Link>
+          <Link to="/internal" className={`nav-link ${isActive("/internal") ? "active" : ""}`}>Internals</Link>
         </div>
 
         <div className="nav-right" ref={dropdownRef}>

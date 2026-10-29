@@ -75,12 +75,12 @@ function MemberView({ name }) {
           Welcome back, <br />
           <span>{name}</span>
         </h1>
-        <p className="hp-tagline">Your all-in-one academic toolkit for engineering.</p>
+        <p className="hp-tagline">Lets make Engineering Easier..</p>
       </header>
 
       <section className="hp-tools-section">
         <div className="hp-tool-group">
-          <h2 className="hp-group-title">Popular tools <span className="hp-group-sub">Quick access</span></h2>
+          <h2 className="hp-group-title">Popular tools</h2>
           <div className="hp-tool-grid hp-tool-grid--featured">
             {featuredTools.map((tool, i) => (
               <ToolCard key={tool.href} tool={tool} group="exam_prep" index={i} featured />
