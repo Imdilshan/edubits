@@ -4,10 +4,10 @@
    ============================================================================ */
 
 .sgpa-card {
-  max-width: 780px;
+  max-width: none;
   width: 100%;
   box-sizing: border-box;
-  margin: 0 auto var(--space-xl);
+  margin: 0 0 var(--space-xl);
   position: relative;
 }
 
@@ -44,8 +44,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(94, 106, 210, 0.1);
-  border: 1px solid rgba(94, 106, 210, 0.2);
+  background: rgba(233, 166, 107, 0.08);
+  border: 1px solid rgba(233, 166, 107, 0.2);
   border-radius: var(--radius-md);
   padding: var(--space-sm) var(--space-md);
   margin-bottom: var(--space-lg);
@@ -92,7 +92,7 @@
 .sgpa-card .form-input:focus {
   border-color: var(--primary-focus);
   outline: none;
-  box-shadow: 0 0 0 2px rgba(94, 106, 210, 0.25);
+  box-shadow: 0 0 0 3px rgba(120, 201, 154, 0.18);
 }
 
 .sgpa-row .form-input::placeholder,
@@ -187,13 +187,13 @@
 }
 
 .sgpa-actions .btn-save {
-  background: rgba(39, 166, 68, 0.12);
-  border: 1px solid rgba(39, 166, 68, 0.3) !important;
-  color: var(--success);
+  background: rgba(233, 166, 107, 0.09);
+  border: 1px solid rgba(233, 166, 107, 0.3) !important;
+  color: var(--warning);
 }
 
 .sgpa-actions .btn-save:hover:not(:disabled) {
-  background: rgba(39, 166, 68, 0.2);
+  background: rgba(233, 166, 107, 0.16);
 }
 
 .sgpa-actions .btn-save:disabled {
@@ -242,7 +242,7 @@
 
 .sgpa-card .react-select__control--is-focused {
   border-color: var(--primary-focus) !important;
-  box-shadow: 0 0 0 2px rgba(94, 106, 210, 0.25) !important;
+  box-shadow: 0 0 0 3px rgba(120, 201, 154, 0.18) !important;
 }
 
 .sgpa-card .react-select__single-value { color: var(--text) !important; }
@@ -266,7 +266,7 @@
 }
 
 .sgpa-card .react-select__option--is-focused  { background: var(--surface-2) !important; }
-.sgpa-card .react-select__option--is-selected { background: rgba(94, 106, 210, 0.2) !important; color: var(--primary) !important; }
+.sgpa-card .react-select__option--is-selected { background: rgba(120, 201, 154, 0.16) !important; color: var(--primary) !important; }
 
 /* Result Card */
 .sgpa-result-card {
@@ -279,7 +279,7 @@
 }
 
 .sgpa-result-card.result-pop {
-  box-shadow: 0 0 0 2px rgba(94, 106, 210, 0.35), 0 0 24px rgba(94, 106, 210, 0.12);
+  box-shadow: 0 0 0 2px rgba(120, 201, 154, 0.24), 0 0 20px rgba(120, 201, 154, 0.1);
 }
 
 .sgpa-result-card .result-row {
@@ -356,7 +356,7 @@
 
 .sgpa-result-card .grade-good { color: var(--primary); }
 .sgpa-result-card .grade-good.result-badge {
-  background: rgba(94, 106, 210, 0.12); color: var(--primary); border: 1px solid rgba(94, 106, 210, 0.2);
+  background: rgba(120, 201, 154, 0.12); color: var(--primary); border: 1px solid rgba(120, 201, 154, 0.2);
 }
 .sgpa-result-card .grade-good.result-bar-fill { background: var(--primary); }
 
@@ -447,7 +447,7 @@
 
 .sgpa-result-card .grade-good { color: var(--primary); }
 .sgpa-result-card .grade-good.result-badge {
-  background: rgba(94, 106, 210, 0.12); color: var(--primary); border: 1px solid rgba(94, 106, 210, 0.2);
+  background: rgba(120, 201, 154, 0.12); color: var(--primary); border: 1px solid rgba(120, 201, 154, 0.2);
 }
 .sgpa-result-card .grade-good.result-bar-fill { background: var(--primary); }
 
@@ -508,7 +508,7 @@
 
 /* Shared v2 calculator treatment */
 .sgpa-card .card-header > div { text-align: left; }
-.sgpa-card .text-card-title { color: var(--text); }
+.sgpa-card .text-card-title { color: var(--text); max-width: 760px; line-height: 1.3; }
 .sgpa-card .text-body-sm { margin: var(--space-xxs) 0 0; }
 .sgpa-card .example-banner {
   background: var(--surface-2);

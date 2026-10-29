@@ -176,8 +176,8 @@ function TargetSimulator() {
     <div className="simulator-card card card-panel">
       <div className="card-header">
         <div>
-          <h3 className="text-headline">Target CGPA Simulator</h3>
-          <p className="text-body-sm" style={{ color: "var(--muted)" }}>Find out what SGPA you need next semester.</p>
+          <h3 className="text-headline">CGPA Predictor</h3>
+          <p className="text-body-sm" style={{ color: "var(--muted)" }}>Find out the SGPA required to achieve your target CGPA.</p>
         </div>
       </div>
 
@@ -208,7 +208,7 @@ function TargetSimulator() {
         </div>
       </div>
 
-      <button className="btn btn-primary" style={{ width: "100%", marginTop: "var(--space-sm)" }} onClick={calculate}>
+      <button className="btn btn-primary" style={{ marginTop: "var(--space-sm)" }} onClick={calculate}>
         <Calculator size={16} /> Calculate Required SGPA
       </button>
 
@@ -332,8 +332,7 @@ export default function CGPA({ sgpaList, removeSGPA }) {
       <div className="cgpa-card card card-panel">
         <div className="card-header">
           <div>
-            <h2 className="text-headline">CGPA Calculator</h2>
-            <p className="text-body-sm" style={{ color: "var(--muted)" }}>Combine semesters saved above or enter manually.</p>
+            <h2 className="text-headline">Add SGPA and total credits for each semester</h2>
           </div>
         </div>
 
@@ -389,7 +388,7 @@ export default function CGPA({ sgpaList, removeSGPA }) {
         })}
 
         <div className="cgpa-actions flex gap-sm flex-wrap">
-          <button className="btn btn-primary" onClick={addManual}>
+          <button className="btn btn-primary btn-add-semester" onClick={addManual}>
             <Plus size={16} /> Add Next Semester
           </button>
           <button className="btn btn-success" onClick={calculateCGPA}>
