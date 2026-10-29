@@ -6,8 +6,7 @@ import { Trash2, Plus, Save, RotateCcw, X } from "lucide-react";
 const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
 
 const gradeOptions = [
-  // Qualified grade for non-graded subjects (pass/fail, doesn't affect SGPA)
-  { value: "qualified", label: "Qualified (Pass/Fail)", points: null, isQualified: true },
+  { value: "qualified", label: "Qualified", points: null, isQualified: true },
   { value: 10, label: "A+", points: 10 },
   { value: 9,  label: "A",  points: 9  },
   { value: 8,  label: "B+", points: 8  },
@@ -199,12 +198,7 @@ export default function SGPA({ setSgpaList, sgpaCount }) {
 
   const formatGradeOption = (opt) => {
     if (opt.isQualified) {
-      return (
-        <div className="grade-option qualified">
-          <span>{opt.label}</span>
-          <span className="grade-points">No SGPA impact</span>
-        </div>
-      );
+      return <div className="grade-option"><span>{opt.label}</span></div>;
     }
     return (
       <div className="grade-option">
@@ -220,8 +214,7 @@ export default function SGPA({ setSgpaList, sgpaCount }) {
     <div className="sgpa-card card card-panel">
       <div className="card-header">
         <div>
-          <h2 className="text-card-title">SGPA Calculator</h2>
-          <p className="text-body-sm" style={{ color: "var(--muted)" }}>Enter your subjects, credits, and grades to calculate instantly.</p>
+          <h2 className="text-card-title">Enter your subjects, credits, and grades to calculate SGPA instantly.</h2>
         </div>
       </div>
 
