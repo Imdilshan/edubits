@@ -3,8 +3,20 @@
    ============================================================================ */
 
 .hp-everything {
-  --hp-container: 900px;
-  --hp-wide: 1040px;
+  --hp-container: 1120px;
+  --hp-wide: 1180px;
+  --bg: #0b0d0c;
+  --surface: #121513;
+  --surface-2: #181c19;
+  --border: #292f2a;
+  --border-strong: #3a443d;
+  --text: #f3f5f2;
+  --text-secondary: #c4cbc4;
+  --muted: #a0a8a0;
+  --primary: #78c99a;
+  --primary-hover: #91d9ad;
+  --on-primary: #102117;
+  --hp-orange: #e9a66b;
   min-height: 100vh;
   background: var(--bg);
   color: var(--text);
@@ -22,22 +34,22 @@
 /* ---------- HERO ---------- */
 
 .hp-hero {
-  max-width: 720px;
+  max-width: 900px;
   width: 100%;
   margin: 0 auto;
-  padding: var(--space-xxl) var(--space-lg);
+  padding: clamp(64px, 9vw, 128px) var(--space-lg) 64px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-lg);
+  gap: 24px;
 }
 
 .hp-headline {
-  font-size: var(--text-display-xl);
-  font-weight: 600;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  font-size: clamp(44px, 6.3vw, 76px);
+  font-weight: 650;
+  line-height: 1.02;
+  letter-spacing: -0.055em;
   margin: 0;
   color: var(--text);
 }
@@ -46,6 +58,8 @@
   font-weight: 600;
   color: var(--primary);
 }
+
+.hp-hero .hp-eyebrow { color: var(--hp-orange); margin: 0; }
 
 @media (max-width: 768px) {
   .hp-headline { font-size: 36px; }
@@ -56,11 +70,11 @@
 }
 
 .hp-tagline {
-  font-size: var(--text-body-lg);
+  font-size: clamp(17px, 1.65vw, 20px);
   color: var(--muted);
   margin: 0;
-  max-width: 560px;
-  line-height: 1.5;
+  max-width: 680px;
+  line-height: 1.65;
 }
 
 /* ---------- AUTH ACTIONS ---------- */
@@ -88,12 +102,12 @@
   font-size: var(--text-button);
   font-weight: 500;
   line-height: 1.2;
-  border-radius: var(--radius-md);
-  padding: 10px 20px;
+  border-radius: 999px;
+  padding: 12px 24px;
   min-height: 44px;
   min-width: 180px;
   cursor: pointer;
-  transition: all 0.15s;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
   border: 1px solid transparent;
   text-decoration: none;
   white-space: nowrap;
@@ -145,7 +159,7 @@
   max-width: var(--hp-wide);
   width: 100%;
   margin: 0 auto;
-  padding: var(--space-section) var(--space-lg) 0;
+  padding: clamp(64px, 8vw, 104px) var(--space-lg) 0;
 }
 
 .hp-section--tight {
@@ -200,7 +214,8 @@
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  padding: var(--space-xs);
+  padding: 8px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
   overflow: hidden;
 }
 
@@ -215,9 +230,9 @@
 
 .hp-proof {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-lg);
-  padding: var(--space-xl) 0;
+  padding: 24px 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
@@ -226,6 +241,8 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-xxs);
+  align-items: center;
+  text-align: center;
 }
 
 .hp-proof-value {
@@ -237,22 +254,24 @@
 }
 
 .hp-proof-label {
-  font-size: var(--text-body-sm);
+  font-size: 15px;
   color: var(--muted);
 }
+
+.hp-proof-section { padding-top: 42px; }
 
 /* ---------- FEATURES ---------- */
 
 .hp-feature {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: var(--space-xxl);
+  grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.7fr);
+  gap: clamp(32px, 5vw, 72px);
   align-items: center;
-  margin-bottom: var(--space-section);
+  margin-bottom: clamp(64px, 8vw, 104px);
 }
 
 .hp-feature--reverse {
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.8fr);
 }
 
 .hp-feature--reverse .hp-feature-copy {
@@ -306,7 +325,7 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-md);
-  padding: var(--space-xxl) var(--space-lg);
+  padding: clamp(40px, 6vw, 72px) var(--space-lg);
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -316,6 +335,8 @@
 .hp-cta .hp-section-title {
   margin: 0;
 }
+
+.hp-cta-accent { color: #91d9ad; }
 
 .hp-cta-text {
   margin: 0;
@@ -406,6 +427,8 @@ a.hp-tool-card:hover {
   transform: translateY(-1px);
   text-decoration: none;
 }
+
+.hp-everything a:focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; }
 
 .hp-tool-card--featured {
   padding: var(--space-xl);
@@ -503,26 +526,30 @@ a.hp-tool-card:hover .hp-tool-arrow {
 /* ---------- FOOTER ---------- */
 
 .hp-footer {
-  background: var(--bg);
+  background: #0e110f;
   border-top: 1px solid var(--border);
-  padding: var(--space-xxl) var(--space-lg) var(--space-xl);
+  padding: clamp(48px, 7vw, 88px) var(--space-lg) var(--space-xl);
   margin-top: auto;
 }
 
 .hp-footer-grid {
-  max-width: calc(var(--hp-container) - var(--space-lg) * 2);
+  max-width: var(--hp-wide);
   margin: 0 auto var(--space-xl);
   display: grid;
-  grid-template-columns: 2fr repeat(3, 1fr);
-  gap: var(--space-xl);
-  padding-bottom: var(--space-xl);
+  grid-template-columns: minmax(0, 1.8fr) repeat(2, minmax(140px, 0.7fr));
+  gap: clamp(32px, 6vw, 88px);
+  padding-bottom: clamp(32px, 5vw, 64px);
   border-bottom: 1px solid var(--border);
 }
 
 @media (max-width: 768px) {
+  .hp-proof { grid-template-columns: repeat(2, 1fr); }
+  .hp-proof-item--peak { grid-column: 1 / -1; }
   .hp-footer-grid {
     grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
   }
+  .hp-footer-brand { grid-column: 1 / -1; }
 }
 
 @media (max-width: 480px) {
@@ -533,27 +560,51 @@ a.hp-tool-card:hover .hp-tool-arrow {
 
 .hp-footer-logo {
   font-family: var(--font-sans);
-  font-weight: 600;
-  font-size: 1.25rem;
+  font-weight: 700;
+  font-size: 1.5rem;
   color: var(--primary);
-  display: inline-block;
-  margin-bottom: var(--space-sm);
+  letter-spacing: -0.04em;
+}
+
+.hp-footer-brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.hp-footer-brand-link img { display: block; object-fit: contain; }
+.hp-footer-brand-link:hover .hp-footer-logo { color: var(--primary-hover); }
+
+.hp-footer-brand-link:focus-visible,
+.hp-footer a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
 }
 
 .hp-footer-desc {
-  font-size: var(--text-body-sm);
+  margin: 6px 0 0 46px;
   color: var(--muted);
-  line-height: 1.6;
-  max-width: 240px;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+.hp-footer-note {
+  margin: 0;
+  max-width: 300px;
+  color: var(--muted);
+  font-size: var(--text-body-sm);
+  line-height: 1.65;
 }
 
 .hp-footer-nav h4 {
-  font-size: var(--text-body-sm);
+  font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--muted);
-  margin: 0 0 var(--space-md);
+  color: var(--text-tertiary);
+  margin: 0 0 var(--space-lg);
 }
 
 .hp-footer-nav ul {
@@ -562,11 +613,11 @@ a.hp-tool-card:hover .hp-tool-arrow {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: 14px;
 }
 
 .hp-footer-nav a {
-  font-size: var(--text-body-sm);
+  font-size: 15px;
   color: var(--text-secondary);
   text-decoration: none;
   transition: color 0.15s;
@@ -577,7 +628,7 @@ a.hp-tool-card:hover .hp-tool-arrow {
 }
 
 .hp-footer-bottom {
-  max-width: calc(var(--hp-container) - var(--space-lg) * 2);
+  max-width: var(--hp-wide);
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -600,20 +651,20 @@ a.hp-tool-card:hover .hp-tool-arrow {
   align-items: center;
   gap: var(--space-xs);
   font-size: var(--text-body-sm);
-  color: var(--text-secondary);
+  color: var(--primary);
   text-decoration: none;
   transition: color 0.15s;
 }
 
 .hp-contact-link:hover {
-  color: var(--primary);
+  color: var(--primary-hover);
 }
 
 /* ---------- RESPONSIVE ---------- */
 
 @media (max-width: 768px) {
   .hp-hero {
-    padding: var(--space-xl) var(--space-md);
+    padding: 64px var(--space-md) 40px;
   }
 
   .hp-auth-buttons {
@@ -629,6 +680,12 @@ a.hp-tool-card:hover .hp-tool-arrow {
   .hp-tools-section {
     padding: 0 var(--space-md) var(--space-xxl);
   }
+}
+
+@media (max-width: 380px) {
+  .hp-headline { font-size: 40px; }
+  .hp-hero { padding-inline: 20px; }
+  .hp-section { padding-inline: 20px; }
 }
 
 /* ---------- REDUCED MOTION ---------- */

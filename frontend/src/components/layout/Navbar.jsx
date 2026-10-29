@@ -93,7 +93,7 @@ export default function Navbar() {
     <>
       <nav className="navbar">
         <div className="nav-left">
-          <Link to="/" className="logo">
+          <Link to="/" className="logo" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
             <img src="/images/logo.webp" alt="logo" className="logo-icon" width="28" height="28" />
             <span>Edubits</span>
           </Link>

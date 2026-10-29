@@ -3,38 +3,36 @@ import { MessageCircle } from "lucide-react";
 import { featuredTools, otherTools } from "./homeData";
 
 const productLinks = [...featuredTools, ...otherTools];
-
-const legalLinks = ["Privacy", "Terms", "Cookies"];
+const featureLabels = {
+  "/quizzes": "Quiz",
+  "/sgpa": "Sgpa",
+  "/internal": "Internals",
+};
 
 export default function HomeFooter() {
   return (
     <footer className="hp-footer">
       <div className="hp-footer-grid">
         <div className="hp-footer-brand">
-          <span className="hp-footer-logo">Edubits</span>
-          <p className="hp-footer-desc">Built by students, for students at Chandigarh University.</p>
+          <Link to="/" className="hp-footer-brand-link" aria-label="Edubits home">
+            <img src="/images/favicon.png" alt="" width="36" height="36" />
+            <span className="hp-footer-logo">Edubits</span>
+          </Link>
+          <p className="hp-footer-desc">Education in bits.</p>
         </div>
         <nav className="hp-footer-nav">
-          <h4>Product</h4>
+          <h4>Features</h4>
           <ul>
             {productLinks.map((tool) => (
-              <li key={tool.href}><Link to={tool.href}>{tool.name}</Link></li>
+              <li key={tool.href}><Link to={tool.href}>{featureLabels[tool.href] || tool.name}</Link></li>
             ))}
           </ul>
         </nav>
         <nav className="hp-footer-nav">
-          <h4>Company</h4>
+          <h4>Background</h4>
           <ul>
             <li><Link to="/about">About</Link></li>
             <li><Link to="/people">People</Link></li>
-          </ul>
-        </nav>
-        <nav className="hp-footer-nav">
-          <h4>Legal</h4>
-          <ul>
-            {legalLinks.map((label) => (
-              <li key={label}><a href="#" target="_blank" rel="noopener noreferrer">{label}</a></li>
-            ))}
           </ul>
         </nav>
       </div>
