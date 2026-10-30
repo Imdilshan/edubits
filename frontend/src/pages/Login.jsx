@@ -55,26 +55,21 @@ export default function Login() {
 
   return (
     <div className="auth-page">
-      <div className="auth-left">
-
-        {/* <div className="auth-left-brand">
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="auth-logo">
-            <rect width="40" height="40" rx="10" fill="currentColor"/>
-            <path d="M12 14h16M12 20h12M12 26h8" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-          <span>Edubits</span>
-        </div> */}
-
-        <div className="auth-left-brand">
+      <section className="auth-left" aria-label="Edubits resources">
+        <Link to="/" className="auth-left-brand">
           <img src="/images/favicon.png" alt="Edubits logo" width="40" height="40" className="auth-logo" />
           <span>Edubits</span>
-        </div>
+        </Link>
 
         <div className="auth-left-copy">
-          <h2>Engineering made <br /> easier.</h2>
-          <p>Resources, QuizEngine, calculators & task tracking — all in one place for engineering students.</p>
+          <h2>Let's make Engineering <span>easier.</span></h2>
+          <p>Get PYQs, Notes, Playlists, Sgpa Calculator &amp; more...</p>
         </div>
-      </div>
+
+        <figure className="auth-resource-preview">
+          <img src="/images/homepage/Resources.png" alt="Preview of Edubits study resources organized by year" />
+        </figure>
+      </section>
 
       <div className="auth-right">
         <div className="auth-form-wrap">
