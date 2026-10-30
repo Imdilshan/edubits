@@ -113,12 +113,12 @@ export default function SoftSkill() {
   };
 
   const fields = [
-    ["ss_viva",         "External Viva / Voce",              40],
+    ["ss_attendance",   "Attendance and Engagement (LMS)",    4],
     ["ss_writex",       "Write X (Soft Skills)",             10],
     ["ss_liveassign",   "LIVE Assignment (Soft Skills)",     30],
     ["ss_presentation", "Presentation (Soft Skills)",        10],
-    ["ss_attendance",   "Attendance and Engagement (LMS)",    4],
     ["ss_quiz",         "Quiz (Soft Skills)",                  6],
+    ["ss_viva",         "External Viva / Voce",              40],
   ];
 
   return (

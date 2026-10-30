@@ -9,7 +9,7 @@ import "./InternalMarksPage.css";
 import { ClipboardCheck, BookOpen, FlaskConical, Wrench, Brain, Users, GraduationCap, Cpu } from "lucide-react";
 
 const PROGRAM_OPTIONS = [
-  { key: "cse", label: "BE CSE", description: "General Computer Science Engineering", icon: GraduationCap },
+  { key: "cse", label: "BE CSE(General)", description: "", icon: GraduationCap },
   { key: "ait", label: "BE CSE (AIT)", description: "Data Science & AIML Specializations", icon: Cpu },
 ];
 
@@ -29,42 +29,41 @@ const YEAR_OPTIONS = {
 const TAB_CONFIG = {
   cse: {
     "1": [
-      { key: "hybrid",    label: "Hybrid",    icon: FlaskConical,    color: "var(--danger)",   desc: "Theory + Practical combined (e.g., Physics, Chemistry)" },
+      { key: "hybrid",    label: "Hybrid",    icon: FlaskConical,    color: "var(--danger)",   desc: "" },
       { key: "theory",    label: "Theory",    icon: BookOpen,        color: "var(--primary)",  desc: "Pure theory subjects (e.g., Mathematics, English)" },
       { key: "practical", label: "Practical", icon: Wrench,          color: "var(--success)",  desc: "Pure lab subjects (e.g., Workshop, Programming Lab)" },
       { key: "aptitude",  label: "Aptitude",  icon: Brain,           color: "var(--warning)",  desc: "Aptitude/Soft skills (e.g., Communication, Reasoning)" },
     ],
     "2": [
-      { key: "hybrid",    label: "Hybrid",    icon: FlaskConical,    color: "var(--danger)",   desc: "Theory + Practical (e.g., Data Structures, DBMS, COA)" },
+      { key: "hybrid",    label: "Hybrid",    icon: FlaskConical,    color: "var(--danger)",   desc: "" },
       { key: "theory",    label: "Theory",    icon: BookOpen,        color: "var(--primary)",  desc: "Pure theory (e.g., Discrete Math, OS Theory)" },
       { key: "practical", label: "Practical", icon: Wrench,          color: "var(--success)",  desc: "Pure lab (e.g., DS Lab, DBMS Lab, OS Lab)" },
       { key: "aptitude",  label: "Aptitude",  icon: Brain,           color: "var(--warning)",  desc: "Aptitude tests (Quant, Logic, Verbal)" },
       { key: "softskill", label: "Soft Skill", icon: Users,           color: "var(--primary)",  desc: "Communication, Leadership, Professional ethics" },
     ],
     "3": [
-      { key: "hybrid",    label: "Hybrid",    icon: FlaskConical,    color: "var(--danger)",   desc: "Theory + Practical (e.g., CN, SE, ML, Compiler Design)" },
+      { key: "hybrid",    label: "Hybrid",    icon: FlaskConical,    color: "var(--danger)",   desc: "" },
       { key: "theory",    label: "Theory",    icon: BookOpen,        color: "var(--primary)",  desc: "Pure theory (e.g., AI Theory, Cloud Computing)" },
       { key: "practical", label: "Practical", icon: Wrench,          color: "var(--success)",  desc: "Pure lab (e.g., CN Lab, ML Lab, Project Work)" },
       { key: "aptitude",  label: "Aptitude",  icon: Brain,           color: "var(--warning)",  desc: "Placement prep (Coding, Aptitude, GD/PI)" },
       { key: "softskill", label: "Soft Skill", icon: Users,           color: "var(--primary)",  desc: "Communication, Leadership, Professional ethics" },
     ],
     "senior": [
-      { key: "hybrid",    label: "Hybrid",    icon: FlaskConical,    color: "var(--danger)",   desc: "Theory + Practical (e.g., Electives, Capstone Project)" },
+      { key: "hybrid",    label: "Hybrid",    icon: FlaskConical,    color: "var(--danger)",   desc: "" },
       { key: "theory",    label: "Theory",    icon: BookOpen,        color: "var(--primary)",  desc: "Pure theory electives (e.g., Blockchain, Cybersecurity)" },
       { key: "practical", label: "Practical", icon: Wrench,          color: "var(--success)",  desc: "Capstone project, Internship, Major project" },
-      { key: "aptitude",  label: "Aptitude",  icon: Brain,           color: "var(--warning)",  desc: "Final placement preparation" },
     ],
   },
   ait: {
     "3-ds": [
-      { key: "hybrid",    label: "Hybrid",    icon: FlaskConical,    color: "var(--danger)",   desc: "Theory + Practical combined (e.g., ML + Lab, Big Data + Lab, Neural Networks + Lab)" },
+      { key: "hybrid",    label: "Hybrid",    icon: FlaskConical,    color: "var(--danger)",   desc: "" },
       { key: "theory",    label: "Theory",    icon: BookOpen,        color: "var(--primary)",  desc: "Pure theory subjects (e.g., Statistics, Deep Learning, Transformers)" },
       { key: "practical", label: "Practical", icon: Wrench,          color: "var(--success)",  desc: "Pure lab subjects (e.g., Python/R, TensorFlow, PyTorch, Data Visualization)" },
       { key: "aptitude",  label: "Aptitude",  icon: Brain,           color: "var(--warning)",  desc: "Aptitude uses the 2nd-year marking scheme." },
       { key: "softskill", label: "Soft Skill", icon: Users,           color: "var(--primary)",  desc: "Communication, Leadership, Professional ethics" },
     ],
     "3-aiml": [
-      { key: "hybrid",    label: "Hybrid",    icon: FlaskConical,    color: "var(--danger)",   desc: "Theory + Practical combined (e.g., ML + Lab, Big Data + Lab, Neural Networks + Lab)" },
+      { key: "hybrid",    label: "Hybrid",    icon: FlaskConical,    color: "var(--danger)",   desc: "" },
       { key: "theory",    label: "Theory",    icon: BookOpen,        color: "var(--primary)",  desc: "Pure theory subjects (e.g., Statistics, Deep Learning, Transformers)" },
       { key: "practical", label: "Practical", icon: Wrench,          color: "var(--success)",  desc: "Pure lab subjects (e.g., Python/R, TensorFlow, PyTorch, Data Visualization)" },
       { key: "aptitude",  label: "Aptitude",  icon: Brain,           color: "var(--warning)",  desc: "Aptitude uses the 2nd-year marking scheme." },
@@ -74,51 +73,31 @@ const TAB_CONFIG = {
 };
 
 const SUBJECT_EXAMPLES = {
-  hybrid: [
-    "Data Structures & Algorithms + Lab",
-    "Database Management Systems + Lab",
-    "Computer Networks + Lab",
-    "Machine Learning + Lab",
-    "Operating Systems + Lab",
-    "Computer Architecture + Lab",
-  ],
-  theory: [
-    "Discrete Mathematics",
-    "Operating Systems (Theory)",
-    "Compiler Design",
-    "Artificial Intelligence (Theory)",
-    "Cryptography & Network Security",
-    "Distributed Systems",
-  ],
-  practical: [
-    "Data Structures Lab",
-    "DBMS Lab",
-    "Computer Networks Lab",
-    "Machine Learning Lab",
-    "OS Lab / Shell Programming",
-    "Project Work / Capstone",
-  ],
-  aptitude: [
-    "Quantitative Aptitude",
-    "Logical Reasoning",
-    "Verbal Ability",
-    "Data Interpretation",
-    "Coding Problems (DSA)",
-    "Group Discussion / PI Prep",
-  ],
-  softskill: [
-    "Technical Communication",
-    "Professional Ethics",
-    "Leadership & Teamwork",
-    "Resume Building",
-    "Mock Interviews",
-    "Presentation Skills",
-  ],
+  "1": {
+    hybrid: ["Engineering physics", "Logical Thinking & Problem Solving (LTPS)"],
+    theory: ["biology", "maths"],
+    practical: ["Python Programming", "Emerging and Distruptive Technology(EDT)"],
+  },
+  "2": {
+    hybrid: ["Data Base Management System (DBMS)", "Design & Analysis of Algorithms (DAA)"],
+    theory: ["Computer Organization & Arhitecture(COA)", "Operating System(OS)"],
+    practical: ["Competitive Coding(CC)", "Full Stack Development(FSD)"],
+  },
+  "3": {
+    hybrid: ["Project Based Learning in Java (PBLJ)"],
+    theory: ["Computer Networks (CN)", "Probability & Statistics(P&S)"],
+    practical: ["Competitive Coding(CC)", "Full Stack Development(FSD)"],
+  },
+  senior: {
+    hybrid: ["Final Year Project", "Industry Capstone Project"],
+    theory: ["Cloud Computing", "Information Security", "Professional Electives"],
+    practical: ["Major Project", "Internship", "Project Demonstration"],
+  },
 };
 
 export default function InternalMarksPage() {
   const [program, setProgram] = useState("cse");
-  const [year, setYear] = useState("senior");
+  const [year, setYear] = useState("3");
   const [tab, setTab] = useState("hybrid");
 
   const switchProgram = (p) => {
@@ -129,10 +108,7 @@ export default function InternalMarksPage() {
   };
 
   const tabs = (TAB_CONFIG[program] && TAB_CONFIG[program][year]) || [];
-
-  // Find current tab config for description
-  const currentTab = tabs.find(t => t.key === tab);
-  const desc = currentTab?.desc;
+  const exampleYear = year.startsWith("3-") ? "3" : year;
 
   return (
     <div className="internal-container">
@@ -140,7 +116,6 @@ export default function InternalMarksPage() {
         <h1 className="internal-title">
           <ClipboardCheck size={28} strokeWidth={2.2} /> Internal Marks Calculator
         </h1>
-        <p className="internal-subtitle">Calculate Theory, Hybrid, Practical & Aptitude marks for CU engineering</p>
       </div>
 
       {/* Program Selector */}
@@ -160,7 +135,9 @@ export default function InternalMarksPage() {
             </button>
           ))}
         </div>
-        <p className="selector-description">{PROGRAM_OPTIONS.find(p => p.key === program)?.description}</p>
+        {PROGRAM_OPTIONS.find(p => p.key === program)?.description && (
+          <p className="selector-description">{PROGRAM_OPTIONS.find(p => p.key === program)?.description}</p>
+        )}
       </div>
 
       {/* Year Toggle */}
@@ -198,20 +175,12 @@ export default function InternalMarksPage() {
         ))}
       </div>
 
-      {/* Subject Type Explanation */}
-      {desc && (
-        <div className="subject-explanation">
-          <span className="explanation-icon">ℹ</span>
-          <span>{desc}</span>
-        </div>
-      )}
-
       {/* Subject Examples */}
-      {SUBJECT_EXAMPLES[tab] && (
+      {SUBJECT_EXAMPLES[exampleYear]?.[tab] && (
         <div className="subject-examples">
           <p className="examples-title">Example {tab} subjects:</p>
           <ul>
-            {SUBJECT_EXAMPLES[tab].map((subj, i) => (
+            {SUBJECT_EXAMPLES[exampleYear][tab].map((subj, i) => (
               <li key={i}>{subj}</li>
             ))}
           </ul>

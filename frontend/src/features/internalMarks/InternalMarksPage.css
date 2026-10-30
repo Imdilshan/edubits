@@ -258,3 +258,194 @@
     transition: none;
   }
 }
+
+/* Shared Edubits calculator treatment used by the CGPA page. */
+.internal-container {
+  --primary: #78c99a;
+  --primary-hover: #91d9ad;
+  --primary-focus: #78c99a;
+  --on-primary: #102117;
+  --success: #78c99a;
+  --warning: #e9a66b;
+  --bg: #0b0d0c;
+  --surface: #121513;
+  --surface-2: #181c19;
+  --surface-3: #202621;
+  --border: #292f2a;
+  --border-strong: #3a443d;
+  --text: #f3f5f2;
+  --text-secondary: #c4cbc4;
+  --muted: #a0a8a0;
+  width: min(100% - 40px, 1040px);
+  margin: 0 auto;
+  padding: var(--space-xl) 0 var(--space-xxl);
+}
+
+.internal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border);
+}
+
+.internal-title {
+  font-size: var(--text-headline);
+  letter-spacing: -0.02em;
+}
+
+.internal-title svg {
+  width: 44px;
+  height: 44px;
+  padding: 11px;
+  border-radius: var(--radius-md);
+  border-color: var(--border);
+  background: var(--surface-2);
+}
+
+.internal-subtitle {
+  margin: var(--space-xxs) 0 0 56px;
+  color: var(--muted);
+  font-size: var(--text-body-sm);
+}
+
+.internal-program-selector,
+.internal-year-selector {
+  margin-bottom: var(--space-lg);
+}
+
+.selector-label {
+  margin-bottom: var(--space-xs);
+  font-size: var(--text-body-sm);
+  font-weight: 500;
+}
+
+.internal-program-selector .pill-tabs,
+.internal-year-selector .pill-tabs {
+  width: fit-content;
+  max-width: 100%;
+  gap: var(--space-xs);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.internal-program-selector .pill-tab,
+.internal-year-selector .pill-tab {
+  min-height: 36px;
+  padding: 7px 12px;
+  font-size: var(--text-body-sm);
+}
+
+.internal-container .pill-tab {
+  min-height: 36px;
+  gap: 6px;
+  padding: 7px 12px;
+  font-size: var(--text-body-sm);
+}
+
+.internal-container .pill-tab svg {
+  width: 14px;
+  height: 14px;
+}
+
+.internal-container .pill-tab.active {
+  border-color: color-mix(in srgb, var(--primary) 45%, var(--border));
+  background: color-mix(in srgb, var(--primary) 12%, var(--surface));
+  color: var(--text);
+}
+
+.internal-tabs {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  margin-bottom: var(--space-md);
+  padding: 6px;
+  border: 0;
+  background: transparent;
+}
+
+.subject-examples {
+  margin-bottom: var(--space-lg);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--surface);
+  border-color: var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.examples-title {
+  color: var(--text-secondary);
+  font-size: var(--text-body-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.subject-examples ul {
+  color: var(--muted);
+  font-size: var(--text-body-sm);
+}
+
+.internal-card {
+  padding: var(--space-lg);
+  background: var(--surface);
+  border-color: var(--border);
+  border-radius: var(--radius-xl);
+}
+
+.internal-calc-section {
+  background: var(--surface-2);
+  border-color: var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.internal-calc-section h3 {
+  color: var(--text);
+}
+
+.internal-hybrid-worksheet-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--space-md);
+}
+
+.internal-hybrid-worksheet-item label {
+  white-space: nowrap;
+  font-size: 10px !important;
+  letter-spacing: 0.2px !important;
+}
+
+.internal-calc-grid input {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.internal-calc-grid input:focus {
+  border-color: var(--primary-focus) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 18%, transparent);
+}
+
+.internal-calc-grid button {
+  border-radius: var(--radius-md);
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.internal-calc-grid button:last-child:not(:disabled):hover {
+  background: var(--primary-hover) !important;
+}
+
+@media (max-width: 680px) {
+  .internal-container {
+    width: min(100% - 28px, 1040px);
+    padding-top: var(--space-lg);
+  }
+
+  .internal-title { font-size: 23px; }
+  .internal-title svg { width: 40px; height: 40px; }
+  .internal-subtitle { margin-left: 48px; }
+  .internal-card { padding: var(--space-md); }
+  .subject-examples { padding: var(--space-md); }
+  .internal-hybrid-worksheet-grid { grid-template-columns: minmax(0, 1fr); }
+}

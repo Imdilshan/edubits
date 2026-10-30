@@ -116,8 +116,8 @@ function AptitudeFirstYear() {
   const fields = [
     ["a1_attendance", "Attendance Marks",    2],
     ["a1_mst1",       "Mid-Semester Test-1", 20],
-    ["a1_quiz",       "Quiz",                4],
     ["a1_mst2",       "Mid-Semester Test-2", 20],
+    ["a1_quiz",       "Quiz",                4],
     ["a1_assignment", "Assignment Marks",    12],
     ["a1_surprise",   "Surprise Test Marks", 12],
     ["a1_exttheory",  "External Theory",     60],
@@ -186,13 +186,13 @@ function AptitudeSenior() {
   };
 
   const fields = [
-    ["as_exttheory",  "External Theory",    60],
-    ["as_assignment", "Assignment / PBL",   12],
     ["as_attendance", "Attendance Marks",    4],
+    ["as_assignment", "Assignment / PBL",   12],
     ["as_mst1",       "Mid-Semester Test-1",20],
-    ["as_surprise",   "Surprise Test",      12],
     ["as_mst2",       "Mid-Semester Test-2",20],
+    ["as_surprise",   "Surprise Test",      12],
     ["as_quiz",       "Quiz",                6],
+    ["as_exttheory",  "External Theory",    60],
   ];
 
   return (

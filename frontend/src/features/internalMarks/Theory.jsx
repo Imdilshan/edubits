@@ -196,12 +196,12 @@ function TheorySenior() {
   };
 
   const fields = [
+    ["t_attendance",  "Attendance",        2],
     ["t_assignment",  "Assignment",       10],
     ["t_mst1",        "MST 1",            20],
     ["t_mst2",        "MST 2",            20],
     ["t_surprise",    "Surprise Test",    12],
     ["t_quiz",        "Quiz",              4],
-    ["t_attendance",  "Attendance",        2],
     ["t_endwritten",  "End Sem Written",  60],
   ];
 
@@ -291,13 +291,13 @@ function TheoryThirdYearCSE({ program, year }) {
   };
 
   const fields = [
-    ["thy_exttheory", "External Theory (optional)", 60],
-    ["thy_assignment", "Assignment / PBL", 10],
     ["thy_attendance", "Attendance Marks", 2],
+    ["thy_assignment", "Assignment / PBL", 10],
     ["thy_mst1", "Mid-Semester Test-1", 20],
+    ["thy_mst2", "Mid-Semester Test-2", 20],
     ["thy_quiz", "Quiz", 4],
     ["thy_surprise", "Surprise Test", 12],
-    ["thy_mst2", "Mid-Semester Test-2", 20],
+    ["thy_exttheory", "External Theory (optional)", 60],
   ];
   const courseLabel = program === "ait"
     ? year === "3-aiml" ? "3rd Year AIT (AIML)" : "3rd Year AIT (Data Science)"

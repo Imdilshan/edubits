@@ -305,7 +305,6 @@ function PracticalThirdYearCSE({ program, year }) {
   };
 
   const fields = [
-    ["prc_viva", "External Viva / Voce (optional)", 40],
     ["prc_exp1", "Experiment-1", 30],
     ["prc_exp2", "Experiment-2", 30],
     ["prc_exp3", "Experiment-3", 30],
@@ -317,6 +316,7 @@ function PracticalThirdYearCSE({ program, year }) {
     ["prc_exp9", "Experiment-9", 30],
     ["prc_exp10", "Experiment-10", 30],
     ["prc_midterm", "Mid-Term Test", 15],
+    ["prc_viva", "External Viva / Voce (optional)", 40],
   ];
   const courseLabel = program === "ait"
     ? year === "3-aiml" ? "3rd Year AIT (AIML)" : "3rd Year AIT (Data Science)"

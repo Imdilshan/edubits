@@ -151,44 +151,44 @@ function HybridFirstYear() {
   const hasErrors = Object.values(errors).some(Boolean);
 
   const leftFields = [
-    ["h1_praceval",   "Practical Evaluations",           40],
     ["h1_attendance", "Attendance Marks",                 2],
     ["h1_mst1",       "MST-1 Hybrid",                   20],
     ["h1_mst2",       "MST-2 Hybrid",                   20],
-    ["h1_pa1",        "Practical Assessment-1",          30],
-    ["h1_pa2",        "Practical Assessment-2",          30],
-  ];
-
-  const rightFields = [
-    ["h1_pa3",        "Practical Assessment-3 / Project",30],
-    ["h1_casestudy",  "Case Study / Course Project",     20],
-    ["h1_pmidterm",   "Practical Mid Term",              30],
     ["h1_surprise",   "Surprise Test or Quiz",           12],
     ["h1_assignment", "Assignment Mark",                 12],
     ["h1_endtheory",  "End Term Theory Exam",            60],
   ];
 
+  const rightFields = [
+    ["h1_pa1",        "Practical Assessment-1",          30],
+    ["h1_pa2",        "Practical Assessment-2",          30],
+    ["h1_pa3",        "Practical Assessment-3 / Project",30],
+    ["h1_pmidterm",   "Practical Mid Term",              30],
+    ["h1_casestudy",  "Case Study / Course Project",     20],
+    ["h1_praceval",   "Practical Evaluations",           40],
+  ];
+
   return (
     <div className="internal-calc-grid">
       <div className="internal-calc-section">
-        <h3 style={S.h3}>Theory &amp; Practical Components</h3>
+        <h3 style={S.h3}>Theory Components</h3>
         {leftFields.map(([key, label, max]) => (
           <Field key={key} id={key} label={label} max={max}
             value={data[key] ?? ""}
             onChange={(v) => handle(key, v)}
           />
         ))}
+        <p style={{ ...S.hint, marginTop:4 }}>End Term Theory is optional — leave blank for internal-only result.</p>
       </div>
 
       <div className="internal-calc-section">
-        <h3 style={S.h3}>&nbsp;</h3>
+        <h3 style={S.h3}>Practical Components</h3>
         {rightFields.map(([key, label, max]) => (
           <Field key={key} id={key} label={label} max={max}
             value={data[key] ?? ""}
             onChange={(v) => handle(key, v)}
           />
         ))}
-        <p style={{ ...S.hint, marginTop:4 }}>End Term Theory is optional — leave blank for internal-only result.</p>
       </div>
 
       {result && (
@@ -285,13 +285,13 @@ function HybridSenior() {
   const hasErrors = Object.values(errors).some(Boolean);
 
   const theoryFields = [
+    ["hy_attendance", "Attendance",            2],
     ["hy_assignment", "Assignment",           10],
     ["hy_mst1",       "MST 1",               20],
     ["hy_mst2",       "MST 2",               20],
     ["hy_surprise",   "Surprise Test",        12],
     ["hy_quiz",       "Quiz",                  4],
     ["hy_classperf",  "Class Performance",    10],
-    ["hy_attendance", "Attendance",            2],
     ["hy_endwritten", "End Sem Written",      60],
   ];
 
@@ -442,12 +442,14 @@ function HybridThirdYearCSE({ program, year }) {
 
   const _hasErrors = Object.values(errors).some(Boolean);
 
-  const leftFields = [
-    ["hyb_praceval",   "Practical Evaluations (optional)",40],
+  const theoryFields = [
     ["hyb_attendance", "Attendance Marks",                 2],
     ["hyb_mst1",       "MST-1 Hybrid",                   20],
     ["hyb_mst2",       "MST-2 Hybrid",                   20],
     ["hyb_assignment", "Assignment / PBL",               10],
+    ["hyb_surprise",   "Surprise Test",                   12],
+    ["hyb_quiz",       "Quiz",                             4],
+    ["hyb_endtheory",  "End Term Hybrid Theory (optional)",60],
   ];
 
   const worksheetFields = [
@@ -463,15 +465,6 @@ function HybridThirdYearCSE({ program, year }) {
     ["hyb_ws10", "Worksheet/Project 10", 30],
   ];
 
-  const rightFields = [
-    ["hyb_surprise",   "Surprise Test",          12],
-    ["hyb_pmst",       "Practical MST",          10],
-    ["hyb_quiz",       "Quiz",                    4],
-    ["hyb_assignment", "Assignment / PBL",       10],
-    ["hyb_mst1",       "MST-1 Hybrid",           20],
-    ["hyb_mst2",       "MST-2 Hybrid",           20],
-    ["hyb_endtheory",  "End Term Hybrid Theory (optional)", 60],
-  ];
   const courseLabel = program === "ait"
     ? year === "3-aiml" ? "3rd Year AIT (AIML)" : "3rd Year AIT (Data Science)"
     : "3rd Year CSE";
@@ -479,34 +472,43 @@ function HybridThirdYearCSE({ program, year }) {
   return (
     <div className="internal-calc-grid">
       <div className="internal-calc-section">
-        <h3 style={S.h3}>Practical Evaluations & Theory</h3>
-        {leftFields.map(([key, label, max]) => (
+        <h3 style={S.h3}>Theory &amp; Course Assessments</h3>
+        {theoryFields.map(([key, label, max]) => (
           <Field key={key} id={key} label={label} max={max}
             value={data[key] ?? ""}
             onChange={(v) => handle(key, v)}
           />
         ))}
+        <p style={S.hint}>End Term Hybrid Theory is optional. Leave it blank until marks are available.</p>
       </div>
 
       <div className="internal-calc-section">
-        <h3 style={S.h3}>Practical Worksheets / Projects (10 × 30 max → 2 weighted each)</h3>
-        {worksheetFields.map(([key, label, max]) => (
-          <Field key={key} id={key} label={label} max={max}
-            value={data[key] ?? ""}
-            onChange={(v) => handle(key, v)}
-          />
-        ))}
-      </div>
-
-      <div className="internal-calc-section">
-        <h3 style={S.h3}>Surprise Test, MSTs, Quiz, Assignment, End Term</h3>
-        {rightFields.map(([key, label, max]) => (
-          <Field key={key} id={key} label={label} max={max}
-            value={data[key] ?? ""}
-            onChange={(v) => handle(key, v)}
-          />
-        ))}
-        <p style={{ ...S.hint, marginTop:4 }}>Practical Evaluations and End Term Hybrid Theory are optional. Blank optional components are excluded from the available total.</p>
+        <h3 style={S.h3}>Practical Evaluations &amp; Worksheets</h3>
+        <div className="internal-hybrid-worksheet-grid">
+          {worksheetFields.map(([key, label, max]) => (
+            <div className="internal-hybrid-worksheet-item" key={key}>
+              <Field id={key} label={label} max={max}
+                value={data[key] ?? ""}
+                onChange={(v) => handle(key, v)}
+              />
+            </div>
+          ))}
+        </div>
+        <Field
+          id="hyb_pmst"
+          label="Practical MST"
+          max={10}
+          value={data.hyb_pmst ?? ""}
+          onChange={(v) => handle("hyb_pmst", v)}
+        />
+        <Field
+          id="hyb_praceval"
+          label="Practical Evaluations (optional)"
+          max={40}
+          value={data.hyb_praceval ?? ""}
+          onChange={(v) => handle("hyb_praceval", v)}
+        />
+        <p style={S.hint}>Practical Evaluations are optional. Blank optional marks are excluded from the available total.</p>
       </div>
 
       {result && (
