@@ -84,14 +84,14 @@ export default function Login() {
               className="btn btn-secondary auth-oauth-btn auth-oauth-btn--google"
               onClick={() => handleOAuthLogin("google")}
             >
-              <GoogleIcon /> Google
+              <GoogleIcon /> Continue with Google
             </button>
             <button
               type="button"
               className="btn btn-secondary auth-oauth-btn auth-oauth-btn--github"
               onClick={() => handleOAuthLogin("github")}
             >
-              <GitHubIcon /> GitHub
+              <GitHubIcon /> Continue with GitHub
             </button>
           </div>
 
