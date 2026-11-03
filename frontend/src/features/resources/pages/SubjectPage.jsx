@@ -206,13 +206,27 @@ export default function SubjectPage() {
         </div>
       ) : (
         <div className="playlists-grid">
-          {playlists.map((pl) => (
+          {playlists
+            .filter((playlist) => !(
+              decodedSubject === "Computer Networks" &&
+              (playlist.title || "").trim().toLowerCase() === "cn unit 1"
+            ))
+            .sort((a, b) => {
+            const getUnit = (title) => Number(title.match(/\bunit\s*(\d+)\b/i)?.[1] || Infinity);
+            return getUnit(a.title || "") - getUnit(b.title || "");
+            })
+            .map((pl) => (
             <div key={pl._id} className="playlist-card">
               <div className="playlist-thumb">
-                {extractVideoId(pl.url) ? (
-                  <a href={pl.url} target="_blank" rel="noopener noreferrer">
-                    <img src={`https://img.youtube.com/vi/${extractVideoId(pl.url)}/hqdefault.jpg`} alt={pl.title} />
-                  </a>
+                {extractPlaylistId(pl.url) ? (
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/videoseries?list=${encodeURIComponent(extractPlaylistId(pl.url))}`}
+                    title={`${pl.title} preview`}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
                 ) : <ListVideo size={36} aria-hidden="true" />}
               </div>
               <div className="playlist-info">
@@ -255,11 +269,10 @@ export default function SubjectPage() {
     </div>
   );
 
-  function extractVideoId(url) {
+  function extractPlaylistId(url) {
     try {
       const parsed = new URL(url);
-      if (parsed.hostname.endsWith("youtu.be")) return parsed.pathname.slice(1);
-      return parsed.searchParams.get("v") || "";
+      return parsed.searchParams.get("list") || "";
     } catch { return ""; }
   }
 

@@ -378,16 +378,32 @@ const getResourcesSummary = async (_req, res) => {
   try {
     const rows = await Resource.aggregate([
       { $match: { resourceType: "pyqs", isActive: true, variant: "questions", year: { $ne: null }, subject: { $ne: null }, cloudinaryPublicId: { $not: /^placeholder-/i }, url: { $not: /\/placeholder-/i } } },
-      { $group: { _id: { year: "$year", subject: "$subject" }, count: { $sum: 1 }, paperKeys: { $push: "$paperKey" } } },
+      { $group: { _id: { year: "$year", subject: "$subject" }, papers: { $push: { paperKey: "$paperKey", paperTag: "$paperTag", title: "$title", createdAt: "$createdAt" } } } },
       { $sort: { "_id.year": 1, "_id.subject": 1 } },
     ]);
     const years = {};
     const subjects = {};
     for (const row of rows) {
       const { year, subject } = row._id;
-      const { count } = row;
+      // Match SubjectPage's slot logic: separate uploads for the same paper
+      // tag are duplicates, and only the latest upload represents that paper.
+      const normalizeTag = (value) => String(value || "")
+        .toUpperCase()
+        .replace(/[^A-Z0-9]/g, "")
+        .replace(/^IMPORTANT/, "IMP");
+      const distinctPapers = new Map();
+      for (const paper of row.papers) {
+        const tag = normalizeTag(paper.paperTag || paper.title);
+        if (!tag) continue;
+        const current = distinctPapers.get(tag);
+        if (!current || new Date(paper.createdAt || 0) >= new Date(current.createdAt || 0)) {
+          distinctPapers.set(tag, paper);
+        }
+      }
+      const paperKeys = [...distinctPapers.values()].map(({ paperKey }) => paperKey).filter(Boolean);
+      const count = paperKeys.length;
       years[year] = (years[year] || 0) + count;
-      (subjects[year] ||= []).push({ subject, count, paperKeys: row.paperKeys });
+      (subjects[year] ||= []).push({ subject, count, paperKeys });
     }
     res.json({ success: true, years, subjects });
   } catch (err) {

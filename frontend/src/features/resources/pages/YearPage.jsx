@@ -32,7 +32,7 @@ const SUBJECT_IMAGES = {
 const SUBJECTS_BY_YEAR = {
   "1st Year": ["Mathematics-I", "Digital Electronics", "Engineering Physics", "LTPS", "Biology"],
   "2nd Year": ["COA", "DBMS", "ADSA", "Java", "Software Engineering", "Operating System", "Machine Learning", "Probability & Statistics"],
-  "3rd Year": ["PBL_Java", "Computer Networks", "Probability & Statistics", "Web Development Fundamentals", "Business Analytics"],
+  "3rd Year": ["PBL_Java", "Computer Networks", "Probability & Statistics"],
   "4th Year": ["Ethical Hacking"],
 };
 
