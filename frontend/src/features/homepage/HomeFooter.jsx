@@ -32,7 +32,6 @@ export default function HomeFooter() {
           <h4>Background</h4>
           <ul>
             <li><Link to="/about">About</Link></li>
-            <li><Link to="/people">People</Link></li>
           </ul>
         </nav>
       </div>

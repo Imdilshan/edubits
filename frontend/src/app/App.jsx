@@ -32,7 +32,6 @@ const HistoryPage = lazy(() => import("../features/quiz/pages/HistoryPage"));
 const ProgrammingPage = lazy(() => import("../features/programming/pages/ProgrammingPage"));
 const TopicProblemsPage = lazy(() => import("../features/programming/pages/TopicProblemsPage"));
 const ProgrammingAdmin = lazy(() => import("../features/programming/pages/ProgrammingAdmin"));
-const PeoplePage = lazy(() => import("../features/homepage/PeoplePage"));
 const AboutPage = lazy(() => import("../features/about/AboutPage"));
 
 function PublicNavbar() {
@@ -116,7 +115,6 @@ function AppInner() {
               <Route path="/programming/admin" element={<ProgrammingAdmin />} />
               <Route path="/programming/:topicId" element={<TopicProblemsPage />} />
 
-              <Route path="/people" element={<PeoplePage />} />
               <Route path="/about" element={<AboutPage />} />
 
               <Route path="/login"    element={<Navigate to="/" />} />
