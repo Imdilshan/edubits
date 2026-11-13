@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./TaskComponents.css";
 
 export default function TaskModal({
@@ -7,7 +7,19 @@ export default function TaskModal({
   onSubmit,
   editingTask,
 }) {
-  const [form, setForm] = useState({
+  if (!isOpen) return null;
+  return <TaskModalForm key={editingTask?._id || "new"} onClose={onClose} onSubmit={onSubmit} editingTask={editingTask} />;
+}
+
+function TaskModalForm({ onClose, onSubmit, editingTask }) {
+  const [form, setForm] = useState(() => editingTask ? {
+    title: editingTask.title || "",
+    subject: editingTask.subject || "",
+    type: editingTask.type || "assignment",
+    deadline: editingTask.deadline ? editingTask.deadline.split("T")[0] : "",
+    priority: editingTask.priority || "medium",
+    status: editingTask.status || "todo",
+  } : {
     title: "",
     subject: "",
     type: "assignment",
@@ -15,23 +27,6 @@ export default function TaskModal({
     priority: "medium",
     status: "todo",
   });
-
-  useEffect(() => {
-    if (editingTask) {
-      setForm({
-        title: editingTask.title || "",
-        subject: editingTask.subject || "",
-        type: editingTask.type || "assignment",
-        deadline: editingTask.deadline
-          ? editingTask.deadline.split("T")[0]
-          : "",
-        priority: editingTask.priority || "medium",
-        status: editingTask.status || "todo",
-      });
-    } else {
-      resetForm();
-    }
-  }, [editingTask]);
 
   const resetForm = () => {
     setForm({
@@ -58,8 +53,6 @@ export default function TaskModal({
     resetForm();
     onClose();
   };
-
-  if (!isOpen) return null;
 
   return (
     <div className="task-modal-overlay" onClick={onClose}>

@@ -15,7 +15,7 @@ import {
   Eye,
 } from "lucide-react";
 import { fetchResources } from "../../../services/resourceService";
-import { useResourcesProgress } from "../ResourcesLayout";
+import { useResourcesProgress } from "../resourcesProgressContext";
 import PdfViewer from "../components/PdfViewer";
 import "./Resources.css";
 
@@ -51,8 +51,8 @@ export default function SubjectPage() {
       setPyqs(resources.filter((resource) => resource.resourceType === "pyqs"));
       setPlaylists(resources.filter((resource) => resource.resourceType === "playlist"));
       setNotes(resources.filter((resource) => resource.resourceType === "notes"));
-    } catch (err) {
-      setError(err.message);
+    } catch {
+      setError("Failed to load resources. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -66,8 +66,8 @@ export default function SubjectPage() {
     const next = !current;
     try {
       await saveProgress(paperKey, { attempted: next });
-    } catch (err) {
-      console.error("[Resources] Attempt status could not be saved:", err);
+    } catch {
+      console.error("[Resources] Attempt status could not be saved");
     }
   };
 

@@ -25,8 +25,8 @@ export default function TopicsPage() {
     try {
       const { data } = await api.get("/topics");
       setTopics(data.topics);
-    } catch (err) {
-      console.error("Failed to load topics:", err);
+    } catch {
+      console.error("Failed to load topics");
     } finally {
       setLoading(false);
     }
@@ -71,29 +71,6 @@ export default function TopicsPage() {
             QuizEngine
           </h1>
         </div>
-        {/* <div className="quiz-mode-toggle" role="tablist" aria-label="Quiz mode">
-          <button
-            role="tab"
-            aria-selected={activeMode === "viva"}
-            className={`quiz-mode-btn ${activeMode === "viva" ? "active" : ""}`}
-            onClick={() => setActiveMode("viva")}
-          >
-            <span className="mode-icon">🎓</span>
-            <span>College Viva</span>
-            <span className="mode-count">{modeStats.viva.total} topics</span>
-          </button>
-          <button
-            role="tab"
-            aria-selected={activeMode === "nptel"}
-            className={`quiz-mode-btn ${activeMode === "nptel" ? "active" : ""}`}
-            onClick={() => setActiveMode("nptel")}
-          >
-            <span className="mode-icon">📚</span>
-            <span>NPTEL Prep</span>
-            <span className="mode-count">{modeStats.nptel.total} topics</span>
-          </button>
-        </div> */}
-
         <div className="quiz-mode-toggle" role="tablist" aria-label="Quiz category">
           <button
             type="button"

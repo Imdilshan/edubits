@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Settings } from "lucide-react";
 import ProgrammingGraph from "../components/Graph/ProgrammingGraph";
 import { fetchTopicsAPI } from "../services/programmingService";
-import { useAuth } from "../../../context/AuthContext";
+import { useAuth } from "../../../context/authValue";
 import "../styles/programming.css";
 
 export default function ProgrammingPage() {

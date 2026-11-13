@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/authValue";
 import { useNavigate, Link } from "react-router-dom";
-import { useToast } from "../context/ToastContext";
+import { useToast } from "../context/toastValue";
 import { Loader, ArrowRight } from "lucide-react";
 import { GoogleIcon, GitHubIcon } from "../features/homepage/BrandIcons";
 import { API_URL } from "../config/api";

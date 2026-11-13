@@ -58,8 +58,8 @@ const getTopics = async (req, res) => {
     res.json({ topics: result });
 
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: err.message });
+    console.error("Request failed");
+    res.status(500).json({ error: "Request failed" });
   }
 };
 
@@ -69,7 +69,7 @@ const getTopic = async (req, res) => {
     if (!topic) return res.status(404).json({ error: "Topic not found" });
     res.json({ topic });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Request failed" });
   }
 };
 
@@ -78,7 +78,7 @@ const createTopic = async (req, res) => {
     const topic = await Topic.create(req.body);
     res.status(201).json({ topic });
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    res.status(400).json({ error: "Request failed" });
   }
 };
 
@@ -90,7 +90,7 @@ const updateTopic = async (req, res) => {
     if (!topic) return res.status(404).json({ error: "Topic not found" });
     res.json({ topic });
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    res.status(400).json({ error: "Request failed" });
   }
 };
 
@@ -100,7 +100,7 @@ const deleteTopic = async (req, res) => {
     if (!topic) return res.status(404).json({ error: "Topic not found" });
     res.json({ message: "Topic deleted" });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Request failed" });
   }
 };
 

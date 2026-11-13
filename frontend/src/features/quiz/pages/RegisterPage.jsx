@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import api from "../utils/api";
 import { Zap } from "lucide-react";
@@ -7,28 +7,16 @@ export default function RegisterPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [strength, setStrength] = useState(0);
+  const strength = getPasswordStrength(password);
   const navigate = useNavigate();
-  
-  useEffect(() => {
-    let score = 0;
-    if (!password) {
-      setStrength(0);
-      return;
-    }
-    if (password.length < 6) {
-      score = 1;
-    } else {
-      score = 2;
-      if (password.length >= 8 && /\d/.test(password)) {
-        score = 3;
-        if (password.length >= 10 && /[^A-Za-z0-9]/.test(password)) {
-          score = 4;
-        }
-      }
-    }
-    setStrength(score);
-  }, [password]);
+
+  function getPasswordStrength(value) {
+    if (!value) return 0;
+    if (value.length < 12) return 1;
+    if (value.length >= 10 && /\d/.test(value) && /[^A-Za-z0-9]/.test(value)) return 4;
+    if (value.length >= 8 && /\d/.test(value)) return 3;
+    return 2;
+  }
 
   const getStrengthColor = (index) => {
     if (index >= strength) return "#374151";
@@ -43,7 +31,7 @@ export default function RegisterPage() {
     e.preventDefault();
 
     try {
-      const res = await api.post("/auth/register", {
+      await api.post("/auth/register", {
         name: name,
         email,
         password,
@@ -52,7 +40,7 @@ export default function RegisterPage() {
       navigate("/quizzes");
 
     } catch (err) {
-      console.error(err);
+      console.error("Registration failed");
       alert(err.response?.data?.error || "Registration failed");
     }
   };

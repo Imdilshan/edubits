@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../../context/AuthContext";
+import { useAuth } from "../../../context/authValue";
 import { BarChart3, GitBranch, Network, Shuffle, Zap } from "lucide-react";
 
 export default function HomePage() {

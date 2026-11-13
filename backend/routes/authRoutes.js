@@ -1,9 +1,8 @@
 const express = require("express");
 const multer  = require("multer");
-const path    = require("path");
-const fs      = require("fs");
 const jwt      = require("jsonwebtoken");
 const rateLimit = require("express-rate-limit");
+const { randomBytes, timingSafeEqual } = require("crypto");
 const router  = express.Router();
 const passport = require("../config/passport");
 
@@ -47,6 +46,53 @@ const registerLimiter = rateLimit({
   message: { error: "Too many registration attempts. Try again later." },
 });
 
+const avatarUploadLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: "Too many upload attempts. Try again later." },
+});
+
+const getCookie = (req, name) => req.headers.cookie
+  ?.split(";")
+  .map((part) => part.trim())
+  .find((part) => part.startsWith(`${name}=`))
+  ?.slice(name.length + 1);
+
+const oauthStateCookieOptions = () => ({
+  httpOnly: true,
+  secure: process.env.NODE_ENV === "production",
+  sameSite: "lax",
+  path: "/",
+  maxAge: 10 * 60 * 1000,
+});
+
+const beginOAuth = (provider, options) => (req, res, next) => {
+  const state = randomBytes(32).toString("base64url");
+  res.cookie(`oauth_state_${provider}`, state, oauthStateCookieOptions());
+  passport.authenticate(provider, { ...options, state, session: false })(req, res, next);
+};
+
+const verifyOAuthState = (provider) => (req, res, next) => {
+  const cookieName = `oauth_state_${provider}`;
+  const cookieState = getCookie(req, cookieName);
+  const returnedState = req.query.state;
+  const clearOptions = oauthStateCookieOptions();
+  delete clearOptions.maxAge;
+  res.clearCookie(cookieName, clearOptions);
+
+  if (
+    typeof cookieState !== "string" ||
+    typeof returnedState !== "string" ||
+    cookieState.length !== returnedState.length ||
+    !timingSafeEqual(Buffer.from(cookieState), Buffer.from(returnedState))
+  ) {
+    return res.status(401).json({ error: "OAuth request could not be verified" });
+  }
+  next();
+};
+
 
 // Keep the file in memory; the controller streams it to Cloudinary.
 const avatarUpload = multer({
@@ -82,6 +128,7 @@ router.post("/logout", authMiddleware, logout);
 router.post(
   "/upload-avatar",
   authMiddleware,
+  avatarUploadLimiter,
   avatarUpload.single("avatar"),
   validateAvatarSignature,
   uploadAvatar
@@ -97,11 +144,14 @@ router.use(["/google", "/github"], (req, res, next) => {
 
 router.get(
   "/google",
-  passport.authenticate("google", { scope: ["profile", "email"], session: false })
+  loginLimiter,
+  beginOAuth("google", { scope: ["profile", "email"] })
 );
  
 router.get(
   "/google/callback",
+  loginLimiter,
+  verifyOAuthState("google"),
   passport.authenticate("google", {
     failureRedirect: `${process.env.FRONTEND_URL}/login?error=google_failed`,
     session: false,
@@ -115,11 +165,14 @@ router.get(
 // GitHub OAuth
 router.get(
   "/github",
-  passport.authenticate("github", { scope: ["user:email"], session: false })
+  loginLimiter,
+  beginOAuth("github", { scope: ["user:email"] })
 );
 
 router.get(
   "/github/callback",
+  loginLimiter,
+  verifyOAuthState("github"),
   passport.authenticate("github", {
     failureRedirect: `${process.env.FRONTEND_URL}/login?error=github_failed`,
     session: false,

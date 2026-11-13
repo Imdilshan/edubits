@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../../context/AuthContext";
+import { useAuth } from "../../../context/authValue";
 import { Zap } from "lucide-react";
 
 function AuthForm({ mode }) {
@@ -116,21 +116,13 @@ function AuthForm({ mode }) {
               }}
             >
               <label className="form-label">Password</label>
-              {isLogin && (
-                <Link
-                  to="/reset-password"
-                  style={{ fontSize: "0.82rem", color: "var(--accent)" }}
-                >
-                  Forgot password?
-                </Link>
-              )}
             </div>
 
             <input
               className="form-input"
               name="password"
               type="password"
-              placeholder={isLogin ? "Your password" : "Min. 6 characters"}
+              placeholder={isLogin ? "Your password" : "Min. 12 characters"}
               value={form.password}
               onChange={handleChange}
               required

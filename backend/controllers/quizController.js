@@ -7,7 +7,11 @@ const { sortQuestionsByDifficulty } = require("../algorithms/sorting");
 const { computeScore } = require("../algorithms/scoring");
 const { isTopicUnlocked } = require("../algorithms/graph");
 const jwt = require("jsonwebtoken");
-const { randomUUID } = require("crypto");
+const { randomUUID, createHmac } = require("crypto");
+
+const sessionOwner = (userId) => createHmac("sha256", process.env.JWT_SECRET)
+  .update(String(userId))
+  .digest("hex");
 
 const startQuiz = async (req, res) => {
   try {
@@ -42,7 +46,7 @@ const startQuiz = async (req, res) => {
     const sessionId = randomUUID();
     const sessionToken = jwt.sign({
       type: "quiz",
-      id: String(req.user._id),
+      owner: sessionOwner(req.user._id),
       topicId: String(topic._id),
       sessionId,
       questionIds: selected.map((question) => String(question._id)),
@@ -64,7 +68,7 @@ const startQuiz = async (req, res) => {
       sessionToken,
     });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Request failed" });
   }
 };
 
@@ -85,7 +89,7 @@ const submitQuiz = async (req, res) => {
 
     if (
       session.type !== "quiz" ||
-      session.id !== String(req.user._id) ||
+      session.owner !== sessionOwner(req.user._id) ||
       session.topicId !== String(topicId) ||
       !Array.isArray(session.questionIds)
     ) {
@@ -187,7 +191,6 @@ const submitQuiz = async (req, res) => {
     });
 
     res.json({
-      attemptId: attempt._id,
       score: scoring.totalScore,
       maxPossibleScore: scoring.maxPossibleScore,
       percentage: scoring.percentage,
@@ -201,21 +204,29 @@ const submitQuiz = async (req, res) => {
     if (err.code === 11000) {
       return res.status(409).json({ error: "This quiz was already submitted" });
     }
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Request failed" });
   }
 };
 
 const getHistory = async (req, res) => {
   try {
     const attempts = await QuizAttempt.find({ userId: req.user._id })
-      .populate("topicId", "name icon color")
+      .populate({ path: "topicId", select: "name icon color -_id" })
       .sort({ createdAt: -1 })
       .limit(20)
       .lean();
 
-    res.json({ attempts });
+    res.json({ attempts: attempts.map((attempt) => ({
+      topic: attempt.topicId,
+      score: attempt.score,
+      percentage: attempt.percentage,
+      passed: attempt.passed,
+      timeTakenSeconds: attempt.timeTakenSeconds,
+      answerCount: attempt.answers?.length || 0,
+      createdAt: attempt.createdAt,
+    })) });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Request failed" });
   }
 };
 

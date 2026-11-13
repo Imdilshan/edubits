@@ -12,7 +12,7 @@ import { getTopicIcon } from "../../utils/topicIcons";
 export default function TopicCard({ topic, onStart, style }) {
   const { name, description, color, unlocked, completed, bestScore, attempts, prerequisites } = topic;
 
-  const TopicIcon = getTopicIcon(name);
+  const topicIcon = getTopicIcon(name);
   const StatusIcon = completed ? CheckCircle2 : unlocked ? Unlock : Lock;
   const statusLabel = completed ? "Completed" : unlocked ? "Unlocked" : "Locked";
 
@@ -27,7 +27,7 @@ export default function TopicCard({ topic, onStart, style }) {
     >
       <div className="quiz-topic-top">
         <span className="quiz-topic-icon">
-          <TopicIcon size={25} strokeWidth={2.2} />
+          {topicIcon}
         </span>
         <span className={`quiz-status-pill ${completed ? "is-complete" : unlocked ? "is-unlocked" : ""}`}>
           <StatusIcon size={14} />

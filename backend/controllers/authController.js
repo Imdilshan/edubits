@@ -7,6 +7,7 @@ const QuizAttempt = require("../models/QuizAttempt");
 const UserPYQProgress = require("../models/UserPYQProgress");
 const ProgrammingProgress = require("../features/programming/models/ProgrammingProgress");
 const Resource = require("../models/Resource");
+const { randomUUID } = require("crypto");
 
 const generateToken = (userId, tokenVersion = 0) =>
   jwt.sign({ id: userId, tokenVersion }, process.env.JWT_SECRET, { expiresIn: "7d" });
@@ -15,10 +16,10 @@ exports.getMe = async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
     res.json({
-      user: { id: user._id, name: user.name, email: user.email, avatar: user.avatar, role: user.role, onboardingCompleted: user.onboardingCompleted },
+      user: { name: user.name, email: user.email, avatar: user.avatar, role: user.role, onboardingCompleted: user.onboardingCompleted },
     });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ message: "Request failed" });
   }
 };
 
@@ -28,8 +29,8 @@ exports.register = async (req, res) => {
 
     if (!name || !email || !password)
       return res.status(400).json({ error: "All fields required" });
-    if (password.length < 6)
-      return res.status(400).json({ error: "Password must be at least 6 characters" });
+    if (password.length < 12)
+      return res.status(400).json({ error: "Password must be at least 12 characters" });
 
     const normalizedEmail = email.toLowerCase().trim();
     if (await User.findOne({ email: normalizedEmail }))
@@ -41,7 +42,7 @@ exports.register = async (req, res) => {
     const token = generateToken(user._id, user.tokenVersion);
     res.cookie("edubits_auth", token, sessionCookieOptions());
     res.status(201).json({
-      user: { id: user._id, name: user.name, email: user.email, avatar: user.avatar, role: user.role, onboardingCompleted: user.onboardingCompleted },
+      user: { name: user.name, email: user.email, avatar: user.avatar, role: user.role, onboardingCompleted: user.onboardingCompleted },
     });
   } catch (err) {
     if (err.name === "ValidationError") {
@@ -59,7 +60,7 @@ exports.login = async (req, res) => {
       return res.status(400).json({ error: "Email and password required" });
 
     const normalizedEmail = email.toLowerCase().trim();
-    const user = await User.findOne({ email: normalizedEmail });
+    const user = await User.findOne({ email: normalizedEmail }).select("+password");
     const hasBcryptPassword = typeof user?.password === "string" &&
       /^\$2[abxy]\$\d{2}\$[./A-Za-z0-9]{53}$/.test(user.password);
     if (!hasBcryptPassword || !(await bcrypt.compare(password, user.password)))
@@ -68,7 +69,7 @@ exports.login = async (req, res) => {
     const token = generateToken(user._id, user.tokenVersion);
     res.cookie("edubits_auth", token, sessionCookieOptions());
     res.json({
-      user: { id: user._id, name: user.name, email: user.email, avatar: user.avatar, role: user.role, onboardingCompleted: user.onboardingCompleted },
+      user: { name: user.name, email: user.email, avatar: user.avatar, role: user.role, onboardingCompleted: user.onboardingCompleted },
     });
   } catch (err) {
     res.status(500).json({ error: "Server error. Please try again." });
@@ -76,20 +77,24 @@ exports.login = async (req, res) => {
 };
 
 exports.uploadAvatar = async (req, res) => {
+  let newAvatarPublicId;
   try {
     if (!req.file)
       return res.status(400).json({ message: "No file uploaded" });
 
-    const user = await User.findById(req.user.id);
+    const user = await User.findById(req.user.id).select("+avatarPublicId");
     if (!user)
       return res.status(404).json({ message: "User not found" });
 
-    // Stream the in-memory file to Cloudinary (local disk is wiped on deploy)
+    const previousAvatarPublicId = user.avatarPublicId;
+    newAvatarPublicId = randomUUID();
+
+    // Stream the in-memory file to Cloudinary using an opaque public ID.
     const uploaded = await new Promise((resolve, reject) => {
       const stream = cloudinary.uploader.upload_stream(
         {
           folder: "edubits/avatars",
-          public_id: `avatar_${user._id}`,
+          public_id: newAvatarPublicId,
           overwrite: true,
           resource_type: "image",
           transformation: [{ width: 256, height: 256, crop: "fill", gravity: "face" }],
@@ -100,14 +105,21 @@ exports.uploadAvatar = async (req, res) => {
     });
 
     user.avatar = uploaded.secure_url;
+    user.avatarPublicId = uploaded.public_id;
     await user.save();
+    if (previousAvatarPublicId) {
+      await cloudinary.uploader.destroy(previousAvatarPublicId, { resource_type: "image" }).catch(() => {});
+    }
 
     res.json({
-      user: { id: user._id, name: user.name, email: user.email, avatar: user.avatar, role: user.role },
+      user: { name: user.name, email: user.email, avatar: user.avatar, role: user.role },
     });
   } catch (err) {
-    console.error("UPLOAD AVATAR ERROR:", err);
-    res.status(500).json({ message: err.message || "Upload failed" });
+    if (newAvatarPublicId) {
+      await cloudinary.uploader.destroy(newAvatarPublicId, { resource_type: "image" }).catch(() => {});
+    }
+    console.error("Avatar upload failed");
+    res.status(500).json({ message: "Upload failed" });
   }
 };
 
@@ -120,7 +132,7 @@ exports.completeOnboarding = async (req, res) => {
     await user.save();
 
     res.json({
-      user: { id: user._id, name: user.name, email: user.email, avatar: user.avatar, role: user.role, onboardingCompleted: user.onboardingCompleted },
+      user: { name: user.name, email: user.email, avatar: user.avatar, role: user.role, onboardingCompleted: user.onboardingCompleted },
     });
   } catch (err) {
     res.status(500).json({ error: "Server error. Please try again." });
@@ -133,7 +145,7 @@ exports.logout = async (req, res) => {
     clearSessionCookie(res);
     return res.json({ message: "Logged out" });
   } catch (err) {
-    console.error("[logout] Token revocation failed:", err);
+    console.error("[logout] Token revocation failed");
     return res.status(500).json({ error: "Logout failed. Please try again." });
   }
 };
@@ -158,7 +170,7 @@ exports.updateProfile = async (req, res) => {
   try {
     const { name, email, currentPassword, newPassword } = req.body;
 
-    const user = await User.findById(req.user.id);
+    const user = await User.findById(req.user.id).select("+password");
     if (!user) return res.status(404).json({ error: "User not found" });
 
     if (name && name.trim().length >= 2)
@@ -180,14 +192,19 @@ exports.updateProfile = async (req, res) => {
         if (!(await bcrypt.compare(currentPassword, user.password)))
           return res.status(400).json({ error: "Current password is incorrect" });
       }
-      if (newPassword.length < 6)
-        return res.status(400).json({ error: "New password must be at least 6 characters" });
+      if (newPassword.length < 12)
+        return res.status(400).json({ error: "New password must be at least 12 characters" });
       user.password = await bcrypt.hash(newPassword, 10);
+      user.tokenVersion = (user.tokenVersion || 0) + 1;
     }
 
     await user.save();
+    if (newPassword) {
+      const token = generateToken(user._id, user.tokenVersion);
+      res.cookie("edubits_auth", token, sessionCookieOptions());
+    }
     res.json({
-      user: { id: user._id, name: user.name, email: user.email, avatar: user.avatar, role: user.role },
+      user: { name: user.name, email: user.email, avatar: user.avatar, role: user.role },
     });
   } catch (err) {
     if (err.name === "ValidationError") {
@@ -200,7 +217,7 @@ exports.updateProfile = async (req, res) => {
 
 exports.deleteAccount = async (req, res) => {
   try {
-    const user = await User.findById(req.user.id);
+    const user = await User.findById(req.user.id).select("+password +avatarPublicId");
     if (!user) return res.status(404).json({ error: "User not found" });
 
     if (req.body.confirmEmail !== user.email) {
@@ -213,11 +230,14 @@ exports.deleteAccount = async (req, res) => {
     }
 
     const userId = user._id;
-    if (user.avatar?.includes("res.cloudinary.com")) {
+    const avatarPublicId = user.avatarPublicId || (
+      user.avatar?.includes("res.cloudinary.com") ? `edubits/avatars/avatar_${userId}` : ""
+    );
+    if (avatarPublicId) {
       try {
-        await cloudinary.uploader.destroy(`edubits/avatars/avatar_${userId}`, { resource_type: "image" });
+        await cloudinary.uploader.destroy(avatarPublicId, { resource_type: "image" });
       } catch (err) {
-        console.error("[deleteAccount] Avatar cleanup failed:", err);
+        console.error("[deleteAccount] Avatar cleanup failed");
         return res.status(503).json({ error: "Could not remove your avatar. Please try again later." });
       }
     }
@@ -235,7 +255,7 @@ exports.deleteAccount = async (req, res) => {
     clearSessionCookie(res);
     return res.json({ message: "Account and associated personal data deleted" });
   } catch (err) {
-    console.error("[deleteAccount] Account deletion failed:", err);
+    console.error("[deleteAccount] Account deletion failed");
     return res.status(500).json({ error: "Account deletion failed. Please try again." });
   }
 };

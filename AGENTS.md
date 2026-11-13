@@ -17,7 +17,7 @@
 ## Conventions / gotchas
 - CORS in `backend/server.js` allows localhost plus any `*.vercel.app` origin; changing FRONTEND_URL alone won't restrict preview deploys.
 - Rate limit: 150 req / 15 min / IP globally in `server.js`.
-- File uploads are configured twice: Cloudinary (`config/cloudinary.js` + multer-storage-cloudinary) and local `backend/uploads/` static dir — check which middleware a route actually uses before changing upload code. Three middleware files exist: `upload.js`, `avatarUpload.js`, `uploadMiddleware.js`.
+- Resource and avatar uploads use in-memory Multer validation and Cloudinary storage; no upload route writes to or serves `backend/uploads/`.
 - Frontend routing is defined in `src/app/App.jsx` (lazy imports); `src/app/routes.jsx` is an intentional empty stub.
 - UG Life Tracker persists to localStorage (`trackerStorage.js`), not the backend — TODO flags moving it to MongoDB.
 - Quiz feature has its own duplicate Login/Register/Navbar pages under `features/quiz/pages` and `features/quiz/components/UI`; main pages live in `src/pages/`.

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import ScoreSelector from "./ScoreSelector.jsx";
 import ReflectionEditor from "./ReflectionEditor.jsx";
-import { isBeforeWeek, isSameWeek, fmtWeekRange } from "../utils/dateUtils.js";
+import { isSameWeek, fmtWeekRange } from "../utils/dateUtils.js";
 
 export default function WeekDetailsDrawer({ ctx, scores, notes, onScore, onNoteChange, onClearScore, onClose }) {
   const drawerRef = useRef(null);

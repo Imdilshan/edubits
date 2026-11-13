@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
-import { useAuth } from "../../context/AuthContext";
-import { trackEvent } from "../../utils/analytics";
+import { useAuth } from "../../context/authValue";
 import { API_URL } from "../../config/api";
 import { GoogleIcon } from "./BrandIcons";
 import HomeFooter from "./HomeFooter";
@@ -10,27 +9,19 @@ import "./homepage.css";
 
 // Use the same-origin /api proxy in production so OAuth cookies remain
 // first-party on mobile browsers. Local development uses the backend URL.
-function AuthActions({ placement }) {
-  const handleGoogleClick = (e) => {
-    e.preventDefault();
-    trackEvent("oauth_login_click", { provider: "Google", placement });
-    window.location.assign(e.currentTarget.href);
-  };
-
+function AuthActions() {
   return (
     <div className="hp-actions">
       <div className="hp-auth-buttons">
         <Link
           to="/register"
           className="hp-btn hp-btn-primary"
-          onClick={() => trackEvent("auth_click", { type: "register", method: "email", placement })}
         >
           Get started
         </Link>
         <a
           href={`${API_URL}/auth/google`}
           className="hp-btn hp-btn-secondary"
-          onClick={handleGoogleClick}
         >
           <GoogleIcon /> Continue with Google
         </a>
@@ -39,7 +30,6 @@ function AuthActions({ placement }) {
         Already have an account?{" "}
         <Link
           to="/login"
-          onClick={() => trackEvent("auth_click", { type: "login", method: "email", placement })}
         >
           Log in
         </Link>
@@ -48,13 +38,12 @@ function AuthActions({ placement }) {
   );
 }
 
-function ToolCard({ tool, group, index, featured }) {
+function ToolCard({ tool, index, featured }) {
   const Icon = tool.icon;
   return (
     <Link
       to={tool.href}
       className={`hp-tool-card${featured ? " hp-tool-card--featured" : ""}`}
-      onClick={() => trackEvent("tool_open", { tool_name: tool.name, tool_group: group })}
       style={{ animationDelay: `${index * (featured ? 0.08 : 0.06)}s` }}
     >
       <div className={`hp-tool-icon${featured ? " hp-tool-icon--large" : ""}`}><Icon /></div>
@@ -83,7 +72,7 @@ function MemberView({ name }) {
           <h2 className="hp-group-title">Popular tools</h2>
           <div className="hp-tool-grid hp-tool-grid--featured">
             {featuredTools.map((tool, i) => (
-              <ToolCard key={tool.href} tool={tool} group="exam_prep" index={i} featured />
+              <ToolCard key={tool.href} tool={tool} index={i} featured />
             ))}
           </div>
         </div>
@@ -92,7 +81,7 @@ function MemberView({ name }) {
           <h2 className="hp-group-title">Other tools</h2>
           <div className="hp-tool-grid">
             {otherTools.map((tool, i) => (
-              <ToolCard key={tool.href} tool={tool} group="other" index={i} />
+              <ToolCard key={tool.href} tool={tool} index={i} />
             ))}
           </div>
         </div>
@@ -113,7 +102,7 @@ function LandingView() {
         <p className="hp-tagline">
           Get PYQs, Notes, Playlists, Sgpa Calculator &amp; more...
         </p>
-        <AuthActions placement="hero" />
+        <AuthActions />
       </header>
 
       <section className="hp-section" aria-label="Edubits reach">
@@ -175,7 +164,7 @@ function LandingView() {
         <div className="hp-cta">
           <h2 id="hp-cta-title" className="hp-section-title">Make engineering <span className="hp-cta-accent">easier.</span></h2>
           <p className="hp-cta-text">Create an account to access everything for <span className="hp-cta-accent">free.</span></p>
-          <AuthActions placement="final_cta" />
+          <AuthActions />
         </div>
       </section>
     </main>

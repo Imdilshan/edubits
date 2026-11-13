@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../context/authValue";
 import { API_URL } from "../../config/api";
 import { X, User, Mail, Lock, Eye, EyeOff, CheckCircle, AlertCircle } from "lucide-react";
 import "./editProfile.css";
@@ -42,8 +42,8 @@ export default function EditProfileModal({ onClose }) {
     if (form.newPassword && form.newPassword !== form.confirmPassword)
       return showToast("error", "New passwords do not match");
 
-    if (form.newPassword && form.newPassword.length < 6)
-      return showToast("error", "New password must be at least 6 characters");
+    if (form.newPassword && form.newPassword.length < 12)
+      return showToast("error", "New password must be at least 12 characters");
 
     if (form.newPassword && !form.currentPassword)
       return showToast("error", "Enter your current password to set a new one");
@@ -88,7 +88,7 @@ export default function EditProfileModal({ onClose }) {
         confirmPassword: "",
       }));
 
-    } catch (err) {
+    } catch {
       showToast("error", "Network error. Please try again.");
     } finally {
       setLoading(false);
@@ -116,7 +116,18 @@ export default function EditProfileModal({ onClose }) {
         return;
       }
 
-      ["edubits_ugTracker_v1", "edubits_pyq_progress", "edubits_local_pyqs"].forEach((key) => localStorage.removeItem(key));
+      [
+        "edubits_ugTracker_v1",
+        "edubits_pyq_progress",
+        "edubits_local_pyqs",
+        "subjects",
+        "simForm",
+        "manualSems",
+        "semHistory",
+        "sgpaList",
+        "token",
+        "user",
+      ].forEach((key) => localStorage.removeItem(key));
       logout();
       onClose();
     } catch {
@@ -193,7 +204,7 @@ export default function EditProfileModal({ onClose }) {
               type={showNew ? "text" : "password"}
               value={form.newPassword}
               onChange={(e) => handleChange("newPassword", e.target.value)}
-              placeholder="Min 6 characters"
+              placeholder="Min 12 characters"
             />
             <button className="ep-eye" onClick={() => setShowNew(!showNew)}>
               {showNew ? <EyeOff size={15} /> : <Eye size={15} />}

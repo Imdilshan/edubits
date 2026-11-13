@@ -11,7 +11,7 @@ router.get("/me/progress", protect, async (req, res) => {
     user.progress.forEach((val, key) => { progressObj[key] = val; });
     res.json({ progress: progressObj, totalScore: user.totalScore });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Request failed" });
   }
 });
 
@@ -35,7 +35,6 @@ router.put("/me", protect, async (req, res) => {
     // Same safe shape the auth endpoints return - never send the whole document
     res.json({
       user: {
-        id: user._id,
         name: user.name,
         email: user.email,
         avatar: user.avatar,
@@ -44,7 +43,7 @@ router.put("/me", protect, async (req, res) => {
       },
     });
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    res.status(400).json({ error: "Request failed" });
   }
 });
 

@@ -1,5 +1,5 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../context/authValue";
 import { API_URL } from "../../config/api";
 import { useState, useRef, useEffect } from "react";
 import "./navbar.css";
@@ -62,8 +62,8 @@ export default function Navbar() {
       setUser(data.user);
       setPreview(null);
 
-    } catch (err) {
-      console.error("Upload failed:", err);
+    } catch {
+      console.error("Upload failed");
       alert("Upload failed. Please try again.");
       setPreview(null);
     } finally {

@@ -16,10 +16,10 @@ const Resource = require("../models/Resource");
 
 async function migrate() {
   await mongoose.connect(process.env.MONGO_URI);
-  console.log("Connected to MongoDB.");
+  console.info("Connected to MongoDB.");
 
   const oldPyqs = await OldPyq.find({});
-  console.log(`Found ${oldPyqs.length} old Pyq documents.`);
+  console.info(`Found ${oldPyqs.length} old Pyq documents.`);
 
   let created = 0;
   let skipped = 0;
@@ -43,11 +43,11 @@ async function migrate() {
     created++;
   }
 
-  console.log(`Migration complete. Created: ${created}, Skipped (already exists): ${skipped}.`);
+  console.info(`Migration complete. Created: ${created}, Skipped (already exists): ${skipped}.`);
   await mongoose.disconnect();
 }
 
-migrate().catch((err) => {
-  console.error("Migration failed:", err);
+migrate().catch(() => {
+  console.error("Migration failed");
   process.exit(1);
 });

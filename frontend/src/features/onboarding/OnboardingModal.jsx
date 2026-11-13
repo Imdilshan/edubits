@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { useAuth } from "../../context/AuthContext";
+import { useState } from "react";
 import { API_URL } from "../../config/api";
 import { ChevronRight, Sparkles, BookOpen, Zap, Calculator, CheckSquare, Target } from "lucide-react";
 import "./OnboardingModal.css";
@@ -50,18 +49,13 @@ const STEPS = [
 ];
 
 export default function OnboardingModal({ isOpen, onClose }) {
-  const { user } = useAuth();
+  if (!isOpen) return null;
+  return <OnboardingFlow onClose={onClose} />;
+}
+
+function OnboardingFlow({ onClose }) {
   const [currentStep, setCurrentStep] = useState(0);
   const [animating, setAnimating] = useState(false);
-
-  useEffect(() => {
-    if (isOpen) {
-      setCurrentStep(0);
-      setAnimating(false);
-    }
-  }, [isOpen]);
-
-  if (!isOpen) return null;
 
   const step = STEPS[currentStep];
   const isLastStep = currentStep === STEPS.length - 1;
@@ -83,8 +77,8 @@ export default function OnboardingModal({ isOpen, onClose }) {
             "Content-Type": "application/json",
           },
         });
-      } catch (err) {
-        console.error("Failed to complete onboarding:", err);
+      } catch {
+        console.error("Failed to complete onboarding");
       }
       onClose();
     } else {

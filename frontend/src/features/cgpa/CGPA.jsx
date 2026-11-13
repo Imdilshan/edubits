@@ -13,12 +13,7 @@ function BarChart({ data }) {
   const PAD_R = 16;
   const PAD_T = 24;
   const PAD_B = 40;
-  const chartW = W - PAD_L - PAD_R;
   const chartH = H - PAD_T - PAD_B;
-
-  const maxVal = 10;
-  const barW = Math.min(52, (chartW / data.length) * 0.55);
-  const gap = chartW / data.length;
 
   const yTicks = [0, 2, 4, 6, 8, 10];
 
@@ -53,7 +48,6 @@ function BarChart({ data }) {
       })}
 
       {data.map((d, i) => {
-        const maxVal = 10;
         const chartH = 220 - 24 - 40;
         const chartW = 700 - 48 - 16;
         const barW = Math.min(52, (chartW / data.length) * 0.55);

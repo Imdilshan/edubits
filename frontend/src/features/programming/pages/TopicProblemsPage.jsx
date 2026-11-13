@@ -32,8 +32,8 @@ export default function TopicProblemsPage() {
         map[p.problem] = { status: p.status, starred: p.starred };
       });
       setProgressMap(map);
-    } catch (err) {
-      setError(err.message);
+    } catch {
+      setError("Failed to load problems. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -56,7 +56,7 @@ export default function TopicProblemsPage() {
 
     try {
       await toggleProgressAPI(problemId, { status: nextStatus });
-    } catch (err) {
+    } catch {
       setProgressMap((prev) => ({
         ...prev,
         [problemId]: { ...current, status: current.status },
@@ -76,7 +76,7 @@ export default function TopicProblemsPage() {
 
     try {
       await toggleProgressAPI(problemId, { starred: nextStarred });
-    } catch (err) {
+    } catch {
       setProgressMap((prev) => ({
         ...prev,
         [problemId]: { ...current, starred: current.starred },

@@ -6,10 +6,12 @@ const Progress = require("../models/UserPYQProgress");
 // GET /api/pyq-progress  — all progress docs for the logged-in user
 router.get("/", auth, async (req, res) => {
   try {
-    const docs = await Progress.find({ userId: req.user._id }).lean();
+    const docs = await Progress.find({ userId: req.user._id })
+      .select("paperKey attempted notes createdAt updatedAt")
+      .lean();
     res.json({ success: true, progress: docs });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    res.status(500).json({ success: false, message: "Request failed" });
   }
 });
 
@@ -21,10 +23,10 @@ router.put("/:paperKey", auth, async (req, res) => {
       { userId: req.user._id, paperKey: req.params.paperKey },
       { $set: { ...(attempted !== undefined && { attempted }), ...(notes !== undefined && { notes }) } },
       { upsert: true, new: true }
-    );
+    ).select("paperKey attempted notes createdAt updatedAt");
     res.json({ success: true, progress: doc });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    res.status(500).json({ success: false, message: "Request failed" });
   }
 });
 

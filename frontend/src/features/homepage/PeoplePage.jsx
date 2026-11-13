@@ -53,26 +53,32 @@ export default function PeoplePage() {
                 <div className="people-card-info">
                   <h3 className="people-card-name">{founder.name}</h3>
                   <p className="people-card-role">{founder.role}</p>
-                  <div className="people-card-links">
-                    <a
-                      href={founder.linkedin}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="people-card-link"
-                      aria-label={`${founder.name} on LinkedIn`}
-                    >
-                      <FaLinkedin size={16} />
-                    </a>
-                    <a
-                      href={founder.github}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="people-card-link"
-                      aria-label={`${founder.name} on GitHub`}
-                    >
-                      <FaGithub size={16} />
-                    </a>
-                  </div>
+                  {(founder.linkedin || founder.github) && (
+                    <div className="people-card-links">
+                      {founder.linkedin && (
+                        <a
+                          href={founder.linkedin}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="people-card-link"
+                          aria-label={`${founder.name} on LinkedIn`}
+                        >
+                          <FaLinkedin size={16} />
+                        </a>
+                      )}
+                      {founder.github && (
+                        <a
+                          href={founder.github}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="people-card-link"
+                          aria-label={`${founder.name} on GitHub`}
+                        >
+                          <FaGithub size={16} />
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
               </article>
             ))}

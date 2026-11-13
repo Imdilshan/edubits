@@ -1,6 +1,12 @@
 const Resource = require("../models/Resource");
 const cloudinary = require("../config/cloudinary");
 
+const withoutUploader = (resource) => {
+  const result = resource.toObject();
+  delete result.uploadedBy;
+  return result;
+};
+
 const getPaperOrder = (tag = "") => {
   const value = String(tag)
     .trim()
@@ -148,10 +154,10 @@ const uploadResource = async (req, res) => {
 
     return res.status(201).json({
       success: true,
-      resource,
+      resource: withoutUploader(resource),
     });
   } catch (err) {
-    console.error("[uploadResource]", err);
+    console.error("[uploadResource] Request failed");
 
     if (file) {
       await cleanupCloudinaryFiles([file]);
@@ -159,7 +165,7 @@ const uploadResource = async (req, res) => {
 
     return res.status(500).json({
       success: false,
-      message: err.message || "Upload failed.",
+      message: "Upload failed.",
     });
   }
 };
@@ -272,17 +278,17 @@ const uploadPaperPair = async (req, res) => {
     return res.status(201).json({
       success: true,
       paperKey: resolvedPaperKey,
-      questions: questionsResource,
-      solution: solutionResource,
+      questions: withoutUploader(questionsResource),
+      solution: withoutUploader(solutionResource),
     });
   } catch (err) {
-    console.error("[uploadPaperPair]", err);
+    console.error("[uploadPaperPair] Request failed");
 
     await cleanupCloudinaryFiles(files);
 
     return res.status(500).json({
       success: false,
-      message: err.message || "Paper pair upload failed.",
+      message: "Paper pair upload failed.",
     });
   }
 };
@@ -307,10 +313,10 @@ const createPlaylistLink = async (req, res) => {
       resourceType: "playlist", subject, year, semester: semester ? Number(semester) : undefined,
       cloudinaryPublicId: undefined, uploadedBy: req.user?._id || null,
     });
-    res.status(201).json({ success: true, resource });
+    res.status(201).json({ success: true, resource: withoutUploader(resource) });
   } catch (err) {
-    console.error("[createPlaylistLink]", err);
-    res.status(400).json({ success: false, message: err.message || "Could not add playlist." });
+    console.error("[createPlaylistLink] Request failed");
+    res.status(400).json({ success: false, message: "Could not add playlist." });
   }
 };
 
@@ -364,11 +370,11 @@ const listResources = async (req, res) => {
       resources,
     });
   } catch (err) {
-    console.error("[listResources]", err);
+    console.error("[listResources] Request failed");
 
     return res.status(500).json({
       success: false,
-      message: err.message,
+      message: "Request failed",
     });
   }
 };
@@ -407,7 +413,7 @@ const getResourcesSummary = async (_req, res) => {
     }
     res.json({ success: true, years, subjects });
   } catch (err) {
-    console.error("[getResourcesSummary]", err);
+    console.error("[getResourcesSummary] Request failed");
     res.status(500).json({ success: false, message: "Could not load resource counts." });
   }
 };
@@ -454,11 +460,11 @@ const getResource = async (req, res) => {
       linkedResource,
     });
   } catch (err) {
-    console.error("[getResource]", err);
+    console.error("[getResource] Request failed");
 
     return res.status(500).json({
       success: false,
-      message: err.message,
+      message: "Request failed",
     });
   }
 };
@@ -491,10 +497,7 @@ const deleteResource = async (req, res) => {
         );
       }
     } catch (cloudErr) {
-      console.error(
-        `[deleteResource] Cloudinary purge failed for ${resource.cloudinaryPublicId}:`,
-        cloudErr.message
-      );
+      console.error("[deleteResource] Cloudinary purge failed");
     }
 
     return res.json({
@@ -502,11 +505,11 @@ const deleteResource = async (req, res) => {
       message: "Resource deleted.",
     });
   } catch (err) {
-    console.error("[deleteResource]", err);
+    console.error("[deleteResource] Request failed");
 
     return res.status(500).json({
       success: false,
-      message: err.message,
+      message: "Request failed",
     });
   }
 };
@@ -567,11 +570,11 @@ const updateResource = async (req, res) => {
       resource,
     });
   } catch (err) {
-    console.error("[updateResource]", err);
+    console.error("[updateResource] Request failed");
 
     return res.status(400).json({
       success: false,
-      message: err.message,
+      message: "Request failed",
     });
   }
 };

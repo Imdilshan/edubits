@@ -5,10 +5,10 @@ const connectDB = async () => {
     await mongoose.connect(process.env.MONGO_URI, {
       ...(process.env.NODE_ENV === "production" ? { tls: true } : {}),
     });
-    console.log("MongoDB connected");
-  } catch (error) {
-    console.error(error);
-    process.exit(1);
+    console.info("MongoDB connected");
+  } catch {
+    console.error("MongoDB connection failed. Check MONGO_URI and database availability.");
+    throw new Error("Database connection failed");
   }
 };
 

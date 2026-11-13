@@ -1,6 +1,6 @@
-import { createContext, useContext, useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { API_URL } from "../config/api";
-const AuthContext = createContext();
+import { AuthContext } from "./authValue";
 
 export function AuthProvider({ children }) {
   const [showOnboarding, setShowOnboarding] = useState(false);
@@ -52,5 +52,3 @@ export function AuthProvider({ children }) {
     </AuthContext.Provider>
   );
 }
-
-export const useAuth = () => useContext(AuthContext);

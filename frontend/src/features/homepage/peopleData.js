@@ -7,6 +7,11 @@ export const FOUNDERS = [
     github: "https://github.com/Imdilshan",
   },
   {
+    name: "Naman",
+    role: "Backend Engineer",
+    image: "/images/naman.jpg",
+  },
+  {
     name: "Ishita Bansal",
     role: "UI & UX Engineer",
     image: "/images/ishita.jpg",

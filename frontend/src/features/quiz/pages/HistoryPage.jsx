@@ -57,7 +57,7 @@ export default function HistoryPage() {
       ) : (
         <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
           {attempts.map((attempt, i) => {
-            const topic   = attempt.topicId;
+            const topic   = attempt.topic;
             const TopicIcon = getTopicIcon(topic?.name);
             const passColor = attempt.passed ? "var(--success)" : "var(--error)";
             const date    = new Date(attempt.createdAt).toLocaleDateString("en-US", {
@@ -67,7 +67,7 @@ export default function HistoryPage() {
 
             return (
               <div
-                key={attempt._id}
+                key={`${attempt.createdAt}-${i}`}
                 className="card fade-in"
                 style={{ animationDelay: `${i * 0.05}s`, padding: "1rem 1.25rem" }}
               >
@@ -115,7 +115,7 @@ export default function HistoryPage() {
                 <div style={{ display: "flex", gap: "1.25rem", marginTop: "0.75rem", fontSize: "0.8rem", color: "var(--text-3)", flexWrap: "wrap" }}>
                   <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
                     <FileText size={15} />
-                    Questions: <strong style={{ color: "var(--text)" }}>{attempt.answers?.length || 0}</strong>
+                    Questions: <strong style={{ color: "var(--text)" }}>{attempt.answerCount || 0}</strong>
                   </span>
                 </div>
               </div>

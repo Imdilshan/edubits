@@ -1,5 +1,17 @@
 const Task = require("../models/Task");
 
+const toPublicTask = (task) => ({
+  _id: task._id,
+  title: task.title,
+  subject: task.subject,
+  type: task.type,
+  status: task.status,
+  deadline: task.deadline,
+  priority: task.priority,
+  createdAt: task.createdAt,
+  updatedAt: task.updatedAt,
+});
+
 exports.createTask = async (req, res) => {
   try {
     const { title, subject, type, deadline, priority, status } = req.body;
@@ -27,13 +39,13 @@ exports.createTask = async (req, res) => {
       userId: req.user.id,
     });
 
-    res.status(201).json(task);
+    res.status(201).json(toPublicTask(task));
   } catch (err) {
     if (err.name === "ValidationError") {
       const msg = Object.values(err.errors).map((e) => e.message).join(", ");
       return res.status(400).json({ error: msg });
     }
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Request failed" });
   }
 };
 
@@ -57,11 +69,13 @@ exports.getTasks = async (req, res) => {
     const skip = (pageNum - 1) * limitNum;
 
     const total = await Task.countDocuments(filter);
-    const tasks = await Task.find(filter).sort(sort).skip(skip).limit(limitNum);
+    const tasks = await Task.find(filter)
+      .select("title subject type status deadline priority createdAt updatedAt")
+      .sort(sort).skip(skip).limit(limitNum).lean();
 
     res.json({ total, page: pageNum, pages: Math.ceil(total / limitNum), count: tasks.length, tasks });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Request failed" });
   }
 };
 
@@ -69,9 +83,9 @@ exports.getTaskById = async (req, res) => {
   try {
     const task = await Task.findOne({ _id: req.params.id, userId: req.user.id });
     if (!task) return res.status(404).json({ error: "Task not found" });
-    res.json(task);
+    res.json(toPublicTask(task));
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Request failed" });
   }
 };
 
@@ -89,13 +103,13 @@ exports.updateTask = async (req, res) => {
       { new: true, runValidators: true }
     );
     if (!task) return res.status(404).json({ error: "Task not found" });
-    res.json(task);
+    res.json(toPublicTask(task));
   } catch (err) {
     if (err.name === "ValidationError") {
       const msg = Object.values(err.errors).map((e) => e.message).join(", ");
       return res.status(400).json({ error: msg });
     }
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Request failed" });
   }
 };
 
@@ -105,6 +119,6 @@ exports.deleteTask = async (req, res) => {
     if (!task) return res.status(404).json({ error: "Task not found" });
     res.json({ message: "Task deleted" });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Request failed" });
   }
 };

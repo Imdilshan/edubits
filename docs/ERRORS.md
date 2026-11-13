@@ -334,7 +334,7 @@ cd frontend && npm run build
 cd backend && for f in $(find . -name '*.js' -not -path './node_modules/*'); do node --check "$f" || echo "FAIL $f"; done
 
 # Backend boots without OAuth keys (should print "OAuth disabled" warnings, not crash)
-cd backend && MONGO_URI=mongodb://x/y JWT_SECRET=t FRONTEND_URL=http://localhost:5173 node server.js
+cd backend && node server.js  # Uses the values configured in backend/.env
 ```
 
 **Lint gotcha:** a passing lint does not prove a component is imported. ESLint's `no-undef` does not check JSX tags, so `<Github />` with no import passes lint and crashes at runtime. Open every page you touched in the browser before committing.

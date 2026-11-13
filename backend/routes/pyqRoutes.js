@@ -2,8 +2,16 @@ const express  = require("express");
 const router   = express.Router();
 const protect  = require("../middleware/authMiddleware");
 const { uploadFor } = require("../middleware/upload");
+const rateLimit = require("express-rate-limit");
 const Resource = require("../models/Resource");
 const cloudinary = require("../config/cloudinary");
+const uploadLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: "Too many upload attempts. Try again later." },
+});
 
 const adminOnly = (req, res, next) => {
   if (req.user?.role !== "admin") {
@@ -32,11 +40,12 @@ router.get("/", protect, async (req, res) => {
 
     const pyqss = await Resource.find(filter)
       .sort({ sortOrder: -1, createdAt: -1 })
+      .select("-uploadedBy")
       .lean();
 
     res.json({ success: true, pyqss });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    res.status(500).json({ success: false, message: "Request failed" });
   }
 });
 
@@ -44,6 +53,7 @@ router.post(
   "/upload",
   protect,
   adminOnly,
+  uploadLimiter,
   handleMulterError(uploadFor("pyqs").single("file")),
   async (req, res) => {
     try {
@@ -80,10 +90,22 @@ router.post(
         uploadedBy:             req.user._id,
       });
 
-      res.status(201).json({ success: true, pyqs });
+      res.status(201).json({
+        success: true,
+        pyqs: {
+          _id: pyqs._id,
+          title: pyqs.title,
+          subject: pyqs.subject,
+          year: pyqs.year,
+          semester: pyqs.semester,
+          paperTag: pyqs.paperTag,
+          paperKey: pyqs.paperKey,
+          variant: pyqs.variant,
+        },
+      });
 
     } catch (err) {
-      console.error("[pyqs upload]", err);
+      console.error("[pyqs upload] Request failed");
       res.status(500).json({ success: false, message: "Upload failed." });
     }
   }
@@ -99,11 +121,11 @@ router.delete("/:id", protect, adminOnly, async (req, res) => {
 
     await cloudinary.uploader
       .destroy(pyqs.cloudinaryPublicId, { resource_type: pyqs.cloudinaryResourceType })
-      .catch((e) => console.error("Cloudinary purge failed:", e.message));
+      .catch(() => console.error("Cloudinary purge failed"));
 
     res.json({ success: true, message: "pyqs deleted." });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    res.status(500).json({ success: false, message: "Request failed" });
   }
 });
 

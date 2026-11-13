@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import api from "../utils/api";
 import { formatTime } from "../utils/algorithms";
-import { trackEvent } from "../../../utils/analytics";
 import {
   ArrowLeft,
   ArrowRight,
@@ -16,7 +15,7 @@ import {
   Square,
 } from "lucide-react";
 
-import { useAuth } from "../../../context/AuthContext";
+import { useAuth } from "../../../context/authValue";
 import "./QuizPage.css";
 
 const QUESTION_COUNT = 10;
@@ -82,6 +81,21 @@ export default function QuizPage() {
     startQuiz();
   }, [startQuiz]);
 
+  const handleTimeout = useCallback(() => {
+    if (revealed) return;
+    clearInterval(timerRef.current);
+
+    setRevealed(true);
+    setSelected([]);
+
+    recordAnswer({
+      questionId: questions[current]._id,
+      selectedOptions: [],
+      timedOut: true,
+      timeTakenSeconds: questions[current]?.timeLimitSeconds || 30,
+    });
+  }, [revealed, recordAnswer, questions, current]);
+
   useEffect(() => {
     if (phase !== "question" || revealed) return;
 
@@ -100,22 +114,7 @@ export default function QuizPage() {
     }, 1000);
 
     return () => clearInterval(timerRef.current);
-  }, [phase, current, revealed]);
-
-  const handleTimeout = () => {
-    if (revealed) return;
-    clearInterval(timerRef.current);
-
-    setRevealed(true);
-    setSelected([]);
-
-    recordAnswer({
-      questionId: questions[current]._id,
-      selectedOptions: [],
-      timedOut: true,
-      timeTakenSeconds: questions[current]?.timeLimitSeconds || 30,
-    });
-  };
+  }, [phase, current, revealed, questions, handleTimeout]);
 
   const handleToggleOption = (optIndex) => {
     if (revealed) return;
@@ -184,23 +183,12 @@ export default function QuizPage() {
         sessionToken,
       });
 
-      trackEvent("quiz_complete", {
-        topic_name: topic?.name,
-        topic_id: topic?._id,
-        score: data.score,
-        percentage: data.percentage,
-        passed: data.passed,
-        duration_seconds: totalTime,
-        duration_minutes: Math.round(totalTime / 60),
-        question_count: questions.length,
-      });
-
       updateScore(data.newTotalScore);
       navigate("/quizzes/results", {
         state: { result: data, topic, questions },
       });
     } catch (err) {
-      console.error("Failed to submit quiz:", err);
+      console.error("Failed to submit quiz");
       setError(err.response?.data?.error || "Failed to submit quiz.");
       setPhase("question");
     }
@@ -251,12 +239,6 @@ export default function QuizPage() {
           <button
             className="btn btn-primary quiz-launch-button"
             onClick={() => {
-              trackEvent("quiz_start", {
-                topic_name: topic?.name,
-                topic_id: topic?._id,
-                question_count: questions.length,
-              });
-
               startTimeRef.current = Date.now();
               setPhase("question");
             }}
@@ -366,8 +348,4 @@ export default function QuizPage() {
       </div>
     </div>
   );
-}
-
-function isMultiSelect(question) {
-  return question?.isMultiSelect === true;
 }

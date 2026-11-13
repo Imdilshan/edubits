@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { REFLECTION_PROMPTS } from "../utils/constants.js";
 
 import {
@@ -24,7 +23,6 @@ const SIGNALS = [
 ];
 
 export default function ReflectionEditor({ entry, onChange }) {
-  const [activePrompt, setActivePrompt] = useState(null);
 
   const handleNoteChange = (val) => onChange({ ...entry, note: val, updatedAt: new Date().toISOString() });
   const handleMoodChange = (mood) => onChange({ ...entry, mood, updatedAt: new Date().toISOString() });
@@ -35,7 +33,6 @@ export default function ReflectionEditor({ entry, onChange }) {
       ? `${current}\n\n${prompt}\n`
       : `${prompt}\n`;
     onChange({ ...entry, note: newNote, updatedAt: new Date().toISOString() });
-    setActivePrompt(null);
   };
 
   return (

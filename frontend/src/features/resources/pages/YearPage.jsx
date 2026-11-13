@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo, useCallback } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Layers, Loader2, AlertCircle, ArrowLeft } from "lucide-react";
 import { fetchResourcesSummary } from "../../../services/resourceService";
-import { useResourcesProgress } from "../ResourcesLayout";
+import { useResourcesProgress } from "../resourcesProgressContext";
 import "./Resources.css";
 import "./ResourcesHome.css";
 

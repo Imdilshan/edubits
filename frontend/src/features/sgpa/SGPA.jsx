@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Select from "react-select";
 import "./sgpa.css";
 import { Trash2, Plus, Save, RotateCcw, X } from "lucide-react";
@@ -49,30 +49,8 @@ function computeSGPA(subjects) {
   return parseFloat((totalPoints / totalCredits).toFixed(2));
 }
 
-function SGPADisplay({ value, animate }) {
-  const [displayed, setDisplayed] = useState(value);
-  const prevRef = useRef(value);
-
-  useEffect(() => {
-    if (value === null) { setDisplayed(null); return; }
-    const start = prevRef.current ?? value;
-    prevRef.current = value;
-    if (start === value) { setDisplayed(value); return; }
-    let frame;
-    let startTime = null;
-    const duration = 600;
-    const step = (ts) => {
-      if (!startTime) startTime = ts;
-      const prog = Math.min((ts - startTime) / duration, 1);
-      const eased = 1 - Math.pow(1 - prog, 3);
-      const cur = parseFloat((start + (value - start) * eased).toFixed(2));
-      setDisplayed(cur);
-      if (prog < 1) frame = requestAnimationFrame(step);
-    };
-    frame = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(frame);
-  }, [value]);
-
+function SGPADisplay({ value }) {
+  const displayed = value;
   if (displayed === null) return null;
 
   const rating =
@@ -83,7 +61,7 @@ function SGPADisplay({ value, animate }) {
                        { label: "Needs work",     cls: "grade-poor"        };
 
   return (
-    <div className={`sgpa-result-card ${animate ? "result-pop" : ""}`}>
+    <div className="sgpa-result-card">
       <div className="result-row">
         <div className="result-main">
           <span className="result-label">SGPA</span>
@@ -114,31 +92,22 @@ export default function SGPA({ setSgpaList, sgpaCount }) {
     try {
       const saved = localStorage.getItem("subjects");
       if (saved) return JSON.parse(saved);
-    } catch {}
+    } catch {
+      // Keep the example values when browser storage is unavailable.
+    }
     return EXAMPLE_SUBJECTS;
   });
 
   const [saved, setSaved] = useState(false);
-  const [animResult, setAnimResult] = useState(false);
-  const prevSGPA = useRef(null);
-
   const liveResult = computeSGPA(subjects);
 
   useEffect(() => {
-    localStorage.setItem("subjects", JSON.stringify(subjects));
-    if (liveResult !== prevSGPA.current) {
-      setAnimResult(true);
-      const t = setTimeout(() => setAnimResult(false), 700);
-      prevSGPA.current = liveResult;
-      return () => clearTimeout(t);
+    try {
+      localStorage.setItem("subjects", JSON.stringify(subjects));
+    } catch {
+      // The calculator remains usable when browser storage is unavailable.
     }
   }, [subjects]);
-
-  const loadExample = () => {
-    setSubjects(EXAMPLE_SUBJECTS);
-    setIsExample(true);
-    setSaved(false);
-  };
 
   const clearExample = () => {
     setSubjects([{ name: "", credit: "", grade: "" }]);
@@ -207,8 +176,6 @@ export default function SGPA({ setSgpaList, sgpaCount }) {
       </div>
     );
   };
-
-  const isEmpty = subjects.every(s => !s.name && !s.credit && s.grade === "");
 
   return (
     <div className="sgpa-card card card-panel">
@@ -288,7 +255,7 @@ export default function SGPA({ setSgpaList, sgpaCount }) {
       </div>
 
       {liveResult !== null && (
-        <SGPADisplay value={liveResult} animate={animResult} />
+        <SGPADisplay value={liveResult} />
       )}
     </div>
   );

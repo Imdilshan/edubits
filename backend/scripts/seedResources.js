@@ -219,7 +219,7 @@ function generatePaperKey(year, subject, paperTag) {
 
 async function seed() {
   await mongoose.connect(process.env.MONGO_URI);
-  console.log("Connected to MongoDB.");
+  console.info("Connected to MongoDB.");
 
   let created = 0;
   let skipped = 0;
@@ -236,7 +236,7 @@ async function seed() {
         });
 
         if (existingQuestions) {
-          console.log(`Skipping existing: ${paperKey} (questions)`);
+          console.info(`Skipping existing: ${paperKey} (questions)`);
           skipped++;
           continue;
         }
@@ -282,17 +282,17 @@ async function seed() {
         });
 
         created += 2;
-        console.log(`Created: ${paperKey} (questions + solution)`);
+        console.info(`Created: ${paperKey} (questions + solution)`);
       }
     }
   }
 
-  console.log(`\nSeeding complete. Created: ${created} resources, Skipped: ${skipped}.`);
-  console.log("\nNOTE: Placeholder records are inactive. Upload real PDFs via /admin-upload or POST /api/resources/upload-pair.");
+  console.info(`\nSeeding complete. Created: ${created} resources, Skipped: ${skipped}.`);
+  console.info("\nNOTE: Placeholder records are inactive. Upload real PDFs via /admin-upload or POST /api/resources/upload-pair.");
   await mongoose.disconnect();
 }
 
-seed().catch((err) => {
-  console.error("Seeding failed:", err);
+seed().catch(() => {
+  console.error("Seeding failed");
   process.exit(1);
 });

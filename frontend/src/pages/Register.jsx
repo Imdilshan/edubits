@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
-import { useToast } from "../context/ToastContext";
+import { useAuth } from "../context/authValue";
+import { useToast } from "../context/toastValue";
 import { Loader, ArrowRight } from "lucide-react";
 import { GoogleIcon, GitHubIcon } from "../features/homepage/BrandIcons";
 import { API_URL } from "../config/api";
@@ -29,8 +29,8 @@ export default function Register() {
       return;
     }
 
-    if (password.length < 6) {
-      showToast("Password must be at least 6 characters", "error");
+    if (password.length < 12) {
+      showToast("Password must be at least 12 characters", "error");
       return;
     }
 

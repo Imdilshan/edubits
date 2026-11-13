@@ -2,6 +2,7 @@ const express  = require("express");
 const router   = express.Router();
 const protect  = require("../middleware/authMiddleware");
 const { uploadFor } = require("../middleware/upload");
+const rateLimit = require("express-rate-limit");
 const {
   uploadResource,
   uploadPaperPair,
@@ -28,6 +29,14 @@ const withMulterErrors = (multerMiddleware) => (req, res, next) => {
   });
 };
 
+const resourceUploadLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: "Too many upload attempts. Try again later." },
+});
+
 router.get("/", protect, listResources);
 router.get("/summary", protect, getResourcesSummary);
 router.get("/:id", protect, getResource);
@@ -44,6 +53,7 @@ router.post(
   "/upload",
   protect,
   adminOnly,
+  resourceUploadLimiter,
   (req, res, next) => {
     const type = req.query.resourceType || "resources";
     const multerMiddleware = uploadFor(type).single("file");
@@ -57,6 +67,7 @@ router.post(
   "/upload-pair",
   protect,
   adminOnly,
+  resourceUploadLimiter,
   (req, res, next) => {
     const multerMiddleware = uploadFor("pyqs").array("files", 2);
     withMulterErrors(multerMiddleware)(req, res, next);

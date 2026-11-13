@@ -14,7 +14,7 @@ const getTopics = async (req, res) => {
 
     res.json({ topics });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Request failed" });
   }
 };
 
@@ -34,7 +34,7 @@ const getTopic = async (req, res) => {
 
     res.json({ topic });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Request failed" });
   }
 };
 
@@ -43,7 +43,7 @@ const createTopic = async (req, res) => {
     const topic = await ProgrammingTopic.create(req.body);
     res.status(201).json({ topic });
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    res.status(400).json({ error: "Request failed" });
   }
 };
 
@@ -68,7 +68,7 @@ const updateTopic = async (req, res) => {
 
     res.json({ topic });
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    res.status(400).json({ error: "Request failed" });
   }
 };
 
@@ -89,7 +89,7 @@ const deleteTopic = async (req, res) => {
 
     res.json({ message: "Topic deleted" });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Request failed" });
   }
 };
 
@@ -122,7 +122,7 @@ const getProblems = async (req, res) => {
       count: problems.length,
     });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Request failed" });
   }
 };
 
@@ -140,7 +140,7 @@ const getProblem = async (req, res) => {
 
     res.json({ problem });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Request failed" });
   }
 };
 
@@ -162,7 +162,7 @@ const createProblem = async (req, res) => {
 
     res.status(201).json({ problem });
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    res.status(400).json({ error: "Request failed" });
   }
 };
 
@@ -194,7 +194,7 @@ const updateProblem = async (req, res) => {
 
     res.json({ problem });
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    res.status(400).json({ error: "Request failed" });
   }
 };
 
@@ -212,7 +212,7 @@ const deleteProblem = async (req, res) => {
 
     res.json({ message: "Problem deleted" });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Request failed" });
   }
 };
 
@@ -233,11 +233,13 @@ const getMyProgress = async (req, res) => {
       filter.problem = { $in: problemIds };
     }
 
-    const progress = await ProgrammingProgress.find(filter).lean();
+    const progress = await ProgrammingProgress.find(filter)
+      .select("problem status starred createdAt updatedAt")
+      .lean();
 
     res.json({ progress });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Request failed" });
   }
 };
 
@@ -261,11 +263,11 @@ const toggleProgress = async (req, res) => {
       { user: req.user._id, problem: req.params.id },
       { $set: update },
       { new: true, upsert: true, runValidators: true }
-    );
+    ).select("problem status starred createdAt updatedAt");
 
     res.json({ progress });
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    res.status(400).json({ error: "Request failed" });
   }
 };
 

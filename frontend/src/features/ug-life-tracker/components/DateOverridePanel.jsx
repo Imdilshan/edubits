@@ -1,21 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-export default function DateOverridePanel({ calendarData, overrides, onSave, onClear }) {
+export default function DateOverridePanel({ calendarData, onSave, onClear }) {
   const [localOverrides, setLocalOverrides] = useState({});
-
-  useEffect(() => {
-    if (!calendarData) return;
-    const init = {};
-    for (const yr of calendarData) {
-      for (const p of yr.periods) {
-        init[p.key] = {
-          start: p.start.toISOString().split("T")[0],
-          end: p.end.toISOString().split("T")[0],
-        };
-      }
-    }
-    setLocalOverrides(init);
-  }, [calendarData]);
 
   if (!calendarData) return null;
 
@@ -94,7 +80,7 @@ export default function DateOverridePanel({ calendarData, overrides, onSave, onC
                 </div>
                 <input
                   type="date"
-                  value={localOverrides[p.key]?.start || ""}
+                  value={localOverrides[p.key]?.start ?? p.start.toISOString().split("T")[0]}
                   onChange={(e) => setLocalOverrides(prev => ({
                     ...prev,
                     [p.key]: { ...prev[p.key], start: e.target.value }
@@ -104,7 +90,7 @@ export default function DateOverridePanel({ calendarData, overrides, onSave, onC
                 <span style={{ color: "var(--muted)", opacity: 0.4 }}>–</span>
                 <input
                   type="date"
-                  value={localOverrides[p.key]?.end || ""}
+                  value={localOverrides[p.key]?.end ?? p.end.toISOString().split("T")[0]}
                   onChange={(e) => setLocalOverrides(prev => ({
                     ...prev,
                     [p.key]: { ...prev[p.key], end: e.target.value }

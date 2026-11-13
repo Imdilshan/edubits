@@ -17,23 +17,23 @@ const blockchainQ = require("./questions/blockchain");
 const bigdataQ = require("./questions/bigdata");
 const cybersecurityQ = require("./questions/cybersecurity");
 
-const MONGO_URI =
-  process.env.MONGO_URI ||
-  process.env.MONGODB_URI ||
-  "mongodb://localhost:27017/edubits";
+const MONGO_URI = process.env.MONGO_URI;
 
 async function seed() {
+  if (!MONGO_URI) {
+    throw new Error("MONGO_URI must be set before running the quiz seed.");
+  }
   const adminEmail = process.env.SEED_ADMIN_EMAIL?.trim().toLowerCase();
   const adminPassword = process.env.SEED_ADMIN_PASSWORD;
-  if ((adminEmail || adminPassword) && (!adminEmail || !adminPassword || adminPassword.length < 12)) {
-    throw new Error("Set both SEED_ADMIN_EMAIL and a SEED_ADMIN_PASSWORD of at least 12 characters to bootstrap an admin.");
+  if ((adminEmail || adminPassword) && (!adminEmail || !adminPassword || adminPassword.length < 16)) {
+    throw new Error("Set both SEED_ADMIN_EMAIL and a unique SEED_ADMIN_PASSWORD of at least 16 characters to bootstrap an admin.");
   }
 
   await mongoose.connect(MONGO_URI, {
     serverSelectionTimeoutMS: 5000,
   });
 
-  console.log("📦 Connected to MongoDB");
+  console.info("📦 Connected to MongoDB");
 
   const topicData = [
     {
@@ -204,8 +204,8 @@ async function seed() {
   await Question.deleteMany({});
   await Topic.deleteMany({});
 
-  console.log("🧹 Cleared old topics");
-  console.log("🧹 Cleared old questions");
+  console.info("🧹 Cleared old topics");
+  console.info("🧹 Cleared old questions");
 
   const topics = {};
 
@@ -214,7 +214,7 @@ async function seed() {
     topics[t.name] = topic;
   }
 
-  console.log("✅ Topics created");
+  console.info("✅ Topics created");
 
   const questions = questionGroups.flatMap(([data, topicName]) =>
     data.map((question) => ({
@@ -225,7 +225,7 @@ async function seed() {
   );
 
   await Question.insertMany(questions);
-  console.log(`✅ ${questions.length} questions inserted`);
+  console.info(`✅ ${questions.length} questions inserted`);
   if (adminEmail || adminPassword) {
     const existingAdmin = await User.findOne({ email: adminEmail });
     if (!existingAdmin) {
@@ -236,18 +236,18 @@ async function seed() {
         role: "admin",
         totalScore: 0,
       });
-      console.log("✅ Admin created from configured seed credentials");
+      console.info("✅ Admin created from configured seed credentials");
     } else {
-      console.log("ℹ️ Configured admin already exists");
+      console.info("ℹ️ Configured admin already exists");
     }
   } else {
-    console.log("ℹ️ Admin bootstrap skipped; configure SEED_ADMIN_EMAIL and SEED_ADMIN_PASSWORD when needed");
+    console.info("ℹ️ Admin bootstrap skipped; configure SEED_ADMIN_EMAIL and SEED_ADMIN_PASSWORD when needed");
   }
-  console.log("\n🎉 Seed complete");
+  console.info("\n🎉 Seed complete");
   await mongoose.disconnect();
 }
 
-seed().catch((err) => {
-  console.error(err);
+seed().catch(() => {
+  console.error("Quiz seed failed");
   process.exit(1);
 });

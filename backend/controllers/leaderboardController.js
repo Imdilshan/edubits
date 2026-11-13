@@ -1,27 +1,23 @@
 const User = require("../models/User");
 const QuizAttempt = require("../models/QuizAttempt");
-const { sortLeaderboard } = require("../algorithms/sorting");
 
 const getGlobalLeaderboard = async (req, res) => {
   try {
-    const limit = parseInt(req.query.limit) || 20;
-    const users = await User.find({}, "name totalScore avatar createdAt").lean();
-    const sorted = sortLeaderboard(
-      users.map((u) => ({ ...u, score: u.totalScore }))
-    ).slice(0, limit);
-
-    const ranked = sorted.map((u, i) => ({ ...u, rank: i + 1 }));
-
-    res.json({ leaderboard: ranked });
+    const users = await User.find({}, "totalScore").sort({ totalScore: -1, _id: 1 }).lean();
+    const userIndex = users.findIndex((user) => user._id.equals(req.user._id));
+    res.json({
+      rank: userIndex < 0 ? null : userIndex + 1,
+      score: userIndex < 0 ? 0 : users[userIndex].totalScore,
+      participantCount: users.length,
+    });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Request failed" });
   }
 };
 
 const getTopicLeaderboard = async (req, res) => {
   try {
     const { topicId } = req.params;
-    const limit = parseInt(req.query.limit) || 20;
     const results = await QuizAttempt.aggregate([
       { $match: { topicId: require("mongoose").Types.ObjectId(topicId) } },
       { $sort: { score: -1 } },
@@ -33,20 +29,10 @@ const getTopicLeaderboard = async (req, res) => {
           bestPercentage: { $max: "$percentage" },
         },
       },
-      { $sort: { bestScore: -1 } },
-      { $limit: limit },
-      {
-        $lookup: {
-          from: "users",
-          localField: "_id",
-          foreignField: "_id",
-          as: "user",
-        },
-      },
-      { $unwind: "$user" },
+      { $sort: { bestScore: -1, _id: 1 } },
       {
         $project: {
-          name: "$user.name",
+          _id: 1,
           score: "$bestScore",
           percentage: "$bestPercentage",
           attempts: 1,
@@ -54,10 +40,17 @@ const getTopicLeaderboard = async (req, res) => {
       },
     ]);
 
-    const ranked = results.map((r, i) => ({ ...r, rank: i + 1 }));
-    res.json({ leaderboard: ranked });
+    const userIndex = results.findIndex((result) => result._id.equals(req.user._id));
+    const current = userIndex < 0 ? null : results[userIndex];
+    res.json({
+      rank: current ? userIndex + 1 : null,
+      score: current?.score ?? 0,
+      percentage: current?.percentage ?? 0,
+      attempts: current?.attempts ?? 0,
+      participantCount: results.length,
+    });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Request failed" });
   }
 };
 

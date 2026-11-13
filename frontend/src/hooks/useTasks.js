@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { useToast } from "../context/ToastContext";
+import { useToast } from "../context/toastValue";
 import {
   fetchTasksAPI,
   createTaskAPI,
@@ -29,7 +29,7 @@ export default function useTasks() {
     } finally {
       setLoading(false);
     }
-  }, [filters]);
+  }, [filters, showToast]);
 
   useEffect(() => {
     loadTasks();

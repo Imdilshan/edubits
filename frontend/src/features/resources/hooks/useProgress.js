@@ -19,8 +19,8 @@ export function useProgress() {
         progressRef.current = map;
         setProgressMap(map);
       }
-    } catch (err) {
-      console.error("Failed to load progress:", err);
+    } catch {
+      console.error("Failed to load progress");
     } finally {
       setLoading(false);
     }

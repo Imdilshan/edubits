@@ -28,7 +28,7 @@ const getQuestions = async (req, res) => {
 
     res.json({ questions: questions.map(toPublicQuestion), count: questions.length });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Request failed" });
   }
 };
 
@@ -38,7 +38,7 @@ const getQuestion = async (req, res) => {
     if (!question) return res.status(404).json({ error: "Question not found" });
     res.json({ question: toPublicQuestion(question) });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Request failed" });
   }
 };
 
@@ -47,7 +47,7 @@ const createQuestion = async (req, res) => {
     const question = await Question.create(req.body);
     res.status(201).json({ question });
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    res.status(400).json({ error: "Request failed" });
   }
 };
 
@@ -58,7 +58,7 @@ const bulkCreateQuestions = async (req, res) => {
     const created = await Question.insertMany(questions);
     res.status(201).json({ created: created.length, questions: created });
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    res.status(400).json({ error: "Request failed" });
   }
 };
 
@@ -70,7 +70,7 @@ const updateQuestion = async (req, res) => {
     if (!question) return res.status(404).json({ error: "Question not found" });
     res.json({ question });
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    res.status(400).json({ error: "Request failed" });
   }
 };
 
@@ -80,7 +80,7 @@ const deleteQuestion = async (req, res) => {
     if (!question) return res.status(404).json({ error: "Question not found" });
     res.json({ message: "Question deleted" });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: "Request failed" });
   }
 };
 
