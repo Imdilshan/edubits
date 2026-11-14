@@ -17,6 +17,10 @@ frontend/dist/
 ._*
 **/._*
 
+# Local editor and browser automation state
+.vscode/
+.playwright-cli/
+
 # Logs
 *.log
 npm-debug.log*

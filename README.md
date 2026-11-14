@@ -4,6 +4,8 @@
 
 # Edubits
 
+[Visit the live website](https://edubits0.vercel.app)
+
 Your engineering toolkit, all in one place.
 
 Grade calculators, exam resources, practice quizzes, task tracking, and tools for the rest of engineering life.
