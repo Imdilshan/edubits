@@ -159,6 +159,7 @@ export default function ToolDeck({ initialTab = "todos" }) {
     }).catch(() => {});
   }, []);
 
+
   const [newSubtaskInputs, setNewSubtaskInputs] = useState({});
   const [editingTaskId, setEditingTaskId] = useState(null);
   const [editingText, setEditingText] = useState("");
@@ -189,6 +190,7 @@ export default function ToolDeck({ initialTab = "todos" }) {
       // ignore
     }
     persistToolSettings({ edubits_pinned_tasks: updated });
+
   };
 
   const handleToggleTaskStatus = (task) => {
@@ -247,6 +249,7 @@ export default function ToolDeck({ initialTab = "todos" }) {
       // ignore
     }
     persistToolSettings({ edubits_subtasks_map: nextMap });
+
   };
 
   const handleToggleSubtask = (taskId, subtaskId) => {
@@ -262,6 +265,7 @@ export default function ToolDeck({ initialTab = "todos" }) {
       // ignore
     }
     persistToolSettings({ edubits_subtasks_map: nextMap });
+
   };
 
   const handleDeleteSubtask = (taskId, subtaskId) => {
@@ -275,6 +279,7 @@ export default function ToolDeck({ initialTab = "todos" }) {
       // ignore
     }
     persistToolSettings({ edubits_subtasks_map: nextMap });
+
   };
 
   const filteredTasks = useMemo(() => {
@@ -470,6 +475,7 @@ export default function ToolDeck({ initialTab = "todos" }) {
           activeTab={activeTab}
           onTabChange={handleTabChange}
           tabs={navTabs}
+          mobileIconOnly
         />
       </div>
 

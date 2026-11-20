@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../context/authValue";
 import { useNavigate, Link } from "react-router-dom";
 import { useToast } from "../context/toastValue";
-import { Loader, ArrowRight } from "lucide-react";
+import { Loader, ArrowRight, Sparkles } from "lucide-react";
 import { GoogleIcon, GitHubIcon } from "../features/homepage/BrandIcons";
 import { API_URL } from "../config/api";
 import WarmTooltip from "../components/ui/WarmTooltip";
@@ -87,24 +87,43 @@ export default function Login() {
       <form onSubmit={handleLogin} className="auth-form">
         <div className="input-group">
           <input
+            id="login-email"
+            name="email"
             type="email"
+            autoComplete="email"
             placeholder=" "
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <label>Email</label>
+          <label htmlFor="login-email">Email</label>
         </div>
 
         <div className="input-group">
           <input
+            id="login-password"
+            name="password"
             type="password"
+            autoComplete="current-password"
             placeholder=" "
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <label>Password</label>
+          <label htmlFor="login-password">Password</label>
+        </div>
+
+        <div className="auth-autofill-row">
+          <button
+            type="button"
+            onClick={() => {
+              setEmail("demo@edubits.io");
+              setPassword("Password12345!");
+            }}
+            className="auth-autofill-btn"
+          >
+            <Sparkles size={12} /> Auto-fill Demo Credentials
+          </button>
         </div>
 
         <WarmTooltip content="Log in to your account" side="top">

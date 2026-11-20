@@ -122,7 +122,6 @@ export default function OnboardingModal({ isOpen, onClose }) {
         body: JSON.stringify({ academicYear, academicProgram }),
       });
       if (!academicResponse.ok) throw new Error("Could not save academic details");
-
       // 3. Mark onboarding complete in backend
       await fetch(`${API_URL}/auth/onboarding/complete`, {
         method: "POST",

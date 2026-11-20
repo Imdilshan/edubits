@@ -25,7 +25,6 @@ const QuizPage = lazy(() => import("../features/quiz/pages/QuizPage"));
 const ResultsPage = lazy(() => import("../features/quiz/pages/ResultsPage"));
 const HistoryPage = lazy(() => import("../features/quiz/pages/HistoryPage"));
 
-
 function AppInner() {
   const { user, authReady, showOnboarding, setShowOnboarding } = useAuth();
   const location  = useLocation();

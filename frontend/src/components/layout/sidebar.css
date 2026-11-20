@@ -26,7 +26,7 @@
   gap: 0.35rem;
   background-color: var(--surface-2, #121212);
   z-index: 1000;
-  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow-x: hidden;
   overflow-y: auto;
   scrollbar-width: none;
@@ -47,6 +47,37 @@ body.quiz-is-live .sidebar {
 body.quiz-is-live .sidebar > * {
   filter: grayscale(1) !important;
   opacity: 0.45 !important;
+}
+
+/* Keep the close/hide button enabled and clickable so mobile users can dismiss the sidebar */
+body.quiz-is-live .sidebar-mobile-hide-btn,
+body.quiz-is-live .close-sidebar-button,
+body.quiz-is-live .sidebar-mobile-hide-btn *,
+body.quiz-is-live .close-sidebar-button * {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+body.quiz-is-live .sidebar-mobile-hide-btn .sidebar-icon,
+body.quiz-is-live .close-sidebar-button.sidebar-icon {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  color: var(--text, #ffffff) !important;
+  opacity: 1 !important;
+}
+
+body.quiz-is-live .sidebar-mobile-hide-btn:hover .sidebar-icon,
+body.quiz-is-live .close-sidebar-button:hover .sidebar-icon {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: var(--primary, #3e9b8f) !important;
+}
+
+/* Also allow the floating mobile show button to be clicked so users can toggle */
+body.quiz-is-live .sidebar-mobile-show-btn {
+  pointer-events: auto !important;
+  cursor: pointer !important;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -407,6 +438,22 @@ body.quiz-is-live .sidebar > * {
   display: block;
 }
 
+/* Dedicated Sign Out Button in Sidebar */
+.sidebar-signout-btn {
+  color: var(--muted, #8a8f98);
+  transition: all 0.2s ease;
+}
+
+.sidebar-signout-btn:hover {
+  color: #ef4444 !important;
+  background-color: rgba(239, 68, 68, 0.12) !important;
+}
+
+body.light .sidebar-signout-btn:hover {
+  color: #dc2626 !important;
+  background-color: rgba(220, 38, 38, 0.08) !important;
+}
+
 /* Mobile Toggle Buttons */
 .sidebar-mobile-hide-btn {
   display: none;
@@ -424,29 +471,71 @@ body.quiz-is-live .sidebar > * {
   z-index: 999;
   align-items: center;
   justify-content: center;
-  width: 38px;
+  width: 32px;
   height: 48px;
   border-radius: 0 10px 10px 0;
-  background-color: var(--surface-2, #121212);
-  border: 1px solid var(--border, #2a2a2a);
+  background-color: var(--surface-2, #141518);
+  border: 1px solid var(--border-strong, rgba(255, 255, 255, 0.15));
   border-left: none;
-  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.35);
-  color: var(--muted, #8a8f98);
+  box-shadow: 3px 0 16px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  color: #ffffff;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0;
+  padding-right: 2px;
 }
 
-.sidebar-mobile-show-btn:hover {
-  color: var(--text, #ffffff);
-  background-color: var(--surface-3, #18191a);
+.sidebar-mobile-show-btn:hover,
+.sidebar-mobile-show-btn:active {
+  color: var(--primary, #3e9b8f);
+  background-color: var(--surface-3, #1e2025);
+  width: 36px;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.6), 0 0 12px rgba(62, 155, 143, 0.25);
+}
+
+.sidebar-mobile-show-btn svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2.3px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+@media (min-width: 769px) {
+  .sidebar {
+    transform: translateY(-52%) translateX(0) !important;
+  }
+  .sidebar-mobile-show-btn {
+    display: none !important;
+  }
+  .sidebar-mobile-hide-btn {
+    display: none !important;
+  }
 }
 
 @media (max-width: 768px) {
+  .sidebar.is-mobile-hidden {
+    transform: translateY(-52%) translateX(-100%) !important;
+  }
   .sidebar-mobile-hide-btn {
     display: flex;
   }
   .sidebar-mobile-show-btn {
     display: flex;
+  }
+}
+
+@media (max-height: 480px) {
+  .sidebar {
+    top: 50%;
+    transform: translateY(-50%);
+    max-height: 96vh;
+    padding: 0.6rem 0;
+    gap: 0.2rem;
+  }
+  .sidebar.is-mobile-hidden {
+    transform: translateY(-50%) translateX(-100%) !important;
   }
 }
 
@@ -478,7 +567,13 @@ body.light .sidebar-bottom {
 
 body.light .sidebar-mobile-show-btn {
   background-color: #ffffff;
-  border-color: rgba(0, 0, 0, 0.08);
-  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.08);
-  color: #536764;
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 2px 0 14px rgba(0, 0, 0, 0.1);
+  color: #0b1413;
+}
+
+body.light .sidebar-mobile-show-btn:hover,
+body.light .sidebar-mobile-show-btn:active {
+  color: var(--primary, #3e9b8f);
+  background-color: #f0f7f6;
 }

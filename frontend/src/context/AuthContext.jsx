@@ -21,6 +21,10 @@ export function AuthProvider({ children }) {
     setShowOnboarding(false);
   }, []);
 
+  const updateScore = useCallback((totalScore) => {
+    setUser((currentUser) => (currentUser ? { ...currentUser, totalScore } : currentUser));
+  }, []);
+
   const completeOnboarding = useCallback(() => {
     setUser((currentUser) => (currentUser ? { ...currentUser, onboardingCompleted: true } : currentUser));
     setShowOnboarding(false);
@@ -68,6 +72,7 @@ export function AuthProvider({ children }) {
         setUser,
         login,
         logout,
+        updateScore,
         completeOnboarding,
         showOnboarding,
         setShowOnboarding,

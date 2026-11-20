@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import WarmTooltip from "../components/ui/WarmTooltip";
@@ -28,6 +29,25 @@ export default function AuthCutoutLayout({
   const alternatePath = isLogin ? "/register" : "/login";
   const alternateLabel = isLogin ? "Create account" : "Log in";
 
+  const [asciiConfig, setAsciiConfig] = useState(() => {
+    if (typeof window === "undefined") return { scale: 0.65, cellSize: 16 };
+    const w = window.innerWidth;
+    if (w < 640) return { scale: 1.15, cellSize: 13 };
+    if (w < 920) return { scale: 0.95, cellSize: 15 };
+    return { scale: 0.65, cellSize: 16 };
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      const w = window.innerWidth;
+      if (w < 640) setAsciiConfig({ scale: 1.15, cellSize: 13 });
+      else if (w < 920) setAsciiConfig({ scale: 0.95, cellSize: 15 });
+      else setAsciiConfig({ scale: 0.65, cellSize: 16 });
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className="auth-page">
       <div className="auth-frame">
@@ -42,12 +62,12 @@ export default function AuthCutoutLayout({
                 <GradientASCII
                   shape="eclipse"
                   colors={["#115d62", "#1f7771", "#3e9b8f", "#5cc2b4"]}
-                  scale={0.55}
+                  scale={asciiConfig.scale}
                   density={0.8}
                   glyphOpacity={0.88}
                   softness={0.95}
                   speed={0.8}
-                  cellSize={16}
+                  cellSize={asciiConfig.cellSize}
                 />
               </div>
               <img

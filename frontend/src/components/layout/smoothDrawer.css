@@ -345,16 +345,81 @@
     flex-direction: row;
     border-right: none;
     border-bottom: 1px solid var(--border);
-    padding: 0.5rem;
+    padding: 0.5rem 0.75rem;
     overflow-x: auto;
+    align-items: center;
+    gap: 6px;
+    box-sizing: border-box;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .smooth-drawer-nav::-webkit-scrollbar {
+    display: none;
   }
   .smooth-drawer-nav-title {
     display: none;
   }
+  .smooth-drawer-tab-btn {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    padding: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9px;
+    flex-shrink: 0;
+  }
+  .smooth-drawer-tab-btn span {
+    display: none !important;
+  }
+  .smooth-drawer-tab-btn svg {
+    width: 18px;
+    height: 18px;
+  }
   .smooth-drawer-nav-footer {
-    display: none;
+    display: flex;
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  .smooth-drawer-logout-btn {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    background: rgba(229, 72, 77, 0.12);
+    color: #ef4444;
+    border: 1px solid rgba(229, 72, 77, 0.25);
+  }
+  .smooth-drawer-logout-btn span {
+    display: none !important;
+  }
+  .smooth-drawer-logout-btn svg {
+    width: 17px;
+    height: 17px;
   }
   .smooth-drawer-main {
     padding: 1.25rem 1rem 2rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .smooth-drawer-nav {
+    gap: 4px;
+    padding: 0.4rem 0.5rem;
+  }
+  .smooth-drawer-tab-btn,
+  .smooth-drawer-logout-btn {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
   }
 }

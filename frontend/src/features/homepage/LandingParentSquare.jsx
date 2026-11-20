@@ -665,7 +665,8 @@ export default function LandingParentSquare() {
               <div className="ps-quiz-intro">
                 <h2 className="ps-display-md">Practice for NPTEL and college viva</h2>
                 <p className="ps-body-lead">
-                  Take quizzes by topic, then review your results and history.
+                  Take quizzes by topic, review your results and history, and see where you rank on
+                  the leaderboard.
                 </p>
 
                 <div className="ps-quiz-topic-picker" role="tablist" aria-label="Sample quiz topics">

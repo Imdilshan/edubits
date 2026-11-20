@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/authValue";
 import { useToast } from "../context/toastValue";
-import { Loader, ArrowRight } from "lucide-react";
+import { Loader, ArrowRight, Sparkles } from "lucide-react";
 import { GoogleIcon, GitHubIcon } from "../features/homepage/BrandIcons";
 import { API_URL } from "../config/api";
 import WarmTooltip from "../components/ui/WarmTooltip";
@@ -94,35 +94,59 @@ export default function Register() {
       <form onSubmit={handleRegister} className="auth-form">
         <div className="input-group">
           <input
+            id="register-name"
+            name="name"
             type="text"
+            autoComplete="name"
             placeholder=" "
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
           />
-          <label>Full Name</label>
+          <label htmlFor="register-name">Full Name</label>
         </div>
 
         <div className="input-group">
           <input
+            id="register-email"
+            name="email"
             type="email"
+            autoComplete="email"
             placeholder=" "
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <label>Email</label>
+          <label htmlFor="register-email">Email</label>
         </div>
 
         <div className="input-group">
           <input
+            id="register-password"
+            name="password"
             type="password"
+            autoComplete="new-password"
             placeholder=" "
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <label>Password (12+ chars)</label>
+          <label htmlFor="register-password">Password (12+ chars)</label>
+        </div>
+
+        <div className="auth-autofill-row">
+          <button
+            type="button"
+            onClick={() => {
+              const rand = Math.floor(1000 + Math.random() * 9000);
+              setName("Student " + rand);
+              setEmail(`student${rand}@edubits.io`);
+              setPassword("Password12345!");
+            }}
+            className="auth-autofill-btn"
+          >
+            <Sparkles size={12} /> Auto-fill Sample Credentials
+          </button>
         </div>
 
         <WarmTooltip content="Create your permanent Edubits account" side="top">

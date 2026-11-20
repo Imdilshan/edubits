@@ -338,10 +338,100 @@
   .res-home-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 600px) {
-  .res-home { padding: 0 14px 60px; }
-  .res-home-grid { gap: 12px; }
-  .res-home-grid--subjects { gap: 12px; }
+@media (max-width: 768px) {
+  .res-home {
+    padding: 0 16px 60px;
+  }
+  .res-home-header {
+    padding: 24px 0 16px;
+    margin-bottom: 16px;
+  }
+  .res-home-title {
+    font-size: 1.5rem;
+  }
+  .res-header-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .res-year-switcher {
+    width: 100%;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  .res-year-switcher-btn {
+    flex: 1;
+    text-align: center;
+    padding: 6px 8px;
+    font-size: 11.5px;
+  }
+}
+
+@media (max-width: 560px) {
+  .res-home {
+    padding: 0 12px 60px;
+  }
+  .res-home-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .res-home-grid--subjects {
+    gap: 16px;
+  }
+  .res-thumb-card {
+    min-height: 220px;
+    aspect-ratio: 16 / 10;
+  }
+  .res-card-title {
+    font-size: 20px !important;
+  }
+}
+
+/* Light mode overrides */
+body.light .res-year-switcher {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+body.light .res-year-switcher-btn {
+  color: #536764;
+}
+
+body.light .res-year-switcher-btn:hover {
+  background: #f0f4f4;
+  color: #0b1413;
+}
+
+body.light .res-year-switcher-btn.active {
+  background: #287d72;
+  color: #ffffff;
+}
+
+body.light .res-thumb-card {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+}
+
+body.light .res-thumb-card:hover {
+  border-color: #3e9b8f;
+  box-shadow: 0 12px 32px rgba(62, 155, 143, 0.12);
+}
+
+body.light .res-card-ascii-wrap {
+  opacity: 0.38;
+}
+
+body.light .res-card-title {
+  color: #0b1413 !important;
+  text-shadow: none !important;
+  font-weight: 700;
+}
+
+body.light .res-card-desc,
+body.light .res-card-meta {
+  color: #287d72 !important;
+  text-shadow: none !important;
 }
 
 /* Light mode overrides */

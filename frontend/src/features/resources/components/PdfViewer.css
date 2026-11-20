@@ -218,3 +218,23 @@
   cursor: pointer;
   margin: 4px;
 }
+
+@media (max-width: 600px) {
+  .pdf-viewer-header {
+    height: 42px;
+    padding: 0 10px;
+    gap: 8px;
+  }
+  .pdf-viewer-title {
+    max-width: 120px;
+    font-size: 12px;
+  }
+  .pdf-variant-tab {
+    padding: 3px 8px;
+    font-size: 11px;
+  }
+  .pdf-action-btn {
+    width: 28px;
+    height: 28px;
+  }
+}

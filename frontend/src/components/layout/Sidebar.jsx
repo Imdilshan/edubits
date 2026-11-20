@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authValue";
 import DesignedAtSymbol from "./DesignedAtSymbol";
@@ -13,6 +13,7 @@ import {
   ListTodo,
   Monitor,
   Settings,
+  LogOut,
   Moon as MoonIcon,
   Sun as SunIcon,
   ChevronsLeft,
@@ -33,6 +34,33 @@ export default function Sidebar() {
     return typeof window !== "undefined" && window.innerWidth < 768;
   });
 
+  const prevWidthRef = useRef(
+    typeof window !== "undefined" ? window.innerWidth : 1024
+  );
+
+  // Sync and protect sidebar state across viewport / screen size changes
+  useEffect(() => {
+    const handleResize = () => {
+      const currentWidth = window.innerWidth;
+      const wasMobile = prevWidthRef.current < 768;
+      const isMobile = currentWidth < 768;
+      prevWidthRef.current = currentWidth;
+
+      if (!isMobile) {
+        // Desktop always shows sidebar
+        setIsMobileHidden(false);
+        setIsExpanded(false);
+      } else if (!wasMobile && isMobile) {
+        // Transitioning from desktop to mobile: hide sidebar by default so it doesn't block content
+        setIsMobileHidden(true);
+        setIsExpanded(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   // Always keep body in dark mode (light mode disabled, coming soon)
   useEffect(() => {
     document.body.classList.remove("light");
@@ -43,7 +71,7 @@ export default function Sidebar() {
     }
   }, []);
 
-  // Swipe to show / hide sidebar on mobile
+  // Swipe to show / hide sidebar on mobile only
   useEffect(() => {
     let touchStartX = 0;
     let touchStartY = 0;
@@ -60,10 +88,12 @@ export default function Sidebar() {
       const deltaY = touchEndY - touchStartY;
 
       if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
-        if (deltaX > 0) {
-          setIsMobileHidden(false); // Swipe Right -> Show
-        } else {
-          setIsMobileHidden(true); // Swipe Left -> Hide
+        if (window.innerWidth < 768) {
+          if (deltaX > 0) {
+            setIsMobileHidden(false); // Swipe Right -> Show
+          } else {
+            setIsMobileHidden(true); // Swipe Left -> Hide
+          }
         }
       }
     };
@@ -142,13 +172,7 @@ export default function Sidebar() {
   return (
     <>
       <aside
-        className={`sidebar ${isExpanded ? "expanded" : ""}`}
-        style={{
-          transform: isMobileHidden
-            ? "translateY(-52%) translateX(-100%)"
-            : "translateY(-52%) translateX(0)",
-          transition: "transform 0.3s ease, width 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-        }}
+        className={`sidebar ${isExpanded ? "expanded" : ""} ${isMobileHidden ? "is-mobile-hidden" : ""}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         aria-label="Sidebar Navigation"
@@ -215,6 +239,7 @@ export default function Sidebar() {
                 setSettingsTab("preferences");
                 setIsSettingsOpen(true);
                 setIsExpanded(false);
+                if (window.innerWidth < 768) setIsMobileHidden(true);
               }}
               title={!isExpanded ? "Settings" : undefined}
               role="button"
@@ -232,6 +257,7 @@ export default function Sidebar() {
                 setSettingsTab("account");
                 setIsSettingsOpen(true);
                 setIsExpanded(false);
+                if (window.innerWidth < 768) setIsMobileHidden(true);
               }}
               title={!isExpanded ? `${userName} (${user.email})` : undefined}
               role="button"
@@ -284,18 +310,53 @@ export default function Sidebar() {
             </div>
           )}
 
-          {/* Mobile Hide Button */}
-          <div className="sidebar-mobile-hide-btn">
+          {user && (
             <div
-              onClick={() => setIsMobileHidden(true)}
-              className="sidebar-icon"
-              style={{ justifyContent: "center", paddingLeft: 0, height: 38 }}
-              title="Hide Sidebar"
+              className="sidebar-icon sidebar-signout-btn"
+              onClick={() => {
+                setSettingsTab("account");
+                setIsSettingsOpen(true);
+                setIsExpanded(false);
+                if (window.innerWidth < 768) setIsMobileHidden(true);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setSettingsTab("account");
+                  setIsSettingsOpen(true);
+                  setIsExpanded(false);
+                  if (window.innerWidth < 768) setIsMobileHidden(true);
+                }
+              }}
+              title={!isExpanded ? "Log out (Settings)" : undefined}
               role="button"
               tabIndex={0}
             >
-              <ChevronsLeft size={21} />
+              <LogOut size={20} style={{ minWidth: 20 }} />
+              <span className="sidebar-text">Sign out</span>
             </div>
+          )}
+
+          {/* Mobile Hide Button */}
+          <div className="sidebar-mobile-hide-btn close-sidebar-button">
+            <button
+              type="button"
+              onClick={() => setIsMobileHidden(true)}
+              className="sidebar-icon close-sidebar-button"
+              style={{
+                justifyContent: "center",
+                paddingLeft: 0,
+                height: 38,
+                width: "100%",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+              }}
+              title="Hide Sidebar"
+              aria-label="Hide Sidebar"
+            >
+              <ChevronsLeft size={21} />
+            </button>
           </div>
         </div>
       </aside>
@@ -308,7 +369,7 @@ export default function Sidebar() {
           className="sidebar-mobile-show-btn"
           aria-label="Open Navigation Sidebar"
         >
-          <ChevronsRight size={22} />
+          <ChevronsRight size={22} strokeWidth={2.3} />
         </button>
       )}
 

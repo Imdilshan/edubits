@@ -344,34 +344,80 @@
 
 @media (max-width: 680px) {
   .internal-container {
-    width: min(100% - 28px, 1120px);
-    margin-top: 22px;
+    width: 100%;
+    margin-top: 14px;
   }
 
   .internal-header {
-    margin-bottom: 24px;
+    margin-bottom: 18px;
   }
 
   .internal-title {
-    font-size: 23px;
+    font-size: 21px;
   }
 
   .internal-title svg {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
   }
 
   .internal-subtitle {
-    margin-left: 48px;
+    margin-left: 44px;
+    font-size: 13px;
   }
 
   .internal-tabs {
     overflow-x: auto;
     flex-wrap: nowrap !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .internal-tabs::-webkit-scrollbar {
+    display: none;
   }
 
   .internal-tabs .pill-tab {
     flex: 0 0 auto;
+  }
+
+  .internal-unified-bar {
+    gap: 6px;
+    padding: 6px 8px;
+    border-radius: 12px;
+  }
+
+  .internal-dropdown-trigger {
+    padding: 5px 8px;
+    font-size: 11.5px;
+  }
+
+  .internal-bar-group--types {
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap !important;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    gap: 4px;
+  }
+
+  .internal-bar-group--types::-webkit-scrollbar {
+    display: none;
+  }
+
+  .internal-bar-btn {
+    flex: 0 0 auto;
+    padding: 5px 9px;
+    font-size: 11.5px;
+    white-space: nowrap;
+  }
+
+  .subject-examples {
+    padding: 8px 12px;
+    font-size: 11.5px;
   }
 
   .subject-examples ul,
@@ -380,7 +426,12 @@
   }
 
   .internal-card {
-    padding: 14px;
+    padding: 12px 10px;
+    border-radius: 14px;
+  }
+
+  .internal-calc-section {
+    padding: 12px;
   }
 }
 

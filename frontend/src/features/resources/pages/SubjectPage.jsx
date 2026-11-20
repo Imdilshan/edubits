@@ -89,7 +89,7 @@ export default function SubjectPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Workspace & Explorer state (1:1 with AI site Notes UI)
+  // Workspace & Explorer state (shows explorer sidebar by default on mobile and PC)
   const [isExplorerOpen, setIsExplorerOpen] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [openFiles, setOpenFiles] = useState([]);
@@ -272,7 +272,7 @@ export default function SubjectPage() {
   };
 
   // Open item in workspace tab strip
-  const handleOpenFile = (item) => {
+  const handleOpenFile = (item, closeExplorerOnMobile = true) => {
     const existing = openFiles.find((f) => f.id === item.id);
     if (!existing) {
       setOpenFiles((prev) => [...prev, item]);
@@ -284,7 +284,7 @@ export default function SubjectPage() {
       handleAttemptedToggle(item.paperKey, false);
     }
 
-    if (typeof window !== "undefined" && window.innerWidth < 768) {
+    if (closeExplorerOnMobile && typeof window !== "undefined" && window.innerWidth < 768) {
       setIsExplorerOpen(false);
     }
   };
@@ -446,6 +446,9 @@ export default function SubjectPage() {
                     onClick={() => {
                       const tabId = tab.id;
                       setActiveTab(tabId);
+                      if (typeof window !== "undefined" && window.innerWidth < 768) {
+                        setIsExplorerOpen(true);
+                      }
                       if (tabId === "playlists" && sortedPlaylists.length > 0) {
                         const currentIsPlaylist = activeFile?.type === "playlist";
                         if (!currentIsPlaylist) {
@@ -457,7 +460,7 @@ export default function SubjectPage() {
                             description: firstPl.description,
                             url: firstPl.url,
                             raw: firstPl,
-                          });
+                          }, false);
                         }
                       } else if (tabId === "pyqs") {
                         const currentIsPyq = activeFile?.type === "pyq";
@@ -473,7 +476,7 @@ export default function SubjectPage() {
                               questions: firstUploaded.questions,
                               solution: firstUploaded.solution,
                               activeVariant: "questions",
-                            });
+                            }, false);
                           }
                         }
                       } else if (tabId === "notes" && notes.length > 0) {
@@ -487,7 +490,7 @@ export default function SubjectPage() {
                             description: firstNote.description,
                             url: firstNote.url,
                             raw: firstNote,
-                          });
+                          }, false);
                         }
                       }
                     }}
@@ -689,6 +692,15 @@ export default function SubjectPage() {
             </MotionDiv>
           )}
         </AnimatePresence>
+
+        {/* Mobile Backdrop when Explorer is Open */}
+        {isExplorerOpen && (
+          <div
+            className="tooldeck-explorer-backdrop"
+            onClick={() => setIsExplorerOpen(false)}
+            aria-hidden="true"
+          />
+        )}
 
         {/* --- RIGHT: EDITOR / WORKSPACE STAGE --- */}
         <div className="tooldeck-editor-panel">

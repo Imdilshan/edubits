@@ -31,3 +31,6 @@ coverage
 
 # User uploads (stored in Cloudinary in production)
 backend/uploads/
+
+# Local reference files
+Example site/

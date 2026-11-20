@@ -108,3 +108,132 @@ body.light .nav-pill-active {
 body.light .nav-pill-hover {
   background: rgba(0, 0, 0, 0.04);
 }
+
+/* ============================================================================
+   Magnetic Nav Mobile & Small Screen Adaptations
+   ============================================================================ */
+
+@media (max-width: 640px) {
+  .magnetic-nav-container {
+    margin-bottom: 1.25rem;
+    top: 0.5rem;
+    padding: 0 10px;
+    box-sizing: border-box;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .magnetic-nav-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .magnetic-nav {
+    display: inline-flex;
+    width: auto;
+    max-width: none;
+    min-width: max-content;
+    justify-content: center;
+    padding: 3px 5px;
+    gap: 3px;
+    box-sizing: border-box;
+    white-space: nowrap;
+  }
+
+  .magnetic-nav-item {
+    padding: 6px 11px;
+    font-size: 12px;
+    gap: 5px;
+    flex: 0 0 auto;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  .magnetic-nav-item svg {
+    width: 13px;
+    height: 13px;
+    min-width: 13px;
+  }
+}
+
+@media (max-width: 440px) {
+  .magnetic-nav-container {
+    padding: 0 8px;
+    justify-content: flex-start;
+  }
+
+  .magnetic-nav {
+    justify-content: flex-start;
+  }
+
+  .magnetic-nav-item {
+    padding: 6px 8px;
+    font-size: 11px;
+    gap: 4px;
+  }
+
+  .magnetic-nav-item svg {
+    width: 12px;
+    height: 12px;
+    min-width: 12px;
+  }
+}
+
+/* Mobile Icon-Only Variant (e.g. Tool Deck tab changer) */
+@media (max-width: 640px) {
+  .nav-mobile-icons-only.magnetic-nav-container {
+    justify-content: center !important;
+    padding: 0 16px;
+    overflow-x: visible;
+  }
+
+  .nav-mobile-icons-only .magnetic-nav {
+    display: inline-flex !important;
+    width: auto !important;
+    min-width: unset !important;
+    max-width: 100% !important;
+    justify-content: center !important;
+    padding: 4px 6px;
+    gap: 4px;
+    border-radius: 9999px;
+  }
+
+  .nav-mobile-icons-only .magnetic-nav-item {
+    padding: 9px 15px !important;
+    flex: 0 0 auto !important;
+    justify-content: center !important;
+    border-radius: 9999px;
+  }
+
+  .nav-mobile-icons-only .nav-label,
+  .nav-mobile-icons-only .nav-count {
+    display: none !important;
+  }
+
+  .nav-mobile-icons-only .nav-content {
+    gap: 0;
+  }
+
+  .nav-mobile-icons-only .magnetic-nav-item svg {
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    stroke-width: 2px;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-mobile-icons-only .magnetic-nav-item {
+    padding: 8px 11px !important;
+  }
+
+  .nav-mobile-icons-only .magnetic-nav-item svg {
+    width: 17px !important;
+    height: 17px !important;
+    min-width: 17px !important;
+  }
+}

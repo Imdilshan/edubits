@@ -17,6 +17,7 @@ import {
 
 import GradientASCII from "../../../components/ui/GradientASCII";
 import WarmTooltip from "../../../components/ui/WarmTooltip";
+import { useAuth } from "../../../context/authValue";
 import { recordRecentActivity } from "../../../utils/recentActivity";
 import "./QuizPage.css";
 
@@ -26,21 +27,32 @@ export default function QuizPage() {
   const { topicId } = useParams();
   const { state } = useLocation();
   const navigate = useNavigate();
+  const { updateScore } = useAuth();
 
   const [phase, setPhase] = useState("loading");
   const [questions, setQuestions] = useState([]);
   const [topic, setTopic] = useState(state?.topic || null);
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState([]);
-  const [revealed, setRevealed] = useState(false);
+  const [isAdvancing, setIsAdvancing] = useState(false);
   const [timeLeft, setTimeLeft] = useState(30);
   const [, setAnswers] = useState([]);
   const [error, setError] = useState("");
   const [sessionToken, setSessionToken] = useState("");
 
   const timerRef = useRef(null);
+  const advancingTimeoutRef = useRef(null);
   const startTimeRef = useRef(Date.now());
   const answersRef = useRef([]);
+
+  // Clear pending timeout on unmount or question change
+  useEffect(() => {
+    return () => {
+      if (advancingTimeoutRef.current) {
+        clearTimeout(advancingTimeoutRef.current);
+      }
+    };
+  }, [current]);
 
   // Manage disabled sidebar when quiz is live
   useEffect(() => {
@@ -59,14 +71,6 @@ export default function QuizPage() {
   const isMultiSelect = (question) => {
     return question?.isMultiSelect === true;
   };
-
-  const recordAnswer = useCallback((answer) => {
-    setAnswers((prev) => {
-      const next = [...prev, answer];
-      answersRef.current = next;
-      return next;
-    });
-  }, []);
 
   const startQuiz = useCallback(async () => {
     setPhase("loading");
@@ -107,23 +111,79 @@ export default function QuizPage() {
     startQuiz();
   }, [startQuiz]);
 
+  const submitQuiz = useCallback(
+    async (submittedAnswers = answersRef.current) => {
+      setPhase("submitting");
+      setError("");
+
+      try {
+        const totalTime = Math.round(
+          (Date.now() - startTimeRef.current) / 1000
+        );
+
+        const { data } = await api.post("/quiz/submit", {
+          topicId,
+          answers: submittedAnswers,
+          timeTakenSeconds: totalTime,
+          sessionToken,
+        });
+
+        updateScore(data.newTotalScore);
+        navigate("/quizzes/results", {
+          state: { result: data, topic, questions },
+        });
+      } catch (err) {
+        console.error("Failed to submit quiz");
+        setError(err.response?.data?.error || "Failed to submit quiz.");
+        setPhase("question");
+      }
+    },
+    [topicId, sessionToken, updateScore, navigate, topic, questions]
+  );
+
+  const advanceToNext = useCallback(
+    (submittedAnswers = answersRef.current) => {
+      if (advancingTimeoutRef.current) {
+        clearTimeout(advancingTimeoutRef.current);
+        advancingTimeoutRef.current = null;
+      }
+      setSelected([]);
+      setIsAdvancing(false);
+
+      if (current + 1 >= questions.length) {
+        submitQuiz(submittedAnswers);
+      } else {
+        setCurrent((c) => c + 1);
+      }
+    },
+    [current, questions.length, submitQuiz]
+  );
+
   const handleTimeout = useCallback(() => {
-    if (revealed) return;
+    if (isAdvancing) return;
     clearInterval(timerRef.current);
 
-    setRevealed(true);
+    setIsAdvancing(true);
     setSelected([]);
 
-    recordAnswer({
-      questionId: questions[current]._id,
+    const answerRecord = {
+      questionId: questions[current]?._id,
       selectedOptions: [],
       timedOut: true,
       timeTakenSeconds: questions[current]?.timeLimitSeconds || 30,
-    });
-  }, [revealed, recordAnswer, questions, current]);
+    };
+
+    const nextAnswers = [...answersRef.current, answerRecord];
+    answersRef.current = nextAnswers;
+    setAnswers(nextAnswers);
+
+    advancingTimeoutRef.current = setTimeout(() => {
+      advanceToNext(nextAnswers);
+    }, 400);
+  }, [isAdvancing, questions, current, advanceToNext]);
 
   useEffect(() => {
-    if (phase !== "question" || revealed) return;
+    if (phase !== "question" || isAdvancing) return;
 
     const limit = questions[current]?.timeLimitSeconds || 30;
     setTimeLeft(limit);
@@ -140,10 +200,10 @@ export default function QuizPage() {
     }, 1000);
 
     return () => clearInterval(timerRef.current);
-  }, [phase, current, revealed, questions, handleTimeout]);
+  }, [phase, current, isAdvancing, questions, handleTimeout]);
 
   const handleToggleOption = (optIndex) => {
-    if (revealed) return;
+    if (isAdvancing) return;
 
     const q = questions[current];
     const multi = isMultiSelect(q);
@@ -155,66 +215,52 @@ export default function QuizPage() {
           : [...prev, optIndex];
         return next;
       });
-    } else {
-      setSelected((prev) => (prev[0] === optIndex ? [] : [optIndex]));
+      return;
     }
+
+    // Single-choice: Select option, auto-save answer, and auto-advance after brief visual feedback
+    setSelected([optIndex]);
+    clearInterval(timerRef.current);
+    setIsAdvancing(true);
+
+    const timeTaken = (q.timeLimitSeconds || 30) - timeLeft;
+    const answerRecord = {
+      questionId: q._id,
+      selectedOptions: [optIndex],
+      timedOut: false,
+      timeTakenSeconds: Math.max(1, timeTaken),
+    };
+
+    const nextAnswers = [...answersRef.current, answerRecord];
+    answersRef.current = nextAnswers;
+    setAnswers(nextAnswers);
+
+    advancingTimeoutRef.current = setTimeout(() => {
+      advanceToNext(nextAnswers);
+    }, 320);
   };
 
-  const handleConfirmAnswer = () => {
-    if (revealed) return;
+  const handleManualNext = () => {
+    if (isAdvancing) return;
     clearInterval(timerRef.current);
 
     const q = questions[current];
     const multi = isMultiSelect(q);
-    const timeTaken = (q.timeLimitSeconds || 30) - timeLeft;
-
     if (!multi && selected.length === 0) return;
 
-    setRevealed(true);
-
-    recordAnswer({
+    const timeTaken = (q.timeLimitSeconds || 30) - timeLeft;
+    const answerRecord = {
       questionId: q._id,
       selectedOptions: selected,
       timedOut: false,
-      timeTakenSeconds: timeTaken,
-    });
-  };
+      timeTakenSeconds: Math.max(1, timeTaken),
+    };
 
-  const handleNext = () => {
-    setSelected([]);
-    setRevealed(false);
-
-    if (current + 1 >= questions.length) {
-      submitQuiz(answersRef.current);
-    } else {
-      setCurrent((c) => c + 1);
-    }
-  };
-
-  const submitQuiz = async (submittedAnswers = answersRef.current) => {
-    setPhase("submitting");
-    setError("");
-
-    try {
-      const totalTime = Math.round(
-        (Date.now() - startTimeRef.current) / 1000
-      );
-
-      const { data } = await api.post("/quiz/submit", {
-        topicId,
-        answers: submittedAnswers,
-        timeTakenSeconds: totalTime,
-        sessionToken,
-      });
-
-      navigate("/quizzes/results", {
-        state: { result: data, topic, questions },
-      });
-    } catch (err) {
-      console.error("Failed to submit quiz");
-      setError(err.response?.data?.error || "Failed to submit quiz.");
-      setPhase("question");
-    }
+    const nextAnswers = [...answersRef.current, answerRecord];
+    answersRef.current = nextAnswers;
+    setAnswers(nextAnswers);
+    setIsAdvancing(true);
+    advanceToNext(nextAnswers);
   };
 
   // Shared ASCII Background component
@@ -401,8 +447,8 @@ export default function QuizPage() {
                   key={i}
                   type="button"
                   onClick={() => handleToggleOption(i)}
-                  disabled={revealed}
-                  className={`quiz-single-option ${isSelected ? "is-selected" : ""} ${revealed ? "is-revealed" : ""}`}
+                  disabled={isAdvancing}
+                  className={`quiz-single-option ${isSelected ? "is-selected" : ""} ${isAdvancing ? "is-advancing" : ""}`}
                 >
                   <span className="quiz-option-key">
                     {["A", "B", "C", "D", "E"][i]}
@@ -416,46 +462,54 @@ export default function QuizPage() {
             })}
           </div>
 
-          {revealed && (
-            <div className="quiz-status-notice">
-              <Info size={15} />
-              <span>Answer recorded. Correct answers and detailed solutions will appear in your results report.</span>
-            </div>
-          )}
-
           {/* Bottom Action Footer */}
           <div className="quiz-bottom-actions">
             <div className="quiz-bottom-meta">
               {multi ? (
                 <span>{selected.length} option{selected.length === 1 ? "" : "s"} selected</span>
               ) : (
-                <span>{selected.length > 0 ? "Option selected" : "Select an answer"}</span>
+                <span>
+                  {isAdvancing
+                    ? "Saving & advancing..."
+                    : selected.length > 0
+                    ? "Option selected"
+                    : "Select an answer"}
+                </span>
               )}
             </div>
 
             <div className="quiz-bottom-cta">
-              {revealed ? (
-                <WarmTooltip content={current + 1 >= questions.length ? "Submit all answers & generate report" : "Move to next question"} side="top">
-                  <button
-                    className="quiz-cta-button"
-                    onClick={handleNext}
-                  >
-                    <span>{current + 1 >= questions.length ? "Submit Quiz" : "Next Question"}</span>
-                    {current + 1 >= questions.length ? <Send size={16} /> : <ArrowRight size={16} />}
-                  </button>
-                </WarmTooltip>
-              ) : (
-                <WarmTooltip content={selected.length === 0 ? "Select an option first" : "Lock in your response"} side="top">
-                  <button
-                    className="quiz-cta-button"
-                    onClick={handleConfirmAnswer}
-                    disabled={!multi && selected.length === 0}
-                  >
-                    <span>{multi ? "Submit Answer" : "Confirm"}</span>
+              <WarmTooltip
+                content={
+                  selected.length === 0
+                    ? "Select an option first"
+                    : current + 1 >= questions.length
+                    ? "Submit quiz answers"
+                    : "Proceed to next question"
+                }
+                side="top"
+              >
+                <button
+                  className="quiz-cta-button"
+                  onClick={multi ? handleManualNext : () => advanceToNext(answersRef.current)}
+                  disabled={selected.length === 0 || isAdvancing}
+                >
+                  <span>
+                    {isAdvancing
+                      ? current + 1 >= questions.length
+                        ? "Submitting..."
+                        : "Next..."
+                      : current + 1 >= questions.length
+                      ? "Submit Quiz"
+                      : "Next Question"}
+                  </span>
+                  {current + 1 >= questions.length ? (
+                    <Send size={16} />
+                  ) : (
                     <ArrowRight size={16} />
-                  </button>
-                </WarmTooltip>
-              )}
+                  )}
+                </button>
+              </WarmTooltip>
             </div>
           </div>
         </div>

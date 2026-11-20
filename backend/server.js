@@ -98,6 +98,19 @@ app.use((req, res, next) => {
     ? forwardedRequestId
     : randomUUID();
   res.setHeader("X-Request-ID", req.requestId);
+  const json = res.json.bind(res);
+  res.json = (body) => {
+    if (res.statusCode >= 500) {
+      console.error(`[${req.requestId}] 500 Server Error:`, body);
+      body = { error: "Request failed", requestId: req.requestId };
+    } else if (res.statusCode >= 400) {
+      console.warn(`[${req.requestId}] Client Error ${res.statusCode}:`, body);
+      if (typeof body === "object" && body !== null) {
+        body.requestId = req.requestId;
+      }
+    }
+    return json(body);
+  };
   next();
 });
 

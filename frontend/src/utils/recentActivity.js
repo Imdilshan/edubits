@@ -25,7 +25,7 @@ export function recordRecentActivity(item) {
 /**
  * Retrieve recent activities from browser cache.
  * If empty, auto-discovers relevant activities from existing cached data
- * (academic year and saved calculator courses).
+ * (academic year, saved calculator courses, tracker).
  */
 export function getRecentActivities(user) {
   try {
@@ -42,6 +42,7 @@ export function getRecentActivities(user) {
     const cachedProgram = localStorage.getItem("edubits_academic_program") || user?.academicProgram;
     const cachedSubjects = localStorage.getItem("subjects");
     const cachedCgpa = localStorage.getItem("semHistory");
+    const cachedTracker = localStorage.getItem("ug_life_tracker");
 
     if (cachedYear) {
       discovered.push({
@@ -101,6 +102,19 @@ export function getRecentActivities(user) {
         icon: "GraduationCap",
         badge: "Calculator",
         timestamp: Date.now() - 1000 * 60 * 240,
+      });
+    }
+
+    if (cachedTracker) {
+      discovered.push({
+        id: "tool-tracker",
+        type: "tool",
+        title: "UG Life Tracker",
+        subtitle: "Active student tasks & habits",
+        href: "/tasks?tab=todos",
+        icon: "ClipboardList",
+        badge: "Tracker",
+        timestamp: Date.now() - 1000 * 60 * 300,
       });
     }
 

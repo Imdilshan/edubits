@@ -14,6 +14,7 @@ import {
   GraduationCap,
   BookOpen,
   Brain,
+  Calendar as CalendarIcon,
   ListTodo,
   Sparkles,
   Camera,
@@ -21,6 +22,7 @@ import {
   Lock,
   Eye,
   EyeOff,
+  Download,
   ExternalLink,
   ShieldAlert,
 } from "lucide-react";
@@ -63,6 +65,7 @@ export default function SmoothDrawer({
 
   // Local feature stats
   const [sgpaCount, setSgpaCount] = useState(0);
+  const [hasUgTrackerData, setHasUgTrackerData] = useState(false);
   const [toolDeckPref, setToolDeckPref] = useState(() => {
     try {
       return localStorage.getItem("edubits_tool_deck_preference") || "todos";
@@ -91,8 +94,11 @@ export default function SmoothDrawer({
       const savedSgpa = localStorage.getItem("sgpaList");
       setSgpaCount(savedSgpa ? JSON.parse(savedSgpa).length : 0);
 
+      const savedTracker = localStorage.getItem("edubits_ugTracker_v1");
+      setHasUgTrackerData(Boolean(savedTracker));
     } catch {
       setSgpaCount(0);
+      setHasUgTrackerData(false);
     }
   }, [user, open]);
 
@@ -222,6 +228,32 @@ export default function SmoothDrawer({
     }
   };
 
+  const handleClearUgTracker = () => {
+    if (window.confirm("Are you sure you want to reset your UG Life Tracker journal?")) {
+      localStorage.removeItem("edubits_ugTracker_v1");
+      setHasUgTrackerData(false);
+      showToast("success", "UG Life Tracker data reset.");
+    }
+  };
+
+  const handleExportUgTracker = () => {
+    try {
+      const data = localStorage.getItem("edubits_ugTracker_v1");
+      if (!data) return showToast("error", "No UG Life Tracker data to export.");
+
+      const blob = new Blob([data], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `edubits-ug-life-tracker-${new Date().toISOString().split("T")[0]}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast("success", "Export downloaded!");
+    } catch {
+      showToast("error", "Could not export data.");
+    }
+  };
+
   const handleRestartOnboarding = () => {
     onOpenChange(false);
     setShowOnboarding(true);
@@ -230,6 +262,7 @@ export default function SmoothDrawer({
   const handleLogout = () => {
     logout();
     onOpenChange(false);
+    showToast("success", "Logged out successfully");
     navigate("/");
   };
 
@@ -239,7 +272,7 @@ export default function SmoothDrawer({
     { id: "academics", label: "Academics & GPA", icon: GraduationCap },
     { id: "resources", label: "Study Resources", icon: BookOpen },
     { id: "quizzes", label: "QuizEngine", icon: Brain },
-    { id: "tasks", label: "Tasks", icon: ListTodo },
+    { id: "tracker", label: "Life & Tasks", icon: CalendarIcon },
   ];
 
   const handleTabSelect = (tabId) => {
@@ -271,6 +304,8 @@ export default function SmoothDrawer({
                     type="button"
                     onClick={() => handleTabSelect(t.id)}
                     className={`smooth-drawer-tab-btn ${tab === t.id ? "active" : ""}`}
+                    aria-label={t.label}
+                    title={t.label}
                   >
                     <IconComponent size={17} />
                     <span>{t.label}</span>
@@ -284,6 +319,8 @@ export default function SmoothDrawer({
                     type="button"
                     onClick={handleLogout}
                     className="smooth-drawer-logout-btn"
+                    aria-label="Log Out"
+                    title="Log Out"
                   >
                     <LogOut size={17} />
                     <span>Log Out</span>
@@ -297,6 +334,8 @@ export default function SmoothDrawer({
                     }}
                     className="smooth-drawer-tab-btn"
                     style={{ color: "var(--primary)" }}
+                    aria-label="Sign In"
+                    title="Sign In"
                   >
                     <User size={17} />
                     <span>Sign In</span>
@@ -396,6 +435,49 @@ export default function SmoothDrawer({
                     <h3 className="smooth-drawer-title">Account & Security</h3>
                     <p className="smooth-drawer-subtitle">Manage your personal profile, credentials, and avatar.</p>
                   </header>
+
+                  {user && (
+                    <div className="smooth-drawer-card smooth-drawer-session-card" style={{ marginBottom: 20 }}>
+                      <div className="smooth-drawer-card-info">
+                        <div
+                          className="smooth-drawer-card-icon"
+                          style={{
+                            color: "var(--danger, #ef4444)",
+                            background: "rgba(239, 68, 68, 0.1)",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            width: 38,
+                            height: 38,
+                            borderRadius: 10,
+                          }}
+                        >
+                          <LogOut size={18} />
+                        </div>
+                        <div className="smooth-drawer-card-text">
+                          <h4>Active Session</h4>
+                          <p>Signed in as <strong>{user.email}</strong></p>
+                        </div>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={handleLogout}
+                        className="smooth-drawer-btn"
+                        style={{
+                          color: "#ef4444",
+                          borderColor: "rgba(239, 68, 68, 0.35)",
+                          background: "rgba(239, 68, 68, 0.08)",
+                          fontWeight: 600,
+                          gap: 7,
+                          padding: "8px 16px",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <LogOut size={14} />
+                        <span>Log Out</span>
+                      </button>
+                    </div>
+                  )}
 
                   {user ? (
                     <form onSubmit={handleUpdateProfile}>
@@ -714,6 +796,28 @@ export default function SmoothDrawer({
                   <div className="smooth-drawer-card">
                     <div className="smooth-drawer-card-info">
                       <div className="smooth-drawer-card-icon">
+                        <Brain size={18} />
+                      </div>
+                      <div className="smooth-drawer-card-text">
+                        <h4>Total Practice Score</h4>
+                        <p>{user?.totalScore ?? 0} points earned across all completed quizzes.</p>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        onOpenChange(false);
+                        navigate("/quizzes/leaderboard");
+                      }}
+                      className="smooth-drawer-btn"
+                    >
+                      Leaderboard
+                    </button>
+                  </div>
+
+                  <div className="smooth-drawer-card">
+                    <div className="smooth-drawer-card-info">
+                      <div className="smooth-drawer-card-icon">
                         <ExternalLink size={18} />
                       </div>
                       <div className="smooth-drawer-card-text">
@@ -735,13 +839,47 @@ export default function SmoothDrawer({
                 </div>
               )}
 
-              {/* 6. TASK MANAGEMENT */}
-              {tab === "tasks" && (
+              {/* 6. LIFE TRACKER & TASKS */}
+              {tab === "tracker" && (
                 <div>
                   <header className="smooth-drawer-header">
-                    <h3 className="smooth-drawer-title">Task Management</h3>
-                    <p className="smooth-drawer-subtitle">Manage college deadlines, assignments, and exam targets.</p>
+                    <h3 className="smooth-drawer-title">UG Life & Task Management</h3>
+                    <p className="smooth-drawer-subtitle">Manage your 4-year undergraduate weekly journal and Kanban board.</p>
                   </header>
+
+                  <div className="smooth-drawer-card">
+                    <div className="smooth-drawer-card-info">
+                      <div className="smooth-drawer-card-icon">
+                        <CalendarIcon size={18} />
+                      </div>
+                      <div className="smooth-drawer-card-text">
+                        <h4>UG Life Tracker Data</h4>
+                        <p>{hasUgTrackerData ? "192-week calendar configured with weekly entries." : "No UG tracker records found."}</p>
+                      </div>
+                    </div>
+                    <div style={{ display: "flex", gap: 8 }}>
+                      {hasUgTrackerData && (
+                        <button type="button" onClick={handleExportUgTracker} className="smooth-drawer-btn" title="Export JSON">
+                          <Download size={14} /> Export
+                        </button>
+                      )}
+                      {hasUgTrackerData && (
+                        <button type="button" onClick={handleClearUgTracker} className="smooth-drawer-btn danger" title="Clear">
+                          <Trash2 size={14} />
+                        </button>
+                      )}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          onOpenChange(false);
+                          navigate("/tracker");
+                        }}
+                        className="smooth-drawer-btn primary"
+                      >
+                        Open Tracker
+                      </button>
+                    </div>
+                  </div>
 
                   <div className="smooth-drawer-card">
                     <div className="smooth-drawer-card-info">

@@ -10,6 +10,7 @@ export default function MagneticMorphingNav({
   onTabChange,
   tabs = [],
   className = "",
+  mobileIconOnly = false,
 }) {
   const [hoveredTab, setHoveredTab] = useState(null);
   const navRef = useRef(null);
@@ -25,7 +26,7 @@ export default function MagneticMorphingNav({
   }, []);
 
   return (
-    <div className={`magnetic-nav-container ${className}`}>
+    <div className={`magnetic-nav-container ${mobileIconOnly ? "nav-mobile-icons-only" : ""} ${className}`}>
       <div ref={navRef} className="magnetic-nav">
         {tabs.map((tab) => {
           const isActive = activeTab === tab.id;
@@ -43,6 +44,8 @@ export default function MagneticMorphingNav({
                 onMouseEnter={() => setHoveredTab(tab.id)}
                 onMouseLeave={() => setHoveredTab(null)}
                 className={`magnetic-nav-item ${isActive ? "active" : ""}`}
+                aria-label={tab.label}
+                title={tab.label}
               >
                 {isActive && (
                   <MotionDiv
@@ -66,10 +69,11 @@ export default function MagneticMorphingNav({
                 )}
 
                 <span className="nav-content">
-                  {tab.icon && <span>{tab.icon}</span>}
-                  <span>{tab.label}</span>
+                  {tab.icon && <span className="nav-icon">{tab.icon}</span>}
+                  <span className="nav-label">{tab.label}</span>
                   {tab.count !== undefined && (
                     <span
+                      className="nav-count"
                       style={{
                         fontSize: 11,
                         padding: "1px 6px",

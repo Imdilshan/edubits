@@ -30,9 +30,11 @@ const setAuthCookie = (res, user) => {
   });
 };
 
+const isDev = process.env.NODE_ENV !== "production";
+
 const loginLimiter = rateLimit({
   windowMs: 60 * 1000,
-  max: 5,
+  max: isDev ? 100 : 5,
   standardHeaders: true,
   legacyHeaders: false,
   message: { error: "Too many login attempts. Try again later." },
@@ -40,7 +42,7 @@ const loginLimiter = rateLimit({
 
 const registerLimiter = rateLimit({
   windowMs: 60 * 60 * 1000,
-  max: 5,
+  max: isDev ? 100 : 5,
   standardHeaders: true,
   legacyHeaders: false,
   message: { error: "Too many registration attempts. Try again later." },

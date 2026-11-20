@@ -23,6 +23,30 @@
   font-family: var(--font-sans);
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.hp-everything a,
+.hp-everything a:hover,
+.hp-everything a:focus {
+  text-decoration: none !important;
+}
+
+body.light .hp-everything {
+  --bg: #f7faf9;
+  --surface: #ffffff;
+  --surface-2: #edf3f2;
+  --border: #d4dedd;
+  --border-strong: #b8c8c6;
+  --text: #0b1413;
+  --text-secondary: #273836;
+  --muted: #536764;
+  --primary: #287d72;
+  --primary-hover: #1e635a;
+  --on-primary: #ffffff;
+  --primary-deep: #115d62;
 }
 
 .hp-everything a,
@@ -975,14 +999,215 @@ body.light .hp-everything {
 }
 
 @media (max-width: 768px) {
-  .hp-member-sections {
-    gap: 48px;
-    padding-bottom: 60px;
+  .hp-everything {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 
-  .hp-subjects-grid,
-  .hp-deck-quiz-grid {
+  .hp-main--member {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    padding-left: 0;
+  }
+
+  .hp-hero.hp-member-hero {
+    padding: 48px 16px 32px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .hp-hero.hp-member-hero .hp-headline {
+    font-size: clamp(26px, 7vw, 36px);
+    line-height: 1.15;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+  }
+
+  .hp-hero.hp-member-hero .hp-tagline {
+    font-size: 14.5px;
+    line-height: 1.5;
+    max-width: 100%;
+  }
+
+  .hp-member-sections {
+    width: 100%;
+    max-width: 100%;
+    gap: 36px;
+    padding-bottom: 60px;
+    overflow-x: hidden;
+  }
+
+  .hp-section--spacious {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  .hp-section-header--subjects {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 18px;
+    width: 100%;
+  }
+
+  .hp-section-title-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .hp-section-title {
+    font-size: 20px;
+  }
+
+  .hp-section-desc {
+    font-size: 13px;
+    max-width: 100%;
+  }
+
+  .hp-year-switcher {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 3px;
+    box-sizing: border-box;
+  }
+
+  .hp-year-switcher-btn {
+    flex: 1 1 calc(25% - 4px);
+    min-width: 65px;
+    text-align: center;
+    padding: 6px 8px;
+    font-size: 11.5px;
+  }
+
+  .hp-subjects-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .hp-subject-card {
+    min-height: auto;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .hp-subject-card-header {
+    padding: 18px 16px;
+  }
+
+  .hp-command-deck {
+    grid-template-columns: 100%;
+    gap: 18px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .hp-deck-left,
+  .hp-deck-right {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 20px 16px;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .hp-deck-quiz-grid {
+    grid-template-columns: 100%;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .hp-deck-quiz-tile {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 12px 14px;
+  }
+
+  .hp-deck-quiz-info {
+    min-width: 0;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .hp-deck-quiz-name {
+    font-size: 13.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .hp-deck-footer-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    width: 100%;
+  }
+
+  .hp-deck-block {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 18px 16px;
+  }
+
+  .hp-deck-recent-row,
+  .hp-deck-tool-row {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .hp-deck-recent-body,
+  .hp-deck-tool-body {
+    min-width: 0;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .hp-deck-recent-title,
+  .hp-deck-tool-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .hp-deck-recent-sub,
+  .hp-deck-tool-desc {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 400px) {
+  .hp-section--spacious {
+    padding: 0 12px;
+  }
+
+  .hp-deck-left,
+  .hp-deck-block {
+    padding: 16px 12px;
+  }
+
+  .hp-year-switcher-btn {
+    padding: 5px 6px;
+    font-size: 11px;
+    min-width: 58px;
   }
 }
 
