@@ -3,6 +3,8 @@ import { useParams, Link } from "react-router-dom";
 import {
   Layers,
   FileText,
+  BookOpen,
+  BadgeCheck,
   ListVideo,
   FileQuestion,
   Loader2,
@@ -109,12 +111,14 @@ export default function SubjectPage() {
       .replace(/^IMPORTANT/, "IMP");
     const bySlot = new Map();
     Object.entries(pairs).forEach(([paperKey, variants]) => {
-      if (!variants.questions) return;
-      const normalizedTag = normalizeTag(variants.questions.paperTag || variants.questions.title);
+      const paper = variants.questions || variants.solution;
+      if (!paper) return;
+      const normalizedTag = normalizeTag(paper.paperTag || paper.title);
       const slot = slots.find((candidate) => normalizeTag(candidate) === normalizedTag);
       const existing = bySlot.get(slot);
-      const uploadedAt = new Date(variants.questions.createdAt || 0).getTime();
-      const existingAt = new Date(existing?.questions?.createdAt || 0).getTime();
+      const uploadedAt = new Date(paper.createdAt || 0).getTime();
+      const existingPaper = existing?.questions || existing?.solution;
+      const existingAt = new Date(existingPaper?.createdAt || 0).getTime();
       if (slot && (!existing || uploadedAt >= existingAt)) bySlot.set(slot, {
         paperKey,
         questions: variants.questions,
@@ -129,37 +133,40 @@ export default function SubjectPage() {
 
   const renderPyqsTab = () => (
     <div className="resources-tab-content">
+      {paperPairs.some(({ questions, solution }) => questions || solution) ? (
       <div className="paper-pairs-grid">
         {paperPairs.map(({ slot, paperKey, questions, solution }) => {
+            if (!questions && !solution) return null;
             const progress = progressMap[paperKey] || { attempted: false };
             return (
-              <div key={slot} className={`paper-pair-card ${questions ? "" : "paper-pair-card-empty"}`}>
+              <div key={slot} className="paper-pair-card">
                 <div className="paper-pair-header">
                   <h4 className="paper-pair-title">{slot}</h4>
                   <span className={`paper-tag ${progress.attempted ? "attempted" : ""}`}>
-                    {questions ? (questions.paperTag || slot) : "Not uploaded"}
+                    {(questions || solution).paperTag || slot}
                     {progress.attempted && <CheckSquare size={14} />}
                   </span>
                 </div>
 
-                {questions ? <>
-                <div className="paper-pair-pdfs">
-                  <div className="pdf-card questions-card">
-                    <div className="pdf-card-badge questions">Questions</div>
-                    <button
-                      className="pdf-card-preview"
-                      onClick={() => openViewer(questions, solution)}
-                      disabled={!questions?.url}
-                    >
-                      <FileQuestion size={32} />
-                      <span>Open Questions</span>
-                    </button>
-                    {questions?.url && (
+                <div className={`paper-pair-pdfs ${questions && solution ? "" : "paper-pair-pdfs-single"}`}>
+                  {questions && (
+                    <div className="pdf-card questions-card">
+                      <div className="pdf-card-badge questions">Questions</div>
+                      <button
+                        className="pdf-card-preview"
+                        onClick={() => openViewer(questions, solution)}
+                        disabled={!questions.url}
+                      >
+                        <BookOpen size={32} aria-hidden="true" />
+                        <span>Open Questions</span>
+                      </button>
+                      {questions.url && (
                       <a href={getAttachmentUrl(questions.url)} download className="pdf-card-external" aria-label="Download questions PDF" title="Download questions PDF">
                         <Download size={14} />
                       </a>
-                    )}
-                  </div>
+                      )}
+                    </div>
+                  )}
 
                   {solution && (
                     <div className="pdf-card solution-card">
@@ -169,7 +176,7 @@ export default function SubjectPage() {
                         onClick={() => openViewer(solution, questions)}
                         disabled={!solution?.url}
                       >
-                        <FileQuestion size={32} />
+                        <BadgeCheck size={32} aria-hidden="true" />
                         <span>Open Solution</span>
                       </button>
                       <a href={getAttachmentUrl(solution.url)} download className="pdf-card-external" aria-label="Download solution PDF" title="Download solution PDF">
@@ -179,21 +186,27 @@ export default function SubjectPage() {
                   )}
                 </div>
 
-                <div className="paper-pair-actions">
-                  <button
-                    className={`attempt-btn ${progress.attempted ? "done" : ""}`}
-                    onClick={() => handleAttemptedToggle(paperKey, progress.attempted)}
-                  >
-                    {progress.attempted ? <CheckSquare size={16} /> : <Square size={16} />}
-                    <span>{progress.attempted ? "Attempted" : "Mark Attempted"}</span>
-                  </button>
-                </div>
-
-                </> : <div className="paper-slot-empty">Upload this paper from the admin dashboard.</div>}
+                {questions && (
+                  <div className="paper-pair-actions">
+                    <button
+                      className={`attempt-btn ${progress.attempted ? "done" : ""}`}
+                      onClick={() => handleAttemptedToggle(paperKey, progress.attempted)}
+                    >
+                      {progress.attempted ? <CheckSquare size={16} /> : <Square size={16} />}
+                      <span>{progress.attempted ? "Attempted" : "Mark Attempted"}</span>
+                    </button>
+                  </div>
+                )}
               </div>
             );
         })}
       </div>
+      ) : (
+        <div className="resources-empty">
+          <FileQuestion size={48} />
+          <p>No past papers uploaded for this subject yet</p>
+        </div>
+      )}
     </div>
   );
 
